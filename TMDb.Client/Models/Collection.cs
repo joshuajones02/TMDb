@@ -5,7 +5,7 @@ namespace TMDb.Client.Entities
     public class Collection
     {
         [JsonProperty("id")]
-        public int Id { get; set; }
+        public virtual int Id { get; set; }
 
         [JsonProperty("name")]
         public string Name { get; set; }

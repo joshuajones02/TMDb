@@ -1,11 +1,10 @@
-﻿using TMDb.Client.Models;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 
 namespace TMDb.Client.Entities
 {
-    public class MovieDetails // TODO: Rename to movie?
+    public class Movie 
     {
         [JsonProperty("adult")]
         public bool Adult { get; set; }
@@ -67,17 +66,11 @@ namespace TMDb.Client.Entities
         [JsonProperty("homepage")]
         public Uri Homepage { get; set; }
 
-        // 
-        // START:
-        //      Table References 
-
-        //public int? CollectionId { get; set; }
-
         [JsonProperty("belongs_to_collection")]
         public Collection Collection { get; set; }
 
         [JsonProperty("genres")]
-        public virtual IEnumerable<Genre> Genres { get; set; }
+        public virtual IEnumerable<MovieGenre> Genres { get; set; }
 
         [JsonProperty("spoken_languages")]
         public virtual IEnumerable<Language> Languages { get; set; }

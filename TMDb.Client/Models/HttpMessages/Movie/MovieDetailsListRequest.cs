@@ -2,13 +2,13 @@
 
 namespace TMDb.Client.Models
 {
-    public class MovieListRequest : TMDbRequest
+    public class MovieDetailsListRequest : TMDbRequest
     {
-        public MovieListRequest() 
+        public MovieDetailsListRequest() 
         { 
         }
 
-        public MovieListRequest(int page) =>
+        public MovieDetailsListRequest(int page) =>
             Page = page;
 
         [JsonProperty("page")]

@@ -68,7 +68,7 @@ namespace TMDb.Client.Models
         public DateTime LastAirDate { get; set; }
 
         [JsonProperty("last_episode_to_air")]
-        public LastEpisodeToAir LastEpisodeToAir { get; set; }
+        public Episode LastEpisodeToAir { get; set; }
 
         [JsonProperty("created_by")]
         public IEnumerable<CreatedBy> CreatedBy { get; set; }
@@ -77,7 +77,7 @@ namespace TMDb.Client.Models
         public IEnumerable<int> EpisodeRunTime { get; set; }
 
         [JsonProperty("genres")]
-        public IEnumerable<Genre> Genres { get; set; }
+        public IEnumerable<MovieGenre> Genres { get; set; }
 
         [JsonProperty("languages")]
         public IEnumerable<string> LanguageAbbreviations { get; set; }
@@ -99,62 +99,5 @@ namespace TMDb.Client.Models
 
         [JsonProperty("spoken_languages")]
         public IEnumerable<SpokenLanguage> SpokenLanguages { get; set; }
-    }
-
-    public partial class LastEpisodeToAir
-    {
-        [JsonProperty("air_date")]
-        public DateTime AirDate { get; set; }
-
-        [JsonProperty("episode_number")]
-        public int EpisodeNumber { get; set; }
-
-        [JsonProperty("id")]
-        public int Id { get; set; }
-
-        [JsonProperty("name")]
-        public string Name { get; set; }
-
-        [JsonProperty("overview")]
-        public string Overview { get; set; }
-
-        [JsonProperty("production_code")]
-        public string ProductionCode { get; set; }
-
-        [JsonProperty("season_number")]
-        public int SeasonNumber { get; set; }
-
-        [JsonProperty("still_path")]
-        public object StillPath { get; set; }
-
-        [JsonProperty("vote_average")]
-        public int VoteAverage { get; set; }
-
-        [JsonProperty("vote_count")]
-        public int VoteCount { get; set; }
-    }
-
-    public partial class Season
-    {
-        [JsonProperty("air_date")]
-        public DateTime AirDate { get; set; }
-
-        [JsonProperty("episode_count")]
-        public int EpisodeCount { get; set; }
-
-        [JsonProperty("id")]
-        public int Id { get; set; }
-
-        [JsonProperty("name")]
-        public string Name { get; set; }
-
-        [JsonProperty("overview")]
-        public string Overview { get; set; }
-
-        [JsonProperty("poster_path")]
-        public object PosterPath { get; set; }
-
-        [JsonProperty("season_number")]
-        public int SeasonNumber { get; set; }
     }
 }

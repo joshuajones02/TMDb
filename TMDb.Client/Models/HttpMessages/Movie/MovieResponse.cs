@@ -2,7 +2,7 @@
 
 namespace TMDb.Client.Models
 {
-    public class MovieDetailsResponse : MovieDetails
+    public class MovieResponse : Movie
     {
     }
 }

@@ -70,7 +70,7 @@ namespace TMDb.Client.Models
         public string PosterPath { get; set; }
 
         [JsonProperty("genres")]
-        public IEnumerable<Genre> Genres { get; set; }
+        public IEnumerable<MovieGenre> Genres { get; set; }
 
         [JsonProperty("production_companies")]
         public IEnumerable<ProductionCountry> ProductionCompanies { get; set; }

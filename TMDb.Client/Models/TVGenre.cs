@@ -1,8 +1,8 @@
 ﻿using Newtonsoft.Json;
 
-namespace TMDb.Client.Entities
+namespace TMDb.Client.Models
 {
-    public class Genre
+    public class TVGenre
     {
         [JsonProperty("id")]
         public int Id { get; set; }
