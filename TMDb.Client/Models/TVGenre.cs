@@ -1,13 +1,9 @@
-﻿using Newtonsoft.Json;
+﻿using System;
 
 namespace TMDb.Client.Models
 {
-    public class TVGenre
+    [Obsolete("Use TMDb.Client.Models.Genre")]
+    public class TVGenre : Genre 
     {
-        [JsonProperty("id")]
-        public int Id { get; set; }
-
-        [JsonProperty("name")]
-        public string Name { get; set; }
     }
 }

@@ -1,5 +1,8 @@
-﻿namespace TMDb.Client
+﻿using System;
+
+namespace TMDb.Client
 {
+    [Obsolete("Phase this out, genres should come from API lookup")]
     public enum TMDbGenre
     {
         Unknown        =     0,

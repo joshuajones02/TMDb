@@ -1,5 +1,4 @@
-﻿using TMDb.Client.Entities;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 
 namespace TMDb.Client.Models

@@ -2,9 +2,9 @@
 
 namespace TMDb.Client
 {
-    public class TMDbMovieClient
+    public class MovieClient
     {
-        public TMDbMovieClient(TMDbClient client)
+        public MovieClient(TMDbClient client)
         {
             DiscoverMovies = new DiscoverMoviesProxy(client);
             Latest = new LatestMovieProxy(client);

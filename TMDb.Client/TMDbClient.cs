@@ -21,8 +21,8 @@ namespace TMDb.Client
             Configuration = new ConfigurationProxy(this);
             Discover = new DiscoverProxy(this);
             Trending = new TrendingProxy(this);
-            MovieClient = new TMDbMovieClient(this);
-            TVClient = new TMDbTVClient(this);
+            MovieClient = new MovieClient(this);
+            TVClient = new TVClient(this);
         }
 
         internal ITMDbSettings Settings { get; }
@@ -30,7 +30,7 @@ namespace TMDb.Client
         public ConfigurationProxy Configuration { get; }
         public DiscoverProxy Discover { get; private set; }
         public TrendingProxy Trending { get; }
-        public TMDbMovieClient MovieClient { get; }
-        public TMDbTVClient TVClient { get; }
+        public MovieClient MovieClient { get; }
+        public TVClient TVClient { get; }
     }
 }

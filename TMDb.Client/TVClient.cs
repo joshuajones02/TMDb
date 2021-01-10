@@ -2,9 +2,9 @@
 
 namespace TMDb.Client
 {
-    public class TMDbTVClient
+    public class TVClient
     {
-        public TMDbTVClient(TMDbClient client)
+        public TVClient(TMDbClient client)
         {
             DiscoverTV = new DiscoverTVProxy(client);
             Search     = new SearchTVProxy(client);

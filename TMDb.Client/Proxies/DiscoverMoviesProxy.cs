@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 
 namespace TMDb.Client.Proxies
 {
+    [System.Obsolete("Use DiscoverProxy")]
     public class DiscoverMoviesProxy : TMDbProxy
     {
         public DiscoverMoviesProxy(TMDbClient client) : base(client) =>
