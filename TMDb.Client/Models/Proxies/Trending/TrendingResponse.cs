@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using Newtonsoft.Json.Converters;
 
 namespace TMDb.Client.Models
 {
@@ -61,6 +62,7 @@ namespace TMDb.Client.Models
         [JsonProperty("original_language")]
         public string LanguageAbbreviation { get; set; }
 
+        [JsonConverter(typeof(StringEnumConverter))]
         [JsonProperty("media_type")]
         public MediaType MediaType { get; set; }
 

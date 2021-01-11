@@ -4,9 +4,9 @@ using System.Text;
 
 namespace TMDb.Client.Proxies
 {
-    public class TVEpisodeGroupsProxy : ProxyBase
+    public class ReviewsProxy : ProxyBase
     {
-        public TVEpisodeGroupsProxy(TMDbClient client) : base(client)
+        public ReviewsProxy(TMDbClient client) : base(client)
         {
         }
     }

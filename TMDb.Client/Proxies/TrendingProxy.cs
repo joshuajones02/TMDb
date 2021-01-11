@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace TMDb.Client.Proxies
 {
-    public class TrendingProxy : TMDbProxy
+    public class TrendingProxy : ProxyBase
     {
         public TrendingProxy(TMDbClient client) : base(client) =>
             Path = "/trending/{0}/{1}";

@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace TMDb.Client.Proxies
 {
-    public class TVProxy : TMDbProxy
+    public class TVProxy : ProxyBase
     {
         public TVProxy(TMDbClient client) : base(client) =>
             Path = "/tv/{0}";

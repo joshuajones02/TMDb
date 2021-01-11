@@ -1,12 +1,10 @@
-﻿using TMDb.Client.Models;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using TMDb.Client.Models;
 
 namespace TMDb.Client.Proxies
 {
-    public class DiscoverProxy : TMDbProxy
+    public class DiscoverProxy : ProxyBase
     {
-        // TODO: Merge discovermovie and discovertv here
-
         public DiscoverProxy(TMDbClient client) : base(client)
         {
         }

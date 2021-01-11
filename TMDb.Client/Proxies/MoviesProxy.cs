@@ -1,10 +1,10 @@
-﻿using TMDb.Client.Models;
-using System;
+﻿using System;
 using System.Threading.Tasks;
+using TMDb.Client.Models;
 
 namespace TMDb.Client.Proxies
 {
-    public class MoviesProxy : TMDbProxy
+    public class MoviesProxy : ProxyBase
     {
         public MoviesProxy(TMDbClient client) : base(client) =>
             Path = "/movie/{0}";

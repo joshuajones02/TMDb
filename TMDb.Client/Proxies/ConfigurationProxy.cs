@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace TMDb.Client.Proxies
 {
-    public class ConfigurationProxy : TMDbProxy
+    public class ConfigurationProxy : ProxyBase
     {
         public ConfigurationProxy(TMDbClient client) : base(client) =>
             Path = "/configuration";

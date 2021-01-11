@@ -3,7 +3,7 @@ using TMDb.Client.Models.HttpMessages.Genres;
 
 namespace TMDb.Client.Proxies
 {
-    public class GenresProxy : TMDbProxy
+    public class GenresProxy : ProxyBase
     {
         public GenresProxy(TMDbClient client) : base(client)
         {
