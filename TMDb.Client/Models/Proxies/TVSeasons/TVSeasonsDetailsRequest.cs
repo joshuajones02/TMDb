@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Newtonsoft.Json;
 
 namespace TMDb.Client.Models.Proxies.TVSeasons
 {
-    public class TVSeasonsDetailsRequest : TMDbRequest
+    public class TVSeasonsDetailsRequest : TVSeasonsRequest
     {
+        [JsonProperty("append_to_response")]
+        public virtual string AppendToResponse { get; set; }
     }
 }

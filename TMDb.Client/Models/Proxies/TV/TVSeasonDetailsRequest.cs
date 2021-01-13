@@ -1,8 +1,9 @@
 ﻿using Newtonsoft.Json;
+using TMDb.Client.Models.Proxies.TVSeasons;
 
 namespace TMDb.Client.Models
 {
-    public class TVSeasonDetailsRequest : TMDbRequest
+    public class TVSeasonDetailsRequest : TVSeasonsRequest
     {
         /// <summary>
         /// Append requests within the same namespace to the response.
@@ -11,8 +12,5 @@ namespace TMDb.Client.Models
         /// </summary>
         [JsonProperty("append_to_response")]
         public string AppendToResponse { get; set; }
-
-        [JsonProperty("language")]
-        public string LanguageAbbreviation { get; set; }
     }
 }

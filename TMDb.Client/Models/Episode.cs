@@ -34,12 +34,12 @@ namespace TMDb.Client.Models
             public string StillPath { get; set; }
 
             [JsonProperty("air_date")]
-            public DateTime AirDate { get; set; }
+            public DateTime? AirDate { get; set; }
 
             [JsonProperty("crew")]
             public IEnumerable<Crew> Crew { get; set; }
 
             [JsonProperty("guest_stars")]
-            public IEnumerable<Crew> GuestStars { get; set; }
+            public virtual IEnumerable<GuestStar> GuestStars { get; set; }
     }
 }
