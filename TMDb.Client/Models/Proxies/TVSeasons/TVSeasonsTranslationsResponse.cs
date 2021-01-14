@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace TMDb.Client.Models.Proxies.TVSeasons
 {
@@ -8,7 +9,7 @@ namespace TMDb.Client.Models.Proxies.TVSeasons
         public virtual int Id { get; set; }
 
         [JsonProperty("translations")]
-        public virtual TVSeasonsTranslations[] Translations { get; set; }
+        public virtual IEnumerable<TVSeasonsTranslations> Translations { get; set; }
     }
 
     public class TVSeasonsTranslations

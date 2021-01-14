@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace TMDb.Client.Models.Proxies.TVEpisodes
+﻿namespace TMDb.Client.Models.Proxies.TVEpisodes
 {
-    public class TVEpisodesCreditsRequest : TMDbRequest
+    public class TVEpisodesCreditsRequest : TVEpisodesRequest
     {
     }
 }

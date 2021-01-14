@@ -7,60 +7,69 @@ namespace TMDb.Client.Models
     public class TVEpisodeDetailsResponse
     {
         [JsonProperty("vote_average")]
-        public double VoteAverage { get; set; }
+        public virtual double VoteAverage { get; set; }
 
         [JsonProperty("episode_number")]
-        public int EpisodeNumber { get; set; }
+        public virtual int EpisodeNumber { get; set; }
 
         [JsonProperty("id")]
-        public int Id { get; set; }
+        public virtual int Id { get; set; }
 
         [JsonProperty("production_code")]
-        public int ProductionCode { get; set; }
+        public virtual int ProductionCode { get; set; }
 
         [JsonProperty("season_number")]
-        public int SeasonNumber { get; set; }
+        public virtual int SeasonNumber { get; set; }
 
         [JsonProperty("vote_count")]
-        public int VoteCount { get; set; }
+        public virtual int VoteCount { get; set; }
 
         [JsonProperty("still_path")]
-        public string StillPath { get; set; }
+        public virtual string StillPath { get; set; }
 
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public virtual string Name { get; set; }
 
         [JsonProperty("overview")]
-        public string Overview { get; set; }
+        public virtual string Overview { get; set; }
 
         [JsonProperty("air_date")]
-        public DateTime AirDate { get; set; }
+        public virtual DateTime AirDate { get; set; }
 
         [JsonProperty("crew")]
-        public IEnumerable<Crew> Crew { get; set; }
+        public virtual IEnumerable<Crew> Crew { get; set; }
 
         [JsonProperty("guest_stars")]
-        public IEnumerable<GuestStar> GuestStars { get; set; }
+        public virtual IEnumerable<TVEpisodesGuestStar> GuestStars { get; set; }
     }
 
-    public partial class GuestStar
+    public class TVEpisodesGuestStar
     {
+        [JsonProperty("adult")]
+        public virtual bool Adult { get; set; }
+
         [JsonProperty("id")]
-        public int Id { get; set; }
+        public virtual int Id { get; set; }
+
+        [JsonProperty("gender")]
+        public virtual int? Gender { get; set; }
+
+        [JsonProperty("known_for_department")]
+        public virtual string KnownForDepartment { get; set; }
 
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public virtual string Name { get; set; }
 
-        [JsonProperty("credit_id")]
-        public string CreditId { get; set; }
+        [JsonProperty("original_name")]
+        public virtual string OriginalName { get; set; }
 
-        [JsonProperty("character")]
-        public string Character { get; set; }
-
-        [JsonProperty("order")]
-        public int Order { get; set; }
+        [JsonProperty("popularity")]
+        public virtual double Popularity { get; set; }
 
         [JsonProperty("profile_path")]
-        public string ProfilePath { get; set; }
+        public virtual string ProfilePath { get; set; }
+
+        [JsonProperty("credit_id")]
+        public virtual string CreditId { get; set; }
     }
 }

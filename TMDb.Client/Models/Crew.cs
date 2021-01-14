@@ -5,42 +5,42 @@ namespace TMDb.Client.Models
     public class Crew
     {
         [JsonProperty("adult")]
-        public bool Adult { get; set; }
+        public virtual bool? Adult { get; set; }
 
         [JsonProperty("popularity")]
-        public double Popularity { get; set; }
+        public virtual double? Popularity { get; set; }
 
         [JsonProperty("gender")]
-        public int Gender { get; set; }
+        public virtual int? Gender { get; set; }
 
         [JsonProperty("id")]
-        public int Id { get; set; }
+        public virtual int? Id { get; set; }
 
         [JsonProperty("order")]
-        public int? Order { get; set; }
+        public virtual int? Order { get; set; }
 
         [JsonProperty("credit_id")]
-        public string CreditId { get; set; }
+        public virtual string CreditId { get; set; }
 
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public virtual string Name { get; set; }
 
         [JsonProperty("original_name")]
-        public string OriginalName { get; set; }
+        public virtual string OriginalName { get; set; }
 
         [JsonProperty("profile_path")]
-        public string ProfilePath { get; set; }
+        public virtual string ProfilePath { get; set; }
 
         [JsonProperty("character")]
-        public string Character { get; set; }
+        public virtual string Character { get; set; }
 
         [JsonProperty("job")]
-        public string CrewJob { get; set; }
+        public virtual string CrewJob { get; set; }
 
         [JsonProperty("department")]
-        public string CrewDepartment { get; set; }
+        public virtual string CrewDepartment { get; set; }
 
         [JsonProperty("known_for_department")]
-        public string KnownForDepartment { get; set; }
+        public virtual string KnownForDepartment { get; set; }
     }
 }

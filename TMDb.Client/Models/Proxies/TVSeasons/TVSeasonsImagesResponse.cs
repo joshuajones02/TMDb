@@ -9,10 +9,10 @@ namespace TMDb.Client.Models.Proxies.TVSeasons
         public virtual int Id { get; set; }
 
         [JsonProperty("posters")]
-        public virtual IEnumerable<TVSeasonsPoster> Posters { get; set; }
+        public virtual IEnumerable<Image> Posters { get; set; }
     }
 
-    public class TVSeasonsPoster
+    public class Image
     {
         [JsonProperty("aspect_ratio")]
         public virtual double AspectRatio { get; set; }

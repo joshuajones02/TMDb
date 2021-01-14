@@ -1,7 +1,9 @@
 ﻿using Newtonsoft.Json;
+using System;
 
 namespace TMDb.Client.Models.Proxies.TVSeasons
 {
+    [Obsolete("Combine with TVEpisodes External Ids")]
     public class TVSeasonsExternalIdsResponse : TMDbResponse
     {
         [JsonProperty("id")]

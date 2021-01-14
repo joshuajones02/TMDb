@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TMDb.Client.Models.Proxies.TVEpisodes
 {
-    public class TVEpisodesRateRequest : TMDbRequest
+    public class TVEpisodesPostRatingRequest : TVEpisodesRequest
     {
     }
 }

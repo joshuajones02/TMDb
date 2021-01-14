@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TMDb.Client.Models.Proxies.TVEpisodes
 {
-    public class TVEpisodesExternalIdsRequest : TMDbRequest
+    public class TVEpisodesExternalIdsRequest : TVEpisodesRequest
     {
     }
 }

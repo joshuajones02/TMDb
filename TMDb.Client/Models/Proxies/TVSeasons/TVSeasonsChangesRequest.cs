@@ -9,7 +9,7 @@ namespace TMDb.Client.Models.Proxies.TVSeasons
 
         [JsonProperty("season_id")]
         [JsonRequired]
-        public virtual string SeasonId { get; set; }
+        public virtual int SeasonId { get; set; }
 
         [JsonProperty("start_date")]
         public virtual string StartDate { get; set; }

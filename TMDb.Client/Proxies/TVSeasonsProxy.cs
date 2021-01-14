@@ -9,7 +9,7 @@ namespace TMDb.Client.Proxies
         {
         }
 
-        public string FormatPath(string path, string seasonId) =>
+        public string FormatPath(string path, int seasonId) =>
             string.Format(path, seasonId);
 
         public string FormatPath(string path, int tvId, int seasonNumber) =>
