@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
-using TMDb.Client.Models.Proxies.TVSeasons;
 
 namespace TMDb.Client.Models.Proxies.TVEpisodes
 {

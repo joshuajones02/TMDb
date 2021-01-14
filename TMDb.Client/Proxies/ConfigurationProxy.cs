@@ -1,7 +1,7 @@
-﻿using TMDb.Client.Models;
-using TMDb.Client.Models.Configuration;
-using System;
+﻿using System;
 using System.Threading.Tasks;
+using TMDb.Client.Models;
+using TMDb.Client.Models.Configuration;
 
 namespace TMDb.Client.Proxies
 {

@@ -5,11 +5,11 @@ namespace TMDb.Client.Proxies
 {
     public class TVEpisodesProxy : ProxyBase
     {
-        public TVEpisodesProxy(TMDbClient client) : base(client) 
+        public TVEpisodesProxy(TMDbClient client) : base(client)
         {
         }
 
-        // TODO: Finished response models   
+        // TODO: Finished response models
 
         public string FormatPath(string path, int episodeId) =>
             string.Format(path, episodeId);

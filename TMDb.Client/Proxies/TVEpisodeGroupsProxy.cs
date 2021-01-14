@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace TMDb.Client.Proxies
+﻿namespace TMDb.Client.Proxies
 {
     public class TVEpisodeGroupsProxy : ProxyBase
     {

@@ -40,6 +40,6 @@ namespace TMDb.Client.Models
             public IEnumerable<Crew> Crew { get; set; }
 
             [JsonProperty("guest_stars")]
-            public virtual IEnumerable<GuestStar> GuestStars { get; set; }
+            public virtual IEnumerable<TVEpisodesGuestStar> GuestStars { get; set; }
     }
 }

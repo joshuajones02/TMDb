@@ -1,23 +1,15 @@
 ﻿using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations;
+using TMDb.Client.Attributes;
+using TMDb.Client.Models.Proxies.TVSeasons;
 
 namespace TMDb.Client.Models.Proxies.TVEpisodes
 {
-    public class TVEpisodesRequest : TMDbRequest
+    public class TVEpisodesRequest : TVSeasonsRequest
     {
-        [JsonProperty("tv_id")]
-        [JsonRequired]
-        public virtual int TvId { get; set; }
-
-        [JsonProperty("season_number")]
-        [JsonRequired]
-        public virtual int SeasonNumber { get; set; }
-
-        [JsonProperty("episode_number")]
-        [JsonRequired]
-        public virtual int EpisodeNumber { get; set; }
-
-        // TODO: Refactor, some endpoints don't accept language (i.e. DeleteTVEpisodeRating)
-        [JsonProperty("language", NullValueHandling = NullValueHandling.Ignore)]
-        public virtual string LanguageAbbreviation { get; set; }
+        [JsonIgnore]
+        [Required]
+        [StringFormatParameter("episode_number")]
+        public virtual int? EpisodeNumber { get; set; }
     }
 }

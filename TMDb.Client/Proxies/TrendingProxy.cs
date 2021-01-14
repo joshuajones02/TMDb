@@ -1,6 +1,6 @@
-﻿using TMDb.Client.Enums;
+﻿using System.Threading.Tasks;
+using TMDb.Client.Enums;
 using TMDb.Client.Models;
-using System.Threading.Tasks;
 
 namespace TMDb.Client.Proxies
 {

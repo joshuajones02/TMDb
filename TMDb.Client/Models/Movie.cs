@@ -68,7 +68,7 @@ namespace TMDb.Client.Entities
         public Uri Homepage { get; set; }
 
         [JsonProperty("belongs_to_collection")]
-        public Collection Collection { get; set; }
+        public MinifiedCollection Collection { get; set; }
 
         [JsonProperty("genres")]
         public virtual IEnumerable<MovieGenre> Genres { get; set; }
