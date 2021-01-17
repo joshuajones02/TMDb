@@ -1,17 +1,20 @@
 ﻿using Newtonsoft.Json;
+using TMDb.Client.Attributes;
 
 namespace TMDb.Client.API.V3.Models.Search
 {
     public class SearchRequest : TMDbRequest
     {
         [ApiParameter(
-            Name = "page")]
+            Name = "page",
+            ParameterType = ParameterType.Query)]
         [JsonRequired]
-        public int Page { get; set; }
+        public virtual int Page { get; set; }
 
         [ApiParameter(
-            Name = "query")]
+            Name = "query",
+            ParameterType = ParameterType.Query)]
         [JsonRequired]
-        public string Query { get; set; }
+        public virtual string Query { get; set; }
     }
 }

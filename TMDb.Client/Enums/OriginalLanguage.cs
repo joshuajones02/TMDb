@@ -1,4 +1,6 @@
-﻿//namespace TMDb.Client
+﻿namespace TMDb.Client.Enums
+{
+//namespace TMDb.Client
 //{
 //    public enum OriginalLanguage 
 //    { 
@@ -14,3 +16,4 @@
 //        am, ar, bg, cn, mk, el, fa, he, hi, hy, en, ee, ka, pa, bn, bs, ch, be, yo
 //    };
 //}
+}

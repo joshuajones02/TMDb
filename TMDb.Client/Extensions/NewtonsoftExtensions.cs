@@ -4,7 +4,7 @@ using Newtonsoft.Json.Serialization;
 using System.Collections.Generic;
 using TMDb.Client.JsonConverters;
 
-namespace TMDb.Client.Extensions
+namespace TMDb.Client
 {
     internal static class NewtonsoftExtensions
     {

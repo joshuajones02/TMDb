@@ -11,14 +11,14 @@ namespace TMDb.Client.JsonConverters
             _instance = _instance ?? new MovieTVUnionConverter();
 
         public override bool CanConvert(Type t) =>
-            t == typeof(MovieTVUnion) || t == typeof(MovieTVUnion?);
+            t == typeof(FindByIdMovieTVUnion) || t == typeof(FindByIdMovieTVUnion?);
 
         [Obsolete("// TODO: Needs refactoring, Make better when time is available")]
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
             try
             {
-                return new MovieTVUnion 
+                return new FindByIdMovieTVUnion 
                 { 
                     Movie = serializer.Deserialize<FindByIdMovieResult>(reader) 
                 };
@@ -27,19 +27,19 @@ namespace TMDb.Client.JsonConverters
 
             try
             {
-                return new MovieTVUnion
+                return new FindByIdMovieTVUnion
                 {
                     TV = serializer.Deserialize<FindByIdTVResult>(reader)
                 };
             }
             catch { }
 
-            throw new Exception($"Cannot marshal type {nameof(MovieTVUnion)}");
+            throw new Exception($"Cannot marshal type {nameof(FindByIdMovieTVUnion)}");
         }
 
         public override void WriteJson(JsonWriter writer, object @object, JsonSerializer serializer)
         {
-            var value = (MovieTVUnion)@object;
+            var value = (FindByIdMovieTVUnion)@object;
 
             if (value.Movie != null)
             {
@@ -51,7 +51,7 @@ namespace TMDb.Client.JsonConverters
             }
             else
             {
-                throw new Exception($"Cannot marshal type {nameof(MovieTVUnion)}");
+                throw new Exception($"Cannot marshal type {nameof(FindByIdMovieTVUnion)}");
             }
         }
     }

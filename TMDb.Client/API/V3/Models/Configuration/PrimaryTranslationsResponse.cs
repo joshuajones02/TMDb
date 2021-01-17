@@ -4,6 +4,6 @@ namespace TMDb.Client.API.V3.Models.Configuration
 {
     public class PrimaryTranslationsResponse
     {
-        public IEnumerable<string> LanguageCodeDashRegionCode { get; set; }
+        public virtual IEnumerable<string> LanguageCodeDashRegionCode { get; set; }
     }
 }

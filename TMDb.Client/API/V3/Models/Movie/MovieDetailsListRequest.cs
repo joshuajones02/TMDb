@@ -1,23 +1,22 @@
-﻿using Newtonsoft.Json;
+﻿using TMDb.Client.Attributes;
 
 namespace TMDb.Client.API.V3.Models.Movie
 {
     public class MovieDetailsListRequest : TMDbRequest
     {
-        public MovieDetailsListRequest()
+        public MovieDetailsListRequest(int page)
         {
+            Page = page;
         }
 
-        public MovieDetailsListRequest(int page) =>
-            Page = page;
+        [ApiParameter(
+            Name = "page",
+            ParameterType = ParameterType.Query)]
+        public virtual int Page { get; set; }
 
         [ApiParameter(
-            Name = 
-            "page")]
-        public int Page { get; set; }
-
-        [ApiParameter(
-            Name = "language")]
-        public string LanguageAbbreviation { get; set; }
+            Name = "language",
+            ParameterType = ParameterType.Query)]
+        public virtual string LanguageAbbreviation { get; set; }
     }
 }

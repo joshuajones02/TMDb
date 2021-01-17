@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
 using TMDb.Client.Attributes;
+using TMDb.Client.Unions;
 
 namespace TMDb.Client.API.V3.Models.Lists
 {
@@ -10,6 +11,6 @@ namespace TMDb.Client.API.V3.Models.Lists
             Name = "list_id",
             ParameterType = ParameterType.Path)]
         [Required]
-        public ListIdUnion ListId { get; set; }
+        public virtual ListsIntStringIdUnion ListId { get; set; }
     }
 }

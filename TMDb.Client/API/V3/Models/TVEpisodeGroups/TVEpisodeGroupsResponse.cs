@@ -1,33 +1,33 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
-using TMDb.Client.Models;
+using TMDb.Client.Entities;
 
 namespace TMDb.Client.API.V3.Models.TVEpisodeGroups
 {
     public class TVEpisodeGroupsResponse : TMDbResponse
     {
         [JsonProperty("episode_count")]
-        public int EpisodeCount { get; set; }
+        public virtual int EpisodeCount { get; set; }
 
         [JsonProperty("group_count")]
-        public int GroupCount { get; set; }
+        public virtual int GroupCount { get; set; }
 
         [JsonProperty("type")]
-        public int Type { get; set; }
+        public virtual int Type { get; set; }
 
         [JsonProperty("id")]
-        public string Id { get; set; }
+        public virtual string Id { get; set; }
 
         [JsonProperty("description")]
-        public string Description { get; set; }
+        public virtual string Description { get; set; }
 
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public virtual string Name { get; set; }
 
         [JsonProperty("network")]
-        public Network Network { get; set; }
+        public virtual Network Network { get; set; }
 
         [JsonProperty("groups")]
-        public IEnumerable<EpisodeGroup> Groups { get; set; }
+        public virtual IEnumerable<EpisodeGroup> Groups { get; set; }
     }
 }

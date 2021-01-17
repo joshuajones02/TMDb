@@ -7,60 +7,60 @@ namespace TMDb.Client.API.V3.Models.Movie
     public class MovieListResponse
     {
         [JsonProperty("page")]
-        public int Page { get; set; }
+        public virtual int Page { get; set; }
 
         [JsonProperty("total_results")]
-        public int TotalResults { get; set; }
+        public virtual int TotalResults { get; set; }
 
         [JsonProperty("total_pages")]
-        public int TotalPages { get; set; }
+        public virtual int TotalPages { get; set; }
 
         [JsonProperty("results")]
-        public IEnumerable<MovieListResult> Results { get; set; }
+        public virtual IEnumerable<MovieListResult> Results { get; set; }
     }
 
-    public partial class MovieListResult
+    public class MovieListResult
     {
         [JsonProperty("adult")]
-        public bool Adult { get; set; }
+        public virtual bool Adult { get; set; }
 
         [JsonProperty("video")]
-        public bool Video { get; set; }
+        public virtual bool Video { get; set; }
 
         [JsonProperty("popularity")]
-        public double Popularity { get; set; }
+        public virtual double Popularity { get; set; }
 
         [JsonProperty("vote_average")]
-        public double VoteAverage { get; set; }
+        public virtual double VoteAverage { get; set; }
 
         [JsonProperty("id")]
-        public int Id { get; set; }
+        public virtual int Id { get; set; }
 
         [JsonProperty("vote_count")]
-        public int VoteCount { get; set; }
+        public virtual int VoteCount { get; set; }
 
         [JsonProperty("title")]
-        public string Title { get; set; }
+        public virtual string Title { get; set; }
 
         [JsonProperty("original_language")]
-        public string OriginalLanguage { get; set; }
+        public virtual string OriginalLanguage { get; set; }
 
         [JsonProperty("original_title")]
-        public string OriginalTitle { get; set; }
+        public virtual string OriginalTitle { get; set; }
 
         [JsonProperty("backdrop_path")]
-        public string BackdropPath { get; set; }
+        public virtual string BackdropPath { get; set; }
 
         [JsonProperty("overview")]
-        public string Overview { get; set; }
+        public virtual string Overview { get; set; }
 
         [JsonProperty("poster_path")]
-        public string PosterPath { get; set; }
+        public virtual string PosterPath { get; set; }
 
         [JsonProperty("release_date")]
-        public DateTime ReleaseDate { get; set; }
+        public virtual DateTime ReleaseDate { get; set; }
 
         [JsonProperty("genre_ids")]
-        public IEnumerable<TMDbGenre> Genres { get; set; }
+        public virtual IEnumerable<int> Genres { get; set; }
     }
 }

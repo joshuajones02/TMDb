@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace TMDb.Client.Models
+namespace TMDb.Client.Entities
 {
     public class MovieMinified
     {

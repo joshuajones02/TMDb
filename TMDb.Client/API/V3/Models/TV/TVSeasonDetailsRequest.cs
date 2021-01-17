@@ -1,4 +1,6 @@
 ﻿using Newtonsoft.Json;
+using TMDb.Client.API.V3.Models.TVSeasons;
+using TMDb.Client.Attributes;
 
 namespace TMDb.Client.API.V3.Models.TV
 {
@@ -10,7 +12,8 @@ namespace TMDb.Client.API.V3.Models.TV
         ///     Pattern: [\w]+
         /// </summary>
         [ApiParameter(
-            Name = "append_to_response")]
-        public string AppendToResponse { get; set; }
+            Name = "append_to_response",
+            ParameterType = ParameterType.Query)]
+        public virtual string AppendToResponse { get; set; }
     }
 }

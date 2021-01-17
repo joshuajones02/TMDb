@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using TMDb.Client.Attributes;
 
 namespace TMDb.Client.API.V3.Models.TV
 {
@@ -14,10 +15,10 @@ namespace TMDb.Client.API.V3.Models.TV
         [ApiParameter(
             Name = "page")]
         [JsonRequired]
-        public int Page { get; set; }
+        public virtual int Page { get; set; }
 
         [ApiParameter(
             Name = "language")]
-        public string LanguageAbbreviation { get; set; }
+        public virtual string LanguageAbbreviation { get; set; }
     }
 }

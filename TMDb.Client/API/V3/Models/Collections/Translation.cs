@@ -4,39 +4,31 @@ namespace TMDb.Client.API.V3.Models.Collections
 {
     public class Translation
     {
-        [ApiParameter(
-            Name = "iso_639_1")]
+        [JsonProperty("iso_639_1")]
         public virtual string Language { get; set; }
 
-        [ApiParameter(
-            Name = "iso_3166_1")]
+        [JsonProperty("iso_3166_1")]
         public virtual string CountryCode { get; set; }
 
-        [ApiParameter(
-            Name = "name")]
+        [JsonProperty("name")]
         public virtual string Name { get; set; }
 
-        [ApiParameter(
-            Name = "english_name")]
+        [JsonProperty("english_name")]
         public virtual string EnglishName { get; set; }
 
-        [ApiParameter(
-            Name = "data")]
+        [JsonProperty("data")]
         public virtual TranslationData Data { get; set; }
     }
 
     public class TranslationData
     {
-        [ApiParameter(
-            Name = "title")]
+        [JsonProperty("title")]
         public virtual string Title { get; set; }
 
-        [ApiParameter(
-            Name = "overview")]
+        [JsonProperty("overview")]
         public virtual string Overview { get; set; }
 
-        [ApiParameter(
-            Name = "homepage")]
+        [JsonProperty("homepage")]
         public virtual string Homepage { get; set; }
     }
 }

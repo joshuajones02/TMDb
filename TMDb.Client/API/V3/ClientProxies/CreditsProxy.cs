@@ -1,29 +1,21 @@
 ﻿using System;
 using System.Threading.Tasks;
-using TMDb.Client.API.V3.Models;
+using TMDb.Client.API.V3.Models.Credits;
 
 namespace TMDb.Client.API.V3.ClientProxies
 {
     public class CreditsProxy : ApiProxy
     {
-        private static readonly string _path;
-        private static readonly TMDbRequest _request;
-
-        static CreditsProxy()
-        {
-            _path = "/credit/{0}";
-            _request = new TMDbRequest();
-        }
-
         public CreditsProxy(TMDbClient client) : base(client)
         {
         }
 
-        public Task<CreditsResponse> Get(string creditId) =>
-            Client.GetAsync<CreditsResponse>(
-                FormatPathAndSerialize(creditId));
+        private string FormatPath(string path, string creditId) =>
+            string.Format(path, creditId);
 
-        private Uri FormatPathAndSerialize(string creditId) =>
-            Serialize(string.Format(_path, creditId), _request);
+        [Obsolete("// TODO: Need to format path with credits ID path parameter")]
+        public virtual Task<CreditsResponse> Get(CreditsRequest request) =>
+            Client.GetAsync<CreditsResponse>(
+                Serialize(FormatPath("/credit/{0}", request.CreditId), request));
     }
 }

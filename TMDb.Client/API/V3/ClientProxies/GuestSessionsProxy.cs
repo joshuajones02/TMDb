@@ -9,17 +9,17 @@ namespace TMDb.Client.API.V3.ClientProxies
         {
         }
 
-        public string FormatPath(string path, string id) => string.Format(path, id);
+        public virtual string FormatPath(string path, string id) => string.Format(path, id);
 
-        public Task<GuestSessionRatedMoviesResponse> GetAsync(GuestSessionRatedMoviesRequest request) =>
+        public virtual Task<GuestSessionRatedMoviesResponse> GetAsync(GuestSessionRatedMoviesRequest request) =>
             Client.GetAsync<GuestSessionRatedMoviesResponse>(
                 Serialize(FormatPath("/guest_session/{0}/rated/movies", request.GuestSessionId), request));
 
-        public Task<GuestSessionRatedMoviesResponse> GetAsync(GuestSessionRatedTVRequest request) =>
+        public virtual Task<GuestSessionRatedMoviesResponse> GetAsync(GuestSessionRatedTVRequest request) =>
             Client.GetAsync<GuestSessionRatedMoviesResponse>(
                 Serialize(FormatPath("/guest_session/{0}/rated/tv", request.GuestSessionId), request));
 
-        public Task<GuestSessionRatedTVEpisodesResponse> GetAsync(GuestSessionRatedTVEpisodesRequest request) =>
+        public virtual Task<GuestSessionRatedTVEpisodesResponse> GetAsync(GuestSessionRatedTVEpisodesRequest request) =>
             Client.GetAsync<GuestSessionRatedTVEpisodesResponse>(
                 Serialize(FormatPath("/guest_session/{0}/rated/tv/episodes", request.GuestSessionId), request));
     }

@@ -4,6 +4,7 @@ namespace TMDb.Client.Attributes
 {
     public enum ParameterType
     {
+        NotSet                 =  0,
         JsonBody               =  1,
         FormUrlEncodedBody     =  2,
         XmlBody                =  3,
@@ -13,6 +14,7 @@ namespace TMDb.Client.Attributes
         Header                 = 70
     }
 
+    [Obsolete("// TODO: Create startup check for all parameter types having a value")]
     public sealed class ApiParameterAttribute : Attribute
     {
         public ApiParameterAttribute()

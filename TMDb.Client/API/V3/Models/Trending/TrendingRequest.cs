@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using TMDb.Client.Attributes;
 
 namespace TMDb.Client.API.V3.Models.Trending
 {
@@ -10,6 +11,6 @@ namespace TMDb.Client.API.V3.Models.Trending
         [ApiParameter(
             Name = "page")]
         [JsonRequired]
-        public int Page { get; set; }
+        public virtual int Page { get; set; }
     }
 }

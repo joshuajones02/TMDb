@@ -1,20 +1,23 @@
 ﻿using Newtonsoft.Json;
+using TMDb.Client.Attributes;
 
 namespace TMDb.Client.API.V3.Models.Keywords
 {
     public class KeywordMovieRequest : TMDbRequest
     {
         [ApiParameter(
-            Name = "include_adult")]
-        public bool IsAdult { get; set; }
-
-        [JsonIgnore]
-        [ApiParameter(
-            Name = "keyword_id")]
-        public int KeywordId { get; set; }
+            Name = "include_adult",
+            ParameterType = ParameterType.Query)]
+        public virtual bool IsAdult { get; set; }
 
         [ApiParameter(
-            Name = "language")]
-        public string Language { get; set; }
+            Name = "keyword_id",
+            ParameterType = ParameterType.Path)]
+        public virtual int KeywordId { get; set; }
+
+        [ApiParameter(
+            Name = "language",
+            ParameterType = ParameterType.Query)]
+        public virtual string Language { get; set; }
     }
 }

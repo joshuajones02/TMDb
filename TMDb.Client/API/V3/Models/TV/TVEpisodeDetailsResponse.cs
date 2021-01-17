@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using TMDb.Client.Entities;
 
 namespace TMDb.Client.API.V3.Models.TV
 {
@@ -34,7 +35,7 @@ namespace TMDb.Client.API.V3.Models.TV
         public virtual string Overview { get; set; }
 
         [JsonProperty("air_date")]
-        public virtual DateTime AirDate { get; set; }
+        public virtual DateTime? AirDate { get; set; }
 
         [JsonProperty("crew")]
         public virtual IEnumerable<Crew> Crew { get; set; }

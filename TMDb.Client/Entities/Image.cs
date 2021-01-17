@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace TMDb.Client.Models
+namespace TMDb.Client.Entities
 {
     public class Image
     {

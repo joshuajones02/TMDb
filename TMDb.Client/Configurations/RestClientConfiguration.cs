@@ -20,8 +20,8 @@ namespace TMDb.Client.Configurations
 
         public RestClientConfiguration()
         {
-            ApplicationJsonHeader = new MediaTypeWithQualityHeaderValue(Header.ContentType.Json);
-            TextJsonHeader = new MediaTypeWithQualityHeaderValue(Header.ContentType.JsonText);
+            ApplicationJsonHeader = new MediaTypeWithQualityHeaderValue(ContentType.Json);
+            TextJsonHeader = new MediaTypeWithQualityHeaderValue(ContentType.JsonText);
 
             RequestSerializationSettings = new JsonSerializerSettings
             {

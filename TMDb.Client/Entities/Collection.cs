@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace TMDb.Client.Models
+namespace TMDb.Client.Entities
 {
     public class MinifiedCollection
     {

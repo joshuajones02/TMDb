@@ -12,6 +12,6 @@ namespace TMDb.Client.API.V3.Models.Lists
            Name = "session_id",
            ParameterType = ParameterType.Query)]
         [Required]
-        public string SessionId { get; set; }
+        public virtual string SessionId { get; set; }
     }
 }

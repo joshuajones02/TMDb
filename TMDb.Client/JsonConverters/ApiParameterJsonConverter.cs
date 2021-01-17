@@ -3,7 +3,7 @@ using System;
 
 namespace TMDb.Client.JsonConverters
 {
-    internal class ApiParameterJsonConverter : JsonConverter
+    public class ApiParameterJsonConverter : JsonConverter
     {
         private static ApiParameterJsonConverter _instance;
         public static ApiParameterJsonConverter Instance =>

@@ -1,27 +1,33 @@
 ﻿using Newtonsoft.Json;
+using TMDb.Client.Attributes;
 
 namespace TMDb.Client.API.V3.Models.TV
 {
-    public partial class CreatedBy
+    public class CreatedBy
     {
         [ApiParameter(
-            Name = "id")]
-        public int Id { get; set; }
+            Name = "id",
+            ParameterType = ParameterType.Query)]
+        public virtual int Id { get; set; }
 
         [ApiParameter(
-            Name = "credit_id")]
-        public string CreditId { get; set; }
+            Name = "credit_id",
+            ParameterType = ParameterType.Query)]
+        public virtual string CreditId { get; set; }
 
         [ApiParameter(
-            Name = "name")]
-        public string Name { get; set; }
+            Name = "name",
+            ParameterType = ParameterType.Query)]
+        public virtual string Name { get; set; }
 
         [ApiParameter(
-            Name = "gender")]
-        public int Gender { get; set; }
+            Name = "gender",
+            ParameterType = ParameterType.Query)]
+        public virtual int Gender { get; set; }
 
         [ApiParameter(
-            Name = "profile_path")]
-        public string ProfilePath { get; set; }
+            Name = "profile_path",
+            ParameterType = ParameterType.Query)]
+        public virtual string ProfilePath { get; set; }
     }
 }

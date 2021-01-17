@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using TMDb.Client.Attributes;
 
 namespace TMDb.Client.API.V3.Models.TVEpisodeGroups
 {
@@ -7,6 +8,6 @@ namespace TMDb.Client.API.V3.Models.TVEpisodeGroups
         [JsonIgnore]
         [ApiParameter(
             Name = "id")]
-        public string Id { get; set; }
+        public virtual string Id { get; set; }
     }
 }

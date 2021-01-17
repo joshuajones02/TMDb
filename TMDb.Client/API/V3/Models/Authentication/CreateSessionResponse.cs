@@ -10,6 +10,6 @@ namespace TMDb.Client.API.V3.Models.Authentication
         public virtual bool IsSuccess { get; set; }
 
         [JsonProperty("session_id")]
-        public string SessionId { get; set; }
+        public virtual string SessionId { get; set; }
     }
 }

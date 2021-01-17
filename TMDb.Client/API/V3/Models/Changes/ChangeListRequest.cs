@@ -16,9 +16,8 @@ namespace TMDb.Client.API.V3.Models.Changes
         public virtual DateTime? StartDate { get; set; }
 
         [ApiParameter(
-            Name = 
-            propertyName: "end_date",
-            NullValueHandling = NullValueHandling.Ignore)]
+            Name = "end_date",
+            ParameterType = ParameterType.Query)]
         [JsonRequired]
         public virtual DateTime? EndDate { get; set; }
     }

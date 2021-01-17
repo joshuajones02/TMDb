@@ -11,7 +11,7 @@ namespace TMDb.Client.API.V3.ClientProxies
 
         protected string Path { get; }
 
-        public Task<TrendingResponse> GetAsync(int page, MediaType type, TimeWindow time) =>
+        public virtual Task<TrendingResponse> GetAsync(int page, MediaType type, TimeWindow time) =>
             Client.GetAsync<TrendingResponse>(Serialize(FormatPath(type, time), new TrendingRequest(page)));
 
         private string FormatPath(MediaType type, TimeWindow time) =>

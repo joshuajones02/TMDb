@@ -8,9 +8,9 @@ namespace TMDb.Client.API.V3.Models.Lists
     [Obsolete("// TODO: Move endpoints into configuration file")]
     public class ListItemStatusRequest : ListRequestBase
     {
-        [ApiParameter(ParameterType.Query, "movie_id")]
         [ApiParameter(
-            Name = "movie_id")]
-        public int MovieId { get; set; }
+            Name = "movie_id",
+            ParameterType = ParameterType.Query)]
+        public virtual int MovieId { get; set; }
     }
 }

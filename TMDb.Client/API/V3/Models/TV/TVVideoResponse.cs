@@ -6,36 +6,36 @@ namespace TMDb.Client.API.V3.Models.TV
     public class TVVideoResponse
     {
         [JsonProperty("id")]
-        public int Id { get; set; }
+        public virtual int Id { get; set; }
 
         [JsonProperty("results")]
-        public IEnumerable<TVVideoResult> Results { get; set; }
+        public virtual IEnumerable<TVVideoResult> Results { get; set; }
     }
 
     public class TVVideoResult
     {
         [JsonProperty("id")]
-        public string Id { get; set; }
+        public virtual string Id { get; set; }
 
         [JsonProperty("size")]
-        public int Size { get; set; }
+        public virtual int Size { get; set; }
 
         [JsonProperty("iso_639_1")]
-        public string Iso6391 { get; set; }
+        public virtual string Iso6391 { get; set; }
 
         [JsonProperty("iso_3166_1")]
-        public string Iso31661 { get; set; }
+        public virtual string Iso31661 { get; set; }
 
         [JsonProperty("key")]
-        public string Key { get; set; }
+        public virtual string Key { get; set; }
 
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public virtual string Name { get; set; }
 
         [JsonProperty("site")]
-        public string Site { get; set; }
+        public virtual string Site { get; set; }
 
         [JsonProperty("type")]
-        public string Type { get; set; }
+        public virtual string Type { get; set; }
     }
 }

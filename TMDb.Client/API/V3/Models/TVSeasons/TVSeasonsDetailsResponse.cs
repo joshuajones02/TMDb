@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using TMDb.Client.Entities;
 
 namespace TMDb.Client.API.V3.Models.TVSeasons
 {

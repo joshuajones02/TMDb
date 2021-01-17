@@ -12,6 +12,6 @@ namespace TMDb.Client.API.V3.Models.Lists
     {
         [ApiParameter(
             Name = "language")]
-        public string LanguageAbbreviation { get; set; }
+        public virtual string LanguageAbbreviation { get; set; }
     }
 }

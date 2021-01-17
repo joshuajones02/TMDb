@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.ComponentModel.DataAnnotations;
 using TMDb.Client.Attributes;
 
 namespace TMDb.Client.API.V3.Models
@@ -9,10 +10,8 @@ namespace TMDb.Client.API.V3.Models
         [ApiParameter(
             Name = "api_key",
             ParameterType = ParameterType.Query)]
-        [ApiParameter(
-            Name = "api_key")]
-        [JsonRequired]
+        [Required]
         [Obsolete("// TODO: Move out of V3 folder")]
-        public string ApiKey { get; set; }
+        public virtual string ApiKey { get; set; }
     }
 }

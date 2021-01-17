@@ -7,9 +7,9 @@ namespace TMDb.Client.API.V3.Models.Lists
     public class ListRemoveMovieResponse
     {
         [JsonProperty("status_code")]
-        public int StatusCode { get; set; }
+        public virtual int StatusCode { get; set; }
 
         [JsonProperty("status_message")]
-        public string StatusMessage { get; set; }
+        public virtual string StatusMessage { get; set; }
     }
 }

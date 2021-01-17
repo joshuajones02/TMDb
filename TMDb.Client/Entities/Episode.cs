@@ -1,8 +1,9 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using TMDb.Client.API.V3.Models.TV;
 
-namespace TMDb.Client.Models
+namespace TMDb.Client.Entities
 {
     public class Episode
     {
@@ -40,6 +41,6 @@ namespace TMDb.Client.Models
         public virtual IEnumerable<Crew> Crew { get; set; }
 
         [JsonProperty("guest_stars")]
-        public virtual virtual IEnumerable<TVEpisodesGuestStar> GuestStars { get; set; }
+        public virtual IEnumerable<TVEpisodesGuestStar> GuestStars { get; set; }
     }
 }

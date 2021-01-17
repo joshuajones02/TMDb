@@ -1,13 +1,12 @@
 ﻿using System;
-using TMDb.Client.Proxies;
+using TMDb.Client.API.V3.ClientProxies;
 using TMDb.Client.Settings;
 
 namespace TMDb.Client
 {
     public class TMDbClient : RestClient
     {
-        public TMDbClient(string apiKey)
-            : this(DefaultTMDbSettings.CreateInstance(apiKey))
+        public TMDbClient(string apiKey) : this(DefaultTMDbSettings.CreateInstance(apiKey))
         {
         }
 

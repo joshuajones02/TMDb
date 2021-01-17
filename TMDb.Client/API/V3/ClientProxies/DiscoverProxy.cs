@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using TMDb.Client.API.V3.Models.Movie;
+using TMDb.Client.API.V3.Models.TV;
 
 namespace TMDb.Client.API.V3.ClientProxies
 {
@@ -9,10 +10,10 @@ namespace TMDb.Client.API.V3.ClientProxies
         {
         }
 
-        public Task<DiscoverMovieResponse> Movies(DiscoverMovieRequest request) =>
+        public virtual Task<DiscoverMovieResponse> Movies(DiscoverMovieRequest request) =>
             Client.GetAsync<DiscoverMovieResponse>(Serialize("/discover/movie", request));
 
-        public Task<DiscoverTVResponse> TV(DiscoverTVRequest request) =>
+        public virtual Task<DiscoverTVResponse> TV(DiscoverTVRequest request) =>
             Client.GetAsync<DiscoverTVResponse>(Serialize("/discover/tv", request));
     }
 }

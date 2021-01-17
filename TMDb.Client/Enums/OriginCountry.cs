@@ -1,5 +1,7 @@
 ﻿//using System.ComponentModel;
 
+namespace TMDb.Client.Enums
+{
 //namespace TMDb.Client
 //{
 //    public enum OriginCountry
@@ -500,3 +502,4 @@
 //        SS,
 //  }
 //}
+}

@@ -1,15 +1,11 @@
 ﻿using System.Threading.Tasks;
+using TMDb.Client.API.V3.Models;
 using TMDb.Client.API.V3.Models.Reviews;
 
 namespace TMDb.Client.API.V3.ClientProxies
 {
     public class ReviewsProxy : ApiProxy
     {
-        private static readonly TMDbRequest _request;
-
-        static ReviewsProxy() =>
-            _request = new TMDbRequest();
-
         public ReviewsProxy(TMDbClient client) : base(client)
         {
         }
@@ -17,8 +13,8 @@ namespace TMDb.Client.API.V3.ClientProxies
         private string FormatPath(string path, string reviewId) =>
             string.Format(path, reviewId);
 
-        public Task<ReviewsResponse> GetDetails(string reviewId) =>
+        public virtual Task<ReviewsResponse> GetDetails(ReviewsRequest request) =>
             Client.GetAsync<ReviewsResponse>(
-                Serialize(FormatPath("/credit/{0}", reviewId), _request));
+                Serialize(FormatPath("/credit/{0}", request.ReviewId), request));
     }
 }

@@ -9,9 +9,9 @@ namespace TMDb.Client.API.V3.ClientProxies
         {
         }
 
-        public string FormatPath(string path, int id) => string.Format(path, id);
+        public virtual string FormatPath(string path, int id) => string.Format(path, id);
 
-        public Task<FindByIdResponse> GetAsync(FindByIdRequest request) =>
+        public virtual Task<FindByIdResponse> GetAsync(FindByIdRequest request) =>
             Client.GetAsync<FindByIdResponse>(Serialize("/find/{external_id}", request));
     }
 }

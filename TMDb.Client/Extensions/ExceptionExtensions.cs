@@ -1,21 +1,21 @@
 ﻿using System;
 using System.Linq;
 
-namespace TMDb.Client.Extensions
+namespace TMDb.Client
 {
-    public static class ExceptionExtensions
+    internal static class ExceptionExtensions
     {
-        public static object Minify(this Exception ex) => 
+        internal static object Minify(this Exception ex) =>
             new
             {
-                Type            = ex?.GetType().Name,
-                Message         = ex?.Message,
-                StackTrace      = ex?.StackTrace,
+                Type = ex?.GetType().Name,
+                ex?.Message,
+                ex?.StackTrace,
                 InnerExceptions = ex.FromHierarchy(x => x.InnerException)
                                     .Select(x => new { Type = x?.GetType().Name, x?.Message, x?.StackTrace })
             };
 
-        public static string ToMinifiedString(this Exception ex) => 
+        internal static string ToMinifiedString(this Exception ex) =>
             ex.Minify().ToJson();
     }
 }

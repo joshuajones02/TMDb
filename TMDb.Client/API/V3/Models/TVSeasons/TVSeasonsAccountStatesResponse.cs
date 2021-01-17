@@ -22,6 +22,6 @@ namespace TMDb.Client.API.V3.Models.TVSeasons
 
         [JsonConverter(typeof(RatedBoolUnionConverter))]
         [JsonProperty("rated")]
-        public virtual RatedUnion Rated { get; set; }
+        public virtual RatedBoolUnionConverter Rated { get; set; }
     }
 }

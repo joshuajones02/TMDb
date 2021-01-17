@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using TMDb.Client.Attributes;
 
 namespace TMDb.Client.API.V3.Models.GuestSessionRated
 {
@@ -10,17 +11,19 @@ namespace TMDb.Client.API.V3.Models.GuestSessionRated
 
     public class GuestSessionRatedRequest : TMDbRequest
     {
-        [JsonIgnore]
         [ApiParameter(
-            Name = "guest_session_id")]
-        public string GuestSessionId { get; set; }
+            Name = "guest_session_id",
+            ParameterType = ParameterType.Path)]
+        public virtual string GuestSessionId { get; set; }
 
         [ApiParameter(
-            Name = "language")]
-        public string Language { get; set; }
+            Name = "language",
+            ParameterType = ParameterType.Query)]
+        public virtual string Language { get; set; }
 
         [ApiParameter(
-            Name = "sort_by")]
-        public GuestSessionRatingSortyBy SortBy { get; set; }
+            Name = "sort_by",
+            ParameterType = ParameterType.Query)]
+        public virtual GuestSessionRatingSortyBy SortBy { get; set; }
     }
 }

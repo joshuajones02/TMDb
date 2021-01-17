@@ -1,18 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace TMDb.Client.Extensions
+namespace TMDb.Client
 {
-    public static class TSourceExtensions
+    internal static class TSourceExtensions
     {
-        public static IEnumerable<TSource> FromHierarchy<TSource>(this TSource source,
+        internal static IEnumerable<TSource> FromHierarchy<TSource>(this TSource source,
             Func<TSource, TSource> nextItem, Func<TSource, bool> canContinue)
-            {
-                for (var current = source; canContinue(current); current = nextItem(current))
-                    yield return current;
-            }
+        {
+            for (var current = source; canContinue(current); current = nextItem(current))
+                yield return current;
+        }
 
-        public static IEnumerable<TSource> FromHierarchy<TSource>(this TSource source,
+        internal static IEnumerable<TSource> FromHierarchy<TSource>(this TSource source,
             Func<TSource, TSource> nextItem) where TSource : class =>
                 source.FromHierarchy(nextItem, s => s != null);
     }

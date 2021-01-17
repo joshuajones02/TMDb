@@ -7,14 +7,14 @@ using System.Web;
 
 namespace TMDb.Client
 {
-    public static class ObjectExtensions
+    internal static class ObjectExtensions
     {
-        public static string ToQueryString(this object @object)
+        internal static string ToQueryString(this object @object)
         {
             var parameters = @object.GetType()
                 .GetProperties()
                 .Where(x => x.GetValue(@object, null) != null)
-                .Select(x => string.Format("{0}={1}", PropertyName(x), x.Get(@object))) //x.UrlEncode
+                .Select(x => string.Format("{0}={1}", x.PropertyName(), x.Get(@object))) //x.UrlEncode
                 .ToArray();
 
             return parameters.Any() ? "?" + string.Join("&", parameters) : null;

@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using TMDb.Client.Attributes;
 
 namespace TMDb.Client.API.V3.Models.Movie
 {
@@ -6,6 +7,6 @@ namespace TMDb.Client.API.V3.Models.Movie
     {
         [ApiParameter(
             Name = "language")]
-        public string LanguageAbbreviation { get; set; }
+        public virtual string LanguageAbbreviation { get; set; }
     }
 }

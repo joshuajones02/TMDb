@@ -7,18 +7,21 @@ namespace TMDb.Client.API.V3.Models.TVSeasons
 {
     public class TVSeasonsRequest : TMDbRequest
     {
-        [JsonIgnore]
+        [ApiParameter(
+            Name = "tv_id",
+            ParameterType = ParameterType.Path)]
         [Required]
-        [StringFormatParameter("tv_id")]
         public virtual int TvId { get; set; }
 
-        [JsonIgnore]
+        [ApiParameter(
+            Name = "season_number",
+            ParameterType = ParameterType.Path)]
         [Required]
-        [StringFormatParameter("season_number")]
         public virtual int SeasonNumber { get; set; }
 
         [ApiParameter(
-            Name = "language", NullValueHandling = NullValueHandling.Ignore)]
+            Name = "language", 
+            ParameterType = ParameterType.Query)]
         [Obsolete("// TODO: Refactor, some endpoints don't accept language (i.e. DeleteTVEpisodeRating)")]
         public virtual string LanguageAbbreviation { get; set; }
     }

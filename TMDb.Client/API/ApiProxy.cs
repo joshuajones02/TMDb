@@ -17,12 +17,12 @@ namespace TMDb.Client.API
 
             return new UriBuilder(Client.BaseAddress)
             {
-                Path = FormatPath(settings.Version, path),
+                Path = PrependVersionToPath(settings.Version, path),
                 Query = request.ToQueryString()
             }.Uri;
         }
 
-        private string FormatPath(string version, string path) =>
+        private string PrependVersionToPath(string version, string path) =>
             string.Format("/{0}/{1}", version, path.HasValue()
                 ? path.TrimStart('/')
                 : string.Empty);

@@ -7,21 +7,21 @@ namespace TMDb.Client.API.V3.Models.Search
     public class SearchTVResponse : TMDbResponse
     {
         [JsonProperty("results")]
-        public IEnumerable<SearchTVResult> Results { get; set; }
+        public virtual IEnumerable<SearchTVResult> Results { get; set; }
     }
 
-    public partial class SearchTVResult : SearchMediaResult
+    public class SearchTVResult : SearchMediaResult
     {
         [JsonProperty("original_name")]
-        public string OriginalName { get; set; }
+        public virtual string OriginalName { get; set; }
 
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public virtual string Name { get; set; }
 
         [JsonProperty("first_air_date")]
-        public DateTime? FirstAirDate { get; set; }
+        public virtual DateTime? FirstAirDate { get; set; }
 
         [JsonProperty("origin_country")]
-        public IEnumerable<string> CountryAbbreviations { get; set; }
+        public virtual IEnumerable<string> CountryAbbreviations { get; set; }
     }
 }

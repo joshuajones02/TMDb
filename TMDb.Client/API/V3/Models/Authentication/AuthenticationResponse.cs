@@ -10,6 +10,6 @@ namespace TMDb.Client.API.V3.Models.Authentication
         public virtual bool IsSuccess { get; set; }
 
         [JsonProperty("expires_at")]
-        public DateTime? Expiration { get; set; }
+        public virtual DateTime? Expiration { get; set; }
     }
 }

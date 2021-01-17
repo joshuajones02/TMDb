@@ -5,15 +5,15 @@ namespace TMDb.Client.API.V3.Models.Configuration
 {
     public class CountriesResponse
     {
-        public IEnumerable<CountryModel> Countries { get; set; }
+        public virtual IEnumerable<CountryModel> Countries { get; set; }
     }
 
     public class CountryModel
     {
         [JsonProperty("iso_3166_1")]
-        public string Abbreviation { get; set; }
+        public virtual string Abbreviation { get; set; }
 
         [JsonProperty("english_name")]
-        public string Country { get; set; }
+        public virtual string Country { get; set; }
     }
 }

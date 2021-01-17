@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TMDb.Client.Configurations;
 using TMDb.Client.Constants;
-using TMDb.Client.Extensions;
+using TMDb.Client.Models;
 
 namespace TMDb.Client
 {
@@ -44,7 +44,7 @@ namespace TMDb.Client
         public async Task<TResult> SendAsync<TResult>(HttpMethod httpMethod, Uri uri, string json, JsonSerializerSettings deserializeSettings = null) where TResult : class
         {
             HttpResponseMessage response = null;
-            var payload = new StringContent(json, Encoding.UTF8, Header.ContentType.Json);
+            var payload = new StringContent(json, Encoding.UTF8, ContentType.Json);
 
             if (httpMethod == HttpMethod.Post)
             {
@@ -75,16 +75,16 @@ namespace TMDb.Client
             return result.ToObject<TResult>(settings);
         }
 
-        public virtual Task SendAsync(string path, HttpMethod method, int[] expectedStatusCodes, params RestParameter[] parameters) =>
+        public virtual Task SendAsync(string path, HttpMethod method, int[] expectedStatusCodes, params ApiParameter[] parameters) =>
             SendInternal<string>(path, method, expectedStatusCodes, null, parameters);
 
-        public virtual Task<T> SendAsync<T>(string path, HttpMethod method, int[] expectedStatusCodes, params RestParameter[] parameters) =>
+        public virtual Task<T> SendAsync<T>(string path, HttpMethod method, int[] expectedStatusCodes, params ApiParameter[] parameters) =>
             SendInternal<T>(path, method, expectedStatusCodes, null, parameters);
 
-        public virtual Task SendAsync(string path, HttpMethod method, int[] expectedStatusCodes, Action<HttpResponseMessage, Exception> callback, params RestParameter[] parameters) =>
+        public virtual Task SendAsync(string path, HttpMethod method, int[] expectedStatusCodes, Action<HttpResponseMessage, Exception> callback, params ApiParameter[] parameters) =>
             SendInternal<string>(path, method, expectedStatusCodes, callback, parameters);
 
-        public virtual Task<T> SendAsync<T>(string path, HttpMethod method, int[] expectedStatusCodes, Action<HttpResponseMessage, Exception> callback, params RestParameter[] parameters) =>
+        public virtual Task<T> SendAsync<T>(string path, HttpMethod method, int[] expectedStatusCodes, Action<HttpResponseMessage, Exception> callback, params ApiParameter[] parameters) =>
             SendInternal<T>(path, method, expectedStatusCodes, callback, parameters);
     }
 }

@@ -8,37 +8,37 @@ namespace TMDb.Client.API.V3.Models.Reviews
     public class ReviewsResponse : TMDbResponse
     {
         [JsonProperty("media_id")]
-        public int MediaId { get; set; }
+        public virtual int MediaId { get; set; }
 
         [JsonProperty("id")]
-        public string Id { get; set; }
+        public virtual string Id { get; set; }
 
         [JsonProperty("author")]
-        public string Author { get; set; }
+        public virtual string Author { get; set; }
 
         [JsonProperty("content")]
-        public string Content { get; set; }
+        public virtual string Content { get; set; }
 
         [JsonProperty("iso_639_1")]
-        public string LanguageAbbreviation { get; set; }
+        public virtual string LanguageAbbreviation { get; set; }
 
         [JsonProperty("media_title")]
-        public string MediaTitle { get; set; }
+        public virtual string MediaTitle { get; set; }
 
         [JsonProperty("media_type")]
         [JsonConverter(typeof(StringEnumConverter))]
-        public MediaType MediaType { get; set; }
+        public virtual MediaType MediaType { get; set; }
 
         [JsonProperty("created_at")]
-        public DateTime? Created { get; set; }
+        public virtual DateTime? Created { get; set; }
 
         [JsonProperty("updated_at")]
-        public DateTime? Updated { get; set; }
+        public virtual DateTime? Updated { get; set; }
 
         [JsonProperty("author_details")]
-        public AuthorDetails AuthorDetails { get; set; }
+        public virtual AuthorDetails AuthorDetails { get; set; }
 
         [JsonProperty("url")]
-        public Uri Url { get; set; }
+        public virtual Uri Url { get; set; }
     }
 }

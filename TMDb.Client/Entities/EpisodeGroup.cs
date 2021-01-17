@@ -1,9 +1,9 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace TMDb.Client.Models
+namespace TMDb.Client.Entities
 {
-    public partial class EpisodeGroup
+    public class EpisodeGroup
     {
         [JsonProperty("locked")]
         public bool Locked { get; set; }

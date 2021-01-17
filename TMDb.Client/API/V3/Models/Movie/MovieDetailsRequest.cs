@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using TMDb.Client.Attributes;
 
 namespace TMDb.Client.API.V3.Models.Movie
 {
@@ -10,11 +11,13 @@ namespace TMDb.Client.API.V3.Models.Movie
         ///     Pattern: [\w]+
         /// </summary>
         [ApiParameter(
-            Name = "append_to_response")]
-        public string AppendToResponse { get; set; }
+            Name = "append_to_response",
+            ParameterType = ParameterType.Query)]
+        public virtual string AppendToResponse { get; set; }
 
         [ApiParameter(
-            Name = "language")]
-        public string LanguageAbbreviation { get; set; }
+            Name = "language",
+            ParameterType = ParameterType.Query)]
+        public virtual string LanguageAbbreviation { get; set; }
     }
 }

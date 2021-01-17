@@ -8,10 +8,11 @@ using System.Net.Http.Headers;
 using System.Security.Authentication;
 using System.Text;
 using System.Threading.Tasks;
+using TMDb.Client;
 using TMDb.Client.Attributes;
 using TMDb.Client.Configurations;
 using TMDb.Client.Constants;
-using TMDb.Client.Extensions;
+using TMDb.Client.Models;
 
 namespace TMDb.Client
 {
@@ -23,7 +24,7 @@ namespace TMDb.Client
     {
         public int[] ExpectedStatusCodes { get; set; }
 
-        public List<ApiParameterAttribute> Parameters { get; set; }
+        public ApiParameter[] Parameters { get; set; }
 
         public HttpRequestMessage Request { get; set; }
     }
@@ -42,7 +43,7 @@ namespace TMDb.Client
 
         // TODO: below had the value inside of it where as the attribute does not.
         // TODO: Make class below and then accept the attribute as a parameter in the constructor
-        public RestParameter[] Parameters { get; set; }
+        public ApiParameter[] Parameters { get; set; }
 
         public HttpRequestMessage Request { get; set; }
     }
@@ -76,7 +77,7 @@ namespace TMDb.Client
         public HttpClient Client { get; protected set; }
         public Uri BaseAddress { get; protected set; }
 
-        protected async Task<T> SendInternal<T>(string path, HttpMethod method, int[] expectedStatusCodes, Action<HttpResponseMessage, Exception> callback, params RestParameter[] parameters)
+        protected async Task<T> SendInternal<T>(string path, HttpMethod method, int[] expectedStatusCodes, Action<HttpResponseMessage, Exception> callback, params ApiParameter[] parameters)
         {
             string responseText = null;
             Exception error = null;
@@ -133,7 +134,7 @@ namespace TMDb.Client
             return result;
         }
 
-        private HttpRequestMessage BuildRequest(HttpClient client, HttpMethod method, string path, params RestParameter[] parameters)
+        private HttpRequestMessage BuildRequest(HttpClient client, HttpMethod method, string path, params ApiParameter[] parameters)
         {
             string serializedBody = null;
             string contentType = null;
@@ -147,10 +148,11 @@ namespace TMDb.Client
 
             parameters = parameters.OrderBy(p =>
             {
-                switch (p.Location)
+                switch (p.ParameterType)
                 {
-                    case Attributes.ParameterType.Body:
-                    case Attributes.ParameterType.FormUrlEncdoded:
+                    case Attributes.ParameterType.JsonBody:
+                    case Attributes.ParameterType.FormUrlEncodedBody:
+                    case Attributes.ParameterType.XmlBody:
                         return 0;
 
                     case Attributes.ParameterType.Path:
@@ -169,9 +171,9 @@ namespace TMDb.Client
 
             foreach (var parameter in parameters.Where(x => x.Value != null))
             {
-                switch (parameter.Location)
+                switch (parameter.ParameterType)
                 {
-                    case Attributes.ParameterType.Body:
+                    case Attributes.ParameterType.JsonBody:
                         if (serializedBody != null)
                         {
                             throw new ArgumentException("Only one parameter can be specified as a Body parameter.");
@@ -181,7 +183,7 @@ namespace TMDb.Client
                         contentType = "application/json";
                         break;
 
-                    case Attributes.ParameterType.FormUrlEncdoded:
+                    case Attributes.ParameterType.FormUrlEncodedBody:
                         serializedBody = parameter.Value?.ToString();
                         contentType = "application/x-www-form-urlencoded";
                         break;
@@ -231,8 +233,8 @@ namespace TMDb.Client
                     request.Content = new StringContent(serializedBody, Encoding.UTF8, contentType);
             }
 
-            var contentTypeHeader = parameters.SingleOrDefault(p => p.Location == Attributes.ParameterType.Header
-                                                                 && Header.ContentType.EqualsIgnoreCase(p.Name));
+            var contentTypeHeader = parameters.SingleOrDefault(p => p.ParameterType == Attributes.ParameterType.Header
+                                                                 && ContentType.Name.EqualsIgnoreCase(p.Name));
             if (contentTypeHeader != null)
             {
                 var parts = contentTypeHeader.Value.ToString()

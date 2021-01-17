@@ -10,33 +10,31 @@ namespace TMDb.Client.API.V3.Models.Lists
     public class CreateListRequest : TMDbRequest
     {
         [ApiParameter(
-            Name = "Content-Type",
+            Name = "session_id",
             ParameterType = ParameterType.Query)]
-        [ApiParameter(
-            Name = "session_id")]
         [JsonRequired]
         [Required]
-        public string SessionId { get; set; }
+        public virtual string SessionId { get; set; }
 
         [ApiParameter(
             Name = "Content-Type",
             ParameterType = ParameterType.Header)]
         [Required]
-        public string ContentType { get; set; }
+        public virtual string ContentType { get; set; }
 
         [ApiParameter(
             Name = "name",
             ParameterType = ParameterType.JsonBody)]
-        public string Name { get; set; }
+        public virtual string Name { get; set; }
 
         [ApiParameter(
             Name = "description",
             ParameterType = ParameterType.JsonBody)]
-        public string Description { get; set; }
+        public virtual string Description { get; set; }
 
         [ApiParameter(
             Name = "language",
             ParameterType = ParameterType.JsonBody)]
-        public string LanguageAbbreviation { get; set; }
+        public virtual string LanguageAbbreviation { get; set; }
     }
 }

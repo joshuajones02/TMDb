@@ -1,8 +1,10 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using TMDb.Client.API.V3.Models;
+using TMDb.Client.API.V3.Models.TV;
 
-namespace TMDb.Client.Models
+namespace TMDb.Client.Entities
 {
     public class TV
     {

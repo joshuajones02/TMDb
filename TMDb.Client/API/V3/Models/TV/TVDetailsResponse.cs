@@ -1,9 +1,6 @@
-﻿using TMDb.Client.Models;
-using TMDb.Client.Entities;
-
-namespace TMDb.Client.API.V3.Models.TV
+﻿namespace TMDb.Client.API.V3.Models.TV
 {
-    public class TVDetailsResponse : TV
+    public class TVDetailsResponse : TMDb.Client.Entities.TV
     {
     }
 }

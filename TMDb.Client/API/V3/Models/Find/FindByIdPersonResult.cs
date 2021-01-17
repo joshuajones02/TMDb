@@ -22,6 +22,6 @@ namespace TMDb.Client.API.V3.Models.Find
 
         [JsonConverter(typeof(MovieTVUnionConverter))]
         [JsonProperty("original_language")]
-        public virtual MovieTVUnion KnownFor { get; set; }
+        public virtual FindByIdMovieTVUnion KnownFor { get; set; }
     }
 }

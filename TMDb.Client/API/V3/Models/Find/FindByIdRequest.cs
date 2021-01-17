@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using TMDb.Client.Attributes;
 
 namespace TMDb.Client.API.V3.Models.Find
 {
@@ -14,17 +15,19 @@ namespace TMDb.Client.API.V3.Models.Find
     /// </summary>
     public class FindByIdRequest : TMDbRequest
     {
-        [JsonIgnore]
         [ApiParameter(
-            Name = "external_id")]
-        public string ExternalId { get; set; }
+            Name = "external_id",
+            ParameterType = ParameterType.Path)]
+        public virtual string ExternalId { get; set; }
 
         [ApiParameter(
-            Name = "language")]
-        public string LanguageAbbreviation { get; set; }
+            Name = "language",
+            ParameterType = ParameterType.Query)]
+        public virtual string LanguageAbbreviation { get; set; }
 
         [ApiParameter(
-            Name = "external_source")]
-        public string ExternalSource { get; set; }
+            Name = "external_source",
+            ParameterType = ParameterType.Query)]
+        public virtual string ExternalSource { get; set; }
     }
 }
