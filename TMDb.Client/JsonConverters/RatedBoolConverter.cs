@@ -5,11 +5,11 @@ using TMDb.Client.Entities.Things;
 
 namespace TMDb.Client.JsonConverters
 {
-    public class RatedBoolUnionConverter : JsonConverter
+    public class RatedBoolConverter : JsonConverter
     {
-        private static RatedBoolUnionConverter _instance;
-        public static RatedBoolUnionConverter Instance =>
-            _instance = _instance ?? new RatedBoolUnionConverter();
+        private static RatedBoolConverter _instance;
+        public static RatedBoolConverter Instance =>
+            _instance = _instance ?? new RatedBoolConverter();
 
         public override bool CanConvert(Type t) =>
             t == typeof(TVEpisodeRatingBoolUnion) || t == typeof(TVEpisodeRatingBoolUnion?);

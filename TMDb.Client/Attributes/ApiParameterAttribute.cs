@@ -18,27 +18,7 @@ namespace TMDb.Client.Attributes
     [AttributeUsage(AttributeTargets.Property)]
     public sealed class ApiParameterAttribute : Attribute
     {
-        public ApiParameterAttribute()
-        {
-        }
-
-        public ApiParameterAttribute(ParameterType type) => 
-            ParameterType = type;
-
-        public ApiParameterAttribute(ParameterType type, string name)
-        {
-            ParameterType = type;
-            Name = name;
-        }
-
-        public ApiParameterAttribute(string name, ParameterType type)
-        {
-            ParameterType = type;
-            Name = name;
-        }
-
         public string Name { get; set; }
-        public string Value { get; set; }
         public ParameterType ParameterType { get; set; }
     }
 }

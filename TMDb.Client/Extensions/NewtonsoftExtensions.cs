@@ -19,7 +19,7 @@ namespace TMDb.Client
                 {
                     new EnumDescriptionConverter(),
                     new StringEnumConverter(),
-                    new RatedBoolUnionConverter()
+                    new RatedBoolConverter()
                 }
             };
 
