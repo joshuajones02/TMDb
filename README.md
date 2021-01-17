@@ -3,4 +3,6 @@
 
 ## Still in development
 
-### Getting started coming soon
+#### Getting started
+
+Coming soon...
