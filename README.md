@@ -1,5 +1,6 @@
-# Currently in development
-.NET 5 The Movie Database (TMDb) API Client
+# .NET 5 The Movie Database (TMDb) Web API Client
+Currently in development
+
 
 ### Getting started
 
