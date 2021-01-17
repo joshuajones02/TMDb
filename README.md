@@ -1,5 +1,7 @@
-# .NET 5 The Movie Database (TMDb) Web API Client
-Currently in development
+# .NET 5 TMDb Web API Client
+.NET 5 Web Client to consume The Movie Database (TMDb) API
+
+Development in progress...
 
 
 ### Getting started
