@@ -1,37 +1,42 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
-using System.Net.Http;
+using System;
 using System.Net.Http.Headers;
-using System.Security.Authentication;
+using TMDb.Client.Constants;
 
 namespace TMDb.Client.Configurations
 {
-    public class RestClientConfiguration
+    public class RestClientConfiguration : IRestClientConfiguration
     {
-        public HttpClientHandler Handler { get; }
-        public JsonSerializerSettings RequestSerializationSettings { get; }
-        public JsonSerializerSettings ResponseSerializationSettings { get; }
-        public MediaTypeWithQualityHeaderValue ApplicationJsonHeader { get; }
-        public MediaTypeWithQualityHeaderValue TextJsonHeader { get; }
+        public long MaxResponseContentBufferSize { get; protected set; }
+
+        public TimeSpan Timeout { get; protected set; }
+
+        public JsonSerializerSettings RequestSerializationSettings { get; protected set; }
+        public JsonSerializerSettings ResponseSerializationSettings { get; protected set; }
+        public MediaTypeWithQualityHeaderValue ApplicationJsonHeader { get; protected set; }
+        public MediaTypeWithQualityHeaderValue TextJsonHeader { get; protected set; }
 
         public RestClientConfiguration()
         {
-            ApplicationJsonHeader         = new MediaTypeWithQualityHeaderValue("application/json");
-            TextJsonHeader                = new MediaTypeWithQualityHeaderValue("text/json");
-            Handler                       = new HttpClientHandler { SslProtocols = SslProtocols.Tls12 };
-            RequestSerializationSettings  = new JsonSerializerSettings 
+            ApplicationJsonHeader = new MediaTypeWithQualityHeaderValue(Header.ContentType.Json);
+            TextJsonHeader = new MediaTypeWithQualityHeaderValue(Header.ContentType.JsonText);
+
+            RequestSerializationSettings = new JsonSerializerSettings
             {
-                NullValueHandling       = NullValueHandling.Ignore,
-                ReferenceLoopHandling   = ReferenceLoopHandling.Ignore
+                NullValueHandling = NullValueHandling.Ignore,
+                ReferenceLoopHandling = ReferenceLoopHandling.Ignore
             };
+
             ResponseSerializationSettings = new JsonSerializerSettings
             {
                 Error = (sender, args) => args.ErrorContext.Handled = true,
-                ReferenceLoopHandling   = ReferenceLoopHandling.Ignore,
-                ContractResolver        = new CamelCasePropertyNamesContractResolver(),
-                Converters              = new JsonConverter[] { new StringEnumConverter() }
+                ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
+                ContractResolver = new CamelCasePropertyNamesContractResolver(),
+                Converters = new JsonConverter[] { new StringEnumConverter() }
             };
+            Timeout = TimeSpan.FromSeconds(60);
         }
 
         private static RestClientConfiguration _instance;
