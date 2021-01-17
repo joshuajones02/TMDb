@@ -6,9 +6,10 @@ namespace TMDb.Client.JsonConverters
 {
     internal class MovieTVUnionConverter : JsonConverter
     {
-        private static MovieTVUnionConverter _instance;
-        public static MovieTVUnionConverter Instance =>
-            _instance = _instance ?? new MovieTVUnionConverter();
+        private static readonly string _exceptionMessage;
+
+        static MovieTVUnionConverter() =>
+            _exceptionMessage = $"Not able to marshal type {nameof(FindByIdMovieTVUnion)}";
 
         public override bool CanConvert(Type t) =>
             t == typeof(FindByIdMovieTVUnion) || t == typeof(FindByIdMovieTVUnion?);
@@ -16,25 +17,16 @@ namespace TMDb.Client.JsonConverters
         [Obsolete("// TODO: Needs refactoring, Make better when time is available")]
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
-            try
+            if (reader.TryParseObject(serializer, out FindByIdMovieResult movieCrew))
             {
-                return new FindByIdMovieTVUnion 
-                { 
-                    Movie = serializer.Deserialize<FindByIdMovieResult>(reader) 
-                };
+                return new FindByIdMovieTVUnion { Movie = movieCrew };
             }
-            catch { }
-
-            try
+            if (reader.TryParseObject(serializer, out FindByIdTVResult tvCrew))
             {
-                return new FindByIdMovieTVUnion
-                {
-                    TV = serializer.Deserialize<FindByIdTVResult>(reader)
-                };
+                return new FindByIdMovieTVUnion { TV = tvCrew };
             }
-            catch { }
 
-            throw new Exception($"Cannot marshal type {nameof(FindByIdMovieTVUnion)}");
+            throw new Exception(_exceptionMessage);
         }
 
         public override void WriteJson(JsonWriter writer, object @object, JsonSerializer serializer)
@@ -49,10 +41,12 @@ namespace TMDb.Client.JsonConverters
             {
                 serializer.Serialize(writer, value.TV);
             }
-            else
-            {
-                throw new Exception($"Cannot marshal type {nameof(FindByIdMovieTVUnion)}");
-            }
+                
+            throw new Exception(_exceptionMessage);
         }
+
+        private static MovieTVUnionConverter _instance;
+        public static MovieTVUnionConverter Instance =>
+            _instance = _instance ?? new MovieTVUnionConverter();
     }
 }

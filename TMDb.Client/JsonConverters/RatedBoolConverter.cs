@@ -43,10 +43,8 @@ namespace TMDb.Client.JsonConverters
             {
                 serializer.Serialize(writer, value.TVEpisodeRating);
             }
-            else
-            {
-                throw new Exception($"Cannot marshal type {nameof(TVEpisodeRatingBoolUnion)}");
-            }
+            
+            throw new Exception($"Cannot marshal type {nameof(TVEpisodeRatingBoolUnion)}");
         }
     }
 }

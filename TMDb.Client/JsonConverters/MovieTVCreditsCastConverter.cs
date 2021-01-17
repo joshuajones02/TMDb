@@ -1,46 +1,36 @@
 ﻿using Newtonsoft.Json;
 using System;
-using TMDb.Client.API.V3.Models.Find;
+using TMDb.Client.API.V3.Models.People;
 
 namespace TMDb.Client.JsonConverters
 {
-    [Obsolete("// TODO: Not implemented with correct classes")]
     public class MovieTVCreditsCastConverter : JsonConverter
     {
-        //private static MovieTVUnionConverter _instance;
-        //public static MovieTVUnionConverter Instance =>
-        //    _instance = _instance ?? new MovieTVUnionConverter();
+        private static readonly string _exceptionMessage;
+
+        static MovieTVCreditsCastConverter() =>
+            _exceptionMessage = $"Not able to marshal type {nameof(MovieTVCreditsCastUnion)}";
 
         public override bool CanConvert(Type t) =>
-            t == typeof(FindByIdMovieTVUnion) || t == typeof(FindByIdMovieTVUnion?);
+            t == typeof(MovieTVCreditsCastUnion) || t == typeof(MovieTVCreditsCastUnion?);
 
-        [Obsolete("// TODO: Needs refactoring, Make better when time is available")]
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
-            try
+            if (reader.TryParseObject(serializer, out PeopleMovieCreditsCast movieCast))
             {
-                return new FindByIdMovieTVUnion
-                {
-                    Movie = serializer.Deserialize<FindByIdMovieResult>(reader)
-                };
+                return new MovieTVCreditsCastUnion { Movie = movieCast };
             }
-            catch { }
-
-            try
+            if (reader.TryParseObject(serializer, out PeopleTVCreditsCast tvCast))
             {
-                return new FindByIdMovieTVUnion
-                {
-                    TV = serializer.Deserialize<FindByIdTVResult>(reader)
-                };
+                return new MovieTVCreditsCastUnion { TV = tvCast };
             }
-            catch { }
 
-            throw new Exception($"Cannot marshal type {nameof(FindByIdMovieTVUnion)}");
+            throw new Exception(_exceptionMessage);
         }
 
         public override void WriteJson(JsonWriter writer, object @object, JsonSerializer serializer)
         {
-            var value = (FindByIdMovieTVUnion)@object;
+            var value = (MovieTVCreditsCastUnion)@object;
 
             if (value.Movie != null)
             {
@@ -50,10 +40,12 @@ namespace TMDb.Client.JsonConverters
             {
                 serializer.Serialize(writer, value.TV);
             }
-            else
-            {
-                throw new Exception($"Cannot marshal type {nameof(FindByIdMovieTVUnion)}");
-            }
+                
+            throw new Exception(_exceptionMessage);
         }
+
+        private static MovieTVCreditsCastConverter _instance;
+        public static MovieTVCreditsCastConverter Instance =>
+            _instance = _instance ?? new MovieTVCreditsCastConverter();
     }
 }

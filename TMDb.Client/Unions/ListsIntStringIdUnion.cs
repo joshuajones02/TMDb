@@ -2,19 +2,19 @@
 {
     public struct ListsIntStringIdUnion
     {
-        public int Int { get; set; }
-        public string String { get; set; }
+        public int IntId { get; set; }
+        public string StringId { get; set; }
 
-        public static implicit operator ListsIntStringIdUnion(int @int) => 
+        public static implicit operator ListsIntStringIdUnion(int intId) => 
             new ListsIntStringIdUnion 
             { 
-                Int = @int 
+                IntId = intId 
             };
 
-        public static implicit operator ListsIntStringIdUnion(string @string) => 
+        public static implicit operator ListsIntStringIdUnion(string stringId) => 
             new ListsIntStringIdUnion 
             { 
-                String = @string 
+                StringId = stringId 
             };
     }
 }

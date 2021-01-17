@@ -28,5 +28,19 @@ namespace TMDb.Client
 
         internal static T ToObject<T>(this string json, JsonSerializerSettings settings = null) =>
             JsonConvert.DeserializeObject<T>(json, settings ?? _defaultSettings);
+
+        internal static bool TryParseObject<T>(this JsonReader reader, JsonSerializer serializer, out T @object)
+        {
+            try
+            {
+                @object = serializer.Deserialize<T>(reader);
+                return true;
+            }
+            catch
+            {
+                @object = default(T);
+                return false;
+            }
+        }
     }
 }
