@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using TMDb.Client.Entities;
+using TMDb.Client.Entities.People;
 
 namespace TMDb.Client.API.V3.Models.TV
 {
@@ -42,35 +42,5 @@ namespace TMDb.Client.API.V3.Models.TV
 
         [JsonProperty("guest_stars")]
         public virtual IEnumerable<TVEpisodesGuestStar> GuestStars { get; set; }
-    }
-
-    public class TVEpisodesGuestStar
-    {
-        [JsonProperty("adult")]
-        public virtual bool Adult { get; set; }
-
-        [JsonProperty("id")]
-        public virtual int Id { get; set; }
-
-        [JsonProperty("gender")]
-        public virtual int? Gender { get; set; }
-
-        [JsonProperty("known_for_department")]
-        public virtual string KnownForDepartment { get; set; }
-
-        [JsonProperty("name")]
-        public virtual string Name { get; set; }
-
-        [JsonProperty("original_name")]
-        public virtual string OriginalName { get; set; }
-
-        [JsonProperty("popularity")]
-        public virtual double Popularity { get; set; }
-
-        [JsonProperty("profile_path")]
-        public virtual string ProfilePath { get; set; }
-
-        [JsonProperty("credit_id")]
-        public virtual string CreditId { get; set; }
     }
 }

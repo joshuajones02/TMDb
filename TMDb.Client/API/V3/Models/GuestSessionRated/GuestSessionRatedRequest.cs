@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using TMDb.Client.Attributes;
+﻿using TMDb.Client.Attributes;
 
 namespace TMDb.Client.API.V3.Models.GuestSessionRated
 {
@@ -19,7 +18,7 @@ namespace TMDb.Client.API.V3.Models.GuestSessionRated
         [ApiParameter(
             Name = "language",
             ParameterType = ParameterType.Query)]
-        public virtual string Language { get; set; }
+        public virtual string LanguageAbbreviation { get; set; }
 
         [ApiParameter(
             Name = "sort_by",

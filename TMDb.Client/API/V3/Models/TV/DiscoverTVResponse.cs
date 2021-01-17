@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace TMDb.Client.API.V3.Models.TV
 {
-    public class DiscoverTVResponse : TMDbResponse
+    public class DiscoverTVResponse : TMDbCollectionResponse
     {
         [JsonProperty("results")]
         public virtual IEnumerable<TVResult> Results { get; set; }

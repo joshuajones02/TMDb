@@ -43,7 +43,7 @@ namespace TMDb.Client.API.V3.Models.TV
 
         [ApiParameter(
             Name = "language")]
-        public virtual string Language { get; set; }
+        public virtual string LanguageAbbreviation { get; set; }
 
         [ApiParameter(
             Name = "with_original_language")]

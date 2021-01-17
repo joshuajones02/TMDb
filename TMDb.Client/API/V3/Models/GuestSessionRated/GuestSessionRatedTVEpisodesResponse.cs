@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace TMDb.Client.API.V3.Models.GuestSessionRated
 {
-    public class GuestSessionRatedTVEpisodesResponse : TMDbResponse
+    public class GuestSessionRatedTVEpisodesResponse : TMDbCollectionResponse
     {
         [JsonProperty("results")]
         public virtual IEnumerable<GuestSessionRatedTVEpisodesItem> Results { get; set; }

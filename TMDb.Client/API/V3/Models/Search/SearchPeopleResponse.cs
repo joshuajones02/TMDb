@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace TMDb.Client.API.V3.Models.Search
 {
-    public class SearchPeopleResponse : TMDbResponse
+    public class SearchPeopleResponse : TMDbCollectionResponse
     {
         [JsonProperty("results")]
         public virtual IEnumerable<SearchPeopleResult> Results { get; set; }

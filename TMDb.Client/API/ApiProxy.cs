@@ -1,5 +1,4 @@
 ﻿using System;
-using TMDb.Client.API.V3.Models;
 
 namespace TMDb.Client.API
 {

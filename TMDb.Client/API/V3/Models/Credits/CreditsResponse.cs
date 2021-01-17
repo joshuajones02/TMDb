@@ -1,11 +1,12 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
-using TMDb.Client.Entities;
+using TMDb.Client.Entities.Media;
+using TMDb.Client.Entities.People;
 using TMDb.Client.Enums;
 
 namespace TMDb.Client.API.V3.Models.Credits
 {
-    public class CreditsResponse : TMDbResponse
+    public class CreditsResponse : TMDbCollectionResponse
     {
         [JsonProperty("id")]
         public virtual string Id { get; set; }

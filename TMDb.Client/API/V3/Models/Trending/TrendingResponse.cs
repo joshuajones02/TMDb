@@ -6,7 +6,7 @@ using TMDb.Client.Enums;
 
 namespace TMDb.Client.API.V3.Models.Trending
 {
-    public class TrendingResponse : TMDbResponse
+    public class TrendingResponse : TMDbCollectionResponse
     {
         [JsonProperty("results")]
         public virtual IEnumerable<TrendingResult> Results { get; set; }
@@ -67,7 +67,7 @@ namespace TMDb.Client.API.V3.Models.Trending
         public virtual MediaType MediaType { get; set; }
 
         [JsonProperty("genre_ids")]
-        public virtual IEnumerable<TMDbGenre> Genres { get; set; }
+        public virtual IEnumerable<int> Genres { get; set; }
 
         //[JsonProperty("origin_country", NullValueHandling = NullValueHandling.Ignore)]
         //public virtual IEnumerable<OriginCountry> OriginCountry { get; set; }

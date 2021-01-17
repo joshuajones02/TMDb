@@ -4,7 +4,7 @@ using System;
 namespace TMDb.Client.API.V3.Models.TVSeasons
 {
     [Obsolete("Combine with TVEpisodes External Ids")]
-    public class TVSeasonsExternalIdsResponse : TMDbResponse
+    public class TVSeasonsExternalIdsResponse : TMDbCollectionResponse
     {
         [JsonProperty("id")]
         public virtual int TMDbId { get; set; }

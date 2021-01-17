@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace TMDb.Client.API.V3.Models.Search
 {
-    public class SearchMoviesResponse : TMDbResponse
+    public class SearchMoviesResponse : TMDbCollectionResponse
     {
         [JsonProperty("results")]
         public virtual IEnumerable<SearchMoviesResult> Results { get; set; }

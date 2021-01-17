@@ -1,5 +1,5 @@
 ﻿using System;
-using TMDb.Client.Entities;
+using TMDb.Client.Entities.Items;
 
 namespace TMDb.Client.API.V3.Models.Collections
 {

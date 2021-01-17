@@ -1,12 +1,12 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
-using TMDb.Client.Entities;
+using TMDb.Client.Entities.People;
 
 namespace TMDb.Client.API.V3.Models.TVSeasons
 {
     public enum Department { Acting, Art, Camera, CostumeMakeUp, Creator, Directing, Editing, Production, Sound, Writing }
 
-    public class TVSeasonsAggregateCreditsResponse : TMDbResponse
+    public class TVSeasonsAggregateCreditsResponse : TMDbCollectionResponse
     {
         [JsonProperty("id")]
         public virtual int Id { get; set; }

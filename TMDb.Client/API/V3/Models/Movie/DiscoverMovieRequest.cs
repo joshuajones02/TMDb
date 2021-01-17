@@ -78,7 +78,7 @@ namespace TMDb.Client.API.V3.Models.Movie
         [ApiParameter(
             Name = "language",
             ParameterType = ParameterType.Query)]
-        public virtual string Language { get; set; }
+        public virtual string LanguageAbbreviation { get; set; }
 
         [ApiParameter(
             Name = "with_original_language",

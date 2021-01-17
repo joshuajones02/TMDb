@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using TMDb.Client.Attributes;
+﻿using TMDb.Client.Attributes;
 
 namespace TMDb.Client.API.V3.Models.Keywords
 {
@@ -18,6 +17,6 @@ namespace TMDb.Client.API.V3.Models.Keywords
         [ApiParameter(
             Name = "language",
             ParameterType = ParameterType.Query)]
-        public virtual string Language { get; set; }
+        public virtual string LanguageAbbreviation { get; set; }
     }
 }

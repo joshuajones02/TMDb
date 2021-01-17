@@ -5,7 +5,7 @@ namespace TMDb.Client.API.V3.Models.Configuration
     public class LanguagesResponse
     {
         [JsonProperty("iso_639_1")]
-        public virtual string Abbreviation { get; set; }
+        public virtual string LanguageAbbreviation { get; set; }
 
         [JsonProperty("english_name")]
         public virtual string Language { get; set; }

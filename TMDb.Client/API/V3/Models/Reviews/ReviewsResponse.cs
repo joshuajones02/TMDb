@@ -5,7 +5,7 @@ using TMDb.Client.Enums;
 
 namespace TMDb.Client.API.V3.Models.Reviews
 {
-    public class ReviewsResponse : TMDbResponse
+    public class ReviewsResponse : TMDbCollectionResponse
     {
         [JsonProperty("media_id")]
         public virtual int MediaId { get; set; }

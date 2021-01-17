@@ -2,7 +2,7 @@
 
 namespace TMDb.Client.API.V3.Models.TVEpisodes
 {
-    public class TVEpisodesExternalIdsResponse : TMDbResponse
+    public class TVEpisodesExternalIdsResponse : TMDbCollectionResponse
     {
         [JsonProperty("id")]
         public virtual int TMDbId { get; set; }

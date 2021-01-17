@@ -3,7 +3,7 @@ using TMDb.Client.JsonConverters;
 
 namespace TMDb.Client.API.V3.Models.TVSeasons
 {
-    public class TVSeasonsAccountStatesResponse : TMDbResponse
+    public class TVSeasonsAccountStatesResponse : TMDbCollectionResponse
     {
         [JsonProperty("id")]
         public virtual int Id { get; set; }

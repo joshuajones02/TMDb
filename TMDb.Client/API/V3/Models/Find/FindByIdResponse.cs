@@ -4,8 +4,7 @@ using System.Collections.Generic;
 
 namespace TMDb.Client.API.V3.Models.Find
 {
-    [Obsolete("Revisit when TMDbResponse has been refactored")]
-    public class FindByIdResponse : TMDbRequest
+    public class FindByIdResponse : TMDbResponse
     {
         [JsonProperty("movie_results")]
         public virtual IEnumerable<FindByIdMovieResult> MovieResults { get; set; }

@@ -15,6 +15,7 @@ namespace TMDb.Client.Attributes
     }
 
     [Obsolete("// TODO: Create startup check for all parameter types having a value")]
+    [AttributeUsage(AttributeTargets.Property)]
     public sealed class ApiParameterAttribute : Attribute
     {
         public ApiParameterAttribute()

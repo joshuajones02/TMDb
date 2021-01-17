@@ -1,10 +1,10 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
-using TMDb.Client.Entities;
+using TMDb.Client.Entities.Organizations;
 
 namespace TMDb.Client.API.V3.Models.Search
 {
-    public class SearchCompaniesResponse : TMDbResponse
+    public class SearchCompaniesResponse : TMDbCollectionResponse
     {
         [JsonProperty("results")]
         public virtual IEnumerable<Company> Companies { get; set; }

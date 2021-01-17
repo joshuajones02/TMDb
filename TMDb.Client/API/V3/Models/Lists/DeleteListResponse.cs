@@ -1,13 +1,6 @@
-﻿using Newtonsoft.Json;
-
-namespace TMDb.Client.API.V3.Models.Lists
+﻿namespace TMDb.Client.API.V3.Models.Lists
 {
-    public class DeleteListResponse
+    public class DeleteListResponse : TMDbStatusResponse
     {
-        [JsonProperty("status_code")]
-        public virtual int StatusCode { get; set; }
-
-        [JsonProperty("status_message")]
-        public virtual string StatusMessage { get; set; }
     }
 }

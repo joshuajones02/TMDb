@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace TMDb.Client.API.V3.Models.TVEpisodes
 {
-    public class TVEpisodesChangesResponse : TMDbResponse
+    public class TVEpisodesChangesResponse : TMDbCollectionResponse
     {
         [JsonProperty("changes")]
         public virtual IEnumerable<TVEpisodesChange> Changes { get; set; }

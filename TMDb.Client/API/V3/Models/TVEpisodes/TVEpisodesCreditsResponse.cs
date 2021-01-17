@@ -1,11 +1,10 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
-using TMDb.Client.API.V3.Models.TV;
-using TMDb.Client.API.V3.Models.TVSeasons;
+using TMDb.Client.Entities.People;
 
 namespace TMDb.Client.API.V3.Models.TVEpisodes
 {
-    public class TVEpisodesCreditsResponse : TMDbResponse
+    public class TVEpisodesCreditsResponse : TMDbCollectionResponse
     {
         [JsonProperty("id")]
         public virtual int Id { get; set; }

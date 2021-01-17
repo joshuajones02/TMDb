@@ -1,12 +1,11 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using TMDb.Client.API.V3.Models.TV;
-using TMDb.Client.API.V3.Models.TVSeasons;
+using TMDb.Client.Entities.People;
 
 namespace TMDb.Client.API.V3.Models.TVEpisodes
 {
-    public class TVEpisodesDetailsResponse : TMDbResponse
+    public class TVEpisodesDetailsResponse : TMDbCollectionResponse
     {
         [JsonProperty("vote_average")]
         public virtual double? VoteAverage { get; set; }

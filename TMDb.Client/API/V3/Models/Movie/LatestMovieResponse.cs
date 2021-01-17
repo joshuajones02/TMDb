@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
-using TMDb.Client.Entities;
+using TMDb.Client.Entities.Items;
+using TMDb.Client.Entities.Places;
 
 namespace TMDb.Client.API.V3.Models.Movie
 {
@@ -79,6 +80,6 @@ namespace TMDb.Client.API.V3.Models.Movie
         public virtual IEnumerable<ProductionCountry> ProductionCountries { get; set; }
 
         [JsonProperty("spoken_languages")]
-        public virtual IEnumerable<SpokenLanguage> SpokenLanguages { get; set; }
+        public virtual IEnumerable<Language> SpokenLanguages { get; set; }
     }
 }

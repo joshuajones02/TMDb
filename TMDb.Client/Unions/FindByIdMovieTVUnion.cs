@@ -5,16 +5,16 @@
         public FindByIdMovieResult Movie;
         public FindByIdTVResult TV;
 
-        public static implicit operator FindByIdMovieTVUnion(FindByIdMovieResult Movie) =>
+        public static implicit operator FindByIdMovieTVUnion(FindByIdMovieResult movie) =>
             new FindByIdMovieTVUnion 
             { 
-                Movie = Movie 
+                Movie = movie 
             };
 
-        public static implicit operator FindByIdMovieTVUnion(FindByIdTVResult TV) =>
+        public static implicit operator FindByIdMovieTVUnion(FindByIdTVResult tv) =>
             new FindByIdMovieTVUnion 
             { 
-                TV = TV 
+                TV = tv
             };
     }
 }

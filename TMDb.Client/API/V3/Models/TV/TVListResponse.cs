@@ -5,7 +5,7 @@ using TMDb.Client.Enums;
 
 namespace TMDb.Client.API.V3.Models.TV
 {
-    public class TVListResponse : TMDbResponse
+    public class TVListResponse : TMDbCollectionResponse
     {
         [JsonProperty("results")]
         public virtual IEnumerable<TVListResult> Results { get; set; }

@@ -1,10 +1,8 @@
 ﻿using Newtonsoft.Json;
-using System;
 
 namespace TMDb.Client.API.V3.Models.Authentication
 {
-    [Obsolete("Revisit when TMDbResponse is refactored")]
-    public class CreateSessionResponse
+    public class CreateSessionResponse : TMDbResponse
     {
         [JsonProperty("success")]
         public virtual bool IsSuccess { get; set; }

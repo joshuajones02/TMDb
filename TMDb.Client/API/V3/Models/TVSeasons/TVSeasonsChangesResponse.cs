@@ -4,7 +4,7 @@ using TMDb.Client.Enums;
 
 namespace TMDb.Client.API.V3.Models.TVSeasons
 {
-    public class TVSeasonsChangesResponse : TMDbResponse
+    public class TVSeasonsChangesResponse : TMDbCollectionResponse
     {
         [JsonProperty("changes")]
         public virtual IEnumerable<TVSeasonsChange> Changes { get; set; }
@@ -25,7 +25,7 @@ namespace TMDb.Client.API.V3.Models.TVSeasons
         public virtual string Id { get; set; }
 
         [JsonProperty("iso_639_1")]
-        public virtual string Language { get; set; }
+        public virtual string LanguageAbbreviation { get; set; }
 
         [JsonProperty("original_value")]
         public virtual string OriginalValue { get; set; }

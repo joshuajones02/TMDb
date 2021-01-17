@@ -1,10 +1,11 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
-using TMDb.Client.Entities;
+using TMDb.Client.Entities.Media;
+using TMDb.Client.Entities.Organizations;
 
 namespace TMDb.Client.API.V3.Models.TVEpisodeGroups
 {
-    public class TVEpisodeGroupsResponse : TMDbResponse
+    public class TVEpisodeGroupsResponse : TMDbCollectionResponse
     {
         [JsonProperty("episode_count")]
         public virtual int EpisodeCount { get; set; }

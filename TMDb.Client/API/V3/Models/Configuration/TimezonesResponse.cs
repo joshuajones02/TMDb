@@ -11,9 +11,9 @@ namespace TMDb.Client.API.V3.Models.Configuration
     public class Timezone
     {
         [JsonProperty("iso_3166_1")]
-        public virtual string CountryAbbreviation { get; set; }
+        public virtual string CountryCode { get; set; }
 
         [JsonProperty("zones")]
-        public virtual string[] Zones { get; set; }
+        public virtual IEnumerable<string> Zones { get; set; }
     }
 }
