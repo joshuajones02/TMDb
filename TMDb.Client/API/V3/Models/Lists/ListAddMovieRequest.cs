@@ -4,9 +4,7 @@ using TMDb.Client.Attributes;
 
 namespace TMDb.Client.API.V3.Models.Lists
 {
-    [ApiParameter(
-        ParameterType = ParameterType.Endpoint,
-        Value = "/list/{list_id}/add_item")]
+    [ApiPostEndpoint("/list/{list_id}/add_item")]
     public class ListAddMovieRequest : ListRequestBase
     {
         [ApiParameter(

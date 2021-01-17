@@ -3,9 +3,7 @@ using TMDb.Client.Attributes;
 
 namespace TMDb.Client.API.V3.Models.Lists
 {
-    [ApiParameter(
-       ParameterType = ParameterType.Endpoint,
-       Value = "/list/{list_id}/clear")]
+    [ApiPostEndpoint("/list/{list_id}/clear")]
     public class ClearListRequest : ListRequestBase
     {
         [ApiParameter(

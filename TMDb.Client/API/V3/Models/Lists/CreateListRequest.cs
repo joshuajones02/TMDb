@@ -4,9 +4,7 @@ using TMDb.Client.Attributes;
 
 namespace TMDb.Client.API.V3.Models.Lists
 {
-    [ApiParameter(
-        ParameterType = ParameterType.Endpoint,
-        Value = "/list")]
+    [ApiPostEndpoint("/list")]
     public class CreateListRequest : TMDbRequest
     {
         [ApiParameter(
