@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
+﻿using System.ComponentModel.DataAnnotations;
 using TMDb.Client.Attributes;
 
 namespace TMDb.Client.API.V3.Models.Movies

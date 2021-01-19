@@ -1,38 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using TMDb.Client.Attributes;
 using TMDb.Client.Enums;
 
 namespace TMDb.Client.API.V3.Models.Discover
 {
     /// <summary>
-    /// Discover movies by different types of data like average rating, 
-    /// number of votes, genres and certifications. You can get a valid 
-    /// list of certifications from the certifications list method 
+    /// Discover movies by different types of data like average rating,
+    /// number of votes, genres and certifications. You can get a valid
+    /// list of certifications from the certifications list method
     /// (https://developers.themoviedb.org/3/certifications/get-movie-certifications).
-    /// 
-    /// Discover also supports a nice list of sort options.See below 
+    ///
+    /// Discover also supports a nice list of sort options.See below
     /// for all of the available options.
-    /// 
+    ///
     /// Please note, when using certification \ certification.lte you
-    /// must also specify certification_country.These two parameters 
-    /// work together in order to filter the results.You can only 
+    /// must also specify certification_country.These two parameters
+    /// work together in order to filter the results.You can only
     /// filter results with the countries we have added to our.
-    /// 
-    /// If you specify the region parameter, the regional release 
+    ///
+    /// If you specify the region parameter, the regional release
     /// date will be used instead of the primary release date.
-    /// The date returned will be the first date based on your query 
-    /// (ie. if a with_release_type is specified). It's important 
+    /// The date returned will be the first date based on your query
+    /// (ie. if a with_release_type is specified). It's important
     /// to note the order of the release types that are used.
-    /// Specifying "2|3" would return the limited theatrical release 
+    /// Specifying "2|3" would return the limited theatrical release
     /// date as opposed to "3|2" which would return the theatrical
     /// date.
-    /// 
+    ///
     /// Also note that a number of filters support being comma(,) or
     /// pipe(|) separated.Comma's are treated like an AND and query
     /// while pipe's are an OR.
-    /// 
+    ///
     /// Some examples of what can be done with discover can be found
     /// https://www.themoviedb.org/documentation/api/discover.
     /// </summary>
@@ -61,14 +60,14 @@ namespace TMDb.Client.API.V3.Models.Discover
 
         /// <summary>
         /// Choose from one of the many available sort options.
-        ///     
-        ///     Allowed Values: 
-        ///         popularity.asc           , popularity.desc, 
-        ///         release_date.asc         , release_date.desc, 
-        ///         revenue.asc              , revenue.desc, 
+        ///
+        ///     Allowed Values:
+        ///         popularity.asc           , popularity.desc,
+        ///         release_date.asc         , release_date.desc,
+        ///         revenue.asc              , revenue.desc,
         ///         primary_release_date.asc , primary_release_date.desc,
-        ///         original_title.asc       , original_title.desc, 
-        ///         vote_average.asc         , vote_average.desc, 
+        ///         original_title.asc       , original_title.desc,
+        ///         vote_average.asc         , vote_average.desc,
         ///         vote_count.asc           , vote_count.desc
         ///     default: popularity.desc
         /// </summary>
@@ -181,8 +180,8 @@ namespace TMDb.Client.API.V3.Models.Discover
         public virtual DateTime? ReleaseDateGreaterThanOrEqualTo { get; set; }
 
         /// <summary>
-        /// Filter and only include movies that have a release date 
-        /// (looking at all release dates) that is less than or 
+        /// Filter and only include movies that have a release date
+        /// (looking at all release dates) that is less than or
         /// equal to the specified value.
         ///     format: date
         /// </summary>
@@ -206,7 +205,7 @@ namespace TMDb.Client.API.V3.Models.Discover
 
         /// <summary>
         /// These release types map to the same values found on the movie release date method.
-        ///     search type: OR (|) 
+        ///     search type: OR (|)
         ///     minimum: 1
         ///     maximum: 6
         /// </summary>
@@ -354,7 +353,7 @@ namespace TMDb.Client.API.V3.Models.Discover
         public virtual IEnumerable<int> WithoutEitherGenreIds { get; set; }
 
         /// <summary>
-        /// A comma separated list of keyword ID's. Only includes movies that 
+        /// A comma separated list of keyword ID's. Only includes movies that
         /// have one of the ID's added as a keyword.
         ///     search type: AND (,)
         /// </summary>
@@ -366,9 +365,9 @@ namespace TMDb.Client.API.V3.Models.Discover
         public virtual IEnumerable<int> WithKeywordIds { get; set; }
 
         /// <summary>
-        /// A comma separated list of keyword ID's. Only includes movies that 
+        /// A comma separated list of keyword ID's. Only includes movies that
         /// have one of the ID's added as a keyword.
-        ///     search type: OR (|) 
+        ///     search type: OR (|)
         /// </summary>
         [ApiParameter(
             Delimeter = '|',
@@ -440,7 +439,7 @@ namespace TMDb.Client.API.V3.Models.Discover
         /// A pipe separated list of watch provider ID's. Combine this filter
         /// with watch_region in order to filter your results by a specific
         /// watch provider in a specific region.
-        ///     search type: OR (|) 
+        ///     search type: OR (|)
         /// </summary>
         [ApiParameter(
             Delimeter = '|',
@@ -451,7 +450,7 @@ namespace TMDb.Client.API.V3.Models.Discover
 
         /// <summary>
         /// An ISO 3166-1 code. Combine this filter with with_watch_providers
-        /// in order to filter your results by a specific watch provider 
+        /// in order to filter your results by a specific watch provider
         /// in a specific region.
         /// </summary>
         [ApiParameter(

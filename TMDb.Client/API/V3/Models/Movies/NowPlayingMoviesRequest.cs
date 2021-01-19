@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using TMDb.Client.Attributes;
 
 namespace TMDb.Client.API.V3.Models.Movies

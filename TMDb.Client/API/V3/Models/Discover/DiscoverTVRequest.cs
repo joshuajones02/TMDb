@@ -1,23 +1,21 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using TMDb.Client.Attributes;
 using TMDb.Client.Enums;
-using TMDb.Client.JsonConverters;
 
 namespace TMDb.Client.API.V3.Models.TV
 {
     /// <summary>
     /// Discover TV shows by different types of data like average rating,
     /// number of votes, genres, the network they aired on and air dates.
-    /// 
+    ///
     /// Discover also supports a nice list of sort options.
     /// See below for all of the available options.
-    /// 
-    /// Also note that a number of filters support being comma(,) or 
+    ///
+    /// Also note that a number of filters support being comma(,) or
     /// pipe(|) separated.Comma's are treated like an AND and query while
     /// pipe's are an OR.
-    /// 
+    ///
     /// Some examples of what can be done with discover can be found
     /// https://www.themoviedb.org/documentation/api/discover.
     /// </summary>
@@ -37,9 +35,9 @@ namespace TMDb.Client.API.V3.Models.TV
 
         /// <summary>
         /// Choose from one of the many available sort options.
-        ///     Allowed Values: 
-        ///         vote_average.desc   , vote_average.asc, 
-        ///         first_air_date.desc , first_air_date.asc, 
+        ///     Allowed Values:
+        ///         vote_average.desc   , vote_average.asc,
+        ///         first_air_date.desc , first_air_date.asc,
         ///         popularity.desc     , popularity.asc
         ///     default: popularity.desc
         /// </summary>
@@ -235,7 +233,7 @@ namespace TMDb.Client.API.V3.Models.TV
         public virtual string WithOriginalLanguageAbbreviation { get; set; }
 
         /// <summary>
-        /// A comma separated list of keyword ID's. Only includes movies that 
+        /// A comma separated list of keyword ID's. Only includes movies that
         /// have one of the ID's added as a keyword.
         ///     search type: AND (,)
         /// </summary>
@@ -247,9 +245,9 @@ namespace TMDb.Client.API.V3.Models.TV
         public virtual IEnumerable<int> WithKeywordIds { get; set; }
 
         /// <summary>
-        /// A comma separated list of keyword ID's. Only includes movies that 
+        /// A comma separated list of keyword ID's. Only includes movies that
         /// have one of the ID's added as a keyword.
-        ///     search type: OR (|) 
+        ///     search type: OR (|)
         /// </summary>
         [ApiParameter(
             Delimeter = '|',
@@ -316,7 +314,7 @@ namespace TMDb.Client.API.V3.Models.TV
         /// A pipe separated list of watch provider ID's. Combine this filter
         /// with watch_region in order to filter your results by a specific
         /// watch provider in a specific region.
-        ///     search type: OR (|) 
+        ///     search type: OR (|)
         /// </summary>
         [ApiParameter(
             Delimeter = '|',
@@ -327,7 +325,7 @@ namespace TMDb.Client.API.V3.Models.TV
 
         /// <summary>
         /// An ISO 3166-1 code. Combine this filter with with_watch_providers
-        /// in order to filter your results by a specific watch provider 
+        /// in order to filter your results by a specific watch provider
         /// in a specific region.
         /// </summary>
         [ApiParameter(

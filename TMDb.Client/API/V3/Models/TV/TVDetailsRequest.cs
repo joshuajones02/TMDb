@@ -1,23 +1,27 @@
-﻿using Newtonsoft.Json;
-using TMDb.Client.Attributes;
+﻿using TMDb.Client.Attributes;
 
 namespace TMDb.Client.API.V3.Models.TV
 {
-    public class TVDetailsRequest : TMDbRequest
+    public class TVDetailsRequest : TVBaseRequest
     {
         /// <summary>
+        /// Pass a ISO 639-1 value to display translated data for the fields that support it.
+        ///     minLength: 2
+        ///     pattern: ([a - z]{2})-([A - Z]{2})
+        ///     default: en - US
+        /// </summary>
+        [ApiParameter(
+            Name = "language",
+            ParameterType = ParameterType.Query)]
+        public virtual string LanguageAbbreviation { get; set; }
+
+        /// <summary>
         /// Append requests within the same namespace to the response.
-        ///     Example: https://api.themoviedb.org/3/movie/157336?api_key={api_key}&append_to_response=videos,images
-        ///     Pattern: [\w]+
+        ///     pattern: ([\w]+)
         /// </summary>
         [ApiParameter(
             Name = "append_to_response",
             ParameterType = ParameterType.Query)]
         public virtual string AppendToResponse { get; set; }
-
-        [ApiParameter(
-            Name = "language",
-            ParameterType = ParameterType.Query)]
-        public virtual string LanguageAbbreviation { get; set; }
     }
 }

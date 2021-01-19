@@ -1,7 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace TMDb.Client.API.V3.Models.Movies
 {
@@ -161,7 +160,7 @@ namespace TMDb.Client.API.V3.Models.Movies
         public Uri Link { get; set; }
 
         [JsonProperty(
-            propertyName: "flatrate", 
+            propertyName: "flatrate",
             NullValueHandling = NullValueHandling.Ignore)]
         public IEnumerable<WatchProvider> FlatRate { get; set; }
 

@@ -1,7 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using TMDb.Client.Contracts;
 using TMDb.Client.Entities.Organizations;
 using TMDb.Client.Entities.Things;
