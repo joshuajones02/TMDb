@@ -2,9 +2,8 @@
 using System;
 using System.Collections.Generic;
 using TMDb.Client.API.V3.Models.TV;
-using TMDb.Client.Entities.Items;
 using TMDb.Client.Entities.Organizations;
-using TMDb.Client.Entities.Places;
+using TMDb.Client.Entities.Things;
 
 namespace TMDb.Client.Entities.Media
 {
@@ -83,10 +82,10 @@ namespace TMDb.Client.Entities.Media
         public virtual IEnumerable<string> OriginCountry { get; set; }
 
         [JsonProperty("created_by")]
-        public virtual IEnumerable<CreatedBy> CreatedBy { get; set; }
+        public virtual IEnumerable<TVCreatedBy> CreatedBy { get; set; }
 
         [JsonProperty("genres")]
-        public virtual IEnumerable<MovieGenre> Genres { get; set; }
+        public virtual IEnumerable<TVGenre> Genres { get; set; }
 
         [JsonProperty("networks")]
         public virtual IEnumerable<Network> Networks { get; set; }

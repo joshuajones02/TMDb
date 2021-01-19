@@ -14,11 +14,19 @@ namespace TMDb.Client.Attributes
         Header                 = 70
     }
 
+    public enum SerializationOption
+    {
+        DateOnly,
+        DelimeterSeparatedValue,        
+    }
+
     [Obsolete("// TODO: Create startup check for all parameter types having a value")]
     [AttributeUsage(AttributeTargets.Property)]
     public sealed class ApiParameterAttribute : Attribute
     {
+        public char Delimeter { get; set; }
         public string Name { get; set; }
         public ParameterType ParameterType { get; set; }
+        public SerializationOption Option { get; set; }
     }
 }

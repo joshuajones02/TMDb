@@ -14,10 +14,10 @@ namespace TMDb.Client.API.V3.Models.TV
     public class TVListResult
     {
         [JsonProperty("popularity")]
-        public virtual double Popularity { get; set; }
+        public virtual double? Popularity { get; set; }
 
         [JsonProperty("vote_average")]
-        public virtual double VoteAverage { get; set; }
+        public virtual double? VoteAverage { get; set; }
 
         [JsonProperty("id")]
         public virtual int Id { get; set; }

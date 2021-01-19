@@ -4,16 +4,16 @@ namespace TMDb.Client.Unions
 {
     public struct PopularPeopleKnownForMovieTVUnion
     {
-        public PopularPeopleKnownForMovie Movie;
-        public PopularPeopleKnownForTV TV;
+        public PersonKnownForMovie Movie;
+        public PersonKnownForTV TV;
 
-        public static implicit operator PopularPeopleKnownForMovieTVUnion(PopularPeopleKnownForMovie movie) =>
+        public static implicit operator PopularPeopleKnownForMovieTVUnion(PersonKnownForMovie movie) =>
             new PopularPeopleKnownForMovieTVUnion
             {
                 Movie = movie
             };
 
-        public static implicit operator PopularPeopleKnownForMovieTVUnion(PopularPeopleKnownForTV tv) =>
+        public static implicit operator PopularPeopleKnownForMovieTVUnion(PersonKnownForTV tv) =>
             new PopularPeopleKnownForMovieTVUnion
             {
                 TV = tv

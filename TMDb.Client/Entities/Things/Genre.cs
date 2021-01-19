@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace TMDb.Client.Entities.Items
+namespace TMDb.Client.Entities.Things
 {
     public class Genre
     {

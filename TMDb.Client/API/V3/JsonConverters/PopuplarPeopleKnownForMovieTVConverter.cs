@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using TMDb.Client.API.V3.Models.People;
+using TMDb.Client.Entities.Media;
 using TMDb.Client.Unions;
 
 namespace TMDb.Client.JsonConverters
@@ -17,11 +18,11 @@ namespace TMDb.Client.JsonConverters
 
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
-            if (reader.TryParseObject(serializer, out PopularPeopleKnownForMovie movieCrew))
+            if (reader.TryParseObject(serializer, out PersonKnownForMovie movieCrew))
             {
                 return new PopularPeopleKnownForMovieTVUnion { Movie = movieCrew };
             }
-            if (reader.TryParseObject(serializer, out PopularPeopleKnownForTV tvCrew))
+            if (reader.TryParseObject(serializer, out PersonKnownForTV tvCrew))
             {
                 return new PopularPeopleKnownForMovieTVUnion { TV = tvCrew };
             }

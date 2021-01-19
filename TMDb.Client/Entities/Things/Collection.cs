@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using TMDb.Client.Entities.Media;
 
-namespace TMDb.Client.Entities.Items
+namespace TMDb.Client.Entities.Things
 {
 
-    public class Collection : MinifiedCollection
+    public class Collection : CollectionMinified
     {
         [JsonProperty("overview")]
         public string Overview { get; set; }

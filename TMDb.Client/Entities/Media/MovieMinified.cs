@@ -1,11 +1,12 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using TMDb.Client.Contracts;
 
 namespace TMDb.Client.Entities.Media
 {
-    // TODO: Replace "Title" with "Name" and override JsonProperty to use Title parameter name ??
-    public class MovieMinified // : TMDbEntity
+    [Obsolete("// TODO: Replace 'Title' with 'Name' and override JsonProperty to use Title parameter name")]
+    public class MovieMinified : IMovieMinified
     {
         [JsonProperty("adult")]
         public virtual bool Adult { get; set; }
@@ -47,7 +48,7 @@ namespace TMDb.Client.Entities.Media
         public virtual DateTime? ReleaseDate { get; set; }
 
         [JsonProperty("genre_ids")]
+        [Obsolete("// TODO: Create JSON Converter that will use Genres to fill data")]
         public virtual IEnumerable<int> GenreIds { get; set; }
-
     }
 }

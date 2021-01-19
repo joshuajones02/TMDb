@@ -9,6 +9,6 @@ namespace TMDb.Client.API.V3.Models.People
         public virtual int Id { get; set; }
 
         [JsonProperty("translations")]
-        public virtual IEnumerable<Translation> Translations { get; set; }
+        public virtual IEnumerable<PersonTranslation> Translations { get; set; }
     }
 }

@@ -37,7 +37,7 @@ namespace TMDb.Client
 
         public Task<TResult> PostJsonAsync<TResult>(Uri uri, string json, JsonSerializerSettings deserializeSettings = null) where TResult : class =>
             SendAsync<TResult>(HttpMethod.Post, uri, json, deserializeSettings);
-
+        
         public Task<TResult> DeleteAsync<TResult>(Uri uri, string json, JsonSerializerSettings deserializeSettings = null) where TResult : class =>
             SendAsync<TResult>(HttpMethod.Delete, uri, json, deserializeSettings);
 

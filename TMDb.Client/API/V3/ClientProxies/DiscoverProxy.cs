@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using TMDb.Client.API.V3.Models.Movie;
+using TMDb.Client.API.V3.Models.Discover;
 using TMDb.Client.API.V3.Models.TV;
 
 namespace TMDb.Client.API.V3.ClientProxies

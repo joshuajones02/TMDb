@@ -1,10 +1,9 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using TMDb.Client.Entities.Items;
 using TMDb.Client.Entities.Media;
 using TMDb.Client.Entities.Organizations;
-using TMDb.Client.Entities.Places;
+using TMDb.Client.Entities.Things;
 
 namespace TMDb.Client.API.V3.Models.TV
 {
@@ -74,7 +73,7 @@ namespace TMDb.Client.API.V3.Models.TV
         public virtual Episode LastEpisodeToAir { get; set; }
 
         [JsonProperty("created_by")]
-        public virtual IEnumerable<CreatedBy> CreatedBy { get; set; }
+        public virtual IEnumerable<TVCreatedBy> CreatedBy { get; set; }
 
         [JsonProperty("episode_run_time")]
         public virtual IEnumerable<int> EpisodeRunTime { get; set; }

@@ -32,6 +32,6 @@ namespace TMDb.Client.API.V3.Models.Search
         [ApiParameter(
             Name = "region",
             ParameterType = ParameterType.Query)]
-        public virtual string Region { get; set; }
+        public virtual string CountryCode { get; set; }
     }
 }

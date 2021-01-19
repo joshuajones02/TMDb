@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 namespace TMDb.Client.API.V3.Models.People
 {
+    [Obsolete("// TODO: Refactor with PersonMinified")]
     public class PeopleTVCreditsBasePerson
     {
         [JsonProperty("vote_average")]

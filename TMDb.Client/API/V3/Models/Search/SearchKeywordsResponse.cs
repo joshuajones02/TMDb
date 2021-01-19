@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
-using TMDb.Client.Entities.Items;
+using TMDb.Client.Entities.Things;
 
 namespace TMDb.Client.API.V3.Models.Search
 {

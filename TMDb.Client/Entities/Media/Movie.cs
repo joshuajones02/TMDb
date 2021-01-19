@@ -1,54 +1,53 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using TMDb.Client.Entities.Items;
-using TMDb.Client.Entities.Places;
+using TMDb.Client.Contracts;
+using TMDb.Client.Entities.Organizations;
+using TMDb.Client.Entities.Things;
 
 namespace TMDb.Client.Entities.Media
 {
-    // TODO: Replace "Title" with "Name" and override JsonProperty to use Title parameter name
-    [Obsolete("// TODO: Review model's properties to ensure it has everything implemented - may have modifictations that were incorrect")]
-    public class Movie : MovieMinified // : TMDbEntity
+    [Obsolete("// TODO: Replace 'Title' with 'Name' and override JsonProperty to use Title parameter name")]
+    public class Movie : MovieMinified, IMovie
     {
+        [JsonProperty("budget")]
+        public virtual int? Budget { get; set; }
+
         [JsonProperty("revenue")]
-        public decimal? Revenue { get; set; }
+        public virtual int? Revenue { get; set; }
 
         [JsonProperty("runtime")]
-        public short? Runtime { get; set; }
-
-        [JsonProperty("budget")]
-        public decimal? Budget { get; set; }
+        public virtual int? Runtime { get; set; }
 
         [JsonProperty("imdb_id")]
-        public string IMDbId { get; set; }
+        public virtual string IMDbId { get; set; }
 
         [JsonProperty("status")]
-        public string Status { get; set; }
+        public virtual string Status { get; set; }
 
         [JsonProperty("tagline")]
-        public string Tagline { get; set; }
+        public virtual string Tagline { get; set; }
+
+        [JsonProperty("beints_to_collection")]
+        public virtual CollectionMinified Collection { get; set; }
 
         [JsonProperty("homepage")]
-        public Uri Homepage { get; set; }
+        public virtual Uri Homepage { get; set; }
 
-        [JsonProperty("belongs_to_collection")]
-        public MinifiedCollection Collection { get; set; }
+        [JsonIgnore]
+        [Obsolete("// TODO: Create JSON Converter that will use Genres to fill data")]
+        public override IEnumerable<int> GenreIds { get; set; }
+
+        [JsonProperty("genres")]
+        public virtual IEnumerable<Genre> Genres { get; set; }
 
         [JsonProperty("spoken_languages")]
-        public virtual IEnumerable<Language> Languages { get; set; }
+        public virtual IEnumerable<LanguageMinified> Languages { get; set; }
 
-        //[JsonProperty("genres")]
-        //public virtual ICollection<Genre> Genres { get; set; }
-        //public List<MovieGenres> MovieGenres { get; set; }
+        [JsonProperty("production_companies")]
+        public virtual IEnumerable<ProductionCompany> ProductionCompanies { get; set; }
 
-        //[JsonProperty("spoken_languages")]
-        //public virtual ICollection<Language> SpokenLanguages { get; set; }
-        //public List<MovieLanguage> MovieLanguage { get; set; }
-
-        //[JsonProperty("production_companies")]
-        //public ICollection<ProductionCompany> ProductionCompanies { get; set; }
-
-        //[JsonProperty("production_countries")]
-        //public ICollection<ProductionCountry> ProductionCountries { get; set; }
+        [JsonProperty("production_countries")]
+        public virtual IEnumerable<ProductionCountry> ProductionCountries { get; set; }
     }
 }
