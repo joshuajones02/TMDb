@@ -18,18 +18,6 @@ namespace TMDb.Client.Entities.Things
         public virtual string EnglishName { get; set; }
 
         [JsonProperty("data")]
-        public virtual TranslationData Data { get; set; }
-    }
-
-    public class TranslationData
-    {
-        [JsonProperty("title")]
-        public virtual string Title { get; set; }
-
-        [JsonProperty("overview")]
-        public virtual string Overview { get; set; }
-
-        [JsonProperty("homepage")]
-        public virtual string Homepage { get; set; }
+        public virtual TranslationDataItem Data { get; set; }
     }
 }

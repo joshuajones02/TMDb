@@ -12,7 +12,7 @@ namespace TMDb.Client.JsonConverters
             _instance = _instance ?? new RatedBoolConverter();
 
         public override bool CanConvert(Type t) =>
-            t == typeof(TVEpisodeRatingBoolUnion) || t == typeof(TVEpisodeRatingBoolUnion?);
+            t == typeof(TVRatingBoolUnion) || t == typeof(TVRatingBoolUnion?);
 
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
@@ -20,31 +20,31 @@ namespace TMDb.Client.JsonConverters
             {
                 case JsonToken.Boolean:
                     var boolValue = serializer.Deserialize<bool>(reader);
-                    return new TVEpisodeRatingBoolUnion { Bool = boolValue };
+                    return new TVRatingBoolUnion { Bool = boolValue };
 
                 case JsonToken.StartObject:
-                    var objectValue = serializer.Deserialize<TVEpisodeRating>(reader);
-                    return new TVEpisodeRatingBoolUnion { TVEpisodeRating = objectValue };
+                    var objectValue = serializer.Deserialize<TVRating>(reader);
+                    return new TVRatingBoolUnion { TVRating = objectValue };
 
                 default:
-                    throw new Exception($"Cannot marshal type {nameof(TVEpisodeRatingBoolUnion)}");
+                    throw new Exception($"Cannot marshal type {nameof(TVRatingBoolUnion)}");
             }
         }
 
         public override void WriteJson(JsonWriter writer, object @object, JsonSerializer serializer)
         {
-            var value = (TVEpisodeRatingBoolUnion)@object;
+            var value = (TVRatingBoolUnion)@object;
 
             if (value.Bool != null)
             {
                 serializer.Serialize(writer, value.Bool.Value);
             }
-            else if (value.TVEpisodeRating != null)
+            else if (value.TVRating != null)
             {
-                serializer.Serialize(writer, value.TVEpisodeRating);
+                serializer.Serialize(writer, value.TVRating);
             }
             
-            throw new Exception($"Cannot marshal type {nameof(TVEpisodeRatingBoolUnion)}");
+            throw new Exception($"Cannot marshal type {nameof(TVRatingBoolUnion)}");
         }
     }
 }

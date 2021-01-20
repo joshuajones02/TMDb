@@ -1,7 +1,9 @@
 ﻿using Newtonsoft.Json;
+using System;
 
 namespace TMDb.Client.API.V3.Models.Movies
 {
+    [Obsolete("// TODO: Rename and move to entities")]
     public class MovieReviewsAuthorDetails
     {
         [JsonProperty("rating")]

@@ -14,6 +14,6 @@ namespace TMDb.Client.API.V3.Models.Movies
         public virtual int Id { get; set; }
 
         [JsonProperty("rated")]
-        public virtual Entities.Things.TVEpisodeRating Rated { get; set; }
+        public virtual Entities.Things.TVRating Rated { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
+using TMDb.Client.Entities.Media;
 
 namespace TMDb.Client.API.V3.Models.Movies
 {
@@ -9,6 +10,6 @@ namespace TMDb.Client.API.V3.Models.Movies
         public virtual int Id { get; set; }
 
         [JsonProperty("results")]
-        public virtual List<MovieVideosResult> Results { get; set; }
+        public virtual List<Video> Results { get; set; }
     }
 }

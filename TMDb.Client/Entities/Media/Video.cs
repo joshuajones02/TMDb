@@ -1,8 +1,8 @@
 ﻿using Newtonsoft.Json;
 
-namespace TMDb.Client.API.V3.Models.Movies
+namespace TMDb.Client.Entities.Media
 {
-    public class MovieVideosResult
+    public class Video
     {
         [JsonProperty("size")]
         public virtual int Size { get; set; }

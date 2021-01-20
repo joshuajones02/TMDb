@@ -2,21 +2,21 @@
 
 namespace TMDb.Client.API.V3.Models.TVEpisodes
 {
-    public struct TVEpisodeRatingBoolUnion
+    public struct TVRatingBoolUnion
     {
         public bool? Bool;
-        public TVEpisodeRating TVEpisodeRating;
+        public TVRating TVRating;
 
-        public static implicit operator TVEpisodeRatingBoolUnion(bool @bool) =>
-            new TVEpisodeRatingBoolUnion 
+        public static implicit operator TVRatingBoolUnion(bool @bool) =>
+            new TVRatingBoolUnion 
             { 
                 Bool = @bool 
             };
 
-        public static implicit operator TVEpisodeRatingBoolUnion(TVEpisodeRating tvEpisodeRating) =>
-            new TVEpisodeRatingBoolUnion 
+        public static implicit operator TVRatingBoolUnion(TVRating tvRating) =>
+            new TVRatingBoolUnion 
             { 
-                TVEpisodeRating = tvEpisodeRating 
+                TVRating = tvRating 
             };
     }
 }

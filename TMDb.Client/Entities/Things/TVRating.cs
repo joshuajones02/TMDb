@@ -2,7 +2,7 @@
 
 namespace TMDb.Client.Entities.Things
 {
-    public class TVEpisodeRating
+    public class TVRating
     {
         [JsonProperty("value")]
         public virtual int Value { get; set; }
