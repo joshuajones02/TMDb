@@ -15,6 +15,8 @@ namespace TMDb.Client.Contracts
         int VoteCount { get; set; }
 
         string BackdropPath { get; set; }
+        /// <include file='tmdb-api-comments.xml' path='doc/members/member[@name="LanguageAbbreviation"]/*' />
+        [Obsolete("// TODO: Rename property to OriginalLanguage")]
         string LanguageAbbreviation { get; set; }
         string OriginalTitle { get; set; }
         string Overview { get; set; }

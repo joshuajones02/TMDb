@@ -22,6 +22,7 @@ namespace TMDb.Client.Entities.Media
         [JsonProperty("file_path")]
         public virtual string FilePath { get; set; }
 
+        /// <include file='tmdb-api-comments.xml' path='doc/members/member[@name="LanguageAbbreviation"]/*' />
         [JsonProperty("iso_639_1")]
         public virtual string LanguageAbbreviation { get; set; }
     }

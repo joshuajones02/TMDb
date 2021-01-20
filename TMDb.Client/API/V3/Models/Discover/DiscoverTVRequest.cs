@@ -22,12 +22,7 @@ namespace TMDb.Client.API.V3.Models.TV
     [ApiGetEndpoint("/discover/tv")]
     public class DiscoverTVRequest : TMDbRequest
     {
-        /// <summary>
-        /// Specify a language to query translatable fields with.
-        ///     minLength: 2
-        ///     pattern: ([a - z]{2})-([A - Z]{2})
-        ///     default: en - US
-        /// </summary>
+        /// <include file='tmdb-api-comments.xml' path='doc/members/member[@name="LanguageAbbreviation"]/*' />
         [ApiParameter(
             Name = "language",
             ParameterType = ParameterType.Query)]
@@ -224,9 +219,7 @@ namespace TMDb.Client.API.V3.Models.TV
             ParameterType = ParameterType.Query)]
         public virtual bool? IncludeNullFirstAirDates { get; set; }
 
-        /// <summary>
-        /// Specify an ISO 639-1 string to filter results by their original language value.
-        /// </summary>
+        /// <include file='tmdb-api-comments.xml' path='doc/members/member[@name="LanguageAbbreviation"]/*' />
         [ApiParameter(
             Name = "with_original_language",
             ParameterType = ParameterType.Query)]

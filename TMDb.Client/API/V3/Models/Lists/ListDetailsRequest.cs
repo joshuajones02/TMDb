@@ -7,6 +7,7 @@ namespace TMDb.Client.API.V3.Models.Lists
     [Obsolete("// TODO: Move value to appsettings file")]
     public class ListDetailsRequest : ListRequestBase
     {
+        /// <include file='tmdb-api-comments.xml' path='doc/members/member[@name="LanguageAbbreviation"]/*' />
         [ApiParameter(
             Name = "language")]
         public virtual string LanguageAbbreviation { get; set; }

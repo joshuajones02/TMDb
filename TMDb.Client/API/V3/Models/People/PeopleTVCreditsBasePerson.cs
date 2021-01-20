@@ -28,6 +28,7 @@ namespace TMDb.Client.API.V3.Models.People
         [JsonProperty("credit_id")]
         public virtual string CreditId { get; set; }
 
+        /// <include file='tmdb-api-comments.xml' path='doc/members/member[@name="LanguageAbbreviation"]/*' />
         [JsonProperty("original_language")]
         public virtual string LanguageAbbreviation { get; set; }
 
@@ -47,7 +48,7 @@ namespace TMDb.Client.API.V3.Models.People
         public virtual DateTime? FirstAirDate { get; set; }
 
         [JsonProperty("origin_country")]
-        public virtual IEnumerable<string> CountryCodes { get; set; }
+        public virtual IEnumerable<string> OriginCountry { get; set; }
 
         [JsonProperty("genre_ids")]
         public virtual IEnumerable<int> GenreIds { get; set; }

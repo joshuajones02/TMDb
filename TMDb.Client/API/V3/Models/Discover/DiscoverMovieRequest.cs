@@ -38,12 +38,7 @@ namespace TMDb.Client.API.V3.Models.Discover
     [ApiGetEndpoint("/discover/movie")]
     public class DiscoverMovieRequest : TMDbRequest
     {
-        /// <summary>
-        /// Specify a language to query translatable fields with.
-        ///     minLength: 2
-        ///     pattern: ([a - z]{2})-([A - Z]{2})
-        ///     default: en - US
-        /// </summary>
+        /// <include file='tmdb-api-comments.xml' path='doc/members/member[@name="LanguageAbbreviation"]/*' />
         [ApiParameter(
             Name = "language",
             ParameterType = ParameterType.Query)]
@@ -414,9 +409,7 @@ namespace TMDb.Client.API.V3.Models.Discover
             ParameterType = ParameterType.Query)]
         public virtual int? WithRuntimeLessThanOrEqualTo { get; set; }
 
-        /// <summary>
-        /// Specify an ISO 639-1 string to filter results by their original language value.
-        /// </summary>
+        /// <include file='tmdb-api-comments.xml' path='doc/members/member[@name="LanguageAbbreviation"]/*' />
         [ApiParameter(
             Name = "with_original_language",
             ParameterType = ParameterType.Query)]

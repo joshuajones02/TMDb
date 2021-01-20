@@ -7,7 +7,7 @@ using TMDb.Client.Entities.Things;
 
 namespace TMDb.Client.Entities.Media
 {
-    public class TV
+    public class TV : ITV
     {
         [JsonProperty("in_production")]
         public virtual bool? InProduction { get; set; }
@@ -82,7 +82,12 @@ namespace TMDb.Client.Entities.Media
         public virtual IEnumerable<string> OriginCountry { get; set; }
 
         [JsonProperty("created_by")]
-        public virtual IEnumerable<TVCreatedBy> CreatedBy { get; set; }
+        [Obsolete("// TODO: Refactor this an entity?")]
+        public virtual IEnumerable<TVDetailsCreatedBy> CreatedBy { get; set; }
+
+        [JsonIgnore]
+        [Obsolete("// TODO: Create JSON Converter that will use Genres to fill data")]
+        public virtual IEnumerable<int> GenreIds { get; set; }
 
         [JsonProperty("genres")]
         public virtual IEnumerable<TVGenre> Genres { get; set; }

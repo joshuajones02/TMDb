@@ -12,12 +12,7 @@ namespace TMDb.Client.API.V3.Models.TV
     /// </summary>
     public class TVImagesRequest : TVBaseRequest
     {
-        /// <summary>
-        /// Pass a ISO 639-1 value to display translated data for the fields that support it.
-        ///     minLength: 2
-        ///     pattern: ([a - z]{2})-([A - Z]{2})
-        ///     default: en - US
-        /// </summary>
+        /// <include file='tmdb-api-comments.xml' path='doc/members/member[@name="LanguageAbbreviation"]/*' />
         [ApiParameter(
             Name = "language",
             ParameterType = ParameterType.Query)]

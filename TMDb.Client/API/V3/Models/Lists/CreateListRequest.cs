@@ -30,6 +30,7 @@ namespace TMDb.Client.API.V3.Models.Lists
             ParameterType = ParameterType.JsonBody)]
         public virtual string Description { get; set; }
 
+        /// <include file='tmdb-api-comments.xml' path='doc/members/member[@name="LanguageAbbreviation"]/*' />
         [ApiParameter(
             Name = "language",
             ParameterType = ParameterType.JsonBody)]

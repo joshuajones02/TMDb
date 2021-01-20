@@ -4,6 +4,7 @@ namespace TMDb.Client.Entities.Things
 {
     public class Translation
     {
+        /// <include file='tmdb-api-comments.xml' path='doc/members/member[@name="LanguageAbbreviation"]/*' />
         [JsonProperty("iso_639_1")]
         public virtual string LanguageAbbreviation { get; set; }
 

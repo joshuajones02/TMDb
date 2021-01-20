@@ -8,8 +8,9 @@ namespace TMDb.Client.API.V3.Models.People
         [ApiParameter(
             Name = "page",
             ParameterType = ParameterType.Query)]
-        public virtual string Page { get; set; }
+        public virtual int Page { get; set; }
 
+        /// <include file='tmdb-api-comments.xml' path='doc/members/member[@name="LanguageAbbreviation"]/*' />
         [ApiParameter(
             Name = "language",
             ParameterType = ParameterType.Query)]

@@ -1,6 +1,6 @@
 ﻿namespace TMDb.Client.API.V3.Models.TV
 {
-    public class TVScreenedTheatricallyResponse
+    public class TVScreenedTheatricallyResponse : TMDbResponse
     {
     }
 }

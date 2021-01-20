@@ -48,6 +48,7 @@ namespace TMDb.Client.API.V3.Models.Movies
         [JsonProperty("backdrop_path")]
         public virtual string BackdropPath { get; set; }
 
+        /// <include file='tmdb-api-comments.xml' path='doc/members/member[@name="LanguageAbbreviation"]/*' />
         [JsonProperty("original_language")]
         public virtual string LanguageAbbreviation { get; set; }
 

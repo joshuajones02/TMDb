@@ -13,6 +13,10 @@
     <PackageLicenseFile>license.md</PackageLicenseFile>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\__AspNet5Projects\TMDb\TMDb.Client\TMDb.Client.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <None Remove="favicon.ico" />
     <None Remove="favicon.png" />

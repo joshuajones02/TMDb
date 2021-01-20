@@ -29,7 +29,9 @@ namespace TMDb.Client.Entities.Media
         [JsonProperty("backdrop_path")]
         public virtual string BackdropPath { get; set; }
 
+        /// <include file='tmdb-api-comments.xml' path='doc/members/member[@name="LanguageAbbreviation"]/*' />
         [JsonProperty("original_language")]
+        [Obsolete("// TODO: Rename property to OriginalLanguage")]
         public virtual string LanguageAbbreviation { get; set; }
 
         [JsonProperty("original_title")]

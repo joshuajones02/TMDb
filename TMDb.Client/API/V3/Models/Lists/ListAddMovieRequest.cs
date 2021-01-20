@@ -25,6 +25,7 @@ namespace TMDb.Client.API.V3.Models.Lists
         [Obsolete("// TODO: Validation needed, value must be 1 or more")]
         public virtual int MediaId { get; set; }
 
+        /// <include file='tmdb-api-comments.xml' path='doc/members/member[@name="LanguageAbbreviation"]/*' />
         [ApiParameter(
             Name = "language",
             ParameterType = ParameterType.JsonBody)]

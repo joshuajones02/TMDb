@@ -4,6 +4,7 @@ namespace TMDb.Client.API.V3.Models.Configuration
 {
     public class LanguagesResponse
     {
+        /// <include file='tmdb-api-comments.xml' path='doc/members/member[@name="LanguageAbbreviation"]/*' />
         [JsonProperty("iso_639_1")]
         public virtual string LanguageAbbreviation { get; set; }
 

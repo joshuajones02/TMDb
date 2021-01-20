@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace TMDb.Client.Entities.Media
 {
-    public class TVMinified
+    public class TVMinified : ITVMinified
     {
         [JsonProperty("popularity")]
         public double? Popularity { get; set; }
@@ -25,7 +25,7 @@ namespace TMDb.Client.Entities.Media
         public string BackdropPath { get; set; }
 
         [JsonProperty("original_language")]
-        public string LanguageAbbreviation { get; set; }
+        public string OriginalLanguage { get; set; }
 
         [JsonProperty("name")]
         public string Name { get; set; }
@@ -40,9 +40,9 @@ namespace TMDb.Client.Entities.Media
         public DateTime? FirstAirDate { get; set; }
 
         [JsonProperty("origin_country")]
-        public List<string> CountryCodes { get; set; }
+        public IEnumerable<string> OriginCountry { get; set; } 
 
         [JsonProperty("genre_ids")]
-        public List<long> GenreIds { get; set; }
+        public IEnumerable<int> GenreIds { get; set; }
     }
 }

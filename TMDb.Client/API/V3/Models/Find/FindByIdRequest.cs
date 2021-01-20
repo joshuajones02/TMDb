@@ -20,6 +20,7 @@ namespace TMDb.Client.API.V3.Models.Find
             ParameterType = ParameterType.Path)]
         public virtual string ExternalId { get; set; }
 
+        /// <include file='tmdb-api-comments.xml' path='doc/members/member[@name="LanguageAbbreviation"]/*' />
         [ApiParameter(
             Name = "language",
             ParameterType = ParameterType.Query)]
