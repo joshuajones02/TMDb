@@ -6,20 +6,20 @@ namespace TMDb.Client.Attributes
     [AttributeUsage(AttributeTargets.Class)]
     public class ApiEndpointAttribute : Attribute
     {
-        public ApiEndpointAttribute(HttpMethod method, string endpointPath)
+        public ApiEndpointAttribute(HttpMethod method, string path)
         {
-            EndpointPath = endpointPath;
-            Method = method;
+            Path = path;
+            HttpMethod = method;
         }
 
-        public string EndpointPath { get; set; }
-        public HttpMethod Method { get; set; }
+        public string Path { get; set; }
+        public HttpMethod HttpMethod { get; set; }
     }
 
     public class ApiDeleteEndpointAttribute : ApiEndpointAttribute
     {
-        public ApiDeleteEndpointAttribute(string endpointPath) : base(HttpMethod.Delete, endpointPath) 
-        { 
+        public ApiDeleteEndpointAttribute(string endpointPath) : base(HttpMethod.Delete, endpointPath)
+        {
         }
     }
 
@@ -33,14 +33,14 @@ namespace TMDb.Client.Attributes
     public class ApiPostEndpointAttribute : ApiEndpointAttribute
     {
         public ApiPostEndpointAttribute(string endpointPath) : base(HttpMethod.Post, endpointPath)
-        { 
+        {
         }
     }
 
     public class ApiPutEndpointAttribute : ApiEndpointAttribute
     {
-        public ApiPutEndpointAttribute(string endpointPath) : base(HttpMethod.Put, endpointPath) 
-        { 
+        public ApiPutEndpointAttribute(string endpointPath) : base(HttpMethod.Put, endpointPath)
+        {
         }
     }
 }

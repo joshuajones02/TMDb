@@ -42,7 +42,10 @@ namespace TMDb.Client
             return value;
         }
 
+        public static T CastType<T>(this object @object) =>
+            (T)@object ?? throw new ArgumentException("Object parameter must not be null");
+
         private static string UrlEncode(this PropertyInfo propertyInfo, object @object) =>
             HttpUtility.UrlEncode(propertyInfo.GetValue(@object, null).ToString());
     }
-}
+} 

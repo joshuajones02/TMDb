@@ -3,7 +3,7 @@ using System;
 
 namespace TMDb.Client.API.V3.Models.Configuration
 {
-    public class ImageResponse
+    public class ConfigurationResponse : TMDbResponse
     {
         [JsonProperty("images")]
         public virtual ImageConfiguration Images { get; set; }

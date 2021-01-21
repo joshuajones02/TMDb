@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace TMDb.Client.API.V3.Models.Configuration
 {
-    public class CountriesResponse
+    public class CountriesConfigurationResponse : TMDbResponse
     {
         public virtual IEnumerable<CountryModel> Countries { get; set; }
     }

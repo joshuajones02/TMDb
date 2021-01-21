@@ -2,6 +2,7 @@
 
 namespace TMDb.Client.API.V3.Models.Authentication
 {
+    [ApiPostEndpoint("/authentication/session/new")]
     public class CreateSessionRequest : TMDbRequest
     {
         [ApiParameter(

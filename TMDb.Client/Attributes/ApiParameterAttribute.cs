@@ -9,7 +9,8 @@ namespace TMDb.Client.Attributes
         FormUrlEncodedBody     =  2,
         XmlBody                =  3,
         Endpoint               =  5,
-        Path                   = 50,
+        PathPrepend            = 50,
+        Path                   = 55,
         Query                  = 60,
         Header                 = 70
     }

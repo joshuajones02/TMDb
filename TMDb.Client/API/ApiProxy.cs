@@ -1,4 +1,5 @@
 ﻿using System;
+using TMDb.Client.API.V3.Models;
 
 namespace TMDb.Client.API
 {
@@ -9,6 +10,7 @@ namespace TMDb.Client.API
 
         protected TMDbClient Client { get; }
 
+        [Obsolete("NO LONGER IN USE")]
         protected Uri Serialize(string path, TMDbRequest request)
         {
             var settings = Client.Settings;

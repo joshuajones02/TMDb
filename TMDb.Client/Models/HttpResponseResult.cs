@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using TMDb.Client.Models;
 
@@ -11,7 +12,7 @@ namespace TMDb.Client
 
         public TimeSpan Duration { get; set; }
 
-        public ApiParameter[] Parameters { get; set; }
+        public List<ApiParameter> Parameters { get; set; }
         public Exception Error { get; set; }
         public HttpRequestMessage Request { get; set; }
         public HttpResponseMessage Response { get; set; }

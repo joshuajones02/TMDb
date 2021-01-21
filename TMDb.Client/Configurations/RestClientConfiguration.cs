@@ -22,7 +22,7 @@ namespace TMDb.Client.Configurations
         {
             ApplicationJsonHeader = new MediaTypeWithQualityHeaderValue(ContentType.Json);
             TextJsonHeader = new MediaTypeWithQualityHeaderValue(ContentType.JsonText);
-
+            MaxResponseContentBufferSize = 2_147_483_648;
             RequestSerializationSettings = new JsonSerializerSettings
             {
                 NullValueHandling = NullValueHandling.Ignore,

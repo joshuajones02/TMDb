@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace TMDb.Client.API.V3.Models.Configuration
 {
-    public class TimezonesResponse
+    public class TimezonesConfigurationResponse : TMDbResponse
     {
         public virtual IEnumerable<Timezone> Timezones { get; set; }
     }

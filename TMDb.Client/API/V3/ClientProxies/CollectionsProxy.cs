@@ -10,14 +10,13 @@ namespace TMDb.Client.API.V3.ClientProxies
         {
         }
 
-        [Obsolete("// TODO: Implement string.Format path attribute logic")]
         public virtual Task<CollectionDetailsResponse> GetAsync(CollectionDetailsRequest request) =>
-            Client.GetAsync<CollectionDetailsResponse>(Serialize("/collection/{collection_id}", request));
+            Client.SendAsync<CollectionDetailsResponse>(request);
 
         public virtual Task<CollectionImagesResponse> GetAsync(CollectionImagesRequest request) =>
-            Client.GetAsync<CollectionImagesResponse>(Serialize("/collection/{collection_id}/images", request));
+            Client.SendAsync<CollectionImagesResponse>(request);
 
         public virtual Task<CollectionTranslationsResponse> GetAsync(CollectionTranslationsRequest request) =>
-            Client.GetAsync<CollectionTranslationsResponse>(Serialize("/collection/{collection_id}/translations", request));
+            Client.SendAsync<CollectionTranslationsResponse>(request);
     }
 }

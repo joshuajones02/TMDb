@@ -86,6 +86,7 @@ namespace TMDb.Client.API.V3.Models.Discover
         [ApiParameter(
             Name = "certification",
             ParameterType = ParameterType.Query)]
+        [Obsolete("// TODO: Can we convert this to an enum value? Do the certification values ever change?")]
         public virtual string Certification { get; set; }
 
         /// <summary>
@@ -95,6 +96,7 @@ namespace TMDb.Client.API.V3.Models.Discover
         [ApiParameter(
             Name = "certification.lte",
             ParameterType = ParameterType.Query)]
+        [Obsolete("// TODO: Can we convert this to an enum value? Do the certification values ever change?")]
         public virtual string CertificationLessThanOrEqualTo { get; set; }
 
         /// <summary>
@@ -104,6 +106,7 @@ namespace TMDb.Client.API.V3.Models.Discover
         [ApiParameter(
             Name = "certification.gte",
             ParameterType = ParameterType.Query)]
+        [Obsolete("// TODO: Can we convert this to an enum value? Do the certification values ever change?")]
         public virtual string CertificationGreaterThanOrEqualTo { get; set; }
 
         /// <summary>

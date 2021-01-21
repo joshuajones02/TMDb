@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Diagnostics;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -36,23 +36,26 @@ namespace TMDb.Client
         }
 
         [Obsolete("// TODO: Is 'string path' needed if RestParameter has ApiEndpoint value?")]
-        public static HttpRequestMessage BuildRequest(this HttpClient client, HttpMethod method, RestClientConfiguration config, string path, ApiParameter[] @params)
+        public static HttpRequestMessage BuildRequest(this HttpClient client, ApiEndpoint endpoint, List<ApiParameter> parameters, IRestClientConfiguration config)
         {
             var uriBuilder          = new UrlBuilder(client.BaseAddress);
             var serializedBody      = default(string);
             var contentType         = default(string);
-            var contentTypeInHeader = default(bool); ;
-            var accept              = default(string); ;
-            var request             = new HttpRequestMessage { Method = method };
+            var contentTypeInHeader = default(bool);
+            var accept              = default(string);
+            var request             = new HttpRequestMessage { Method = endpoint.HttpMethod };
 
-            foreach (var param in @params.Where(x => x.Value != null))
+            var query = default(List<ApiParameter>);
+            var pathParameters = default(List<ApiParameter>);
+
+            foreach (var param in parameters.Where(x => x.Value != null))
             {
                 if (param.ParameterType == ParameterType.FormUrlEncodedBody)
                     throw new NotImplementedException("Content-Type 'application/json' has not been yet implemented");
                 if (param.ParameterType == ParameterType.XmlBody)
                     throw new NotImplementedException("Content-Type 'application/xhtml+xml' has not been yet implemented");
-
-                if (param.ParameterType == ParameterType.JsonBody)
+                // TODO: refactor this so header setting is all together (1 of 3)
+                else if (param.ParameterType == ParameterType.Header)
                 {
                     if ("accept".Equals(param.Name, StringComparison.OrdinalIgnoreCase))
                     {
@@ -70,7 +73,7 @@ namespace TMDb.Client
                         request.Headers.Add(param.Name, param.Value + "");
                     }
                 }
-                if (param.ParameterType == ParameterType.JsonBody)
+                else if (param.ParameterType == ParameterType.JsonBody)
                 {
                     if (serializedBody != null)
                     {
@@ -79,6 +82,18 @@ namespace TMDb.Client
 
                     serializedBody = param.Value.ToJson();
                     contentType = ContentType.Json;
+                }
+                else if (param.ParameterType == ParameterType.PathPrepend && param.Value.HasValue())
+                {
+                    // TODO: *** Move to UriBuilder
+                    if (!param.Value.StartsWith('/'))
+                        param.Value = "/" + param.Value;
+                    if (param.Value.EndsWith('/'))
+                        param.Value = param.Value.Remove(param.Value.Length - 1, 1);
+                    if (!endpoint.Path.StartsWith('/'))
+                        endpoint.Path = "/" + endpoint.Path;
+
+                    endpoint.Path = param.Value + endpoint.Path;
                 }
                 else if (param.ParameterType == ParameterType.Path)
                 {
@@ -90,10 +105,12 @@ namespace TMDb.Client
                 }
             }
 
-            uriBuilder.Path = path;
+            // TODO: Make it more clear in code here that UriBuilder will update the path
+            uriBuilder.Path = endpoint.Path;
             request.RequestUri = uriBuilder.Uri;
-            request.SetHeader(@params);
+            request.SetHeader(parameters);
 
+            // TODO: refactor this so header setting is all together (2 of 3)
             if (accept.IsNullOrEmpty())
             {
                 request.Headers.Accept.Add(config.ApplicationJsonHeader);
@@ -101,16 +118,13 @@ namespace TMDb.Client
             }
             if (serializedBody != null)
             {
-                if (contentTypeInHeader)
-                    request.Content = new StringContent(serializedBody, Encoding.UTF8);
-                else
-                    request.Content = new StringContent(serializedBody, Encoding.UTF8, contentType);
+                    request.Content = new StringContent(serializedBody, Encoding.UTF8, !contentTypeInHeader ? contentType : null);
             }
             if (!request.Headers.TryGetValues(CustomHeader.RequestId, out var _))
             {
                 request.Headers.Add(CustomHeader.RequestId, Guid.NewGuid().ToString());
             }
-            foreach (var item in Trace.CorrelationManager.LogicalOperationStack.OfType<object>().Take(10))
+            foreach (var item in System.Diagnostics.Trace.CorrelationManager.LogicalOperationStack.OfType<object>().Take(10))
             {
                 request.Headers.Add(CustomHeader.CorrelationId, item.ToString());
             }
@@ -118,7 +132,8 @@ namespace TMDb.Client
             return request;
         }
 
-        public static void SetHeader(this HttpRequestMessage request, ApiParameter[] @params)
+        // TODO: refactor this so header setting is all together (3 of 3)
+        public static void SetHeader(this HttpRequestMessage request, List<ApiParameter> @params)
         {
             var contentTypeHeader = @params.SingleOrDefault(p => p.ParameterType == ParameterType.Header
                                                      && ContentType.Name.EqualsIgnoreCase(p.Name));

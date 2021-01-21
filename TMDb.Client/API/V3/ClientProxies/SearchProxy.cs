@@ -4,7 +4,7 @@ using TMDb.Client.API.V3.Models.Search;
 
 namespace TMDb.Client.API.V3.ClientProxies
 {
-    internal class SearchProxy : ApiProxy
+    public class SearchProxy : ApiProxy
     {
         public SearchProxy(TMDbClient client) : base(client)
         {
