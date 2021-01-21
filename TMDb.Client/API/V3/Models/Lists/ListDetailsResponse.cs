@@ -4,7 +4,7 @@ using TMDb.Client.Entities.Media;
 
 namespace TMDb.Client.API.V3.Models.Lists
 {
-    public class ListDetailsResponse : TMDbRequest
+    public class ListDetailsResponse : TMDbResponse
     {
         [JsonProperty("favorite_count")]
         public virtual int FavoriteCount { get; set; }

@@ -3,7 +3,7 @@ using System;
 
 namespace TMDb.Client.API.V3.Models.Networks
 {
-    public class NetworkDetailsResponse
+    public class NetworkDetailsResponse : TMDbResponse
     {
         [JsonProperty("headquarters")]
         public string Headquarters { get; set; }

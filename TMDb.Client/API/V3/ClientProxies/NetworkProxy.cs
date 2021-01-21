@@ -9,19 +9,13 @@ namespace TMDb.Client.API.V3.ClientProxies
         {
         }
 
-        public virtual string FormatPath(string path, int id) =>
-            string.Format(path, id);
-
         public virtual Task<NetworkDetailsResponse> GetAsync(NetworkDetailsRequest request) =>
-            Client.GetAsync<NetworkDetailsResponse>(
-                Serialize(FormatPath("/network/{0}", request.NetworkId), request));
+            Client.SendAsync<NetworkDetailsResponse>(request);
 
         public virtual Task<NetworkAlternativeNameResponse> GetAsync(NetworkAlternativeNameRequest request) =>
-            Client.GetAsync<NetworkAlternativeNameResponse>(
-                Serialize(FormatPath("/network/{0}", request.NetworkId), request));
+            Client.SendAsync<NetworkAlternativeNameResponse>(request);
 
         public virtual Task<NetworkImagesResponse> GetAsync(NetworkImagesRequest request) =>
-            Client.GetAsync<NetworkImagesResponse>(
-                Serialize(FormatPath("/network/{0}/images", request.NetworkId), request));
+            Client.SendAsync<NetworkImagesResponse>(request);
     }
 }

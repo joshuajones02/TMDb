@@ -2,7 +2,7 @@
 
 namespace TMDb.Client.API.V3.Models.Lists
 {
-    public class ListStatusResponse : TMDbCollectionResponse
+    public class ListItemStatusResponse : TMDbCollectionResponse
     {
         [JsonProperty("item_present")]
         public virtual bool ItemPresent { get; set; }

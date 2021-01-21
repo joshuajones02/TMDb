@@ -10,96 +10,73 @@ namespace TMDb.Client.API.V3.ClientProxies
         {
         }
 
-        private string FormatPath(string path, int movieId) =>
-            string.Format(path, movieId);
+        public virtual Task<MovieDetailsResponse> GetAsync(MovieDetailsRequest request) =>
+            Client.SendAsync<MovieDetailsResponse>(request);
 
-        public Task<MovieDetailsResponse> GetAsync(MovieDetailsRequest request) =>
-            Client.GetAsync<MovieDetailsResponse>(
-                Serialize(FormatPath("/movie/{0}", request.MovieId), request));
+        public virtual Task<MovieAccountStatesResponse> GetAsync(MovieAccountStatesRequest request) =>
+            Client.SendAsync<MovieAccountStatesResponse>(request);
 
-        public Task<MovieAccountStatesResponse> GetAsync(MovieAccountStatesRequest request) =>
-            Client.GetAsync<MovieAccountStatesResponse>(
-                Serialize(FormatPath("/movie/{0}/account_states", request.MovieId), request));
+        public virtual Task<AlternativeMovieTitlesResponse> GetAsync(AlternativeMovieTitlesRequest request) =>
+            Client.SendAsync<AlternativeMovieTitlesResponse>(request);
 
-        public Task<AlternativeMovieTitlesResponse> GetAsync(AlternativeMovieTitlesRequest request) =>
-            Client.GetAsync<AlternativeMovieTitlesResponse>(
-                Serialize(FormatPath("/movie/{0}/alternative_titles", request.MovieId), request));
+        public virtual Task<MovieChangesResponse> GetAsync(MovieChangesRequest request) =>
+            Client.SendAsync<MovieChangesResponse>(request);
 
-        public Task<MovieChangesResponse> GetAsync(MovieChangesRequest request) =>
-            Client.GetAsync<MovieChangesResponse>(
-                Serialize(FormatPath("/movie/{0}/changes", request.MovieId), request));
+        public virtual Task<MovieExternalIdsResponse> GetAsync(MovieExternalIdsRequest request) =>
+            Client.SendAsync<MovieExternalIdsResponse>(request);
+        
+        public virtual Task<MovieImagesResponse> GetAsync(MovieImagesRequest request) =>
+            Client.SendAsync<MovieImagesResponse>(request);
+        
+        public virtual Task<MovieKeywordsResponse> GetAsync(MovieKeywordsRequest request) =>
+            Client.SendAsync<MovieKeywordsResponse>(request);
+        
+        public virtual Task<MovieListsResponse> GetAsync(MovieListsRequest request) =>
+            Client.SendAsync<MovieListsResponse>(request);
 
-        public Task<MovieCreditsResponse> GetAsync(MovieCreditsRequest request) =>
-            Client.GetAsync<MovieCreditsResponse>(
-                Serialize(FormatPath("/movie/{0}/credits", request.MovieId), request));
+        public virtual Task<MovieRecommendationsResponse> GetAsync(MovieRecommendationsRequest request) =>
+            Client.SendAsync<MovieRecommendationsResponse>(request);
 
-        public Task<MovieExternalIdsResponse> GetAsync(MovieExternalIdsRequest request) =>
-            Client.GetAsync<MovieExternalIdsResponse>(
-                Serialize(FormatPath("/movie/{0}/external_ids", request.MovieId), request));
+        public virtual Task<MovieReleaseDatesResponse> GetAsync(MovieReleaseDatesRequest request) =>
+            Client.SendAsync<MovieReleaseDatesResponse>(request);
 
-        public Task<MovieImagesResponse> GetAsync(MovieImagesRequest request) =>
-            Client.GetAsync<MovieImagesResponse>(
-                Serialize(FormatPath("/movie/{0}/images", request.MovieId), request));
+        public virtual Task<MovieReviewsResponse> GetAsync(MovieReviewsRequest request) =>
+            Client.SendAsync<MovieReviewsResponse>(request);
 
-        public Task<MovieKeywordsResponse> GetAsync(MovieKeywordsRequest request) =>
-            Client.GetAsync<MovieKeywordsResponse>(
-                Serialize(FormatPath("/movie/{0}/keywords", request.MovieId), request));
+        public virtual Task<SimilarMoviesResponse> GetAsync(SimilarMoviesRequest request) =>
+            Client.SendAsync<SimilarMoviesResponse>(request);
 
-        public Task<MovieListsResponse> GetAsync(MovieListsRequest request) =>
-            Client.GetAsync<MovieListsResponse>(
-                Serialize(FormatPath("/movie/{0}/lists", request.MovieId), request));
+        public virtual Task<MovieTranslationsResponse> GetAsync(MovieTranslationsRequest request) =>
+            Client.SendAsync<MovieTranslationsResponse>(request);
 
-        public Task<MovieRecommendationsResponse> GetAsync(MovieRecommendationsRequest request) =>
-            Client.GetAsync<MovieRecommendationsResponse>(
-                Serialize(FormatPath("/movie/{0}/recommendations", request.MovieId), request));
+        public virtual Task<MovieVideosResponse> GetAsync(MovieVideosRequest request) =>
+            Client.SendAsync<MovieVideosResponse>(request);
 
-        public Task<MovieReleaseDatesResponse> GetAsync(MovieReleaseDatesRequest request) =>
-            Client.GetAsync<MovieReleaseDatesResponse>(
-                Serialize(FormatPath("/movie/{0}/release_dates", request.MovieId), request));
+        public virtual Task<MovieWatchProvidersResponse> GetAsync(MovieWatchProvidersRequest request) =>
+            Client.SendAsync<MovieWatchProvidersResponse>(request);
 
-        public Task<MovieReviewsResponse> GetAsync(MovieReviewsRequest request) =>
-            Client.GetAsync<MovieReviewsResponse>(
-                Serialize(FormatPath("/movie/{0}/reviews", request.MovieId), request));
+        public virtual Task<RateMovieResponse> PostAsync(RateMovieRequest request) =>
+            Client.SendAsync<RateMovieResponse>(request);
 
-        public Task<SimilarMoviesResponse> GetAsync(SimilarMoviesRequest request) =>
-            Client.GetAsync<SimilarMoviesResponse>(
-                Serialize(FormatPath("/movie/{0}/similar", request.MovieId), request));
+        public virtual Task<DeleteMovieRatingResponse> DeleteAsync(DeleteMovieRatingRequest request) =>
+            Client.SendAsync<DeleteMovieRatingResponse>(request);
 
-        public Task<MovieTranslationsResponse> GetAsync(MovieTranslationsRequest request) =>
-            Client.GetAsync<MovieTranslationsResponse>(
-                Serialize(FormatPath("/movie/{0}/translations", request.MovieId), request));
+        public virtual Task<RateMovieResponse> GetAsync(RateMovieRequest request) =>
+            Client.SendAsync<RateMovieResponse>(request);
 
-        public Task<MovieVideosResponse> GetAsync(MovieVideosRequest request) =>
-            Client.GetAsync<MovieVideosResponse>(
-                Serialize(FormatPath("/movie/{0}/videos", request.MovieId), request));
+        public virtual Task<LatestMoviesResponse> GetAsync(LatestMoviesRequest request) =>
+            Client.SendAsync<LatestMoviesResponse>(request);
 
-        public Task<MovieWatchProvidersResponse> GetAsync(MovieWatchProvidersRequest request) =>
-            Client.GetAsync<MovieWatchProvidersResponse>(
-                Serialize(FormatPath("/movie/{0}/watch/providers", request.MovieId), request));
+        public virtual Task<NowPlayingMoviesResponse> GetAsync(NowPlayingMoviesRequest request) =>
+            Client.SendAsync<NowPlayingMoviesResponse>(request);
 
-        [Obsolete("// TODO: Need to implement POST w/ body")]
-        public Task<RateMovieResponse> PostAsync(RateMovieRequest request) =>
-            Client.GetAsync<RateMovieResponse>(
-                Serialize(FormatPath("/movie/{0}/rating", request.MovieId), request));
+        public virtual Task<PopularMoviesResponse> GetAsync(PopularMoviesRequest request) =>
+            Client.SendAsync<PopularMoviesResponse>(request);
 
-        [Obsolete("// TODO: Need to implement DELETE")]
-        public Task<DeleteMovieRatingResponse> DeleteAsync(DeleteMovieRatingRequest request) =>
-            Client.GetAsync<DeleteMovieRatingResponse>(
-                Serialize(FormatPath("/movie/{0}/rating", request.MovieId), request));
+        public virtual Task<TopRatedMoviesResponse> GetAsync(TopRatedMoviesRequest request) =>
+            Client.SendAsync<TopRatedMoviesResponse>(request);
 
-        public Task<LatestMoviesResponse> GetAsync(LatestMoviesRequest request) =>
-            Client.GetAsync<LatestMoviesResponse>(Serialize("/movie/latest", request));
-
-        public Task<NowPlayingMoviesResponse> GetAsync(NowPlayingMoviesRequest request) =>
-            Client.GetAsync<NowPlayingMoviesResponse>(Serialize("/movie/now_playing", request));
-
-        public Task<PopularMoviesResponse> GetAsync(PopularMoviesRequest request) =>
-            Client.GetAsync<PopularMoviesResponse>(Serialize("/movie/popular", request));
-
-        public Task<TopRatedMoviesResponse> GetAsync(TopRatedMoviesRequest request) =>
-            Client.GetAsync<TopRatedMoviesResponse>(Serialize("/movie/top_rated", request));
-
-        public Task<UpcomingMoviesResponse> GetAsync(UpcomingMoviesRequest request) =>
-            Client.GetAsync<UpcomingMoviesResponse>(Serialize("/movie/upcoming", request));
+        public virtual Task<PopularMoviesResponse> GetAsync(UpcomingMoviesRequest request) =>
+            Client.SendAsync<PopularMoviesResponse>(request);
     }
 }

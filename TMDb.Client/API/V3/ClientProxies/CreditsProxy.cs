@@ -10,12 +10,7 @@ namespace TMDb.Client.API.V3.ClientProxies
         {
         }
 
-        private string FormatPath(string path, string creditId) =>
-            string.Format(path, creditId);
-
-        [Obsolete("// TODO: Need to format path with credits ID path parameter")]
-        public virtual Task<CreditsResponse> Get(CreditsRequest request) =>
-            Client.GetAsync<CreditsResponse>(
-                Serialize(FormatPath("/credit/{0}", request.CreditId), request));
+        public virtual Task<CreditsResponse> GetAsync(CreditsRequest request) =>
+            Client.SendAsync<CreditsResponse>(request);
     }
 }

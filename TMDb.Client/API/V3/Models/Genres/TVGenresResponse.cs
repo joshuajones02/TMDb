@@ -4,7 +4,7 @@ using TMDb.Client.Entities.Things;
 
 namespace TMDb.Client.API.V3.Models.Genres
 {
-    public class GenresResponse
+    public class TVGenresResponse : TMDbResponse
     {
         [JsonProperty("genres")]
         public virtual IEnumerable<Genre> Genres { get; set; }

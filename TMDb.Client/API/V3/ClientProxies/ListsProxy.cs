@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using TMDb.Client.API.V3.Models.Keywords;
+using TMDb.Client.API.V3.Models.Lists;
 
 namespace TMDb.Client.API.V3.ClientProxies
 {
@@ -9,15 +10,22 @@ namespace TMDb.Client.API.V3.ClientProxies
         {
         }
 
-        public virtual string FormatPath(string path, int id) =>
-            string.Format(path, id);
+        public virtual Task<ListDetailsResponse> GetAsync(ListDetailsRequest request) =>
+            Client.SendAsync<ListDetailsResponse>(request);
 
-        public virtual Task<KeywordDetailsResponse> GetAsync(KeywordDetailsRequest request) =>
-            Client.GetAsync<KeywordDetailsResponse>(
-                Serialize(FormatPath("/keyword/{0}", request.KeywordId), request));
+        public virtual Task<ListItemStatusResponse> GetAsync(ListItemStatusRequest request) =>
+            Client.SendAsync<ListItemStatusResponse>(request);
+        
+        public virtual Task<CreateListResponse> PostAsync(CreateListRequest request) =>
+            Client.SendAsync<CreateListResponse>(request);
 
-        public virtual Task<KeywordMovieResponse> GetAsync(KeywordMovieRequest request) =>
-            Client.GetAsync<KeywordMovieResponse>(
-                Serialize(FormatPath("/keyword/{0}/movies", request.KeywordId), request));
+        public virtual Task<ListAddMovieResponse> PostAsync(ListAddMovieRequest request) =>
+            Client.SendAsync<ListAddMovieResponse>(request);
+
+        public virtual Task<ClearListResponse> PostAsync(ClearListRequest request) =>
+            Client.SendAsync<ClearListResponse>(request);
+
+        public virtual Task<DeleteListResponse> DeleteAsync(DeleteListRequest request) =>
+            Client.SendAsync<DeleteListResponse>(request);
     }
 }

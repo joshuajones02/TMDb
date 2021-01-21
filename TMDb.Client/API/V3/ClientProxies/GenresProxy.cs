@@ -9,10 +9,10 @@ namespace TMDb.Client.API.V3.ClientProxies
         {
         }
 
-        public virtual Task<GenresResponse> ListMovieGenres(GenresRequest request) =>
-            Client.GetAsync<GenresResponse>(Serialize("/genre/movie/list", request));
+        public virtual Task<MovieGenresResponse> GetAsync(MovieGenresRequest request) =>
+            Client.SendAsync<MovieGenresResponse>(request);
 
-        public virtual Task<GenresResponse> TV(GenresRequest request) =>
-            Client.GetAsync<GenresResponse>(Serialize("/genre/tv/list", request));
+        public virtual Task<TVGenresResponse> GetAsync(TVGenresRequest request) =>
+            Client.SendAsync<TVGenresResponse>(request);
     }
 }
