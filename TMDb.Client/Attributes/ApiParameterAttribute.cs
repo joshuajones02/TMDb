@@ -6,8 +6,6 @@ namespace TMDb.Client.Attributes
     {
         NotSet = 0,
         JsonBody = 1,
-        FormUrlEncodedBody = 2,
-        XmlBody = 3,
         Endpoint = 5,
         PathPrepend = 50,
         Path = 55,

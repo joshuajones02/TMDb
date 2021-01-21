@@ -7,37 +7,45 @@ using System.Threading.Tasks;
 using TMDb.Client.API;
 using TMDb.Client.API.V3.Models;
 using TMDb.Client.Builders;
+using TMDb.Client.Extensions;
 using TMDb.Client.Configurations;
 using TMDb.Client.Models;
+using TMDb.Client.Validators;
 
 namespace TMDb.Client
 {
     public class HttpClientWrapper : IDisposable
     {
-        private readonly IRestClientConfiguration _config;
+        private readonly IRestClientConfiguration _clientConfiguration;
         private readonly IRequestBuilder _requestBuilder;
+        private readonly IStatusCodeValidator _statusCodeValidator;
 
-        public HttpClientWrapper(Uri baseUrl, RestClientConfiguration config)
-            : this(RequestBuilder.Instance, baseUrl, config)
+        public HttpClientWrapper(Uri baseUrl, IRestClientConfiguration config)
+            : this(new RequestBuilder(), config, new StatusCodeValidator(), baseUrl)
         {
         }
 
-        public HttpClientWrapper(IRequestBuilder requestBuilder, Uri baseUrl, RestClientConfiguration config)
+        public HttpClientWrapper(
+            IRequestBuilder requestBuilder,
+            IRestClientConfiguration clientConfiguration, 
+            IStatusCodeValidator statusCodeValidator, 
+            Uri baseUrl)
         {
             _requestBuilder = requestBuilder;
-            _config = config;
+            _clientConfiguration = clientConfiguration;
+            _statusCodeValidator = statusCodeValidator;
 
-            var handler = new HttpClientHandler
-            {
-                SslProtocols = SslProtocols.Tls12
-            };
+            var handler = new HttpClientHandler { SslProtocols = SslProtocols.Tls12 };
 
             Client = new HttpClient(handler)
             {
                 BaseAddress = baseUrl,
                 //MaxResponseContentBufferSize = config.MaxResponseContentBufferSize,
-                Timeout = config.Timeout,
+                Timeout = clientConfiguration.Timeout,
             };
+
+            Client.DefaultRequestHeaders.Accept.Add(clientConfiguration.ApplicationJsonHeader);
+            Client.DefaultRequestHeaders.Accept.Add(clientConfiguration.TextJsonHeader);
         }
 
         internal HttpClient Client { get; set; }
@@ -50,69 +58,51 @@ namespace TMDb.Client
 
             var expectedStatusCodes = new int[] { 200, 201 };
 
-            return SendInternal<TResponse>(endpoint, parameters, expectedStatusCodes);
+            return SendAsync<TResponse>(endpoint, parameters, expectedStatusCodes);
         }
 
-        internal virtual Task<TResponse> SendAsync<TRequest, TResponse>(TRequest request) where TRequest : RequestBase
-                                                                                          where TResponse : TMDbResponse
+        protected async Task<T> SendAsync<T>(ApiEndpoint endpoint, List<ApiParameter> parameters, int[] expectedStatusCodes)
         {
-            var endpoint = _requestBuilder.GetApiEndpoint(request);
-            var parameters = _requestBuilder.GetApiParameters(request);
-            var expectedStatusCodes = new int[] { 200, 201 };
-
-            return SendInternal<TResponse>(endpoint, parameters, expectedStatusCodes);
-        }
-
-        protected async Task<T> SendInternal<T>(ApiEndpoint endpoint, List<ApiParameter> parameters, int[] expectedStatusCodes)
-        {
-            var request = Client.BuildRequest(endpoint, parameters, _config);
-            var response = default(HttpResponseMessage);
-            var result = default(T);
-            var error = default(Exception);
-            var timer = new Stopwatch();
-
-            timer.Start();
+            var request = _requestBuilder.BuildRequest(Client.BaseAddress, endpoint, parameters, _clientConfiguration);
+            var responseResult = new HttpResponseResult<T>
+            {
+                ExpectedStatusCodes = expectedStatusCodes,
+                Parameters = parameters,
+                Request = request, 
+                Timer = Stopwatch.StartNew()
+            };
 
             try
             {
-                response = await Client.SendAsync(request);
-                response.ValidateStatusCode(request, expectedStatusCodes);
-
-                var responseText = await response.Content.ReadAsStringAsync();
-                result = responseText.ToObject<T>();
+                responseResult.Response = await Client.SendAsync(request);
+                _statusCodeValidator.ValidateStatusCode(responseResult.Response, request.RequestUri, expectedStatusCodes);
+                var responseText = await responseResult.Response.Content.ReadAsStringAsync();
+                responseResult.Result = responseText.ToObject<T>();
             }
             catch (Exception ex)
             {
-                error = ex;
-
+                responseResult.Exception = ex;
                 Trace.TraceError("TMDb.Client.HttpClientWrapper : ", ex.ToMinifiedString());
+
+                if (ex.InnerException != null)
+                    throw ex.InnerException;
 
                 throw;
             }
             finally
             {
-                timer.Stop();
+                responseResult.Timer.Stop();
 
-                var responseArguments = new HttpResponseResult
-                {
-                    Duration = timer.Elapsed,
-                    Error = error,
-                    ExpectedStatusCodes = expectedStatusCodes,
-                    Parameters = parameters,
-                    Request = request,
-                    Response = response,
-                    ResponseData = result
-                };
+                var log = "TMDb.Client.HttpClientWrapper : " + responseResult.ToJson();
 
-                var log = "TMDb.Client.HttpClientWrapper : " + responseArguments.ToJson();
-
-                if (error != null)
+                // TODO: Create logger that switches from app settings
+                if (responseResult.Exception != null)
                     Trace.TraceError(log);
                 else
                     Trace.TraceInformation(log);
             }
 
-            return result;
+            return responseResult.Result;
         }
 
         public void Dispose()

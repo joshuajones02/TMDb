@@ -28,26 +28,23 @@ namespace TMDb.Client.Builders
             }
         }
 
-        public UrlBuilder AddQueryParameter(string name, string value)
+        public UrlBuilder WithQueryItems(Dictionary<string, string> query)
         {
-            if (_queryParameters == null)
-            {
-                _queryParameters = new Dictionary<string, string>();
-            }
 
-            _queryParameters.Add(name, value);
+            if (_queryParameters != null)
+                throw new ArgumentException(nameof(query), "Are you sure you want to replace current query items?");
+
+            _queryParameters = query;
 
             return this;
         }
 
-        public UrlBuilder AddPathParameter(string name, string value)
+        public UrlBuilder WithPathReplacements(Dictionary<string, string> pathReplacements)
         {
-            if (_pathParameters == null)
-            {
-                _pathParameters = new Dictionary<string, string>();
-            }
+            if (_pathParameters != null)
+                throw new ArgumentException(nameof(pathReplacements), "Are you sure you want to replace current query items?");
 
-            _pathParameters.Add(name, value);
+            _pathParameters = pathReplacements;
 
             return this;
         }

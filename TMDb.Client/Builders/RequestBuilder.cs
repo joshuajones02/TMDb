@@ -1,70 +1,82 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Reflection;
-using TMDb.Client.API;
+using System.Net.Http;
+using System.Text;
 using TMDb.Client.Attributes;
+using TMDb.Client.Configurations;
+using TMDb.Client.Constants;
 using TMDb.Client.Models;
 
 namespace TMDb.Client.Builders
 {
     public class RequestBuilder : IRequestBuilder
     {
-        public ApiEndpoint GetApiEndpoint(RequestBase request)
+        [Obsolete("// TODO: Is 'string path' needed if RestParameter has ApiEndpoint value?")]
+        public HttpRequestMessage BuildRequest(Uri baseAddress, ApiEndpoint endpoint, List<ApiParameter> parameters, IRestClientConfiguration config)
         {
-            var endpoint = request.GetType()
-                .GetCustomAttributes(inherit: true)
-                .Single(x => x.GetType().IsAssignableFrom(typeof(ApiEndpointAttribute))
-                          || x.GetType().IsSubclassOf(typeof(ApiEndpointAttribute)))
-                .CastType<ApiEndpointAttribute>();
+            var pathParameters = new Dictionary<string, string>();
+            var queryParameters = new Dictionary<string, string>();
+            var uriBuilder = new UrlBuilder(baseAddress);
+            var request = new HttpRequestMessage { Method = endpoint.HttpMethod };
 
-            return new ApiEndpoint
+            foreach (var param in parameters.Where(x => x.Value != null))
             {
-                Path = endpoint.Path,
-                HttpMethod = endpoint.HttpMethod
-            };
-        }
-
-        public List<ApiParameter> GetApiParameters(RequestBase request)
-        {
-            var apiParameters = new List<ApiParameter>();
-            var members = request.GetType()
-                .GetMembers(BindingFlags.Public | BindingFlags.Instance)
-                .Where(x => x.MemberType == MemberTypes.Field || x.MemberType == MemberTypes.Property);
-
-            foreach (MemberInfo member in members)
-            {
-                var attr = member.GetCustomAttribute<ApiParameterAttribute>(inherit: true);
-
-                if (attr == null)
+                if (param.ParameterType == ParameterType.NotSet)
                 {
-                    var message = string.Format("Property {0} of {1} missing required attribute {2}",
-                        member.Name, request.GetType().Name, nameof(ApiParameterAttribute));
-
-                    // TODO: Create custom exception
-                    throw new ArgumentNullException(member.Name, message);
+                    throw new ArgumentOutOfRangeException($"ParameterType must be set for {param.Name}");
                 }
-
-                var value = request.GetType().GetProperty(member.Name).GetValue(request, null);
-
-                if (value != null)
+                else if (param.ParameterType == ParameterType.Header && param.Value.HasValue())
                 {
-                    apiParameters.Add(new ApiParameter(attr.Name, attr.ParameterType, value.ToString()));
+                    request.Headers.Add(param.Name, param.Value);
                 }
-                else
+                // TODO: Refactor this to allow parameters to be added
+                else if (param.ParameterType == ParameterType.JsonBody && param.Value.HasValue())
                 {
-                    if (member.GetCustomAttribute<RequiredAttribute>(inherit: true) != null)
-                        throw new ArgumentNullException(member.Name);
+                    if (request.Content != null)
+                        throw new ArgumentException("Only one JSON body can be specified as a Body parameter.");
+
+                    var contentType = !request.Headers.Contains(ContentType.Name) ? ContentType.Json : null;
+                    request.Content = new StringContent(param.Value.ToJson(), Encoding.UTF8, contentType);
+                }
+                else if (param.ParameterType == ParameterType.PathPrepend && param.Value.HasValue())
+                {
+                    // TODO: *** Move to UriBuilder
+                    if (!param.Value.StartsWith('/'))
+                        param.Value = "/" + param.Value;
+                    if (param.Value.EndsWith('/'))
+                        param.Value = param.Value.Remove(param.Value.Length - 1, 1);
+                    if (!endpoint.Path.StartsWith('/'))
+                        endpoint.Path = "/" + endpoint.Path;
+
+                    endpoint.Path = param.Value + endpoint.Path;
+                }
+                else if (param.ParameterType == ParameterType.Path)
+                {
+                    pathParameters.Add(param.Name, param.Value);
+                }
+                else if (param.ParameterType == ParameterType.Query)
+                {
+                    queryParameters.Add(param.Name, param.Value);
                 }
             }
 
-            return apiParameters;
+
+
+            // TODO: Make it more clear in code here that UriBuilder will update the path
+            uriBuilder.Path = endpoint.Path;
+            request.RequestUri = uriBuilder.Uri;
+
+            if (!request.Headers.TryGetValues(CustomHeader.RequestId, out var _))
+            {
+                request.Headers.Add(CustomHeader.RequestId, Guid.NewGuid().ToString());
+            }
+            foreach (var item in System.Diagnostics.Trace.CorrelationManager.LogicalOperationStack.OfType<object>().Take(10))
+            {
+                request.Headers.Add(CustomHeader.CorrelationId, item.ToString());
+            }
+
+            return request;
         }
-
-        public static IRequestBuilder _instance;
-
-        public static IRequestBuilder Instance =>
-            _instance = _instance ?? new RequestBuilder();
     }
 }
