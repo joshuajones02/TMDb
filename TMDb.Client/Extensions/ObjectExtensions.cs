@@ -48,4 +48,4 @@ namespace TMDb.Client
         private static string UrlEncode(this PropertyInfo propertyInfo, object @object) =>
             HttpUtility.UrlEncode(propertyInfo.GetValue(@object, null).ToString());
     }
-} 
+}

@@ -4,7 +4,6 @@ using TMDb.Client.Entities.Media;
 
 namespace TMDb.Client.Entities.Things
 {
-
     public class Collection : CollectionMinified
     {
         [JsonProperty("overview")]

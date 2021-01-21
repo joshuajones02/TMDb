@@ -6,14 +6,14 @@
         public FindByIdTVResult TV;
 
         public static implicit operator FindByIdMovieTVUnion(FindByIdMovieResult movie) =>
-            new FindByIdMovieTVUnion 
-            { 
-                Movie = movie 
+            new FindByIdMovieTVUnion
+            {
+                Movie = movie
             };
 
         public static implicit operator FindByIdMovieTVUnion(FindByIdTVResult tv) =>
-            new FindByIdMovieTVUnion 
-            { 
+            new FindByIdMovieTVUnion
+            {
                 TV = tv
             };
     }

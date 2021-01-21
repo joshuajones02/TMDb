@@ -7,10 +7,6 @@ namespace TMDb.Client.JsonConverters
 {
     public class RatedBoolConverter : JsonConverter
     {
-        private static RatedBoolConverter _instance;
-        public static RatedBoolConverter Instance =>
-            _instance = _instance ?? new RatedBoolConverter();
-
         public override bool CanConvert(Type t) =>
             t == typeof(TVRatingBoolUnion) || t == typeof(TVRatingBoolUnion?);
 
@@ -43,8 +39,12 @@ namespace TMDb.Client.JsonConverters
             {
                 serializer.Serialize(writer, value.TVRating);
             }
-            
+
             throw new Exception($"Cannot marshal type {nameof(TVRatingBoolUnion)}");
         }
+
+        private static RatedBoolConverter _instance;
+        public static RatedBoolConverter Instance =>
+            _instance = _instance ?? new RatedBoolConverter();
     }
 }

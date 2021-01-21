@@ -38,12 +38,12 @@ namespace TMDb.Client
         [Obsolete("// TODO: Is 'string path' needed if RestParameter has ApiEndpoint value?")]
         public static HttpRequestMessage BuildRequest(this HttpClient client, ApiEndpoint endpoint, List<ApiParameter> parameters, IRestClientConfiguration config)
         {
-            var uriBuilder          = new UrlBuilder(client.BaseAddress);
-            var serializedBody      = default(string);
-            var contentType         = default(string);
+            var uriBuilder = new UrlBuilder(client.BaseAddress);
+            var serializedBody = default(string);
+            var contentType = default(string);
             var contentTypeInHeader = default(bool);
-            var accept              = default(string);
-            var request             = new HttpRequestMessage { Method = endpoint.HttpMethod };
+            var accept = default(string);
+            var request = new HttpRequestMessage { Method = endpoint.HttpMethod };
 
             var query = default(List<ApiParameter>);
             var pathParameters = default(List<ApiParameter>);
@@ -62,7 +62,7 @@ namespace TMDb.Client
                         accept = param.Value.ToString();
                         request.Headers.Add("Accept", accept);
                     }
-                    // TODO: Refactor 
+                    // TODO: Refactor
                     // content-type header needs to be applied to the request.Content object (see below)
                     else if (param.Name.EqualsIgnoreCase(ContentType.Name))
                     {
@@ -118,7 +118,7 @@ namespace TMDb.Client
             }
             if (serializedBody != null)
             {
-                    request.Content = new StringContent(serializedBody, Encoding.UTF8, !contentTypeInHeader ? contentType : null);
+                request.Content = new StringContent(serializedBody, Encoding.UTF8, !contentTypeInHeader ? contentType : null);
             }
             if (!request.Headers.TryGetValues(CustomHeader.RequestId, out var _))
             {

@@ -9,7 +9,7 @@ namespace TMDb.Client.Settings
         public TimeSpan Timeout { get; private set; }
         public Uri BaseUrl { get; private set; }
 
-        private DefaultTMDbSettings(string apiKey) => 
+        private DefaultTMDbSettings(string apiKey) =>
             ApiKey = apiKey;
 
         internal static DefaultTMDbSettings CreateInstance(string apiKey) =>

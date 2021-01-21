@@ -4,21 +4,21 @@ namespace TMDb.Client.Attributes
 {
     public enum ParameterType
     {
-        NotSet                 =  0,
-        JsonBody               =  1,
-        FormUrlEncodedBody     =  2,
-        XmlBody                =  3,
-        Endpoint               =  5,
-        PathPrepend            = 50,
-        Path                   = 55,
-        Query                  = 60,
-        Header                 = 70
+        NotSet = 0,
+        JsonBody = 1,
+        FormUrlEncodedBody = 2,
+        XmlBody = 3,
+        Endpoint = 5,
+        PathPrepend = 50,
+        Path = 55,
+        Query = 60,
+        Header = 70
     }
 
     public enum SerializationOption
     {
         DateOnly,
-        DelimeterSeparatedValue,        
+        DelimeterSeparatedValue,
     }
 
     [Obsolete("// TODO: Create startup check for all parameter types having a value")]

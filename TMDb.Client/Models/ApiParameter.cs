@@ -1,10 +1,9 @@
-﻿using System;
-using TMDb.Client.Attributes;
+﻿using TMDb.Client.Attributes;
 
 namespace TMDb.Client.Models
 {
     public class ApiParameter
-    {            
+    {
         public ApiParameter(string name, ParameterType type, string value)
         {
             ParameterType = type;

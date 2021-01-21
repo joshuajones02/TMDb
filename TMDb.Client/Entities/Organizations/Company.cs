@@ -2,7 +2,7 @@
 
 namespace TMDb.Client.Entities.Organizations
 {
-    public class Company 
+    public class Company
     {
         [JsonProperty("id")]
         public virtual int Id { get; set; }

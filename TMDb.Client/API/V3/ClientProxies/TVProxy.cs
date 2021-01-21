@@ -20,7 +20,7 @@ namespace TMDb.Client.API.V3.ClientProxies
         public Task<TVAccountStatesResponse> GetAsync(TVAccountStatesRequest request) =>
             Client.GetAsync<TVAccountStatesResponse>(
                 Serialize(FormatPath("/tv/{0}/account_states", request.TVId), request));
-        
+
         public Task<TVAggregateCreditsResponse> GetAsync(TVAggregateCreditsRequest request) =>
             Client.GetAsync<TVAggregateCreditsResponse>(
                 Serialize(FormatPath("/tv/{tv_id}/aggregate_credits", request.TVId), request));
@@ -32,7 +32,7 @@ namespace TMDb.Client.API.V3.ClientProxies
         public Task<TVChangesResponse> GetAsync(TVChangesRequest request) =>
             Client.GetAsync<TVChangesResponse>(
                 Serialize(FormatPath("/tv/{0}/changes", request.TVId), request));
-        
+
         public Task<TVContentRatingsResponse> GetAsync(TVContentRatingsRequest request) =>
             Client.GetAsync<TVContentRatingsResponse>(
                 Serialize(FormatPath("/tv/{0}/changes", request.TVId), request));
@@ -40,7 +40,7 @@ namespace TMDb.Client.API.V3.ClientProxies
         public Task<TVCreditsResponse> GetAsync(TVCreditsRequest request) =>
             Client.GetAsync<TVCreditsResponse>(
                 Serialize(FormatPath("/tv/{0}/credits", request.TVId), request));
-        
+
         public Task<TVEpisodeGroupsResponse> GetAsync(TVEpisodeGroupsRequest request) =>
             Client.GetAsync<TVEpisodeGroupsResponse>(
                 Serialize(FormatPath("/tv/{0}/episode_groups", request.TVId), request));
@@ -64,7 +64,7 @@ namespace TMDb.Client.API.V3.ClientProxies
         public Task<TVReviewsResponse> GetAsync(TVReviewsRequest request) =>
             Client.GetAsync<TVReviewsResponse>(
                 Serialize(FormatPath("/tv/{0}/reviews", request.TVId), request));
-        
+
         public Task<TVScreenedTheatricallyResponse> GetAsync(TVScreenedTheatricallyRequest request) =>
             Client.GetAsync<TVScreenedTheatricallyResponse>(
                 Serialize(FormatPath("/tv/{0}/screened_theatrically", request.TVId), request));
@@ -100,7 +100,7 @@ namespace TMDb.Client.API.V3.ClientProxies
 
         public Task<TVAiringTodayResponse> GetAsync(TVAiringTodayRequest request) =>
             Client.GetAsync<TVAiringTodayResponse>(Serialize("/tv/airing_today", request));
-        
+
         public Task<TVOnTheAirResponse> GetAsync(TVOnTheAirRequest request) =>
             Client.GetAsync<TVOnTheAirResponse>(Serialize("/tv/airing_today", request));
 

@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using TMDb.Client.Attributes;
+﻿using TMDb.Client.Attributes;
 
 namespace TMDb.Client.API.V3.Models.TVEpisodes
 {

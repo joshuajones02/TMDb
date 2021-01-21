@@ -6,11 +6,11 @@ namespace TMDb.Client.Tests
 {
     public class TestsClient
     {
-        public TestsClient() => 
+        public TestsClient() =>
             Client = new TMDbClient(TestsSettings.Instance.ApiKey, TestsSettings.Instance.Version);
 
         [Fact]
-        public async Task TestApiKey() 
+        public async Task TestApiKey()
         {
             var response = await Client.Configuration.GetConfigurationAsync();
 

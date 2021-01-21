@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace TMDb.Client.Configurations
+﻿namespace TMDb.Client.Configurations
 {
     public class MoviesConfiguration
     {

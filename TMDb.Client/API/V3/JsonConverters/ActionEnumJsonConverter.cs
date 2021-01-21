@@ -1,16 +1,10 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace TMDb.Client.API.V3.JsonConverters
 {
     public class ActionEnumJsonConverter : JsonConverter
     {
-        private static ActionEnumJsonConverter _instance;
-        public static ActionEnumJsonConverter Instance =>
-            _instance = _instance ?? new ActionEnumJsonConverter();
-
         public override bool CanConvert(Type t) =>
             t == typeof(Models.TV.Action) || t == typeof(Models.TV.Action?);
 
@@ -22,8 +16,10 @@ namespace TMDb.Client.API.V3.JsonConverters
             {
                 case "added":
                     return Models.TV.Action.Added;
+
                 case "deleted":
                     return Models.TV.Action.Deleted;
+
                 case "updated":
                     return Models.TV.Action.Updated;
             }
@@ -44,9 +40,11 @@ namespace TMDb.Client.API.V3.JsonConverters
                 case Models.TV.Action.Added:
                     serializer.Serialize(writer, "added");
                     return;
+
                 case Models.TV.Action.Deleted:
                     serializer.Serialize(writer, "deleted");
                     return;
+
                 case Models.TV.Action.Updated:
                     serializer.Serialize(writer, "updated");
                     return;
@@ -54,5 +52,9 @@ namespace TMDb.Client.API.V3.JsonConverters
 
             throw new Exception("Cannot marshal type Action");
         }
+
+        private static ActionEnumJsonConverter _instance;
+        public static ActionEnumJsonConverter Instance =>
+            _instance = _instance ?? new ActionEnumJsonConverter();
     }
 }

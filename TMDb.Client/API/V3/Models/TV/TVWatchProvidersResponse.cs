@@ -1,6 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
 using TMDb.Client.Entities.Things;
 
 namespace TMDb.Client.API.V3.Models.TV

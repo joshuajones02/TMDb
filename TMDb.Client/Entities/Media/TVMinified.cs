@@ -40,7 +40,7 @@ namespace TMDb.Client.Entities.Media
         public DateTime? FirstAirDate { get; set; }
 
         [JsonProperty("origin_country")]
-        public IEnumerable<string> OriginCountry { get; set; } 
+        public IEnumerable<string> OriginCountry { get; set; }
 
         [JsonProperty("genre_ids")]
         public IEnumerable<int> GenreIds { get; set; }

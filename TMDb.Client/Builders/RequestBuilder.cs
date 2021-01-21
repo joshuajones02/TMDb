@@ -63,6 +63,7 @@ namespace TMDb.Client.Builders
         }
 
         public static IRequestBuilder _instance;
+
         public static IRequestBuilder Instance =>
             _instance = _instance ?? new RequestBuilder();
     }

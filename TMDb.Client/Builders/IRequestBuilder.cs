@@ -7,6 +7,7 @@ namespace TMDb.Client.Builders
     public interface IRequestBuilder
     {
         ApiEndpoint GetApiEndpoint(RequestBase request);
+
         List<ApiParameter> GetApiParameters(RequestBase request);
     }
 }

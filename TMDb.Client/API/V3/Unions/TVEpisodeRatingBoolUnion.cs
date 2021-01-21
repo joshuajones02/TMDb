@@ -8,15 +8,15 @@ namespace TMDb.Client.API.V3.Models.TVEpisodes
         public TVRating TVRating;
 
         public static implicit operator TVRatingBoolUnion(bool @bool) =>
-            new TVRatingBoolUnion 
-            { 
-                Bool = @bool 
+            new TVRatingBoolUnion
+            {
+                Bool = @bool
             };
 
         public static implicit operator TVRatingBoolUnion(TVRating tvRating) =>
-            new TVRatingBoolUnion 
-            { 
-                TVRating = tvRating 
+            new TVRatingBoolUnion
+            {
+                TVRating = tvRating
             };
     }
 }

@@ -40,7 +40,7 @@ namespace TMDb.Client.JsonConverters
             {
                 serializer.Serialize(writer, value.TV);
             }
-                
+
             throw new Exception(_exceptionMessage);
         }
 

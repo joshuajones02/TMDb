@@ -48,8 +48,8 @@ namespace TMDb.Client
 
         internal ITMDbSettings Settings { get; }
 
-        //public Lazy<AuthenticationProxy> AuthenticationLazy => 
-        //      new Lazy<AuthenticationProxy>(() => 
+        //public Lazy<AuthenticationProxy> AuthenticationLazy =>
+        //      new Lazy<AuthenticationProxy>(() =>
         //              new AuthenticationProxy(this));
 
         public AuthenticationProxy Authentication { get; protected set; }

@@ -47,14 +47,14 @@ namespace TMDb.Client.API.V3.Models.TV
         public OriginalValueClass OriginalValueClass;
         public string StringValue;
 
-        public static implicit operator OriginalValueUnion(OriginalValueClass originalValueClass) => 
-            new OriginalValueUnion 
+        public static implicit operator OriginalValueUnion(OriginalValueClass originalValueClass) =>
+            new OriginalValueUnion
             {
-                OriginalValueClass = originalValueClass 
+                OriginalValueClass = originalValueClass
             };
 
-        public static implicit operator OriginalValueUnion(string stringValue) => 
-            new OriginalValueUnion 
+        public static implicit operator OriginalValueUnion(string stringValue) =>
+            new OriginalValueUnion
             {
                 StringValue = stringValue
             };
@@ -65,16 +65,16 @@ namespace TMDb.Client.API.V3.Models.TV
         public string StringValue;
         public ValueClass ValueClass;
 
-        public static implicit operator ValueUnion(string stringValue) => 
-            new ValueUnion 
-            { 
+        public static implicit operator ValueUnion(string stringValue) =>
+            new ValueUnion
+            {
                 StringValue = stringValue
             };
 
-        public static implicit operator ValueUnion(ValueClass valueClass) => 
-            new ValueUnion 
-            { 
-                ValueClass = valueClass 
+        public static implicit operator ValueUnion(ValueClass valueClass) =>
+            new ValueUnion
+            {
+                ValueClass = valueClass
             };
     }
 

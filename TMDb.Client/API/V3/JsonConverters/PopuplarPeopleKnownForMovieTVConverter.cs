@@ -1,7 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
 using TMDb.Client.API.V3.Models.People;
-using TMDb.Client.Entities.Media;
 using TMDb.Client.Unions;
 
 namespace TMDb.Client.JsonConverters
@@ -42,11 +41,12 @@ namespace TMDb.Client.JsonConverters
             {
                 serializer.Serialize(writer, value.TV);
             }
-            
+
             throw new Exception(_exceptionMessage);
         }
 
         private static PopularPeopleKnownForMovieTVConverter _instance;
+
         public static PopularPeopleKnownForMovieTVConverter Instance =>
             _instance = _instance ?? new PopularPeopleKnownForMovieTVConverter();
     }

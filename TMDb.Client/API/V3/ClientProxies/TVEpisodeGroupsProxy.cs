@@ -10,7 +10,7 @@ namespace TMDb.Client.API.V3.ClientProxies
         {
         }
 
-        public virtual string FormatPath(string path, string id) => 
+        public virtual string FormatPath(string path, string id) =>
             string.Format(path, id);
 
         public virtual Task<TVEpisodesDetailsResponse> GetAsync(TVEpisodeGroupsRequest request) =>

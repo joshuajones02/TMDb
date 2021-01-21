@@ -1,5 +1,4 @@
 ﻿using System.Threading.Tasks;
-using TMDb.Client.API.V3.Models;
 using TMDb.Client.API.V3.Models.Reviews;
 
 namespace TMDb.Client.API.V3.ClientProxies

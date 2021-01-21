@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Net.Http;
-using System.Reflection;
 using System.Security.Authentication;
 using System.Threading.Tasks;
 using TMDb.Client.API;
 using TMDb.Client.API.V3.Models;
-using TMDb.Client.Attributes;
 using TMDb.Client.Builders;
 using TMDb.Client.Configurations;
 using TMDb.Client.Models;
@@ -20,7 +17,7 @@ namespace TMDb.Client
         private readonly IRestClientConfiguration _config;
         private readonly IRequestBuilder _requestBuilder;
 
-        public HttpClientWrapper(Uri baseUrl, RestClientConfiguration config) 
+        public HttpClientWrapper(Uri baseUrl, RestClientConfiguration config)
             : this(RequestBuilder.Instance, baseUrl, config)
         {
         }
@@ -51,18 +48,12 @@ namespace TMDb.Client
             var endpoint = _requestBuilder.GetApiEndpoint(request);
             var parameters = _requestBuilder.GetApiParameters(request);
 
-            foreach (var param in parameters)
-            {
-
-
-            }
-
             var expectedStatusCodes = new int[] { 200, 201 };
 
             return SendInternal<TResponse>(endpoint, parameters, expectedStatusCodes);
         }
 
-        internal virtual Task<TResponse> SendAsync<TRequest, TResponse>(TRequest request) where TRequest  : RequestBase 
+        internal virtual Task<TResponse> SendAsync<TRequest, TResponse>(TRequest request) where TRequest : RequestBase
                                                                                           where TResponse : TMDbResponse
         {
             var endpoint = _requestBuilder.GetApiEndpoint(request);
@@ -74,11 +65,11 @@ namespace TMDb.Client
 
         protected async Task<T> SendInternal<T>(ApiEndpoint endpoint, List<ApiParameter> parameters, int[] expectedStatusCodes)
         {
-            var request  = Client.BuildRequest(endpoint, parameters, _config);
+            var request = Client.BuildRequest(endpoint, parameters, _config);
             var response = default(HttpResponseMessage);
-            var result   = default(T);
-            var error    = default(Exception);
-            var timer    = new Stopwatch();
+            var result = default(T);
+            var error = default(Exception);
+            var timer = new Stopwatch();
 
             timer.Start();
 
@@ -104,13 +95,13 @@ namespace TMDb.Client
 
                 var responseArguments = new HttpResponseResult
                 {
-                    Duration                = timer.Elapsed,
-                    Error                   = error,
-                    ExpectedStatusCodes     = expectedStatusCodes,
-                    Parameters              = parameters,
-                    Request                 = request,
-                    Response                = response,
-                    ResponseData            = result
+                    Duration = timer.Elapsed,
+                    Error = error,
+                    ExpectedStatusCodes = expectedStatusCodes,
+                    Parameters = parameters,
+                    Request = request,
+                    Response = response,
+                    ResponseData = result
                 };
 
                 var log = "TMDb.Client.HttpClientWrapper : " + responseArguments.ToJson();

@@ -3,10 +3,8 @@ using System;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using TMDb.Client.API;
 using TMDb.Client.Configurations;
 using TMDb.Client.Constants;
-using TMDb.Client.Models;
 
 namespace TMDb.Client
 {
@@ -77,7 +75,6 @@ namespace TMDb.Client
         }
 
         ///// ****
-
 
         //internal virtual Task<TResponse> SendAsync<TRequest, TResponse>(TRequest request, int[] expectedStatusCodes) where TRequest : RequestBase =>
         //    SendInternal(request);

@@ -95,10 +95,10 @@ namespace TMDb.Client.API.V3.ClientProxies
 
         public Task<PopularMoviesResponse> GetAsync(PopularMoviesRequest request) =>
             Client.GetAsync<PopularMoviesResponse>(Serialize("/movie/popular", request));
-        
+
         public Task<TopRatedMoviesResponse> GetAsync(TopRatedMoviesRequest request) =>
             Client.GetAsync<TopRatedMoviesResponse>(Serialize("/movie/top_rated", request));
-        
+
         public Task<UpcomingMoviesResponse> GetAsync(UpcomingMoviesRequest request) =>
             Client.GetAsync<UpcomingMoviesResponse>(Serialize("/movie/upcoming", request));
     }

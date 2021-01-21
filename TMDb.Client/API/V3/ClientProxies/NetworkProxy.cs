@@ -9,7 +9,7 @@ namespace TMDb.Client.API.V3.ClientProxies
         {
         }
 
-        public virtual string FormatPath(string path, int id) => 
+        public virtual string FormatPath(string path, int id) =>
             string.Format(path, id);
 
         public virtual Task<NetworkDetailsResponse> GetAsync(NetworkDetailsRequest request) =>

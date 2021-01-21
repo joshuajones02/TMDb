@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using TMDb.Client.API.V3.Models.Authentication;
 
 namespace TMDb.Client.API.V3.ClientProxies

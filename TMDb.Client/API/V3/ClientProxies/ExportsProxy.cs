@@ -22,11 +22,17 @@ namespace TMDb.Client.API.V3.ClientProxies
         }
 
         public virtual Task GetLatestCollectionAsync() => DownloadExportAsync("collection");
+
         public virtual Task GetLatestKeywordsAsync() => DownloadExportAsync("keyword");
+
         public virtual Task GetLatestMovieAsync() => DownloadExportAsync("movie");
+
         public virtual Task GetLatestPeopleAsync() => DownloadExportAsync("person");
+
         public virtual Task GetLatestProductionCompaniesAsync() => DownloadExportAsync("production_company");
+
         public virtual Task GetLatestTVNetworksAsync() => DownloadExportAsync("tv_network");
+
         public virtual Task GetLatestTVSeriesAsync() => DownloadExportAsync("tv_series");
 
         protected async virtual Task DownloadExportAsync(string exportType)
