@@ -10,104 +10,79 @@ namespace TMDb.Client.API.V3.ClientProxies
         {
         }
 
-        private string FormatPath(string path, int TVId) =>
-            string.Format(path, TVId);
+        public virtual Task<TVDetailsResponse> GetAsync(TVDetailsRequest request) =>
+            Client.SendAsync<TVDetailsResponse>(request);
 
-        public Task<TVDetailsResponse> GetAsync(TVDetailsRequest request) =>
-            Client.GetAsync<TVDetailsResponse>(
-                Serialize(FormatPath("/tv/{0}", request.TVId), request));
+        public virtual Task<TVAccountStatesResponse> GetAsync(TVAccountStatesRequest request) =>
+            Client.SendAsync<TVAccountStatesResponse>(request);
 
-        public Task<TVAccountStatesResponse> GetAsync(TVAccountStatesRequest request) =>
-            Client.GetAsync<TVAccountStatesResponse>(
-                Serialize(FormatPath("/tv/{0}/account_states", request.TVId), request));
+        public virtual Task<TVAggregateCreditsResponse> GetAsync(TVAggregateCreditsRequest request) =>
+            Client.SendAsync<TVAggregateCreditsResponse>(request);
 
-        public Task<TVAggregateCreditsResponse> GetAsync(TVAggregateCreditsRequest request) =>
-            Client.GetAsync<TVAggregateCreditsResponse>(
-                Serialize(FormatPath("/tv/{tv_id}/aggregate_credits", request.TVId), request));
+        public virtual Task<AlternativeTVTitlesResponse> GetAsync(AlternativeTVTitlesRequest request) =>
+            Client.SendAsync<AlternativeTVTitlesResponse>(request);
 
-        public Task<AlternativeTVTitlesResponse> GetAsync(AlternativeTVTitlesRequest request) =>
-            Client.GetAsync<AlternativeTVTitlesResponse>(
-                Serialize(FormatPath("/tv/{0}/alternative_titles", request.TVId), request));
+        public virtual Task<TVChangesResponse> GetAsync(TVChangesRequest request) =>
+            Client.SendAsync<TVChangesResponse>(request);
 
-        public Task<TVChangesResponse> GetAsync(TVChangesRequest request) =>
-            Client.GetAsync<TVChangesResponse>(
-                Serialize(FormatPath("/tv/{0}/changes", request.TVId), request));
+        public virtual Task<TVContentRatingsResponse> GetAsync(TVContentRatingsRequest request) =>
+            Client.SendAsync<TVContentRatingsResponse>(request);
 
-        public Task<TVContentRatingsResponse> GetAsync(TVContentRatingsRequest request) =>
-            Client.GetAsync<TVContentRatingsResponse>(
-                Serialize(FormatPath("/tv/{0}/changes", request.TVId), request));
+        public virtual Task<TVCreditsResponse> GetAsync(TVCreditsRequest request) =>
+            Client.SendAsync<TVCreditsResponse>(request);
+        
+        public virtual Task<TVEpisodeGroupsResponse> GetAsync(TVEpisodeGroupsRequest request) =>
+            Client.SendAsync<TVEpisodeGroupsResponse>(request);
 
-        public Task<TVCreditsResponse> GetAsync(TVCreditsRequest request) =>
-            Client.GetAsync<TVCreditsResponse>(
-                Serialize(FormatPath("/tv/{0}/credits", request.TVId), request));
+        public virtual Task<TVExternalIdsResponse> GetAsync(TVExternalIdsRequest request) =>
+            Client.SendAsync<TVExternalIdsResponse>(request);
+        
+        public virtual Task<TVImagesResponse> GetAsync(TVImagesRequest request) =>
+            Client.SendAsync<TVImagesResponse>(request);
+        
+        public virtual Task<TVKeywordsResponse> GetAsync(TVKeywordsRequest request) =>
+            Client.SendAsync<TVKeywordsResponse>(request);
+        
+        public virtual Task<TVRecommendationsResponse> GetAsync(TVRecommendationsRequest request) =>
+            Client.SendAsync<TVRecommendationsResponse>(request);
+        
+        public virtual Task<TVReviewsResponse> GetAsync(TVReviewsRequest request) =>
+            Client.SendAsync<TVReviewsResponse>(request);
+        
+        public virtual Task<TVScreenedTheatricallyResponse> GetAsync(TVScreenedTheatricallyRequest request) =>
+            Client.SendAsync<TVScreenedTheatricallyResponse>(request);
+        
+        public virtual Task<SimilarTVResponse> GetAsync(SimilarTVRequest request) =>
+            Client.SendAsync<SimilarTVResponse>(request);
+        
+        public virtual Task<TVTranslationsResponse> GetAsync(TVTranslationsRequest request) =>
+            Client.SendAsync<TVTranslationsResponse>(request);
+        
+        public virtual Task<TVVideosResponse> GetAsync(TVVideosRequest request) =>
+            Client.SendAsync<TVVideosResponse>(request);
+        
+        public virtual Task<TVWatchProvidersResponse> GetAsync(TVWatchProvidersRequest request) =>
+            Client.SendAsync<TVWatchProvidersResponse>(request);
+        
+        public virtual Task<RateTVResponse> PostAsync(RateTVRequest request) =>
+            Client.SendAsync<RateTVResponse>(request);
+        
+        public virtual Task<DeleteTVRatingResponse> DeleteAsync(DeleteTVRatingRequest request) =>
+            Client.SendAsync<DeleteTVRatingResponse>(request);
 
-        public Task<TVEpisodeGroupsResponse> GetAsync(TVEpisodeGroupsRequest request) =>
-            Client.GetAsync<TVEpisodeGroupsResponse>(
-                Serialize(FormatPath("/tv/{0}/episode_groups", request.TVId), request));
+        public virtual Task<LatestTVResponse> GetAsync(LatestTVRequest request) =>
+            Client.SendAsync<LatestTVResponse>(request);
 
-        public Task<TVExternalIdsResponse> GetAsync(TVExternalIdsRequest request) =>
-            Client.GetAsync<TVExternalIdsResponse>(
-                Serialize(FormatPath("/tv/{0}/external_ids", request.TVId), request));
+        public virtual Task<TVAiringTodayResponse> GetAsync(TVAiringTodayRequest request) =>
+            Client.SendAsync<TVAiringTodayResponse>(request);
 
-        public Task<TVImagesResponse> GetAsync(TVImagesRequest request) =>
-            Client.GetAsync<TVImagesResponse>(
-                Serialize(FormatPath("/tv/{0}/images", request.TVId), request));
+        public virtual Task<TVOnTheAirResponse> GetAsync(TVOnTheAirRequest request) =>
+            Client.SendAsync<TVOnTheAirResponse>(request);
 
-        public Task<TVKeywordsResponse> GetAsync(TVKeywordsRequest request) =>
-            Client.GetAsync<TVKeywordsResponse>(
-                Serialize(FormatPath("/tv/{0}/keywords", request.TVId), request));
+        public virtual Task<PopularTVResponse> GetAsync(PopularTVRequest request) =>
+            Client.SendAsync<PopularTVResponse>(request);
 
-        public Task<TVRecommendationsResponse> GetAsync(TVRecommendationsRequest request) =>
-            Client.GetAsync<TVRecommendationsResponse>(
-                Serialize(FormatPath("/tv/{0}/recommendations", request.TVId), request));
-
-        public Task<TVReviewsResponse> GetAsync(TVReviewsRequest request) =>
-            Client.GetAsync<TVReviewsResponse>(
-                Serialize(FormatPath("/tv/{0}/reviews", request.TVId), request));
-
-        public Task<TVScreenedTheatricallyResponse> GetAsync(TVScreenedTheatricallyRequest request) =>
-            Client.GetAsync<TVScreenedTheatricallyResponse>(
-                Serialize(FormatPath("/tv/{0}/screened_theatrically", request.TVId), request));
-
-        public Task<SimilarTVResponse> GetAsync(SimilarTVRequest request) =>
-            Client.GetAsync<SimilarTVResponse>(
-                Serialize(FormatPath("/tv/{0}/similar", request.TVId), request));
-
-        public Task<TVTranslationsResponse> GetAsync(TVTranslationsRequest request) =>
-            Client.GetAsync<TVTranslationsResponse>(
-                Serialize(FormatPath("/tv/{0}/translations", request.TVId), request));
-
-        public Task<TVVideosResponse> GetAsync(TVVideosRequest request) =>
-            Client.GetAsync<TVVideosResponse>(
-                Serialize(FormatPath("/tv/{0}/videos", request.TVId), request));
-
-        public Task<TVWatchProvidersResponse> GetAsync(TVWatchProvidersRequest request) =>
-            Client.GetAsync<TVWatchProvidersResponse>(
-                Serialize(FormatPath("/tv/{0}/watch/providers", request.TVId), request));
-
-        [Obsolete("// TODO: Need to implement POST w/ body")]
-        public Task<RateTVResponse> PostAsync(RateTVRequest request) =>
-            Client.GetAsync<RateTVResponse>(
-                Serialize(FormatPath("/tv/{0}/rating", request.TVId), request));
-
-        [Obsolete("// TODO: Need to implement DELETE")]
-        public Task<DeleteTVRatingResponse> DeleteAsync(DeleteTVRatingRequest request) =>
-            Client.GetAsync<DeleteTVRatingResponse>(
-                Serialize(FormatPath("/tv/{0}/rating", request.TVId), request));
-
-        public Task<LatestTVResponse> GetAsync(LatestTVRequest request) =>
-            Client.GetAsync<LatestTVResponse>(Serialize("/tv/latest", request));
-
-        public Task<TVAiringTodayResponse> GetAsync(TVAiringTodayRequest request) =>
-            Client.GetAsync<TVAiringTodayResponse>(Serialize("/tv/airing_today", request));
-
-        public Task<TVOnTheAirResponse> GetAsync(TVOnTheAirRequest request) =>
-            Client.GetAsync<TVOnTheAirResponse>(Serialize("/tv/airing_today", request));
-
-        public Task<PopularTVResponse> GetAsync(PopularTVRequest request) =>
-            Client.GetAsync<PopularTVResponse>(Serialize("/tv/popular", request));
-
-        public Task<TopRatedTVResponse> GetAsync(TopRatedTVRequest request) =>
-            Client.GetAsync<TopRatedTVResponse>(Serialize("/tv/top_rated", request));
+        public virtual Task<TopRatedTVResponse> GetAsync(TopRatedTVRequest request) =>
+            Client.SendAsync<TopRatedTVResponse>(request);
     }
 }

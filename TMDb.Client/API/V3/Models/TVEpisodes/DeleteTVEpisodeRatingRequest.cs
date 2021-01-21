@@ -3,7 +3,7 @@ using TMDb.Client.Attributes;
 
 namespace TMDb.Client.API.V3.Models.TVEpisodes
 {
-    public class TVEpisodesDeleteRatingRequest : TMDbRequest
+    public class DeleteTVEpisodeRatingRequest : TMDbRequest
     {
         [ApiParameter(
             Name = "guest_session_id")]
