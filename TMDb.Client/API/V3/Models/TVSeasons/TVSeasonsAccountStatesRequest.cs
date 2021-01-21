@@ -2,6 +2,7 @@
 
 namespace TMDb.Client.API.V3.Models.TVSeasons
 {
+    [ApiGetEndpoint("/tv/{tv_id}/season/{season_number}/account_states")]
     public class TVSeasonsAccountStatesRequest : TVSeasonsRequest
     {
         [ApiParameter(

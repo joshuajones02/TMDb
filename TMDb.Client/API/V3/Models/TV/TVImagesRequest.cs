@@ -10,6 +10,7 @@ namespace TMDb.Client.API.V3.Models.TV
     /// should be a comma seperated value like so:
     /// include_image_language= en,null.
     /// </summary>
+    [ApiGetEndpoint("/tv/{tv_id}/images")]
     public class TVImagesRequest : TVBaseRequest
     {
         /// <include file='tmdb-api-comments.xml' path='doc/members/member[@name="LanguageAbbreviation"]/*' />

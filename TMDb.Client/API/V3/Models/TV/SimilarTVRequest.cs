@@ -3,6 +3,7 @@ using TMDb.Client.Attributes;
 
 namespace TMDb.Client.API.V3.Models.TV
 {
+    [ApiGetEndpoint("/tv/{tv_id}/similar")]
     public class SimilarTVRequest : TVBaseRequest
     {
         /// <include file='tmdb-api-comments.xml' path='doc/members/member[@name="LanguageAbbreviation"]/*' />

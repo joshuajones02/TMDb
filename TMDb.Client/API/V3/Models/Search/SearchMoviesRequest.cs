@@ -2,6 +2,7 @@
 
 namespace TMDb.Client.API.V3.Models.Search
 {
+    [ApiGetEndpoint("/search/movie")]
     public class SearchMoviesRequest : SearchRequest
     {
         [ApiParameter(

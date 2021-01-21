@@ -3,7 +3,7 @@ using TMDb.Client.Attributes;
 
 namespace TMDb.Client.API.V3.Models.Search
 {
-    public class SearchRequest : TMDbRequest
+    public abstract class SearchRequest : TMDbRequest
     {
         [ApiParameter(
             Name = "page",

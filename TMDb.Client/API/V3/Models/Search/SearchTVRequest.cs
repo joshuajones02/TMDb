@@ -2,6 +2,7 @@
 
 namespace TMDb.Client.API.V3.Models.Search
 {
+    [ApiGetEndpoint("/search/tv")]
     public class SearchTVRequest : SearchRequest
     {
         [ApiParameter(

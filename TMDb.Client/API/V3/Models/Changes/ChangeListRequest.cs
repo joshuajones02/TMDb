@@ -4,7 +4,7 @@ using TMDb.Client.Attributes;
 
 namespace TMDb.Client.API.V3.Models.Changes
 {
-    public class ChangeListRequest : TMDbRequest
+    public abstract class ChangeListRequest : TMDbRequest
     {
         [ApiParameter(
             Name = "page")]

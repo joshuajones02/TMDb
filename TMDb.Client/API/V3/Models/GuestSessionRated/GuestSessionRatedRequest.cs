@@ -2,13 +2,7 @@
 
 namespace TMDb.Client.API.V3.Models.GuestSessionRated
 {
-    public enum GuestSessionRatingSortyBy
-    {
-        CreatedDescending,
-        CreatedAscending
-    }
-
-    public class GuestSessionRatedRequest : TMDbRequest
+    public abstract class GuestSessionRatedRequest : TMDbRequest
     {
         [ApiParameter(
             Name = "guest_session_id",

@@ -2,6 +2,7 @@
 
 namespace TMDb.Client.API.V3.Models.Search
 {
+    [ApiGetEndpoint("/search/multi")]
     public class MultiSearchRequest : SearchRequest
     {
         [ApiParameter(

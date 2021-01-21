@@ -2,7 +2,7 @@
 
 namespace TMDb.Client.API.V3.Models.People
 {
-    [ApiGetEndpoint("")]
+    [ApiGetEndpoint("/person/{person_id}/translations")]
     public class PeopleTranslationsRequest : PeopleRequest
     {
     }

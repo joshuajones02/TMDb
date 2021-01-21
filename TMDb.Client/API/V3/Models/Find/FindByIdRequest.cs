@@ -12,6 +12,7 @@ namespace TMDb.Client.API.V3.Models.Find
     ///
     ///     *Defunct or no longer available as a service.
     /// </summary>
+    [ApiGetEndpoint("/find/{external_id}")]
     public class FindByIdRequest : TMDbRequest
     {
         [ApiParameter(

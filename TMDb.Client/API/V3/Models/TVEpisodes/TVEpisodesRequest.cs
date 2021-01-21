@@ -5,7 +5,8 @@ using TMDb.Client.Attributes;
 
 namespace TMDb.Client.API.V3.Models.TVEpisodes
 {
-    public class TVEpisodesRequest : TVSeasonsRequest
+    [ApiGetEndpoint("")]
+    public abstract class TVEpisodesRequest : TVSeasonsRequest
     {
         [JsonIgnore]
         [Required]

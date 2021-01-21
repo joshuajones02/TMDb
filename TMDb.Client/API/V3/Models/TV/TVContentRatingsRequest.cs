@@ -2,6 +2,7 @@
 
 namespace TMDb.Client.API.V3.Models.TV
 {
+    [ApiGetEndpoint("/tv/{tv_id}/content_ratings")]
     public class TVContentRatingsRequest : TVBaseRequest
     {
         /// <include file='tmdb-api-comments.xml' path='doc/members/member[@name="LanguageAbbreviation"]/*' />

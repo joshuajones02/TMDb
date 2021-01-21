@@ -4,6 +4,7 @@ using TMDb.Client.Attributes;
 
 namespace TMDb.Client.API.V3.Models.TVEpisodes
 {
+    [ApiGetEndpoint("/tv/episode/{episode_id}/changes")]
     public class TVEpisodesChangesRequest : ChangeListRequest
     {
         [ApiParameter(

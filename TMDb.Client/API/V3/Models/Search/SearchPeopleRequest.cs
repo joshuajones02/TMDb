@@ -2,6 +2,7 @@
 
 namespace TMDb.Client.API.V3.Models.Search
 {
+    [ApiGetEndpoint("/search/person")]
     public class SearchPeopleRequest : SearchRequest
     {
         [ApiParameter(
