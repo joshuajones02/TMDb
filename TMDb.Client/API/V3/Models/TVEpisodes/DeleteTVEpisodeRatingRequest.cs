@@ -4,20 +4,21 @@ using TMDb.Client.Attributes;
 namespace TMDb.Client.API.V3.Models.TVEpisodes
 {
     [ApiDeleteEndpoint("/tv/{tv_id}/season/{season_number}/episode/{episode_number}/rating")]
-    public class DeleteTVEpisodeRatingRequest : TMDbRequest
+    public class DeleteTVEpisodeRatingRequest : TVEpisodesRequest
     {
         [ApiParameter(
-            Name = "guest_session_id")]
+            Name = "Content-Type",
+            ParameterType = ParameterType.Header)]
+        public virtual string ContentType { get; set; }
+
+        [ApiParameter(
+            Name = "guest_session_id",
+            ParameterType = ParameterType.Query)]
         public virtual string GuestSessionId { get; set; }
 
         [ApiParameter(
-            Name = "session_id")]
+            Name = "session_id",
+            ParameterType = ParameterType.Query)]
         public virtual string SessionId { get; set; }
-
-        // TODO: Add implementation - this is a header property
-        [JsonIgnore]
-        [ApiParameter(
-            Name = "Content-Type")]
-        public virtual string ContentType { get; set; }
     }
 }

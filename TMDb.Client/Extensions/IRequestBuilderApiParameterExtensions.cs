@@ -12,40 +12,67 @@ namespace TMDb.Client.Extensions
 {
     public static class IRequestBuilderApiParameterExtensions
     {
-        public static List<ApiParameter> GetApiParameters(this IRequestBuilder builder, RequestBase request)
+        public static ApiParameter GetApiParameters(this IRequestBuilder builder, RequestBase request)
         {
-            var apiParameters = new List<ApiParameter>();
-            var members = request.GetType()
-                .GetMembers(BindingFlags.Public | BindingFlags.Instance)
-                .Where(x => x.MemberType == MemberTypes.Field || x.MemberType == MemberTypes.Property);
+            var headers = new Dictionary<string, string>();
+            var query   = new Dictionary<string, string>();
+            var path    = new Dictionary<string, string>();
+            var body    = new Dictionary<string, string>();
+            var version = default(string);
 
-            foreach (MemberInfo member in members)
+            var props = request.GetType()
+                .GetProperties()
+                //.Where(x => x.HasAttribute<ApiParameterAttribute>()));
+                .Where(x => Attribute.IsDefined(x, typeof(ApiParameterAttribute)));
+
+            foreach (var prop in props)
             {
-                var attr = member.GetCustomAttribute<ApiParameterAttribute>(inherit: true);
+                var param = prop.GetCustomAttribute<ApiParameterAttribute>();
+                var value = prop.GetValue(props, null) as string;
 
-                if (attr == null)
+                // TODO: Move to model validator
+                if (value.IsNullOrEmpty())
                 {
-                    var message = string.Format("Property {0} of {1} missing required attribute {2}",
-                        member.Name, request.GetType().Name, nameof(ApiParameterAttribute));
+                    if (Attribute.IsDefined(prop.GetType(), typeof(RequiredAttribute)))
+                    {
+                        // TODO: Create custom exception
+                        throw new ArgumentNullException(prop.Name);
+                    }
 
-                    // TODO: Create custom exception
-                    throw new ArgumentNullException(member.Name, message);
+                    continue;
                 }
 
-                var value = request.GetType().GetProperty(member.Name).GetValue(request, null);
-
-                if (value != null)
+                switch (param.ParameterType)
                 {
-                    apiParameters.Add(new ApiParameter(attr.Name, attr.ParameterType, value.ToString()));
-                }
-                else
-                {
-                    if (member.GetCustomAttribute<RequiredAttribute>(inherit: true) != null)
-                        throw new ArgumentNullException(member.Name);
+                    case ParameterType.NotSet:
+                        // TODO: Create custom exception
+                        throw new ArgumentException(param.Name);
+                    case ParameterType.Header:
+                        headers.Add(param.Name, value);
+                        break;
+                    case ParameterType.Query:
+                        query.Add(param.Name, value);
+                        break;
+                    case ParameterType.Path:
+                        path.Add(param.Name, value);
+                        break;
+                    case ParameterType.JsonBody:
+                        body.Add(param.Name, value);
+                        break;
+                    case ParameterType.Version:
+                        version = value;
+                        break;
                 }
             }
 
-            return apiParameters;
+            return new ApiParameter
+            {
+                Headers = headers,
+                QueryParameters = query,
+                PathParameters = path,
+                Version = version,
+                JsonBody = body
+            };
         }
     }
 }

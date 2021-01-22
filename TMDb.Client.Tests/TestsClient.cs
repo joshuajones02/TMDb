@@ -1,4 +1,7 @@
-﻿using System.Threading.Tasks;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using TMDb.Client.API.V3.Models.Configuration;
 using Xunit;
 

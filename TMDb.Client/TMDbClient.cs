@@ -4,7 +4,7 @@ using TMDb.Client.Settings;
 
 namespace TMDb.Client
 {
-    public class TMDbClient : RestClient
+    public class TMDbClient : HttpClientWrapper
     {
         public TMDbClient(string apiKey) : this(apiKey, "3")
         {

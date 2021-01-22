@@ -6,11 +6,13 @@ namespace TMDb.Client.API.V3.Models.TVSeasons
     public class TVSeasonsAccountStatesRequest : TVSeasonsRequest
     {
         [ApiParameter(
-            Name = "guest_session_id")]
+            Name = "guest_session_id",
+            ParameterType = ParameterType.Query)]
         public virtual string GuestSessionId { get; set; }
 
         [ApiParameter(
-            Name = "session_id")]
+            Name = "session_id",
+            ParameterType = ParameterType.Query)]
         public virtual string SessionId { get; set; }
     }
 }

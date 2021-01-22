@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using TMDb.Client.Attributes;
 
 namespace TMDb.Client.API.V3.Models.TV
@@ -19,9 +20,10 @@ namespace TMDb.Client.API.V3.Models.TV
         ///     default: 1
         /// </summary>
         [ApiParameter(
-            Name = "Page",
+            Name = "page",
             ParameterType = ParameterType.Query)]
         [Required]
+        [Obsolete("// TODO: Handle default value (1)")]
         public virtual int Page { get; set; }
     }
 }

@@ -1,13 +1,13 @@
 ﻿using TMDb.Client.API.V3.Models.Discover;
 using TMDb.Client.Builders;
-using TMDb.Client.Enums;
+using TMDb.Client.Extensions;
 using Xunit;
 
 namespace TMDb.Client.Tests
 {
     public class ApiRequestBuilderTests
     {
-        private readonly RequestBuilder _requestBuilder;
+        private readonly IRequestBuilder _requestBuilder;
 
         public ApiRequestBuilderTests()
         {
@@ -15,38 +15,13 @@ namespace TMDb.Client.Tests
         }
 
         [Fact]
-        public void ApiRequestBuilder_ApiEndpoint_SmokeTest()
+        public void RequestBuilder_ApiEndpoint_SmokeTest()
         {
-            // Arrange
-            var request = new DiscoverMovieRequest();
-
-            // Act
-            var endpoint = _requestBuilder.GetApiEndpoint(request);
+            var endpoint = _requestBuilder.GetApiEndpoint(new DiscoverMovieRequest());
 
             // Assert
             Assert.NotNull(endpoint.Path);
             Assert.NotNull(endpoint.HttpMethod);
-        }
-
-        [Fact]
-        public void ApiRequestBuilder_ApiParameter_SmokeTest()
-        {
-            // Arrange
-            var request = new DiscoverMovieRequest
-            {
-                SortBy = DiscoverMovieSortBy.PopularityDescending,
-                IncludeAdult = false,
-                IncludeVideo = false,
-                Page = 10
-            };
-
-            request.SetBaseParameters();
-
-            // Act
-            var parameters = _requestBuilder.GetApiParameters(request);
-
-            // Assert
-            Assert.True(parameters.Count == 6);
         }
     }
 }

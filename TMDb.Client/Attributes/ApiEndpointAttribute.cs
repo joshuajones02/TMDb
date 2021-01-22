@@ -4,7 +4,7 @@ using System.Net.Http;
 namespace TMDb.Client.Attributes
 {
     [AttributeUsage(AttributeTargets.Class)]
-    public class ApiEndpointAttribute : Attribute
+    public abstract class ApiEndpointAttribute : Attribute
     {
         public ApiEndpointAttribute(HttpMethod method, string path)
         {

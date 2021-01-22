@@ -6,7 +6,8 @@ namespace TMDb.Client.API.V3.Models.TVSeasons
     public class TVSeasonsDetailsRequest : TVSeasonsRequest
     {
         [ApiParameter(
-            Name = "append_to_response")]
+            Name = "append_to_response",
+            ParameterType = ParameterType.Query)]
         public virtual string AppendToResponse { get; set; }
     }
 }

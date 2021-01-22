@@ -5,8 +5,7 @@ using TMDb.Client.Attributes;
 
 namespace TMDb.Client.API.V3.Models.TVSeasons
 {
-    [ApiGetEndpoint("")]
-    public class TVSeasonsRequest : TMDbRequest
+    public abstract class TVSeasonsRequest : TMDbRequest
     {
         [ApiParameter(
             Name = "tv_id",

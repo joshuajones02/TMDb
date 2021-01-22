@@ -8,7 +8,7 @@ namespace TMDb.Client.API.V3.Models.Movies
     public class MovieChangesRequest : MovieBaseRequest
     {
         [ApiParameter(
-            Name = "Page",
+            Name = "page",
             ParameterType = ParameterType.Query)]
         [Required]
         public virtual int Page { get; set; }

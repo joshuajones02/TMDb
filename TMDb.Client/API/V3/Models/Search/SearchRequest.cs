@@ -8,13 +8,11 @@ namespace TMDb.Client.API.V3.Models.Search
         [ApiParameter(
             Name = "page",
             ParameterType = ParameterType.Query)]
-        [JsonRequired]
         public virtual int Page { get; set; }
 
         [ApiParameter(
             Name = "query",
             ParameterType = ParameterType.Query)]
-        [JsonRequired]
         public virtual string Query { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using TMDb.Client.API.V3.Models.Movies;
+﻿using System.Threading.Tasks;
+using TMDb.Client.API.V3.Models.Movies;
 using Xunit;
 
 namespace TMDb.Client.Tests
@@ -13,24 +14,39 @@ namespace TMDb.Client.Tests
         Nosferatu    =    653
     }
 
+    public static class Language
+    {
+        public const string AmericanEnglish = "en-US";
+        public const string BritishEnglish = "en-GB";
+        public const string CanadianFrench = "fr-CA";
+        public const string Chinese = "zh-CN";
+        public const string FinlandSwedish = "sv-FI";
+        public const string German = "de-DE";
+        public const string Italian = "it-IT";
+        public const string MexicanSpanish = "es-MX";
+    }
+
     public class MoviesProxyTests : TestsClient
     {
         [Theory]
-        [InlineData((int)Movies.BillyMadison)]
-        [InlineData((int)Movies.DeathTo2020)]
-        [InlineData((int)Movies.Insidious)]
-        [InlineData((int)Movies.Immortals)]
-        [InlineData((int)Movies.LionKing)]
-        [InlineData((int)Movies.Nosferatu)]
-        public void GetMovieDetailsTest(int movieId)
+        [InlineData((int)Movies.BillyMadison, Language.AmericanEnglish, null                        )]
+        [InlineData((int)Movies.DeathTo2020,  Language.Chinese,         "videos"                    )]
+        [InlineData((int)Movies.Insidious,    Language.German,          "videos"                    )]
+        [InlineData((int)Movies.Immortals,    Language.Italian,         "videos,images"             )]
+        [InlineData((int)Movies.LionKing,     Language.Chinese,         "videos,images,translations")]
+        [InlineData((int)Movies.Nosferatu,    Language.CanadianFrench,  null                        )]
+        public async Task GetMovieDetailsTest(int movieId, string language, string appendToResponse)
         {
-            // Arrange
-            var request = new MovieDetailsRequest();
+            var request = new MovieDetailsRequest 
+            { 
+                MovieId = movieId,
+                AppendToResponse = appendToResponse,
+                LanguageAbbreviation = language
+            };
 
-            // Act
-            var test = Client.Movies.GetAsync(request);
+            var response = await Client.Movies.GetAsync(request);
 
-            // Assert
+            Assert.Equal(typeof(MovieDetailsResponse), response.GetType());
         }
     }
 }

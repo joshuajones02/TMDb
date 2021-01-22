@@ -14,7 +14,7 @@ namespace TMDb.Client.API.V3.Models.TV
         ///     default: 1
         /// </summary>
         [ApiParameter(
-            Name = "Page",
+            Name = "page",
             ParameterType = ParameterType.Query)]
         [Required]
         public virtual int Page { get; set; }

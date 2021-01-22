@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
 using System.Security.Authentication;
@@ -7,28 +6,30 @@ using System.Threading.Tasks;
 using TMDb.Client.API;
 using TMDb.Client.API.V3.Models;
 using TMDb.Client.Builders;
-using TMDb.Client.Extensions;
 using TMDb.Client.Configurations;
-using TMDb.Client.Models;
 using TMDb.Client.Validators;
 
 namespace TMDb.Client
 {
-    public class HttpClientWrapper : IDisposable
+    public abstract class HttpClientWrapper : IDisposable
     {
         private readonly IRestClientConfiguration _clientConfiguration;
         private readonly IRequestBuilder _requestBuilder;
         private readonly IStatusCodeValidator _statusCodeValidator;
 
-        public HttpClientWrapper(Uri baseUrl, IRestClientConfiguration config)
+        public HttpClientWrapper(Uri baseUrl) : this(RestClientConfiguration.Instance, baseUrl)
+        {
+        }
+
+        public HttpClientWrapper(IRestClientConfiguration config, Uri baseUrl)
             : this(new RequestBuilder(), config, new StatusCodeValidator(), baseUrl)
         {
         }
 
         public HttpClientWrapper(
             IRequestBuilder requestBuilder,
-            IRestClientConfiguration clientConfiguration, 
-            IStatusCodeValidator statusCodeValidator, 
+            IRestClientConfiguration clientConfiguration,
+            IStatusCodeValidator statusCodeValidator,
             Uri baseUrl)
         {
             _requestBuilder = requestBuilder;
@@ -51,33 +52,23 @@ namespace TMDb.Client
         internal HttpClient Client { get; set; }
         internal Uri BaseAddress { get; set; }
 
-        internal virtual Task<TResponse> SendAsync<TResponse>(RequestBase request) where TResponse : TMDbResponse
+        internal virtual async Task<TResponse> SendAsync<TResponse>(RequestBase request) where TResponse : TMDbResponse
         {
-            var endpoint = _requestBuilder.GetApiEndpoint(request);
-            var parameters = _requestBuilder.GetApiParameters(request);
-
             var expectedStatusCodes = new int[] { 200, 201 };
-
-            return SendAsync<TResponse>(endpoint, parameters, expectedStatusCodes);
-        }
-
-        protected async Task<T> SendAsync<T>(ApiEndpoint endpoint, List<ApiParameter> parameters, int[] expectedStatusCodes)
-        {
-            var request = _requestBuilder.BuildRequest(Client.BaseAddress, endpoint, parameters, _clientConfiguration);
-            var responseResult = new HttpResponseResult<T>
+            var httpRequestMessage = _requestBuilder.BuildRequest(Client.BaseAddress, request, _clientConfiguration);
+            var responseResult = new HttpResponseResult<TResponse>
             {
                 ExpectedStatusCodes = expectedStatusCodes,
-                Parameters = parameters,
-                Request = request, 
+                Request = httpRequestMessage,
                 Timer = Stopwatch.StartNew()
             };
 
             try
             {
-                responseResult.Response = await Client.SendAsync(request);
-                _statusCodeValidator.ValidateStatusCode(responseResult.Response, request.RequestUri, expectedStatusCodes);
+                responseResult.Response = await Client.SendAsync(httpRequestMessage);
+                _statusCodeValidator.ValidateStatusCode(responseResult.Response, httpRequestMessage.RequestUri, expectedStatusCodes);
                 var responseText = await responseResult.Response.Content.ReadAsStringAsync();
-                responseResult.Result = responseText.ToObject<T>();
+                responseResult.Result = responseText.ToObject<TResponse>();
             }
             catch (Exception ex)
             {

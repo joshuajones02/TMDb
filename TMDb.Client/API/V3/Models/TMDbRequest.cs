@@ -9,12 +9,12 @@ namespace TMDb.Client.API.V3.Models
     [Obsolete("on startup write check to make sure all members/propertyinfo have ApiParameter attribute")]
     public abstract class TMDbRequest : RequestBase
     {
-        [Obsolete("// TODO: *** Refactor out this reference directly to settings, apply it in another layer.")]
+        // TODO: *** Refactor out this reference directly to settings, apply it in another layer.
         public TMDbRequest() : this(DefaultTMDbSettings.Instance)
         {
         }
 
-        [Obsolete("// TODO: *** Refactor out this reference directly to settings, apply it in another layer.")]
+        // TODO: *** Refactor out this reference directly to settings, apply it in another layer.
         public TMDbRequest(ITMDbSettings settings)
         {
             // TODO: *** Refactor out this reference directly to settings, apply it in another layer.
@@ -32,7 +32,7 @@ namespace TMDb.Client.API.V3.Models
 
         [ApiParameter(
             Name = "version",
-            ParameterType = ParameterType.PathPrepend)]
+            ParameterType = ParameterType.Version)]
         [Required]
         public virtual string Version { get; set; }
     }

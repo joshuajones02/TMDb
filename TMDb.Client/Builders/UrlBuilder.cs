@@ -7,78 +7,42 @@ namespace TMDb.Client.Builders
     public class UrlBuilder
     {
         private readonly UriBuilder _uriBuilder;
-        private Dictionary<string, string> _pathParameters;
-        private Dictionary<string, string> _queryParameters;
-        private string _path;
 
-        public UrlBuilder(Uri uri) =>
-            _uriBuilder = new UriBuilder(uri);
-
-        public string Path
+        public UrlBuilder(Uri baseUrl)
         {
-            get => _path;
-            set
-            {
-                if (_path.HasValue())
-                {
-                    throw new Exception($"Path has already been declared with {_path} cannot assign it {value}");
-                }
-
-                _path = value;
-            }
+            _uriBuilder = new UriBuilder(baseUrl);
         }
 
-        public UrlBuilder WithQueryItems(Dictionary<string, string> query)
-        {
-
-            if (_queryParameters != null)
-                throw new ArgumentException(nameof(query), "Are you sure you want to replace current query items?");
-
-            _queryParameters = query;
-
-            return this;
-        }
-
-        public UrlBuilder WithPathReplacements(Dictionary<string, string> pathReplacements)
-        {
-            if (_pathParameters != null)
-                throw new ArgumentException(nameof(pathReplacements), "Are you sure you want to replace current query items?");
-
-            _pathParameters = pathReplacements;
-
-            return this;
-        }
+        public Dictionary<string, string> Query { get; set; }
+        public Dictionary<string, string> PathParameters { get; set; }
+        public string Version { get; set; }
+        public string Path { get; set; }
 
         public Uri Uri
         {
             get
             {
-                if (_queryParameters != null)
+                if (Query != null)
                 {
-                    var kvps = _queryParameters.Select(x => string.Format("{0}={1}", x.Key, x.Value));
-
-                    _uriBuilder.Query = string.Join('&', kvps);
+                    var serialized = Query.Select(x => string.Format("{0}={1}", x.Key, x.Value));
+                    _uriBuilder.Query = string.Join('&', serialized);
                 }
-                if (_pathParameters != null)
+                if (Version.HasValue())
                 {
-                    foreach (var pathParam in _pathParameters)
+                    Path = '/' + Version + Path;
+                }
+                if (PathParameters != null)
+                {
+                    foreach (var param in PathParameters)
                     {
-                        if (_path.Contains(pathParam.Key))
-                        {
-                            var name = string.Format("{0}", pathParam.Key);
-                            _path = _path.Replace(name, pathParam.Value);
-                        }
-                        else
-                        {
-                            var message = "The path '{0}' was expecting parameter '{1}'";
+                        if (!Path.Contains(param.Key))
+                            throw new ArgumentException($"Parameter '{param.Key}' not found in path '{Path}'");
 
-                            // TODO: Create custom exception
-                            throw new Exception(string.Format(message, _path, pathParam.Key));
-                        }
+                        Path = Path.Replace($"{{{param.Key}}}", param.Value);
                     }
                 }
 
-                _uriBuilder.Path = _path;
+                _uriBuilder.Path = Path;
 
                 return _uriBuilder.Uri;
             }

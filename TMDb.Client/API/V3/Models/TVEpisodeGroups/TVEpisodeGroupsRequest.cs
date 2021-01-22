@@ -1,14 +1,13 @@
-﻿using Newtonsoft.Json;
-using TMDb.Client.Attributes;
+﻿using TMDb.Client.Attributes;
 
 namespace TMDb.Client.API.V3.Models.TVEpisodeGroups
 {
     [ApiGetEndpoint("/tv/episode_group/{id}")]
     public class TVEpisodeGroupsRequest : TMDbRequest
     {
-        [JsonIgnore]
         [ApiParameter(
-            Name = "id")]
+            Name = "id",
+            ParameterType = ParameterType.Path)]
         public virtual string Id { get; set; }
     }
 }

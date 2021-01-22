@@ -21,7 +21,8 @@ namespace TMDb.Client.API.V3.Models.Search
         /// pattern: ^[A-Z]{2}$
         /// </summary>
         [ApiParameter(
-            Name = "region")]
+            Name = "region",
+            ParameterType = ParameterType.Query)]
         public virtual string Region { get; set; }
     }
 }

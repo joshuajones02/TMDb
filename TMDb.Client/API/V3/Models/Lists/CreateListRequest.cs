@@ -10,7 +10,6 @@ namespace TMDb.Client.API.V3.Models.Lists
         [ApiParameter(
             Name = "session_id",
             ParameterType = ParameterType.Query)]
-        [JsonRequired]
         [Required]
         public virtual string SessionId { get; set; }
 

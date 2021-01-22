@@ -7,7 +7,8 @@ namespace TMDb.Client.API.V3.Models.Search
     {
         /// <include file='tmdb-api-comments.xml' path='doc/members/member[@name="LanguageAbbreviation"]/*' />
         [ApiParameter(
-            Name = "language")]
+            Name = "language",
+            ParameterType = ParameterType.Query)]
         public virtual string LanguageAbbreviation { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.ComponentModel.DataAnnotations;
 using TMDb.Client.Attributes;
 
 namespace TMDb.Client.API.V3.Models.Changes
@@ -7,7 +8,9 @@ namespace TMDb.Client.API.V3.Models.Changes
     public abstract class ChangeListRequest : TMDbRequest
     {
         [ApiParameter(
-            Name = "page")]
+            Name = "page",
+            ParameterType = ParameterType.Query)]
+        [Obsolete("// TODO: Handle default of (1)")]
         public virtual int Page { get; set; }
 
         [ApiParameter(
@@ -18,7 +21,6 @@ namespace TMDb.Client.API.V3.Models.Changes
         [ApiParameter(
             Name = "end_date",
             ParameterType = ParameterType.Query)]
-        [JsonRequired]
         public virtual DateTime? EndDate { get; set; }
     }
 }

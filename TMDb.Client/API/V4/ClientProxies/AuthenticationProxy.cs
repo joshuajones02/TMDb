@@ -1,21 +1,21 @@
-﻿using System;
-using System.Threading.Tasks;
-using TMDb.Client.API.V4.Models.Authentication;
+﻿//using System;
+//using System.Threading.Tasks;
+//using TMDb.Client.API.V4.Models.Authentication;
 
-namespace TMDb.Client.API.V4.ClientProxies
-{
-    public class AuthenticationProxy : ApiProxy
-    {
-        public AuthenticationProxy(TMDbClient client) : base(client)
-        {
-        }
+//namespace TMDb.Client.API.V4.ClientProxies
+//{
+//    public class AuthenticationProxy : ApiProxy
+//    {
+//        public AuthenticationProxy(TMDbClient client) : base(client)
+//        {
+//        }
 
-        public virtual string FormatPath(string path, int id) => string.Format(path, id);
+//        public virtual string FormatPath(string path, int id) => string.Format(path, id);
 
-        public virtual Task<CreateSessionResponse> PostAsync(CreateSessionRequest request) =>
-            Client.PostJsonAsync<CreateSessionResponse>(new UriBuilder(Client.BaseAddress)
-            {
-                Path = "/authentication/session/convert/4"
-            }.Uri, request.ToJson());
-    }
-}
+//        public virtual Task<CreateSessionResponse> PostAsync(CreateSessionRequest request) =>
+//            Client.PostJsonAsync<CreateSessionResponse>(new UriBuilder(Client.BaseAddress)
+//            {
+//                Path = "/authentication/session/convert/4"
+//            }.Uri, request.ToJson());
+//    }
+//}

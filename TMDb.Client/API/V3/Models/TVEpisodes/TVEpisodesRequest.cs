@@ -5,12 +5,12 @@ using TMDb.Client.Attributes;
 
 namespace TMDb.Client.API.V3.Models.TVEpisodes
 {
-    [ApiGetEndpoint("")]
     public abstract class TVEpisodesRequest : TVSeasonsRequest
     {
-        [JsonIgnore]
+        [ApiParameter(
+            Name = "episode_number",
+            ParameterType = ParameterType.Path)]
         [Required]
-        [StringFormatParameter("episode_number")]
         public virtual int EpisodeNumber { get; set; }
     }
 }

@@ -8,7 +8,8 @@ namespace TMDb.Client.API.V3.Models.TVSeasons
     public class TVSeasonsChangesRequest : ChangeListRequest
     {
         [ApiParameter(
-            Name = "season_id")]
+            Name = "season_id",
+            ParameterType = ParameterType.Path)]
         [JsonRequired]
         public virtual int SeasonId { get; set; }
     }
