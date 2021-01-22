@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using TMDb.Client.API;
+using TMDb.Client.Api;
 using TMDb.Client.Attributes;
 using TMDb.Client.Builders;
 using TMDb.Client.Models;

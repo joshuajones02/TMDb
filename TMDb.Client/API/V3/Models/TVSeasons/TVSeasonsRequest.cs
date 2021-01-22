@@ -3,7 +3,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using TMDb.Client.Attributes;
 
-namespace TMDb.Client.API.V3.Models.TVSeasons
+namespace TMDb.Client.Api.V3.Models.TVSeasons
 {
     public abstract class TVSeasonsRequest : TMDbRequest
     {

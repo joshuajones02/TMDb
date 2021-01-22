@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using TMDb.Client.Attributes;
 
-namespace TMDb.Client.API.V3.Models.Lists
+namespace TMDb.Client.Api.V3.Models.Lists
 {
     [ApiDeleteEndpoint("/list/{list_id}")]
     public class DeleteListRequest : ListRequestBase

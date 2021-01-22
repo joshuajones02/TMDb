@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
-using TMDb.Client.API.V3.Models.TVEpisodeGroups;
-using TMDb.Client.API.V3.Models.TVEpisodes;
+using TMDb.Client.Api.V3.Models.TVEpisodeGroups;
+using TMDb.Client.Api.V3.Models.TVEpisodes;
 
-namespace TMDb.Client.API.V3.ClientProxies
+namespace TMDb.Client.Api.V3.ClientProxies
 {
     public class TVEpisodeGroupsProxy : ApiProxy
     {

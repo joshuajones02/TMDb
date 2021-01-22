@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using TMDb.Client.Entities.Media;
 
-namespace TMDb.Client.API.V3.Models.Collections
+namespace TMDb.Client.Api.V3.Models.Collections
 {
     public class CollectionImagesResponse : TMDbCollectionResponse
     {

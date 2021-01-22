@@ -1,6 +1,6 @@
 ﻿using TMDb.Client.Attributes;
 
-namespace TMDb.Client.API.V3.Models.People
+namespace TMDb.Client.Api.V3.Models.People
 {
     [ApiGetEndpoint("/person/{person_id}/tv_credits")]
     public class PeopleTVCreditsRequest : PeopleRequest

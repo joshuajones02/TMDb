@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using TMDb.Client.Entities.Organizations;
 
-namespace TMDb.Client.API.V3.Models.Search
+namespace TMDb.Client.Api.V3.Models.Search
 {
     public class SearchCompaniesResponse : TMDbCollectionResponse
     {

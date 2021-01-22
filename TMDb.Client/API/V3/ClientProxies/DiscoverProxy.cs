@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
-using TMDb.Client.API.V3.Models.Discover;
-using TMDb.Client.API.V3.Models.TV;
+using TMDb.Client.Api.V3.Models.Discover;
+using TMDb.Client.Api.V3.Models.TV;
 
-namespace TMDb.Client.API.V3.ClientProxies
+namespace TMDb.Client.Api.V3.ClientProxies
 {
     public class DiscoverProxy : ApiProxy
     {

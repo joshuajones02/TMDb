@@ -4,7 +4,7 @@
         <name>TMDb.Client</name>
     </assembly>
     <members>
-        <member name="T:TMDb.Client.API.V3.Models.Discover.DiscoverMovieRequest">
+        <member name="T:TMDb.Client.Api.V3.Models.Discover.DiscoverMovieRequest">
              <summary>
              Discover movies by different types of data like average rating,
              number of votes, genres and certifications. You can get a valid
@@ -36,7 +36,7 @@
              https://www.themoviedb.org/documentation/api/discover.
              </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Discover.DiscoverMovieRequest.LanguageAbbreviation">
+        <member name="P:TMDb.Client.Api.V3.Models.Discover.DiscoverMovieRequest.LanguageAbbreviation">
             <summary>
             Specify a language to query translatable fields with.
                 minLength: 2
@@ -44,13 +44,13 @@
                 default: en - US
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Discover.DiscoverMovieRequest.RegionCountryCode">
+        <member name="P:TMDb.Client.Api.V3.Models.Discover.DiscoverMovieRequest.RegionCountryCode">
             <summary>
             Specify a ISO 3166-1 code to filter release dates. Must be uppercase.
                 pattern: ^[A-Z]{2}$
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Discover.DiscoverMovieRequest.SortBy">
+        <member name="P:TMDb.Client.Api.V3.Models.Discover.DiscoverMovieRequest.SortBy">
              <summary>
              Choose from one of the many available sort options.
 
@@ -65,40 +65,40 @@
                  default: popularity.desc
              </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Discover.DiscoverMovieRequest.CertificationCountry">
+        <member name="P:TMDb.Client.Api.V3.Models.Discover.DiscoverMovieRequest.CertificationCountry">
             <summary>
             Used in conjunction with the certification filter, use this
             to specify a country with a valid certification.
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Discover.DiscoverMovieRequest.Certification">
+        <member name="P:TMDb.Client.Api.V3.Models.Discover.DiscoverMovieRequest.Certification">
             <summary>
             Filter results with a valid certification from the 'certification_country' field.
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Discover.DiscoverMovieRequest.CertificationLessThanOrEqualTo">
+        <member name="P:TMDb.Client.Api.V3.Models.Discover.DiscoverMovieRequest.CertificationLessThanOrEqualTo">
             <summary>
             Filter and only include movies that have a certification that
             is less than or equal to the specified value.
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Discover.DiscoverMovieRequest.CertificationGreaterThanOrEqualTo">
+        <member name="P:TMDb.Client.Api.V3.Models.Discover.DiscoverMovieRequest.CertificationGreaterThanOrEqualTo">
             <summary>
             Filter and only include movies that have a certification that
             is greater than or equal to the specified value.
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Discover.DiscoverMovieRequest.IncludeAdult">
+        <member name="P:TMDb.Client.Api.V3.Models.Discover.DiscoverMovieRequest.IncludeAdult">
             <summary>
             A filter and include or exclude adult movies.
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Discover.DiscoverMovieRequest.IncludeVideo">
+        <member name="P:TMDb.Client.Api.V3.Models.Discover.DiscoverMovieRequest.IncludeVideo">
             <summary>
             A filter to include or exclude videos.
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Discover.DiscoverMovieRequest.Page">
+        <member name="P:TMDb.Client.Api.V3.Models.Discover.DiscoverMovieRequest.Page">
             <summary>
             Specify the page of results to query.
                 minimum: 1
@@ -106,26 +106,26 @@
                 default: 1
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Discover.DiscoverMovieRequest.PrimaryReleaseYear">
+        <member name="P:TMDb.Client.Api.V3.Models.Discover.DiscoverMovieRequest.PrimaryReleaseYear">
             <summary>
             A filter to limit the results to a specific primary release year.
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Discover.DiscoverMovieRequest.PrimaryReleaseDateGreaterThanOrEqualTo">
+        <member name="P:TMDb.Client.Api.V3.Models.Discover.DiscoverMovieRequest.PrimaryReleaseDateGreaterThanOrEqualTo">
             <summary>
             Filter and only include movies that have a primary release date
             that is greater or equal to the specified value.
                 format: date
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Discover.DiscoverMovieRequest.PrimaryReleaseDateLessThanOrEqualTo">
+        <member name="P:TMDb.Client.Api.V3.Models.Discover.DiscoverMovieRequest.PrimaryReleaseDateLessThanOrEqualTo">
             <summary>
             Filter and only include movies that have a primary release date
             that is less than or equal to the specified value.
                 format: date
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Discover.DiscoverMovieRequest.ReleaseDateGreaterThanOrEqualTo">
+        <member name="P:TMDb.Client.Api.V3.Models.Discover.DiscoverMovieRequest.ReleaseDateGreaterThanOrEqualTo">
             <summary>
             Filter and only include movies that have a release date
             (looking at all release dates) that is greater or
@@ -133,7 +133,7 @@
                 format: date
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Discover.DiscoverMovieRequest.ReleaseDateLessThanOrEqualTo">
+        <member name="P:TMDb.Client.Api.V3.Models.Discover.DiscoverMovieRequest.ReleaseDateLessThanOrEqualTo">
             <summary>
             Filter and only include movies that have a release date
             (looking at all release dates) that is less than or
@@ -141,7 +141,7 @@
                 format: date
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Discover.DiscoverMovieRequest.WithReleaseTypes">
+        <member name="P:TMDb.Client.Api.V3.Models.Discover.DiscoverMovieRequest.WithReleaseTypes">
             <summary>
             These release types map to the same values found on the movie release date method.
                 search type: AND (,)
@@ -149,7 +149,7 @@
                 maximum: 6
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Discover.DiscoverMovieRequest.WithEitherReleaseTypes">
+        <member name="P:TMDb.Client.Api.V3.Models.Discover.DiscoverMovieRequest.WithEitherReleaseTypes">
             <summary>
             These release types map to the same values found on the movie release date method.
                 search type: OR (|)
@@ -157,129 +157,129 @@
                 maximum: 6
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Discover.DiscoverMovieRequest.Year">
+        <member name="P:TMDb.Client.Api.V3.Models.Discover.DiscoverMovieRequest.Year">
             <summary>
             A filter to limit the results to a specific year (looking at all release dates).
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Discover.DiscoverMovieRequest.VoteCountGreaterThanOrEqualTo">
+        <member name="P:TMDb.Client.Api.V3.Models.Discover.DiscoverMovieRequest.VoteCountGreaterThanOrEqualTo">
             <summary>
             Filter and only include movies that have a vote count that
             is greater or equal to the specified value.
                 minimum: 0
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Discover.DiscoverMovieRequest.VoteCountLessThanOrEqualTo">
+        <member name="P:TMDb.Client.Api.V3.Models.Discover.DiscoverMovieRequest.VoteCountLessThanOrEqualTo">
             <summary>
             Filter and only include movies that have a vote count that
             is less than or equal to the specified value.
                 minimum: 0
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Discover.DiscoverMovieRequest.VoteAverageGreaterThanOrEqualTo">
+        <member name="P:TMDb.Client.Api.V3.Models.Discover.DiscoverMovieRequest.VoteAverageGreaterThanOrEqualTo">
             <summary>
             Filter and only include movies that have a rating that is
             greater or equal to the specified value.
                 minimum: 1
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Discover.DiscoverMovieRequest.VoteAverageLessThanOrEqualTo">
+        <member name="P:TMDb.Client.Api.V3.Models.Discover.DiscoverMovieRequest.VoteAverageLessThanOrEqualTo">
             <summary>
             Filter and only include movies that have a rating that is less
             than or equal to the specified value.
                 minimum: 1
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Discover.DiscoverMovieRequest.WithCastIds">
+        <member name="P:TMDb.Client.Api.V3.Models.Discover.DiscoverMovieRequest.WithCastIds">
             <summary>
             A comma separated list of person ID's. Only include movies that
             have one of the ID's added as an actor.
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Discover.DiscoverMovieRequest.WithCrewIds">
+        <member name="P:TMDb.Client.Api.V3.Models.Discover.DiscoverMovieRequest.WithCrewIds">
             <summary>
             A comma separated list of person ID's. Only include movies that
             have one of the ID's added as a crew member.
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Discover.DiscoverMovieRequest.WithPeopleIds">
+        <member name="P:TMDb.Client.Api.V3.Models.Discover.DiscoverMovieRequest.WithPeopleIds">
             <summary>
             A comma separated list of person ID's. Only include movies that
             have one of the ID's added as a either a actor or a crew member.
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Discover.DiscoverMovieRequest.WithCompanyIds">
+        <member name="P:TMDb.Client.Api.V3.Models.Discover.DiscoverMovieRequest.WithCompanyIds">
             <summary>
             A comma separated list of production company ID's. Only include
             movies that have one of the ID's added as a production company.
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Discover.DiscoverMovieRequest.WithGenreIds">
+        <member name="P:TMDb.Client.Api.V3.Models.Discover.DiscoverMovieRequest.WithGenreIds">
             <summary>
             Comma separated value of genre ids that you want to include in the results.
                 search type: AND (,)
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Discover.DiscoverMovieRequest.WithEitherGenreIds">
+        <member name="P:TMDb.Client.Api.V3.Models.Discover.DiscoverMovieRequest.WithEitherGenreIds">
             <summary>
             Pipe separated value of genre ids that you want to include in the results.
                 search type: OR (|)
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Discover.DiscoverMovieRequest.WithoutGenreIds">
+        <member name="P:TMDb.Client.Api.V3.Models.Discover.DiscoverMovieRequest.WithoutGenreIds">
             <summary>
             Comma separated value of genre ids that you want to exclude from the results.
                 search type: AND (,)
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Discover.DiscoverMovieRequest.WithoutEitherGenreIds">
+        <member name="P:TMDb.Client.Api.V3.Models.Discover.DiscoverMovieRequest.WithoutEitherGenreIds">
             <summary>
             Pipe separated value of genre ids that you want to exclude from the results.
                 search type: OR (|)
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Discover.DiscoverMovieRequest.WithKeywordIds">
+        <member name="P:TMDb.Client.Api.V3.Models.Discover.DiscoverMovieRequest.WithKeywordIds">
             <summary>
             A comma separated list of keyword ID's. Only includes movies that
             have one of the ID's added as a keyword.
                 search type: AND (,)
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Discover.DiscoverMovieRequest.WithEitherKeywordIds">
+        <member name="P:TMDb.Client.Api.V3.Models.Discover.DiscoverMovieRequest.WithEitherKeywordIds">
             <summary>
             A comma separated list of keyword ID's. Only includes movies that
             have one of the ID's added as a keyword.
                 search type: OR (|)
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Discover.DiscoverMovieRequest.WithoutKeywordIds">
+        <member name="P:TMDb.Client.Api.V3.Models.Discover.DiscoverMovieRequest.WithoutKeywordIds">
             <summary>
             Exclude items with certain keywords.
                 search type: AND (,)
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Discover.DiscoverMovieRequest.WithoutEitherKeywordIds">
+        <member name="P:TMDb.Client.Api.V3.Models.Discover.DiscoverMovieRequest.WithoutEitherKeywordIds">
             <summary>
             Exclude items with certain keywords.
                 search type: OR (|)
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Discover.DiscoverMovieRequest.WithRuntimeGreaterThanOrEqualTo">
+        <member name="P:TMDb.Client.Api.V3.Models.Discover.DiscoverMovieRequest.WithRuntimeGreaterThanOrEqualTo">
             <summary>
             Filter and only include movies that have a runtime that is greater or equal to a value.
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Discover.DiscoverMovieRequest.WithRuntimeLessThanOrEqualTo">
+        <member name="P:TMDb.Client.Api.V3.Models.Discover.DiscoverMovieRequest.WithRuntimeLessThanOrEqualTo">
             <summary>
             Filter and only include movies that have a runtime that is less than or equal to a value.
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Discover.DiscoverMovieRequest.WithOriginalLanguageAbbreviation">
+        <member name="P:TMDb.Client.Api.V3.Models.Discover.DiscoverMovieRequest.WithOriginalLanguageAbbreviation">
             <summary>
             Specify an ISO 639-1 string to filter results by their original language value.
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Discover.DiscoverMovieRequest.WithWatchProviderIds">
+        <member name="P:TMDb.Client.Api.V3.Models.Discover.DiscoverMovieRequest.WithWatchProviderIds">
             <summary>
             A comma list of watch provider ID's. Combine this filter
             with watch_region in order to filter your results by a specific
@@ -287,7 +287,7 @@
                 search type: AND (,)
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Discover.DiscoverMovieRequest.WithEitherWatchProviderIds">
+        <member name="P:TMDb.Client.Api.V3.Models.Discover.DiscoverMovieRequest.WithEitherWatchProviderIds">
             <summary>
             A pipe separated list of watch provider ID's. Combine this filter
             with watch_region in order to filter your results by a specific
@@ -295,14 +295,14 @@
                 search type: OR (|)
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Discover.DiscoverMovieRequest.WithWatchProviderRegionCountryCode">
+        <member name="P:TMDb.Client.Api.V3.Models.Discover.DiscoverMovieRequest.WithWatchProviderRegionCountryCode">
             <summary>
             An ISO 3166-1 code. Combine this filter with with_watch_providers
             in order to filter your results by a specific watch provider
             in a specific region.
             </summary>
         </member>
-        <member name="T:TMDb.Client.API.V3.Models.TV.DiscoverTVRequest">
+        <member name="T:TMDb.Client.Api.V3.Models.TV.DiscoverTVRequest">
              <summary>
              Discover TV shows by different types of data like average rating,
              number of votes, genres, the network they aired on and air dates.
@@ -318,7 +318,7 @@
              https://www.themoviedb.org/documentation/api/discover.
              </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.DiscoverTVRequest.LanguageAbbreviation">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.DiscoverTVRequest.LanguageAbbreviation">
             <summary>
             Specify a language to query translatable fields with.
                 minLength: 2
@@ -326,7 +326,7 @@
                 default: en - US
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.DiscoverTVRequest.SortBy">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.DiscoverTVRequest.SortBy">
             <summary>
             Choose from one of the many available sort options.
                 Allowed Values:
@@ -336,21 +336,21 @@
                 default: popularity.desc
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.DiscoverTVRequest.AirDateGreaterThanOrEqualTo">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.DiscoverTVRequest.AirDateGreaterThanOrEqualTo">
             <summary>
             Filter and only include TV shows that have a air date (by looking
             at all episodes) that is greater or equal to the specified value.
                 format: date
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.DiscoverTVRequest.AirDateLessThanOrEqualTo">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.DiscoverTVRequest.AirDateLessThanOrEqualTo">
             <summary>
             Filter and only include TV shows that have a air date (by looking at
             all episodes) that is less than or equal to the specified value.
                 format: date
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.DiscoverTVRequest.FirstAirDateGreaterThanOrEqualTo">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.DiscoverTVRequest.FirstAirDateGreaterThanOrEqualTo">
             <summary>
             Filter and only include TV shows that have a original air date
             that is greater or equal to the specified value. Can be used
@@ -359,7 +359,7 @@
                 format: date
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.DiscoverTVRequest.FirstAirDateLessThanOrEqualTo">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.DiscoverTVRequest.FirstAirDateLessThanOrEqualTo">
             <summary>
             Filter and only include TV shows that have a original air date
             that is less than or equal to the specified value. Can be used
@@ -369,7 +369,7 @@
                 format: date
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.DiscoverTVRequest.FirstAirDateYear">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.DiscoverTVRequest.FirstAirDateYear">
             <summary>
             Filter and only include TV shows that have a original air
             date year that equal to the specified value. Can be used
@@ -377,7 +377,7 @@
             filter if you want to include items with no air date.
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.DiscoverTVRequest.Page">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.DiscoverTVRequest.Page">
             <summary>
             Specify the page of results to query.
                 minimum: 1
@@ -385,115 +385,115 @@
                 default: 1
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.DiscoverTVRequest.Timezone">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.DiscoverTVRequest.Timezone">
             <summary>
             Used in conjunction with the air_date.gte/lte filter
             to calculate the proper UTC offset.
                 default: America/New_York
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.DiscoverTVRequest.VoteCountGreaterThanOrEqualTo">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.DiscoverTVRequest.VoteCountGreaterThanOrEqualTo">
             <summary>
             Filter and only include TV that have a vote count that
             is greater or equal to the specified value.
                 minimum: 0
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.DiscoverTVRequest.VoteAverageGreaterThanOrEqualTo">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.DiscoverTVRequest.VoteAverageGreaterThanOrEqualTo">
             <summary>
             Filter and only include TV that have a rating that is
             greater or equal to the specified value.
                 minimum: 1
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.DiscoverTVRequest.WithGenreIds">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.DiscoverTVRequest.WithGenreIds">
             <summary>
             Comma separated value of genre ids that you want to include in the results.
                 search type: AND (,)
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.DiscoverTVRequest.WithEitherGenreIds">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.DiscoverTVRequest.WithEitherGenreIds">
             <summary>
             Pipe separated value of genre ids that you want to include in the results.
                 search type: OR (|)
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.DiscoverTVRequest.WithoutAllGenreIds">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.DiscoverTVRequest.WithoutAllGenreIds">
             <summary>
             Comma separated value of genre ids that you want to exclude from the results.
                 search type: AND (,)
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.DiscoverTVRequest.WithoutEitherGenreIds">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.DiscoverTVRequest.WithoutEitherGenreIds">
             <summary>
             Pipe separated value of genre ids that you want to exclude from the results.
                 search type: OR (|)
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.DiscoverTVRequest.WithNetworkIds">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.DiscoverTVRequest.WithNetworkIds">
             <summary>
             Comma separated value of network ids that you want to include in the results.
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.DiscoverTVRequest.WithRuntimeGreaterThanOrEqualTo">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.DiscoverTVRequest.WithRuntimeGreaterThanOrEqualTo">
             <summary>
             Filter and only include TV that have a runtime that is greater or equal to a value.
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.DiscoverTVRequest.WithRuntimeLessThanOrEqualTo">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.DiscoverTVRequest.WithRuntimeLessThanOrEqualTo">
             <summary>
             Filter and only include TV that have a runtime that is less than or equal to a value.
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.DiscoverTVRequest.IncludeNullFirstAirDates">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.DiscoverTVRequest.IncludeNullFirstAirDates">
             <summary>
             Use this filter to include TV shows that don't have an
             air date while using any of the "first_air_date" filters.
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.DiscoverTVRequest.WithOriginalLanguageAbbreviation">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.DiscoverTVRequest.WithOriginalLanguageAbbreviation">
             <summary>
             Specify an ISO 639-1 string to filter results by their original language value.
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.DiscoverTVRequest.WithKeywordIds">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.DiscoverTVRequest.WithKeywordIds">
             <summary>
             A comma separated list of keyword ID's. Only includes movies that
             have one of the ID's added as a keyword.
                 search type: AND (,)
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.DiscoverTVRequest.WithEitherKeywordIds">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.DiscoverTVRequest.WithEitherKeywordIds">
             <summary>
             A comma separated list of keyword ID's. Only includes movies that
             have one of the ID's added as a keyword.
                 search type: OR (|)
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.DiscoverTVRequest.WithoutKeywordIds">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.DiscoverTVRequest.WithoutKeywordIds">
             <summary>
             Exclude items with certain keywords.
                 search type: AND (,)
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.DiscoverTVRequest.WithoutEitherKeywordIds">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.DiscoverTVRequest.WithoutEitherKeywordIds">
             <summary>
             Exclude items with certain keywords.
                 search type: OR (|)
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.DiscoverTVRequest.IsScreenedTheatrically">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.DiscoverTVRequest.IsScreenedTheatrically">
             <summary>
             Filter results to include items that have been screened theatrically.
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.DiscoverTVRequest.WithCompanyIds">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.DiscoverTVRequest.WithCompanyIds">
             <summary>
             A comma separated list of production company ID's. Only include movies
             that have one of the ID's added as a production company.
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.DiscoverTVRequest.WithWatchProviderIds">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.DiscoverTVRequest.WithWatchProviderIds">
             <summary>
             A comma list of watch provider ID's. Combine this filter
             with watch_region in order to filter your results by a specific
@@ -501,7 +501,7 @@
                 search type: AND (,)
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.DiscoverTVRequest.WithEitherWatchProviderIds">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.DiscoverTVRequest.WithEitherWatchProviderIds">
             <summary>
             A pipe separated list of watch provider ID's. Combine this filter
             with watch_region in order to filter your results by a specific
@@ -509,14 +509,14 @@
                 search type: OR (|)
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.DiscoverTVRequest.WithWatchProviderRegionCountryCode">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.DiscoverTVRequest.WithWatchProviderRegionCountryCode">
             <summary>
             An ISO 3166-1 code. Combine this filter with with_watch_providers
             in order to filter your results by a specific watch provider
             in a specific region.
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.AlternativeTVTitlesRequest.LanguageAbbreviation">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.AlternativeTVTitlesRequest.LanguageAbbreviation">
             <summary>
             Pass a ISO 639-1 value to display translated data for the fields that support it.
                 minLength: 2
@@ -524,19 +524,19 @@
                 default: en - US
             </summary>
         </member>
-        <member name="T:TMDb.Client.API.V3.Models.TV.DeleteTVRatingRequest">
+        <member name="T:TMDb.Client.Api.V3.Models.TV.DeleteTVRatingRequest">
             <summary>
             Remove your rating for a TV show.
             A valid session or guest session ID is required.You can read more about how this works.
             https://developers.themoviedb.org/3/authentication/how-do-i-generate-a-session-id
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.DeleteTVRatingRequest.ContentType">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.DeleteTVRatingRequest.ContentType">
             <summary>
             default: application/json;charset=utf-8
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.LatestTVRequest.LanguageAbbreviation">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.LatestTVRequest.LanguageAbbreviation">
             <summary>
             Pass a ISO 639-1 value to display translated data for the fields that support it.
                 minLength: 2
@@ -544,7 +544,7 @@
                 default: en - US
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.PopularTVRequest.LanguageAbbreviation">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.PopularTVRequest.LanguageAbbreviation">
             <summary>
             Pass a ISO 639-1 value to display translated data for the fields that support it.
                 minLength: 2
@@ -552,7 +552,7 @@
                 default: en - US
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.PopularTVRequest.Page">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.PopularTVRequest.Page">
             <summary>
             Specify which page to query.
                 minimum: 1
@@ -560,26 +560,26 @@
                 default: 1
             </summary>
         </member>
-        <member name="T:TMDb.Client.API.V3.Models.TV.RateTVRequest">
+        <member name="T:TMDb.Client.Api.V3.Models.TV.RateTVRequest">
             <summary>
             Rate a TV show.
             A valid session or guest session ID is required.You can read more about how this works.
             https://developers.themoviedb.org/3/authentication/how-do-i-generate-a-session-id
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.RateTVRequest.ContentType">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.RateTVRequest.ContentType">
             <summary>
             default: application/json;charset=utf-8
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.RateTVRequest.Rating">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.RateTVRequest.Rating">
             <summary>
             This is the value of the rating you want to submit. The value is expected to be between 0.5 and 10.0.
                 minimum: 0.5
                 maximum: 10
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.SimilarTVRequest.LanguageAbbreviation">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.SimilarTVRequest.LanguageAbbreviation">
             <summary>
             Pass a ISO 639-1 value to display translated data for the fields that support it.
                 minLength: 2
@@ -587,7 +587,7 @@
                 default: en - US
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.SimilarTVRequest.Page">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.SimilarTVRequest.Page">
             <summary>
             Specify which page to query.
                 minimum: 1
@@ -595,7 +595,7 @@
                 default: 1
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.TopRatedTVRequest.LanguageAbbreviation">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.TopRatedTVRequest.LanguageAbbreviation">
             <summary>
             Pass a ISO 639-1 value to display translated data for the fields that support it.
                 minLength: 2
@@ -603,7 +603,7 @@
                 default: en - US
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.TopRatedTVRequest.Page">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.TopRatedTVRequest.Page">
             <summary>
             Specify which page to query.
                 minimum: 1
@@ -611,7 +611,7 @@
                 default: 1
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.TVAccountStatesRequest.LanguageAbbreviation">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.TVAccountStatesRequest.LanguageAbbreviation">
             <summary>
             Pass a ISO 639-1 value to display translated data for the fields that support it.
                 minLength: 2
@@ -619,7 +619,7 @@
                 default: en-US
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.TVAggregateCreditsRequest.LanguageAbbreviation">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.TVAggregateCreditsRequest.LanguageAbbreviation">
             <summary>
             Pass a ISO 639-1 value to display translated data for the fields that support it.
                 minLength: 2
@@ -627,7 +627,7 @@
                 default: en - US
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.TVAiringTodayRequest.LanguageAbbreviation">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.TVAiringTodayRequest.LanguageAbbreviation">
             <summary>
             Pass a ISO 639-1 value to display translated data for the fields that support it.
                 minLength: 2
@@ -635,7 +635,7 @@
                 default: en - US
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.TVAiringTodayRequest.Page">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.TVAiringTodayRequest.Page">
             <summary>
             Specify which page to query.
                 minimum: 1
@@ -643,7 +643,7 @@
                 default: 1
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.TVChangesRequest.Page">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.TVChangesRequest.Page">
             <summary>
             Specify which page to query.
                 minimum: 1
@@ -651,19 +651,19 @@
                 default: 1
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.TVChangesRequest.StartDate">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.TVChangesRequest.StartDate">
             <summary>
             Filter the results with a start date.
                 format: date
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.TVChangesRequest.EndDate">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.TVChangesRequest.EndDate">
             <summary>
             Filter the results with a end date.
                 format: date
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.TVContentRatingsRequest.LanguageAbbreviation">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.TVContentRatingsRequest.LanguageAbbreviation">
             <summary>
             Pass a ISO 639-1 value to display translated data for the fields that support it.
                 minLength: 2
@@ -671,7 +671,7 @@
                 default: en - US
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.TVCreditsRequest.LanguageAbbreviation">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.TVCreditsRequest.LanguageAbbreviation">
             <summary>
             Pass a ISO 639-1 value to display translated data for the fields that support it.
                 minLength: 2
@@ -679,7 +679,7 @@
                 default: en - US
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.TVDetailsRequest.LanguageAbbreviation">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.TVDetailsRequest.LanguageAbbreviation">
             <summary>
             Pass a ISO 639-1 value to display translated data for the fields that support it.
                 minLength: 2
@@ -687,13 +687,13 @@
                 default: en - US
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.TVDetailsRequest.AppendToResponse">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.TVDetailsRequest.AppendToResponse">
             <summary>
             Append requests within the same namespace to the response.
                 pattern: ([\w]+)
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.TVEpisodeGroupsRequest.LanguageAbbreviation">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.TVEpisodeGroupsRequest.LanguageAbbreviation">
             <summary>
             Pass a ISO 639-1 value to display translated data for the fields that support it.
                 minLength: 2
@@ -701,7 +701,7 @@
                 default: en - US
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.TVExternalIdsRequest.LanguageAbbreviation">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.TVExternalIdsRequest.LanguageAbbreviation">
             <summary>
             Pass a ISO 639-1 value to display translated data for the fields that support it.
                 minLength: 2
@@ -709,7 +709,7 @@
                 default: en - US
             </summary>
         </member>
-        <member name="T:TMDb.Client.API.V3.Models.TV.TVImagesRequest">
+        <member name="T:TMDb.Client.Api.V3.Models.TV.TVImagesRequest">
             <summary>
             Get the images that belong to a TV show.
             Querying images with a language parameter will filter the results.
@@ -719,7 +719,7 @@
             include_image_language= en,null.
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.TVImagesRequest.LanguageAbbreviation">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.TVImagesRequest.LanguageAbbreviation">
             <summary>
             Pass a ISO 639-1 value to display translated data for the fields that support it.
                 minLength: 2
@@ -727,7 +727,7 @@
                 default: en - US
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.TVOnTheAirRequest.LanguageAbbreviation">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.TVOnTheAirRequest.LanguageAbbreviation">
             <summary>
             Pass a ISO 639-1 value to display translated data for the fields that support it.
                 minLength: 2
@@ -735,7 +735,7 @@
                 default: en - US
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.TVOnTheAirRequest.Page">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.TVOnTheAirRequest.Page">
             <summary>
             Specify which page to query.
                 minimum: 1
@@ -743,7 +743,7 @@
                 default: 1
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.TVRecommendationsRequest.LanguageAbbreviation">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.TVRecommendationsRequest.LanguageAbbreviation">
             <summary>
             Pass a ISO 639-1 value to display translated data for the fields that support it.
                 minLength: 2
@@ -751,7 +751,7 @@
                 default: en - US
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.TVRecommendationsRequest.Page">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.TVRecommendationsRequest.Page">
             <summary>
             Specify which page to query.
                 minimum: 1
@@ -759,7 +759,7 @@
                 default: 1
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.TVReviewsRequest.LanguageAbbreviation">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.TVReviewsRequest.LanguageAbbreviation">
             <summary>
             Pass a ISO 639-1 value to display translated data for the fields that support it.
                 minLength: 2
@@ -767,7 +767,7 @@
                 default: en - US
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.TVReviewsRequest.Page">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.TVReviewsRequest.Page">
             <summary>
             Specify which page to query.
                 minimum: 1
@@ -775,7 +775,7 @@
                 default: 1
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.TVTranslationsRequest.LanguageAbbreviation">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.TVTranslationsRequest.LanguageAbbreviation">
             <summary>
             Pass a ISO 639-1 value to display translated data for the fields that support it.
                 minLength: 2
@@ -783,7 +783,7 @@
                 default: en - US
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TV.TVVideosRequest.LanguageAbbreviation">
+        <member name="P:TMDb.Client.Api.V3.Models.TV.TVVideosRequest.LanguageAbbreviation">
             <summary>
             Pass a ISO 639-1 value to display translated data for the fields that support it.
                 minLength: 2
@@ -791,14 +791,14 @@
                 default: en - US
             </summary>
         </member>
-        <member name="T:TMDb.Client.API.V3.Models.TV.TVWatchProvidersRequest">
+        <member name="T:TMDb.Client.Api.V3.Models.TV.TVWatchProvidersRequest">
             <summary>
             Powered by our partnership with JustWatch, you can query this method to get a list of the availabilities per country by provider.
             This is not going to return full deep links, but rather, it's just enough information to display what's available where.
             You can link to the provided TMDb URL to help support TMDb and let your users deep link into the content.
             </summary>
         </member>
-        <member name="T:TMDb.Client.API.V3.Models.Find.FindByIdRequest">
+        <member name="T:TMDb.Client.Api.V3.Models.Find.FindByIdRequest">
              <summary>
                  	        Movies	TVShows TVSeasons TVEpisodes People
                  IMDb ID     	✓	     ✓	       ✗	      ✓      ✓
@@ -810,24 +810,24 @@
                  *Defunct or no longer available as a service.
              </summary>
         </member>
-        <member name="T:TMDb.Client.API.V3.Models.Movies.DeleteMovieRatingRequest">
+        <member name="T:TMDb.Client.Api.V3.Models.Movies.DeleteMovieRatingRequest">
             <summary>
             Remove your rating for a movie.
             A valid session or guest session ID is required. You can read more about how this works here.
             https://developers.themoviedb.org/3/authentication/how-do-i-generate-a-session-id
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Movies.DeleteMovieRatingRequest.ContentType">
+        <member name="P:TMDb.Client.Api.V3.Models.Movies.DeleteMovieRatingRequest.ContentType">
             <summary>
                 default: application/json;charset=utf-8
             </summary>
         </member>
-        <member name="T:TMDb.Client.API.V3.Models.Movies.LatestMoviesRequest">
+        <member name="T:TMDb.Client.Api.V3.Models.Movies.LatestMoviesRequest">
             <summary>
             Get the most newly created movie. This is a live response and will continuously change.
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Movies.LatestMoviesRequest.LanguageAbbreviation">
+        <member name="P:TMDb.Client.Api.V3.Models.Movies.LatestMoviesRequest.LanguageAbbreviation">
             <summary>
             Pass a ISO 639-1 value to display translated data for the fields that support it.
                 minLength: 2
@@ -835,7 +835,7 @@
                 default: en - US
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Movies.MovieCreditsRequest.LanguageAbbreviation">
+        <member name="P:TMDb.Client.Api.V3.Models.Movies.MovieCreditsRequest.LanguageAbbreviation">
             <summary>
             Pass a ISO 639-1 value to display translated data for the fields that support it.
                 minLength: 2
@@ -843,7 +843,7 @@
                 default: en - US
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Movies.MovieDetailsRequest.LanguageAbbreviation">
+        <member name="P:TMDb.Client.Api.V3.Models.Movies.MovieDetailsRequest.LanguageAbbreviation">
             <summary>
             Pass a ISO 639-1 value to display translated data for the fields that support it.
                 minLength: 2
@@ -851,18 +851,18 @@
                 default: en - US
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Movies.MovieDetailsRequest.AppendToResponse">
+        <member name="P:TMDb.Client.Api.V3.Models.Movies.MovieDetailsRequest.AppendToResponse">
             <summary>
             Append requests within the same namespace to the response.
                 pattern: ([\w]+)
             </summary>
         </member>
-        <member name="T:TMDb.Client.API.V3.Models.Movies.MovieImagesRequest">
+        <member name="T:TMDb.Client.Api.V3.Models.Movies.MovieImagesRequest">
             <summary>
             Get the images that belong to a movie.
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Movies.MovieImagesRequest.LanguageAbbreviation">
+        <member name="P:TMDb.Client.Api.V3.Models.Movies.MovieImagesRequest.LanguageAbbreviation">
             <summary>
             Pass a ISO 639-1 value to display translated data for the fields that support it.
                 minLength: 2
@@ -870,24 +870,24 @@
                 default: en - US
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Movies.MovieImagesRequest.ImageLanguage">
+        <member name="P:TMDb.Client.Api.V3.Models.Movies.MovieImagesRequest.ImageLanguage">
             <summary>
             Querying images with a language parameter will filter the results. If you want to include a
             fallback language (especially useful for backdrops) you can use the include_image_language
             parameter.This should be a comma seperated value like so: include_image_language= en,null.
             </summary>
         </member>
-        <member name="T:TMDb.Client.API.V3.Models.Movies.MovieKeywordsRequest">
+        <member name="T:TMDb.Client.Api.V3.Models.Movies.MovieKeywordsRequest">
             <summary>
             Get the keywords that have been added to a movie.
             </summary>
         </member>
-        <member name="T:TMDb.Client.API.V3.Models.Movies.MovieListsRequest">
+        <member name="T:TMDb.Client.Api.V3.Models.Movies.MovieListsRequest">
             <summary>
             Get a list of lists that this movie belongs to.
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Movies.MovieListsRequest.Page">
+        <member name="P:TMDb.Client.Api.V3.Models.Movies.MovieListsRequest.Page">
             <summary>
             Specify which page to query.
                 minimum: 1
@@ -895,7 +895,7 @@
                 default: 1
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Movies.MovieListsRequest.LanguageAbbreviation">
+        <member name="P:TMDb.Client.Api.V3.Models.Movies.MovieListsRequest.LanguageAbbreviation">
             <summary>
             Pass a ISO 639-1 value to display translated data for the fields that support it.
                 minLength: 2
@@ -903,12 +903,12 @@
                 default: en - US
             </summary>
         </member>
-        <member name="T:TMDb.Client.API.V3.Models.Movies.MovieRecommendationsRequest">
+        <member name="T:TMDb.Client.Api.V3.Models.Movies.MovieRecommendationsRequest">
             <summary>
             Get a list of recommended movies for a movie.
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Movies.MovieRecommendationsRequest.Page">
+        <member name="P:TMDb.Client.Api.V3.Models.Movies.MovieRecommendationsRequest.Page">
             <summary>
             Specify which page to query.
                 minimum: 1
@@ -916,7 +916,7 @@
                 default: 1
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Movies.MovieRecommendationsRequest.LanguageAbbreviation">
+        <member name="P:TMDb.Client.Api.V3.Models.Movies.MovieRecommendationsRequest.LanguageAbbreviation">
             <summary>
             Pass a ISO 639-1 value to display translated data for the fields that support it.
                 minLength: 2
@@ -924,7 +924,7 @@
                 default: en - US
             </summary>
         </member>
-        <member name="T:TMDb.Client.API.V3.Models.Movies.MovieReleaseDatesRequest">
+        <member name="T:TMDb.Client.Api.V3.Models.Movies.MovieReleaseDatesRequest">
             <summary>
             Get the release date along with the certification for a movie.
             Release dates support different types:
@@ -936,7 +936,7 @@
                 6. TV
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Movies.MovieReviewsRequest.Page">
+        <member name="P:TMDb.Client.Api.V3.Models.Movies.MovieReviewsRequest.Page">
             <summary>
             Specify which page to query.
                 minimum: 1
@@ -944,7 +944,7 @@
                 default: 1
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Movies.MovieReviewsRequest.LanguageAbbreviation">
+        <member name="P:TMDb.Client.Api.V3.Models.Movies.MovieReviewsRequest.LanguageAbbreviation">
             <summary>
             Pass a ISO 639-1 value to display translated data for the fields that support it.
                 minLength: 2
@@ -952,17 +952,17 @@
                 default: en - US
             </summary>
         </member>
-        <member name="T:TMDb.Client.API.V3.Models.Movies.MovieTranslationsRequest">
+        <member name="T:TMDb.Client.Api.V3.Models.Movies.MovieTranslationsRequest">
             <summary>
             Get a list of translations that have been created for a movie.
             </summary>
         </member>
-        <member name="T:TMDb.Client.API.V3.Models.Movies.MovieVideosRequest">
+        <member name="T:TMDb.Client.Api.V3.Models.Movies.MovieVideosRequest">
             <summary>
             Get the videos that have been added to a movie.
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Movies.MovieVideosRequest.LanguageAbbreviation">
+        <member name="P:TMDb.Client.Api.V3.Models.Movies.MovieVideosRequest.LanguageAbbreviation">
             <summary>
             Pass a ISO 639-1 value to display translated data for the fields that support it.
                 minLength: 2
@@ -970,20 +970,20 @@
                 default: en - US
             </summary>
         </member>
-        <member name="T:TMDb.Client.API.V3.Models.Movies.MovieWatchProvidersRequest">
+        <member name="T:TMDb.Client.Api.V3.Models.Movies.MovieWatchProvidersRequest">
             <summary>
             Powered by our partnership with JustWatch, you can query this method to get a list of the availabilities per country by provider.
             This is not going to return full deep links, but rather, it's just enough information to display what's available where.
             You can link to the provided TMDb URL to help support TMDb and let your users deep link into the content.
             </summary>
         </member>
-        <member name="T:TMDb.Client.API.V3.Models.Movies.NowPlayingMoviesRequest">
+        <member name="T:TMDb.Client.Api.V3.Models.Movies.NowPlayingMoviesRequest">
             <summary>
             Get a list of movies in theatres. This is a release type query that looks for all movies that have a release type of 2 or 3 within the specified date range.
             You can optionally specify a region prameter which will narrow the search to only look for theatrical release dates within the specified country.
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Movies.NowPlayingMoviesRequest.Page">
+        <member name="P:TMDb.Client.Api.V3.Models.Movies.NowPlayingMoviesRequest.Page">
             <summary>
             Specify which page to query.
                 minimum: 1
@@ -991,7 +991,7 @@
                 default: 1
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Movies.NowPlayingMoviesRequest.LanguageAbbreviation">
+        <member name="P:TMDb.Client.Api.V3.Models.Movies.NowPlayingMoviesRequest.LanguageAbbreviation">
             <summary>
             Pass a ISO 639-1 value to display translated data for the fields that support it.
                 minLength: 2
@@ -999,13 +999,13 @@
                 default: en - US
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Movies.NowPlayingMoviesRequest.CountryCode">
+        <member name="P:TMDb.Client.Api.V3.Models.Movies.NowPlayingMoviesRequest.CountryCode">
             <summary>
             Specify a ISO 3166-1 code to filter release dates. Must be uppercase.
                 pattern: ^[A-Z]{2}$
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Movies.PopularMoviesRequest.Page">
+        <member name="P:TMDb.Client.Api.V3.Models.Movies.PopularMoviesRequest.Page">
             <summary>
             Specify which page to query.
                 minimum: 1
@@ -1013,7 +1013,7 @@
                 default: 1
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Movies.PopularMoviesRequest.LanguageAbbreviation">
+        <member name="P:TMDb.Client.Api.V3.Models.Movies.PopularMoviesRequest.LanguageAbbreviation">
             <summary>
             Pass a ISO 639-1 value to display translated data for the fields that support it.
                 minLength: 2
@@ -1021,25 +1021,25 @@
                 default: en - US
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Movies.PopularMoviesRequest.CountryCode">
+        <member name="P:TMDb.Client.Api.V3.Models.Movies.PopularMoviesRequest.CountryCode">
             <summary>
             Specify a ISO 3166-1 code to filter release dates. Must be uppercase.
                 pattern: ^[A-Z]{2}$
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Movies.RateMovieRequest.ContentType">
+        <member name="P:TMDb.Client.Api.V3.Models.Movies.RateMovieRequest.ContentType">
             <summary>
             default: application/json;charset=utf-8
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Movies.RateMovieRequest.Rating">
+        <member name="P:TMDb.Client.Api.V3.Models.Movies.RateMovieRequest.Rating">
             <summary>
             This is the value of the rating you want to submit. The value is expected to be between 0.5 and 10.0.
                 minimum: 0.5
                 maximum: 10
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Movies.SimilarMoviesRequest.Page">
+        <member name="P:TMDb.Client.Api.V3.Models.Movies.SimilarMoviesRequest.Page">
             <summary>
             Specify which page to query.
                 minimum: 1
@@ -1047,7 +1047,7 @@
                 default: 1
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Movies.SimilarMoviesRequest.LanguageAbbreviation">
+        <member name="P:TMDb.Client.Api.V3.Models.Movies.SimilarMoviesRequest.LanguageAbbreviation">
             <summary>
             Pass a ISO 639-1 value to display translated data for the fields that support it.
                 minLength: 2
@@ -1055,7 +1055,7 @@
                 default: en - US
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Movies.TopRatedMoviesRequest.Page">
+        <member name="P:TMDb.Client.Api.V3.Models.Movies.TopRatedMoviesRequest.Page">
             <summary>
             Specify which page to query.
                 minimum: 1
@@ -1063,7 +1063,7 @@
                 default: 1
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Movies.TopRatedMoviesRequest.LanguageAbbreviation">
+        <member name="P:TMDb.Client.Api.V3.Models.Movies.TopRatedMoviesRequest.LanguageAbbreviation">
             <summary>
             Pass a ISO 639-1 value to display translated data for the fields that support it.
                 minLength: 2
@@ -1071,19 +1071,19 @@
                 default: en - US
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Movies.TopRatedMoviesRequest.CountryCode">
+        <member name="P:TMDb.Client.Api.V3.Models.Movies.TopRatedMoviesRequest.CountryCode">
             <summary>
             Specify a ISO 3166-1 code to filter release dates. Must be uppercase.
                 pattern: ^[A-Z]{2}$
             </summary>
         </member>
-        <member name="T:TMDb.Client.API.V3.Models.Movies.UpcomingMoviesRequest">
+        <member name="T:TMDb.Client.Api.V3.Models.Movies.UpcomingMoviesRequest">
             <summary>
             Get a list of upcoming movies in theatres. This is a release type query that looks for all movies that have a release type of 2 or 3 within the specified date range.
             You can optionally specify a region prameter which will narrow the search to only look for theatrical release dates within the specified country.
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Movies.UpcomingMoviesRequest.Page">
+        <member name="P:TMDb.Client.Api.V3.Models.Movies.UpcomingMoviesRequest.Page">
             <summary>
             Specify which page to query.
                 minimum: 1
@@ -1091,7 +1091,7 @@
                 default: 1
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Movies.UpcomingMoviesRequest.LanguageAbbreviation">
+        <member name="P:TMDb.Client.Api.V3.Models.Movies.UpcomingMoviesRequest.LanguageAbbreviation">
             <summary>
             Pass a ISO 639-1 value to display translated data for the fields that support it.
                 minLength: 2
@@ -1099,71 +1099,71 @@
                 default: en - US
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Movies.UpcomingMoviesRequest.CountryCode">
+        <member name="P:TMDb.Client.Api.V3.Models.Movies.UpcomingMoviesRequest.CountryCode">
             <summary>
             Specify a ISO 3166-1 code to filter release dates. Must be uppercase.
                 pattern: ^[A-Z]{2}$
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Search.MultiSearchRequest.Region">
+        <member name="P:TMDb.Client.Api.V3.Models.Search.MultiSearchRequest.Region">
             <summary>
             Specify a ISO 3166-1 code to filter release dates. Must be uppercase.
             pattern: ^[A-Z]{2}$
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Search.SearchMoviesRequest.CountryCode">
+        <member name="P:TMDb.Client.Api.V3.Models.Search.SearchMoviesRequest.CountryCode">
             <summary>
             Specify a ISO 3166-1 code to filter release dates. Must be uppercase.
             pattern: ^[A-Z]{2}$
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.Search.SearchPeopleRequest.Region">
+        <member name="P:TMDb.Client.Api.V3.Models.Search.SearchPeopleRequest.Region">
             <summary>
             Specify a ISO 3166-1 code to filter release dates. Must be uppercase.
             pattern: ^[A-Z]{2}$
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TVEpisodes.TVEpisodesExternalIdsResponse.TvdbId">
+        <member name="P:TMDb.Client.Api.V3.Models.TVEpisodes.TVEpisodesExternalIdsResponse.TvdbId">
             <summary>
             TVDB ID
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TVEpisodes.TVEpisodesExternalIdsResponse.TVRageId">
+        <member name="P:TMDb.Client.Api.V3.Models.TVEpisodes.TVEpisodesExternalIdsResponse.TVRageId">
             <summary>
             TVRage ID
                 *Defunct or no longer available as a service.
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TVEpisodes.TVEpisodesExternalIdsResponse.FreebaseMid">
+        <member name="P:TMDb.Client.Api.V3.Models.TVEpisodes.TVEpisodesExternalIdsResponse.FreebaseMid">
             <summary>
             Freebase MID
                 *Defunct or no longer available as a service.
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TVEpisodes.TVEpisodesExternalIdsResponse.FreebaseId">
+        <member name="P:TMDb.Client.Api.V3.Models.TVEpisodes.TVEpisodesExternalIdsResponse.FreebaseId">
             <summary>
             Freebase ID
                 *Defunct or no longer available as a service.
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TVSeasons.TVSeasonsExternalIdsResponse.TvdbId">
+        <member name="P:TMDb.Client.Api.V3.Models.TVSeasons.TVSeasonsExternalIdsResponse.TvdbId">
             <summary>
             TVDB ID
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TVSeasons.TVSeasonsExternalIdsResponse.TVRageId">
+        <member name="P:TMDb.Client.Api.V3.Models.TVSeasons.TVSeasonsExternalIdsResponse.TVRageId">
             <summary>
             TVRage ID
                 *Defunct or no longer available as a service.
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TVSeasons.TVSeasonsExternalIdsResponse.FreebaseMid">
+        <member name="P:TMDb.Client.Api.V3.Models.TVSeasons.TVSeasonsExternalIdsResponse.FreebaseMid">
             <summary>
             Freebase MID
                 *Defunct or no longer available as a service.
             </summary>
         </member>
-        <member name="P:TMDb.Client.API.V3.Models.TVSeasons.TVSeasonsExternalIdsResponse.FreebaseId">
+        <member name="P:TMDb.Client.Api.V3.Models.TVSeasons.TVSeasonsExternalIdsResponse.FreebaseId">
             <summary>
             Freebase ID
                 *Defunct or no longer available as a service.

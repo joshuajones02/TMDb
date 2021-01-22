@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using TMDb.Client.Attributes;
 
-namespace TMDb.Client.API.V3.Models.TV
+namespace TMDb.Client.Api.V3.Models.TV
 {
     [ApiGetEndpoint("/tv/on_the_air")]
     public class TVOnTheAirRequest : TMDbRequest

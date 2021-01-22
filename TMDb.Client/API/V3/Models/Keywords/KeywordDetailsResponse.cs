@@ -1,4 +1,4 @@
-﻿namespace TMDb.Client.API.V3.Models.Keywords
+﻿namespace TMDb.Client.Api.V3.Models.Keywords
 {
     public class KeywordDetailsResponse : TMDbResponse
     {

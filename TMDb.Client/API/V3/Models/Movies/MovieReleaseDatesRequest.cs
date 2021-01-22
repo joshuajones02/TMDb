@@ -1,6 +1,6 @@
 ﻿using TMDb.Client.Attributes;
 
-namespace TMDb.Client.API.V3.Models.Movies
+namespace TMDb.Client.Api.V3.Models.Movies
 {
     /// <summary>
     /// Get the release date along with the certification for a movie.

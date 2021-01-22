@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 
-namespace TMDb.Client.API.V3.JsonConverters
+namespace TMDb.Client.Api.V3.JsonConverters
 {
     public class ActionEnumJsonConverter : JsonConverter
     {

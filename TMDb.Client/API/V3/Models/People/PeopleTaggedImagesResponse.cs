@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using TMDb.Client.Entities.Media;
 
-namespace TMDb.Client.API.V3.Models.People
+namespace TMDb.Client.Api.V3.Models.People
 {
     public class PeopleTaggedImagesResponse : TMDbCollectionResponse
     {

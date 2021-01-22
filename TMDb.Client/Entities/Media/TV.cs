@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using TMDb.Client.API.V3.Models.TV;
+using TMDb.Client.Api.V3.Models.TV;
 using TMDb.Client.Entities.Organizations;
 using TMDb.Client.Entities.Things;
 

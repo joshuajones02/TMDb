@@ -1,7 +1,7 @@
 ﻿using System;
 using TMDb.Client.Attributes;
 
-namespace TMDb.Client.API.V3.Models.Movies
+namespace TMDb.Client.Api.V3.Models.Movies
 {
     /// <summary>
     /// Get a list of movies in theatres. This is a release type query that looks for all movies that have a release type of 2 or 3 within the specified date range.

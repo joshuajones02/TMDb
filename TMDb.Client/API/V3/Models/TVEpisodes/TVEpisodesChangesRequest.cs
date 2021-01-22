@@ -1,8 +1,8 @@
 ﻿using Newtonsoft.Json;
-using TMDb.Client.API.V3.Models.Changes;
+using TMDb.Client.Api.V3.Models.Changes;
 using TMDb.Client.Attributes;
 
-namespace TMDb.Client.API.V3.Models.TVEpisodes
+namespace TMDb.Client.Api.V3.Models.TVEpisodes
 {
     [ApiGetEndpoint("/tv/episode/{episode_id}/changes")]
     public class TVEpisodesChangesRequest : ChangeListRequest

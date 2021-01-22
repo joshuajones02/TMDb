@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using TMDb.Client.Attributes;
 
-namespace TMDb.Client.API.V3.Models.Movies
+namespace TMDb.Client.Api.V3.Models.Movies
 {
     /// <summary>
     /// Remove your rating for a movie.

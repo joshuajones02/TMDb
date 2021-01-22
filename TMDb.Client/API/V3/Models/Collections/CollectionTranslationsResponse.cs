@@ -1,4 +1,4 @@
-﻿namespace TMDb.Client.API.V3.Models.Collections
+﻿namespace TMDb.Client.Api.V3.Models.Collections
 {
     public class CollectionTranslationsResponse : TranslationsResponse
     {

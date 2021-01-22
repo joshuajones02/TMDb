@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
-using TMDb.Client.API.V3.Models.Networks;
+using TMDb.Client.Api.V3.Models.Networks;
 
-namespace TMDb.Client.API.V3.ClientProxies
+namespace TMDb.Client.Api.V3.ClientProxies
 {
     public class NetworkProxy : ApiProxy
     {

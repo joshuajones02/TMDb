@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
-using TMDb.Client.API.V3.Models.Genres;
+using TMDb.Client.Api.V3.Models.Genres;
 
-namespace TMDb.Client.API.V3.ClientProxies
+namespace TMDb.Client.Api.V3.ClientProxies
 {
     public class GenresProxy : ApiProxy
     {

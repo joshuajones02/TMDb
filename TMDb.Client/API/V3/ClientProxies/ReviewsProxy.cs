@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
-using TMDb.Client.API.V3.Models.Reviews;
+using TMDb.Client.Api.V3.Models.Reviews;
 
-namespace TMDb.Client.API.V3.ClientProxies
+namespace TMDb.Client.Api.V3.ClientProxies
 {
     public class ReviewsProxy : ApiProxy
     {

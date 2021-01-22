@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using TMDb.Client.Attributes;
 using TMDb.Client.Settings;
 
-namespace TMDb.Client.API.V3.Models
+namespace TMDb.Client.Api.V3.Models
 {
     [Obsolete("on startup write check to make sure all members/propertyinfo have ApiParameter attribute")]
     public abstract class TMDbRequest : RequestBase

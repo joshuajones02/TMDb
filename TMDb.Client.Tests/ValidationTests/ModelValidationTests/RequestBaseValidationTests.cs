@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using TMDb.Client.API;
+using TMDb.Client.Api;
 using TMDb.Client.Attributes;
 using Xunit;
 

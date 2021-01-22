@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 
-namespace TMDb.Client.API.V3.Models.TVSeasons
+namespace TMDb.Client.Api.V3.Models.TVSeasons
 {
     [Obsolete("Combine with TVEpisodes External Ids")]
     public class TVSeasonsExternalIdsResponse : TMDbCollectionResponse

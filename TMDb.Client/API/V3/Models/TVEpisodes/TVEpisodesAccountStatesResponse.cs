@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using TMDb.Client.JsonConverters;
 
-namespace TMDb.Client.API.V3.Models.TVEpisodes
+namespace TMDb.Client.Api.V3.Models.TVEpisodes
 {
     public class TVEpisodesAccountStatesResponse : TMDbCollectionResponse
     {

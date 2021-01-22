@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMDb.Client.Entities.Media;
 using TMDb.Client.Entities.Organizations;
 
-namespace TMDb.Client.API.V3.Models.TVEpisodeGroups
+namespace TMDb.Client.Api.V3.Models.TVEpisodeGroups
 {
     public class TVEpisodeGroupsResponse : TMDbCollectionResponse
     {

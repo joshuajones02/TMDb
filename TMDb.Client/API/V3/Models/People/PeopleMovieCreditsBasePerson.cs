@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace TMDb.Client.API.V3.Models.People
+namespace TMDb.Client.Api.V3.Models.People
 {
     public abstract class PeopleMovieCreditsBasePerson
     {

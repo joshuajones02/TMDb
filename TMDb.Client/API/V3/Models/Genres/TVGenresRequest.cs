@@ -1,6 +1,6 @@
 ﻿using TMDb.Client.Attributes;
 
-namespace TMDb.Client.API.V3.Models.Genres
+namespace TMDb.Client.Api.V3.Models.Genres
 {
     [ApiGetEndpoint("/genre/tv/list")]
     public class TVGenresRequest : TMDbRequest

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Reflection;
-using TMDb.Client.API;
+using TMDb.Client.Api;
 using TMDb.Client.Attributes;
 using TMDb.Client.Builders;
 using TMDb.Client.Models;

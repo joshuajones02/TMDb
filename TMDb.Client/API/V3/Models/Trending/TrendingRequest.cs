@@ -2,7 +2,7 @@
 using TMDb.Client.Attributes;
 using TMDb.Client.Enums;
 
-namespace TMDb.Client.API.V3.Models.Trending
+namespace TMDb.Client.Api.V3.Models.Trending
 {
     [ApiGetEndpoint("/trending/{media_type}/{time_window}")]
     public class TrendingRequest : TMDbRequest

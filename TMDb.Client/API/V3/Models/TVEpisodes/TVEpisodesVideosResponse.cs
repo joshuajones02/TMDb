@@ -1,8 +1,8 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
-using TMDb.Client.API.V3.Models.TVSeasons;
+using TMDb.Client.Api.V3.Models.TVSeasons;
 
-namespace TMDb.Client.API.V3.Models.TVEpisodes
+namespace TMDb.Client.Api.V3.Models.TVEpisodes
 {
     public class TVEpisodesVideosResponse : TMDbCollectionResponse
     {

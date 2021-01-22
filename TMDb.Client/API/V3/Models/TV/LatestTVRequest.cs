@@ -1,6 +1,6 @@
 ﻿using TMDb.Client.Attributes;
 
-namespace TMDb.Client.API.V3.Models.TV
+namespace TMDb.Client.Api.V3.Models.TV
 {
     [ApiGetEndpoint("/tv/latest")]
     public class LatestTVRequest : TVBaseRequest

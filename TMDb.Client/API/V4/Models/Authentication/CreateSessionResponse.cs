@@ -1,6 +1,6 @@
 ﻿//using Newtonsoft.Json;
 
-//namespace TMDb.Client.API.V4.Models.Authentication
+//namespace TMDb.Client.Api.V4.Models.Authentication
 //{
 //    public class CreateSessionResponse
 //    {

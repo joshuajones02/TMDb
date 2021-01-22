@@ -1,5 +1,5 @@
 ﻿using System;
-using TMDb.Client.API.V3.ClientProxies;
+using TMDb.Client.Api.V3.ClientProxies;
 using TMDb.Client.Settings;
 
 namespace TMDb.Client

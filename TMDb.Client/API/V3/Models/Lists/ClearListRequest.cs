@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using TMDb.Client.Attributes;
 
-namespace TMDb.Client.API.V3.Models.Lists
+namespace TMDb.Client.Api.V3.Models.Lists
 {
     [ApiPostEndpoint("/list/{list_id}/clear")]
     public class ClearListRequest : ListRequestBase

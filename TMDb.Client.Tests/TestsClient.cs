@@ -2,7 +2,7 @@
 using Newtonsoft.Json.Serialization;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using TMDb.Client.API.V3.Models.Configuration;
+using TMDb.Client.Api.V3.Models.Configuration;
 using Xunit;
 
 namespace TMDb.Client.Tests

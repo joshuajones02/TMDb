@@ -3,7 +3,7 @@ using Newtonsoft.Json.Converters;
 using System;
 using TMDb.Client.Enums;
 
-namespace TMDb.Client.API.V3.Models.Reviews
+namespace TMDb.Client.Api.V3.Models.Reviews
 {
     public class ReviewsResponse : TMDbCollectionResponse
     {

@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using TMDb.Client.Enums;
 
-namespace TMDb.Client.API.V3.Models.TV
+namespace TMDb.Client.Api.V3.Models.TV
 {
     public abstract class TVAggregateCreditsPersonBase
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using TMDb.Client.Attributes;
 
-namespace TMDb.Client.API.V3.Models.Lists
+namespace TMDb.Client.Api.V3.Models.Lists
 {
     [ApiGetEndpoint("/list/{list_id}")]
     [Obsolete("// TODO: Move value to appsettings file")]

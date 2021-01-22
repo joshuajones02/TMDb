@@ -1,8 +1,8 @@
 ﻿//using System;
 //using System.Threading.Tasks;
-//using TMDb.Client.API.V4.Models.Authentication;
+//using TMDb.Client.Api.V4.Models.Authentication;
 
-//namespace TMDb.Client.API.V4.ClientProxies
+//namespace TMDb.Client.Api.V4.ClientProxies
 //{
 //    public class AuthenticationProxy : ApiProxy
 //    {

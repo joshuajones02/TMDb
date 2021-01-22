@@ -4,7 +4,7 @@ using TMDb.Client.Entities.Media;
 using TMDb.Client.Entities.People;
 using TMDb.Client.Enums;
 
-namespace TMDb.Client.API.V3.Models.Credits
+namespace TMDb.Client.Api.V3.Models.Credits
 {
     public class CreditsResponse : TMDbCollectionResponse
     {

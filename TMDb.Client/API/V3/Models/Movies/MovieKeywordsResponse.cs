@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using TMDb.Client.Entities.Things;
 
-namespace TMDb.Client.API.V3.Models.Movies
+namespace TMDb.Client.Api.V3.Models.Movies
 {
     public class MovieKeywordsResponse : TMDbResponse
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using TMDb.Client.Enums;
 
-namespace TMDb.Client.API.V3.Models.Movies
+namespace TMDb.Client.Api.V3.Models.Movies
 {
     public class MovieListsResponse : TMDbCollectionResponse
     {

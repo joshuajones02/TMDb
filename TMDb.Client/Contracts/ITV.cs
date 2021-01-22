@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using TMDb.Client.Api.V3.Models.TV;
 using TMDb.Client.Entities.Organizations;
 using TMDb.Client.Entities.Things;
 
@@ -27,7 +28,7 @@ namespace TMDb.Client.Entities.Media
         IEnumerable<string> OriginCountry { get; set; }
 
         [Obsolete("// TODO: Refactor this an entity?")]
-        IEnumerable<API.V3.Models.TV.TVDetailsCreatedBy> CreatedBy { get; set; }
+        IEnumerable<TVDetailsCreatedBy> CreatedBy { get; set; }
 
         IEnumerable<TVGenre> Genres { get; set; }
         IEnumerable<Language> SpokenLanguages { get; set; }

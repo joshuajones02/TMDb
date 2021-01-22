@@ -1,4 +1,4 @@
-﻿namespace TMDb.Client.API
+﻿namespace TMDb.Client.Api
 {
     public class ResponseBase
     {

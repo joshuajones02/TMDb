@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace TMDb.Client.API.V3.Models.Trending
+namespace TMDb.Client.Api.V3.Models.Trending
 {
     public class TrendingTV : TrendingBaseResult
     {

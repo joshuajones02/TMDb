@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMDb.Client.Attributes;
 using TMDb.Client.Enums;
 
-namespace TMDb.Client.API.V3.Models.Discover
+namespace TMDb.Client.Api.V3.Models.Discover
 {
     /// <summary>
     /// Discover movies by different types of data like average rating,

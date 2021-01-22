@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
-using TMDb.Client.API.V3.Models.Find;
+using TMDb.Client.Api.V3.Models.Find;
 
 namespace TMDb.Client.JsonConverters
 {

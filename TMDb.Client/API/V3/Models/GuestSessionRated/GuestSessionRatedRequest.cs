@@ -1,6 +1,6 @@
 ﻿using TMDb.Client.Attributes;
 
-namespace TMDb.Client.API.V3.Models.GuestSessionRated
+namespace TMDb.Client.Api.V3.Models.GuestSessionRated
 {
     public abstract class GuestSessionRatedRequest : TMDbRequest
     {

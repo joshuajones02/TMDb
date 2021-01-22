@@ -1,4 +1,4 @@
-﻿using TMDb.Client.API.V3.Models.Discover;
+﻿using TMDb.Client.Api.V3.Models.Discover;
 using TMDb.Client.Builders;
 using TMDb.Client.Extensions;
 using Xunit;

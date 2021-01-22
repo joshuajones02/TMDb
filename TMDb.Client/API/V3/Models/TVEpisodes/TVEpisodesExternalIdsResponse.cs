@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace TMDb.Client.API.V3.Models.TVEpisodes
+namespace TMDb.Client.Api.V3.Models.TVEpisodes
 {
     public class TVEpisodesExternalIdsResponse : TMDbCollectionResponse
     {

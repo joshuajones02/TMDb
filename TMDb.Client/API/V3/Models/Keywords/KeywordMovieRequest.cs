@@ -1,6 +1,6 @@
 ﻿using TMDb.Client.Attributes;
 
-namespace TMDb.Client.API.V3.Models.Keywords
+namespace TMDb.Client.Api.V3.Models.Keywords
 {
     [ApiGetEndpoint("/keyword/{keyword_id}/movies")]
     public class KeywordMovieRequest : TMDbRequest

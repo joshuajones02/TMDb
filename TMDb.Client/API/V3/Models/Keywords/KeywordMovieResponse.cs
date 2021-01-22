@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using TMDb.Client.Entities.Media;
 
-namespace TMDb.Client.API.V3.Models.Keywords
+namespace TMDb.Client.Api.V3.Models.Keywords
 {
     public class KeywordMovieResponse : TMDbCollectionResponse
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using TMDb.Client.Entities.Things;
 
-namespace TMDb.Client.API.V3.Models
+namespace TMDb.Client.Api.V3.Models
 {
     public class TranslationsResponse : TMDbCollectionResponse
     {

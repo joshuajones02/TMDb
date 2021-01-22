@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
-using TMDb.Client.API.V3.Models.People;
+using TMDb.Client.Api.V3.Models.People;
 
-namespace TMDb.Client.API.V3.ClientProxies
+namespace TMDb.Client.Api.V3.ClientProxies
 {
     public class PeopleProxy : ApiProxy
     {

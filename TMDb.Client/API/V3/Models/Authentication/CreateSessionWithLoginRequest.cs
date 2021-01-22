@@ -1,6 +1,6 @@
 ﻿using TMDb.Client.Attributes;
 
-namespace TMDb.Client.API.V3.Models.Authentication
+namespace TMDb.Client.Api.V3.Models.Authentication
 {
     [ApiPostEndpoint("/authentication/token/validate_with_login")]
     public class CreateSessionWithLoginRequest : TMDbRequest

@@ -3,7 +3,7 @@ using Newtonsoft.Json.Converters;
 using System.Collections.Generic;
 using TMDb.Client.Enums;
 
-namespace TMDb.Client.API.V3.Models.TVSeasons
+namespace TMDb.Client.Api.V3.Models.TVSeasons
 {
     public class TVSeasonsVideosResponse : TMDbCollectionResponse
     {

@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace TMDb.Client.API.V3.Models.Trending
+namespace TMDb.Client.Api.V3.Models.Trending
 {
     public abstract class TrendingBaseResult
     {

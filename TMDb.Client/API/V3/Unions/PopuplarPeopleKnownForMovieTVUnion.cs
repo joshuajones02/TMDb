@@ -1,4 +1,4 @@
-﻿using TMDb.Client.API.V3.Models.People;
+﻿using TMDb.Client.Api.V3.Models.People;
 
 namespace TMDb.Client.Unions
 {

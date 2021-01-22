@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
-using TMDb.Client.API.V3.Models.Search;
+using TMDb.Client.Api.V3.Models.Search;
 
-namespace TMDb.Client.API.V3.ClientProxies
+namespace TMDb.Client.Api.V3.ClientProxies
 {
     public class SearchProxy : ApiProxy
     {

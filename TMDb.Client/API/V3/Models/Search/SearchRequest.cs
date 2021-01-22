@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using TMDb.Client.Attributes;
 
-namespace TMDb.Client.API.V3.Models.Search
+namespace TMDb.Client.Api.V3.Models.Search
 {
     public abstract class SearchRequest : TMDbRequest
     {

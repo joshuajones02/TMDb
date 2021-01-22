@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
-using TMDb.Client.API.V3.Models.TVSeasons;
+using TMDb.Client.Api.V3.Models.TVSeasons;
 
-namespace TMDb.Client.API.V3.ClientProxies
+namespace TMDb.Client.Api.V3.ClientProxies
 {
     public class TVSeasonsProxy : ApiProxy
     {

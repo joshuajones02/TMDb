@@ -1,7 +1,7 @@
 ﻿using System;
 using TMDb.Client.Attributes;
 
-namespace TMDb.Client.API.V3.Models.Movies
+namespace TMDb.Client.Api.V3.Models.Movies
 {
     /// <summary>
     /// Get the images that belong to a movie.

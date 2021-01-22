@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace TMDb.Client.API.V3.Models.Find
+namespace TMDb.Client.Api.V3.Models.Find
 {
     public class FindByIdResponse : TMDbResponse
     {

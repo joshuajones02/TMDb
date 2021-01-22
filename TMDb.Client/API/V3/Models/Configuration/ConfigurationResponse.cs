@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 
-namespace TMDb.Client.API.V3.Models.Configuration
+namespace TMDb.Client.Api.V3.Models.Configuration
 {
     public class ConfigurationResponse : TMDbResponse
     {

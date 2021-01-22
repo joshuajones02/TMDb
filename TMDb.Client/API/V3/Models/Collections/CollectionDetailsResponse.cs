@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using TMDb.Client.Entities.Media;
 
-namespace TMDb.Client.API.V3.Models.Collections
+namespace TMDb.Client.Api.V3.Models.Collections
 {
     [Obsolete("// TODO: Review endpoint properties")]
     public class CollectionDetailsResponse : TMDbResponse

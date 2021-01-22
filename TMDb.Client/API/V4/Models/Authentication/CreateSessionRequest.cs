@@ -1,7 +1,7 @@
-﻿//using TMDb.Client.API.V3.Models;
+﻿//using TMDb.Client.Api.V3.Models;
 //using TMDb.Client.Attributes;
 
-//namespace TMDb.Client.API.V4.Models.Authentication
+//namespace TMDb.Client.Api.V4.Models.Authentication
 //{
 //    [ApiPostEndpoint("")]
 //    public class CreateSessionRequest : TMDbRequest

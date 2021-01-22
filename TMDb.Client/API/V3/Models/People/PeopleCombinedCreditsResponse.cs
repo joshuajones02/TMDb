@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using TMDb.Client.JsonConverters;
 
-namespace TMDb.Client.API.V3.Models.People
+namespace TMDb.Client.Api.V3.Models.People
 {
     public class PeopleCombinedCreditsResponse : TMDbResponse
     {

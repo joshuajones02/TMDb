@@ -1,7 +1,7 @@
 ﻿using System;
-using TMDb.Client.API.V3.Models;
+using TMDb.Client.Api.V3.Models;
 
-namespace TMDb.Client.API
+namespace TMDb.Client.Api
 {
     public abstract class ApiProxy
     {

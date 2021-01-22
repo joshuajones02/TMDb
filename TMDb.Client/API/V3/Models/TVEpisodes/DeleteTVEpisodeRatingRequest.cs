@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using TMDb.Client.Attributes;
 
-namespace TMDb.Client.API.V3.Models.TVEpisodes
+namespace TMDb.Client.Api.V3.Models.TVEpisodes
 {
     [ApiDeleteEndpoint("/tv/{tv_id}/season/{season_number}/episode/{episode_number}/rating")]
     public class DeleteTVEpisodeRatingRequest : TVEpisodesRequest

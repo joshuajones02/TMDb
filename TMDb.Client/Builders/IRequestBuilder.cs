@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net.Http;
-using TMDb.Client.API;
+using TMDb.Client.Api;
 using TMDb.Client.Configurations;
 using TMDb.Client.Models;
 

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using TMDb.Client.Enums;
 
-namespace TMDb.Client.API.V3.Models.People
+namespace TMDb.Client.Api.V3.Models.People
 {
     public class LatestPeopleResponse : TMDbResponse
     {

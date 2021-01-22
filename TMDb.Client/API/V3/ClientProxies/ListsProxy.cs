@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
-using TMDb.Client.API.V3.Models.Keywords;
-using TMDb.Client.API.V3.Models.Lists;
+using TMDb.Client.Api.V3.Models.Keywords;
+using TMDb.Client.Api.V3.Models.Lists;
 
-namespace TMDb.Client.API.V3.ClientProxies
+namespace TMDb.Client.Api.V3.ClientProxies
 {
     public class ListsProxy : ApiProxy
     {

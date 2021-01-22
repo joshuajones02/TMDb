@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Net.Http;
 using System.Text;
-using TMDb.Client.API;
+using TMDb.Client.Api;
 using TMDb.Client.Configurations;
 using TMDb.Client.Constants;
 using TMDb.Client.Extensions;

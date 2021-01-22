@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
-using TMDb.Client.API.V3.Models.TVEpisodes;
+using TMDb.Client.Api.V3.Models.TVEpisodes;
 using TMDb.Client.Entities.Things;
 
 namespace TMDb.Client.JsonConverters

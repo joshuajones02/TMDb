@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using TMDb.Client.Entities.Media;
 
-namespace TMDb.Client.API.V3.Models.TVSeasons
+namespace TMDb.Client.Api.V3.Models.TVSeasons
 {
     public class TVSeasonsDetailsResponse : TMDbCollectionResponse
     {

@@ -1,6 +1,6 @@
 ﻿using TMDb.Client.Attributes;
 
-namespace TMDb.Client.API.V3.Models.Search
+namespace TMDb.Client.Api.V3.Models.Search
 {
     [ApiGetEndpoint("/search/tv")]
     public class SearchTVRequest : SearchRequest

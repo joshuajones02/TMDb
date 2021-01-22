@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace TMDb.Client.API.V3.Models.TV
+namespace TMDb.Client.Api.V3.Models.TV
 {
     public class TVChangesResponse : TMDbResponse
     {

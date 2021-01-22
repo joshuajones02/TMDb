@@ -3,7 +3,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using TMDb.Client.Attributes;
 
-namespace TMDb.Client.API.V3.Models.Changes
+namespace TMDb.Client.Api.V3.Models.Changes
 {
     public abstract class ChangeListRequest : TMDbRequest
     {
