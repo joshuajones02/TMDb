@@ -1,4 +1,5 @@
-﻿using TMDb.Client.Attributes;
+﻿using System;
+using TMDb.Client.Attributes;
 
 namespace TMDb.Client.Api.V3.Models.People
 {
@@ -10,14 +11,28 @@ namespace TMDb.Client.Api.V3.Models.People
             ParameterType = ParameterType.Query)]
         public virtual string Page { get; set; }
 
+        /// <summary>
+        /// Filter the results with a start date.
+        ///     format: date
+        /// </summary>
+        // TODO: if both dates are used, add validation of <= 14 days
+        // {"success":false,"status_code":20,"status_message":"Invalid date range: Should be a range no longer than 14 days."}
         [ApiParameter(
             Name = "start_date",
-            ParameterType = ParameterType.Query)]
-        public virtual string StartDate { get; set; }
+            ParameterType = ParameterType.Query,
+            Option = SerializationOption.DateOnly)]
+        public virtual DateTime? StartDate { get; set; }
 
+        /// <summary>
+        /// Filter the results with a end date.
+        ///     format: date
+        /// </summary>
+        // TODO: if both dates are used, add validation of <= 14 days
+        // {"success":false,"status_code":20,"status_message":"Invalid date range: Should be a range no longer than 14 days."}
         [ApiParameter(
             Name = "end_date",
-            ParameterType = ParameterType.Query)]
-        public virtual string EndDate { get; set; }
+            ParameterType = ParameterType.Query,
+            Option = SerializationOption.DateOnly)]
+        public virtual DateTime? EndDate { get; set; }
     }
 }

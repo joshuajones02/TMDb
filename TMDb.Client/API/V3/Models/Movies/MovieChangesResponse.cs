@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 
 namespace TMDb.Client.Api.V3.Models.Movies
@@ -34,9 +35,9 @@ namespace TMDb.Client.Api.V3.Models.Movies
         public virtual string LanguageAbbreviation { get; set; }
 
         [JsonProperty("value")]
-        public virtual string Value { get; set; }
+        public virtual JToken Value { get; set; }
 
         [JsonProperty("original_value")]
-        public virtual string OriginalValue { get; set; }
+        public virtual JToken OriginalValue { get; set; }
     }
 }

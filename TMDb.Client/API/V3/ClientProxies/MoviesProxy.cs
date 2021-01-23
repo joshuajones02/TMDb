@@ -22,6 +22,9 @@ namespace TMDb.Client.Api.V3.ClientProxies
         public virtual Task<MovieChangesResponse> GetAsync(MovieChangesRequest request) =>
             Client.SendAsync<MovieChangesResponse>(request);
 
+        public virtual Task<MovieCreditsResponse> GetAsync(MovieCreditsRequest request) =>
+            Client.SendAsync<MovieCreditsResponse>(request);
+
         public virtual Task<MovieExternalIdsResponse> GetAsync(MovieExternalIdsRequest request) =>
             Client.SendAsync<MovieExternalIdsResponse>(request);
         
@@ -61,9 +64,6 @@ namespace TMDb.Client.Api.V3.ClientProxies
         public virtual Task<DeleteMovieRatingResponse> DeleteAsync(DeleteMovieRatingRequest request) =>
             Client.SendAsync<DeleteMovieRatingResponse>(request);
 
-        public virtual Task<RateMovieResponse> GetAsync(RateMovieRequest request) =>
-            Client.SendAsync<RateMovieResponse>(request);
-
         public virtual Task<LatestMoviesResponse> GetAsync(LatestMoviesRequest request) =>
             Client.SendAsync<LatestMoviesResponse>(request);
 
@@ -76,7 +76,7 @@ namespace TMDb.Client.Api.V3.ClientProxies
         public virtual Task<TopRatedMoviesResponse> GetAsync(TopRatedMoviesRequest request) =>
             Client.SendAsync<TopRatedMoviesResponse>(request);
 
-        public virtual Task<PopularMoviesResponse> GetAsync(UpcomingMoviesRequest request) =>
-            Client.SendAsync<PopularMoviesResponse>(request);
+        public virtual Task<UpcomingMoviesResponse> GetAsync(UpcomingMoviesRequest request) =>
+            Client.SendAsync<UpcomingMoviesResponse>(request);
     }
 }

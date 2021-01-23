@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using TMDb.Client.Attributes;
 
 namespace TMDb.Client.Api.V3.Models.Movies
@@ -6,14 +7,15 @@ namespace TMDb.Client.Api.V3.Models.Movies
     [ApiPostEndpoint("/movie/{movie_id}/rating")]
     public class RateMovieRequest : MovieBaseRequest
     {
+        // TODO: Fix "Content-Type" header in request (or remove entirely since we will only be supporting json body)
         /// <summary>
         /// default: application/json;charset=utf-8
         /// </summary>
-        [ApiParameter(
-            Name = "Content-Type",
-            ParameterType = ParameterType.Header)]
-        [Required]
-        public virtual string ContentType { get; set; }
+        //[ApiParameter(
+        //    Name = "Content-Type",
+        //    ParameterType = ParameterType.Header)]
+        //[Required]
+        //public virtual string ContentType { get; set; }
 
         [ApiParameter(
             Name = "guest_session_id",
@@ -33,7 +35,9 @@ namespace TMDb.Client.Api.V3.Models.Movies
         [ApiParameter(
             Name = "value",
             ParameterType = ParameterType.JsonBody)]
+        // TODO: Set min (0.5) max (10) validation AND update all Rating properties to double
+        [Range(0.5, 10)]
         [Required]
-        public virtual string Rating { get; set; }
+        public virtual float Rating { get; set; }
     }
 }
