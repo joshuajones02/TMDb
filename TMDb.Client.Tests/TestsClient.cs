@@ -1,16 +1,16 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
-using System.Collections.Generic;
+﻿using System;
 using System.Threading.Tasks;
 using TMDb.Client.Api.V3.Models.Configuration;
 using Xunit;
 
 namespace TMDb.Client.Tests
 {
-    public class TestsClient
+    public class TestsClient : IDisposable
     {
-        public TestsClient() =>
+        public TestsClient()
+        {
             Client = new TMDbClient(TestsSettings.Instance.ApiKey, TestsSettings.Instance.Version);
+        }
 
         [Fact]
         public async Task TestApiKey()
@@ -21,5 +21,13 @@ namespace TMDb.Client.Tests
         }
 
         protected TMDbClient Client { get; private set; }
+
+        public void Dispose()
+        {
+            if (Client != null)
+            {
+                Client = null;
+            }
+        }
     }
 }

@@ -5,7 +5,7 @@ using TMDb.Client.Attributes;
 namespace TMDb.Client.Api.V3.Models.TV
 {
     [ApiGetEndpoint("/tv/popular")]
-    public class PopularTVRequest : TVBaseRequest
+    public class PopularTVRequest : TMDbRequest 
     {
         /// <include file='tmdb-api-comments.xml' path='doc/members/member[@name="LanguageAbbreviation"]/*' />
         [ApiParameter(

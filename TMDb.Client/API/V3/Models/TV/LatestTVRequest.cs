@@ -3,7 +3,7 @@
 namespace TMDb.Client.Api.V3.Models.TV
 {
     [ApiGetEndpoint("/tv/latest")]
-    public class LatestTVRequest : TVBaseRequest
+    public class LatestTVRequest : TMDbRequest
     {
         /// <include file='tmdb-api-comments.xml' path='doc/members/member[@name="LanguageAbbreviation"]/*' />
         [ApiParameter(

@@ -4,7 +4,7 @@ using TMDb.Client.Attributes;
 namespace TMDb.Client.Api.V3.Models.TV
 {
     [ApiGetEndpoint("/tv/airing_today")]
-    public class TVAiringTodayRequest : TVBaseRequest
+    public class TVAiringTodayRequest : TMDbRequest
     {
         /// <include file='tmdb-api-comments.xml' path='doc/members/member[@name="LanguageAbbreviation"]/*' />
         [ApiParameter(
@@ -21,6 +21,7 @@ namespace TMDb.Client.Api.V3.Models.TV
         [ApiParameter(
             Name = "page",
             ParameterType = ParameterType.Query)]
+        [Range(1, 1000)]
         [Required]
         public virtual int Page { get; set; }
     }

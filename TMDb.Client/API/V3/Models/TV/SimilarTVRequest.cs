@@ -21,6 +21,7 @@ namespace TMDb.Client.Api.V3.Models.TV
         [ApiParameter(
             Name = "page",
             ParameterType = ParameterType.Query)]
+        [Range(1, 1000)]
         [Required]
         public virtual int Page { get; set; }
     }

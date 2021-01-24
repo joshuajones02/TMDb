@@ -5,44 +5,6 @@ using Xunit;
 
 namespace TMDb.Client.Tests
 {
-    public enum Movies
-    {
-        AvengersEndGame     = 299534,
-        AvengersInfinityWar = 299536,
-        TheAvengers         = 24428,
-        BillyMadison        = 11017,
-        Deadpool            = 293660,
-        DeathTo2020         = 773655,
-        HarryPotter         = 671,
-        Insidious           = 49018,
-        Immortals           = 37958,
-        Jumanji             = 512200,
-        LionKing            = 8587,
-        Mulan               = 337401,
-        Nosferatu           = 653,
-        WonderWoman1984     = 464052,
-    }
-
-    public static class Language
-    {
-        public const string AmericanEnglish = "en-US";
-        public const string BritishEnglish  = "en-GB";
-        public const string CanadianFrench  = "fr-CA";
-        public const string Chinese         = "zh-CN";
-        public const string FinlandSwedish  = "sv-FI";
-        public const string German          = "de-DE";
-        public const string Italian         = "it-IT";
-        public const string MexicanSpanish  = "es-MX";
-    }
-
-    public static class CountryCode
-    {
-        public const string Italy = "IT";
-        public const string Japan = "JP";
-        public const string UnitedStatesOfAmerica = "US";
-        public const string UnitedStatesMinorOutlyingIslands = "UM";
-    }
-
     public class MoviesProxySmokeTests : TestsClient
     {
         [Theory]
@@ -61,12 +23,13 @@ namespace TMDb.Client.Tests
             Assert.Equal(typeof(AlternativeMovieTitlesResponse), response.GetType());
         }
 
+        // TODO: Requires GuestSessionId or SessionId
         //[Theory]
         //[InlineData((int)Movies.Insidious, CountryCode.Italy)]
         //[InlineData((int)Movies.Immortals, CountryCode.Japan)]
         //public async Task DeleteMovieRatingSmokeTest(int movieId, string countryCode)
         //{
-        //    var request = new AlternativeMovieTitlesRequest 
+        //    var request = new DeleteMovieRatingRequest 
         //    { 
         //        MovieId = movieId,
         //        CountryCode = countryCode
@@ -74,7 +37,7 @@ namespace TMDb.Client.Tests
 
         //    var response = await Client.Movies.GetAsync(request);
 
-        //    Assert.Equal(typeof(AlternativeMovieTitlesResponse), response.GetType());
+        //    Assert.Equal(typeof(DeleteMovieRatingResponse), response.GetType());
         //}
 
 
