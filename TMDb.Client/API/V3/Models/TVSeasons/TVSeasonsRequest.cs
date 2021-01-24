@@ -23,7 +23,7 @@ namespace TMDb.Client.Api.V3.Models.TVSeasons
         [ApiParameter(
             Name = "language",
             ParameterType = ParameterType.Query)]
-        [Obsolete("// TODO: Refactor, some endpoints don't accept language (i.e. DeleteTVEpisodeRating)")]
+        // TODO: Refactor, some endpoints don't accept language (i.e. DeleteTVEpisodeRating
         public virtual string LanguageAbbreviation { get; set; }
     }
 }

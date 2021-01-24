@@ -4,6 +4,7 @@ using Newtonsoft.Json.Serialization;
 using System;
 using System.Net.Http.Headers;
 using TMDb.Client.Constants;
+using TMDb.Client.JsonConverters;
 
 namespace TMDb.Client.Configurations
 {
@@ -22,7 +23,7 @@ namespace TMDb.Client.Configurations
         {
             ApplicationJsonHeader = new MediaTypeWithQualityHeaderValue(ContentType.Json);
             TextJsonHeader = new MediaTypeWithQualityHeaderValue(ContentType.JsonText);
-            MaxResponseContentBufferSize = 2_147_483_648;
+            MaxResponseContentBufferSize = int.MaxValue;
             RequestSerializationSettings = new JsonSerializerSettings
             {
                 NullValueHandling = NullValueHandling.Ignore,
@@ -34,14 +35,17 @@ namespace TMDb.Client.Configurations
                 Error = (sender, args) => args.ErrorContext.Handled = true,
                 ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
                 ContractResolver = new CamelCasePropertyNamesContractResolver(),
-                Converters = new JsonConverter[] { new StringEnumConverter() }
+                Converters = new JsonConverter[] 
+                { 
+                    new EnumDescriptionConverter(),
+                    new StringEnumConverter()
+                }
             };
             Timeout = TimeSpan.FromSeconds(60);
         }
 
         private static RestClientConfiguration _instance;
 
-        public static RestClientConfiguration Instance =>
-            _instance = _instance ?? new RestClientConfiguration();
+        public static RestClientConfiguration Instance => _instance ??= new RestClientConfiguration();
     }
 }

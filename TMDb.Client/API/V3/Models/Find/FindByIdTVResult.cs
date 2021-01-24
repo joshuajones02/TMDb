@@ -14,8 +14,8 @@ namespace TMDb.Client.Api.V3.Models.Find
         [Obsolete("Do the same as released date or follow composition over inheritance??")]
         public virtual string Title { get; set; }
 
+        // TODO: Apply this over project or follow composition over inheritance??")]
         [JsonProperty("first_air_date")]
-        [Obsolete("Apply this over project or follow composition over inheritance??")]
         public override DateTime? ReleaseDate { get; set; }
 
         [JsonProperty("origin_country")]

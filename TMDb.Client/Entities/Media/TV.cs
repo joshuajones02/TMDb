@@ -19,7 +19,7 @@ namespace TMDb.Client.Entities.Media
         public virtual double? VoteAverage { get; set; }
 
         [JsonProperty("vote_count")]
-        public virtual int VoteCount { get; set; }
+        public virtual int? VoteCount { get; set; }
 
         [JsonProperty("id")]
         public virtual int Id { get; set; }

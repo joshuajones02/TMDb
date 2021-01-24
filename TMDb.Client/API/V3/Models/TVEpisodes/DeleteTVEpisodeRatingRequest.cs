@@ -9,7 +9,7 @@ namespace TMDb.Client.Api.V3.Models.TVEpisodes
         [ApiParameter(
             Name = "Content-Type",
             ParameterType = ParameterType.Header)]
-        public virtual string ContentType { get; set; }
+        public virtual string ContentType => Constants.ContentType.Json;
 
         [ApiParameter(
             Name = "guest_session_id",

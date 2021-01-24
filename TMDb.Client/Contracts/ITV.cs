@@ -25,7 +25,6 @@ namespace TMDb.Client.Entities.Media
 
         IEnumerable<int> EpisodeRunTime { get; set; }
         IEnumerable<string> Languages { get; set; }
-        IEnumerable<string> OriginCountry { get; set; }
 
         [Obsolete("// TODO: Refactor this an entity?")]
         IEnumerable<TVDetailsCreatedBy> CreatedBy { get; set; }

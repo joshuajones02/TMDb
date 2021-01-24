@@ -2,7 +2,7 @@
 using TMDb.Client.Api.V3.Models.Certifications;
 using Xunit;
 
-namespace TMDb.Client.Tests.ApiSmokeTests.V3
+namespace TMDb.Client.Tests.Api.V3
 {
     public class CertificationsProxySmokeTests : TestsClient
     {
@@ -11,7 +11,7 @@ namespace TMDb.Client.Tests.ApiSmokeTests.V3
         {
             var response = await Client.Certifications.GetAsync(new MovieCertificationsRequest());
 
-            Assert.Equal(typeof(TVCertificationsResponse), response.GetType());
+            Assert.Equal(typeof(MovieCertificationsResponse), response.GetType());
         }
 
         [Fact]

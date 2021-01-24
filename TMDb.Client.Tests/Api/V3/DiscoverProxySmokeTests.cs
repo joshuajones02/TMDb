@@ -5,7 +5,7 @@ using TMDb.Client.Api.V3.Models.Discover;
 using TMDb.Client.Enums;
 using Xunit;
 
-namespace TMDb.Client.Tests.ApiSmokeTests.V3
+namespace TMDb.Client.Tests.Api.V3
 {
     public class DiscoverProxySmokeTests : TestsClient
     {
@@ -141,11 +141,15 @@ namespace TMDb.Client.Tests.ApiSmokeTests.V3
         }
 
         [Theory]
-        [InlineData()]
-        public async Task DiscoverTVSmokeTest()
+        [InlineData(2020)]
+        public async Task DiscoverTVSmokeTest(short? firstAirDateYear)
         {
             throw new NotImplementedException("Finish implementing...");
-            var response = await Client.Discover.GetAsync(new DiscoverTVRequest());
+
+            var response = await Client.Discover.GetAsync(new DiscoverTVRequest 
+            { 
+                FirstAirDateYear = firstAirDateYear
+            });
 
             Assert.Equal(typeof(DiscoverTVResponse), response.GetType());
         }

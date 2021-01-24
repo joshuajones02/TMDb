@@ -17,8 +17,7 @@ namespace TMDb.Client.Api.V3.Models.TV
         [ApiParameter(
             Name = "Content-Type",
             ParameterType = ParameterType.Header)]
-        [Required]
-        public virtual string ContentType { get; set; }
+        public virtual string ContentType => Constants.ContentType.Json;
 
         [ApiParameter(
             Name = "guest_session_id",

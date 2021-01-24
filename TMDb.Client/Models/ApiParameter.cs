@@ -4,10 +4,19 @@ namespace TMDb.Client.Models
 {
     public class ApiParameter
     {
-        public Dictionary<string, string> Headers { get; set; }
-        public Dictionary<string, string> QueryParameters { get; set; }
-        public Dictionary<string, string> PathParameters { get; set; }
-        public Dictionary<string, string> JsonBody { get; set; }
+        public ApiParameter()
+        {
+            Headers = new Dictionary<string, string>();
+            QueryParameters = new Dictionary<string, string>();
+            PathParameters = new Dictionary<string, string>();
+            JsonBody = new Dictionary<string, string>();
+        }
+
+        public IDictionary<string, string> Headers { get; }
+        public IDictionary<string, string> QueryParameters { get; }
+        public IDictionary<string, string> PathParameters { get; }
+        public IDictionary<string, string> JsonBody { get; }
+
         public string Version { get; set; }
     }
 }

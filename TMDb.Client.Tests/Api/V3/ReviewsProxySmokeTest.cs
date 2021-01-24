@@ -2,7 +2,7 @@
 using TMDb.Client.Api.V3.Models.Reviews;
 using Xunit;
 
-namespace TMDb.Client.Tests.ApiSmokeTests.V3
+namespace TMDb.Client.Tests.Api.V3
 {
     public class ReviewsProxySmokeTest : TestsClient
     {

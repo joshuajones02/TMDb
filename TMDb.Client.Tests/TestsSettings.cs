@@ -13,7 +13,7 @@ namespace TMDb.Client.Tests
             Version = "3";
         }
 
-        public static TestsSettings _instance;
-        public static TestsSettings Instance => _instance = _instance ?? new TestsSettings();
+        private static TestsSettings _instance;
+        public static TestsSettings Instance => _instance ??= new TestsSettings();
     }
 }

@@ -18,9 +18,6 @@ namespace TMDb.Client.Api.V3.Models.TV
         [JsonProperty("vote_average")]
         public virtual double? VoteAverage { get; set; }
 
-        [JsonProperty("vote_count")]
-        public virtual int VoteCount { get; set; }
-
         [JsonProperty("id")]
         public virtual int Id { get; set; }
 
@@ -29,6 +26,9 @@ namespace TMDb.Client.Api.V3.Models.TV
 
         [JsonProperty("number_of_seasons")]
         public virtual int? NumberOfSeasons { get; set; }
+
+        [JsonProperty("vote_count")]
+        public virtual int? VoteCount { get; set; }
 
         [JsonProperty("name")]
         public virtual string Name { get; set; }

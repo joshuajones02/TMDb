@@ -4,18 +4,24 @@ using System.Net.Http;
 using System.Security.Authentication;
 using System.Threading.Tasks;
 using TMDb.Client.Api;
-using TMDb.Client.Api.V3.Models;
 using TMDb.Client.Builders;
 using TMDb.Client.Configurations;
+using TMDb.Client.Logging;
 using TMDb.Client.Validators;
 
 namespace TMDb.Client
 {
     public abstract class HttpClientWrapper : IDisposable
     {
+        private static readonly LogManager _logger;
         private readonly IRestClientConfiguration _clientConfiguration;
         private readonly IRequestBuilder _requestBuilder;
         private readonly IStatusCodeValidator _statusCodeValidator;
+
+        static HttpClientWrapper()
+        {
+            _logger = LogManager.GetLogger<HttpClientWrapper>();
+        }
 
         public HttpClientWrapper(Uri baseUrl) : this(RestClientConfiguration.Instance, baseUrl)
         {
@@ -41,7 +47,7 @@ namespace TMDb.Client
             Client = new HttpClient(handler)
             {
                 BaseAddress = baseUrl,
-                //MaxResponseContentBufferSize = config.MaxResponseContentBufferSize,
+                MaxResponseContentBufferSize = _clientConfiguration.MaxResponseContentBufferSize,
                 Timeout = clientConfiguration.Timeout,
             };
 
@@ -52,7 +58,7 @@ namespace TMDb.Client
         internal HttpClient Client { get; set; }
         internal Uri BaseAddress { get; set; }
 
-        internal virtual async Task<TResponse> SendAsync<TResponse>(RequestBase request) where TResponse : TMDbResponse
+        internal virtual async Task<TResponse> SendAsync<TResponse>(RequestBase request) //where TResponse : TMDbResponse
         {
             var expectedStatusCodes = new int[] { 200, 201 };
             var httpRequestMessage = _requestBuilder.BuildRequest(Client.BaseAddress, request, _clientConfiguration);
@@ -68,12 +74,13 @@ namespace TMDb.Client
                 responseResult.Response = await Client.SendAsync(httpRequestMessage);
                 _statusCodeValidator.ValidateStatusCode(responseResult.Response, httpRequestMessage.RequestUri, expectedStatusCodes);
                 var responseText = await responseResult.Response.Content.ReadAsStringAsync();
-                responseResult.Result = responseText.ToObject<TResponse>();
+
+                responseResult.Result = responseText.ToObject<TResponse>(_clientConfiguration.ResponseSerializationSettings, true);
             }
             catch (Exception ex)
             {
                 responseResult.Exception = ex;
-                Trace.TraceError("TMDb.Client.HttpClientWrapper : ", ex.ToMinifiedString());
+                _logger.LogException(ex);
 
                 if (ex.InnerException != null)
                     throw ex.InnerException;
@@ -83,14 +90,7 @@ namespace TMDb.Client
             finally
             {
                 responseResult.Timer.Stop();
-
-                var log = "TMDb.Client.HttpClientWrapper : " + responseResult.ToJson();
-
-                // TODO: Create logger that switches from app settings
-                if (responseResult.Exception != null)
-                    Trace.TraceError(log);
-                else
-                    Trace.TraceInformation(log);
+                _logger.LogInfo(responseResult);
             }
 
             return responseResult.Result;
@@ -103,6 +103,8 @@ namespace TMDb.Client
                 Client.Dispose();
                 Client = null;
             }
+
+            GC.SuppressFinalize(this);
         }
     }
 }

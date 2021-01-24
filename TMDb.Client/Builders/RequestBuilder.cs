@@ -14,7 +14,7 @@ namespace TMDb.Client.Builders
         public HttpRequestMessage BuildRequest(Uri baseAddress, RequestBase requestBase, IRestClientConfiguration config)
         {
             var endpoint = this.GetApiEndpoint(requestBase);
-            var parameters = this.GetApiParameters(requestBase);
+            var parameters = this.SerializeRequestParameters(requestBase);
 
             var request = new HttpRequestMessage
             {

@@ -44,7 +44,6 @@ namespace TMDb.Client.JsonConverters
         }
 
         private static RatedBoolConverter _instance;
-        public static RatedBoolConverter Instance =>
-            _instance = _instance ?? new RatedBoolConverter();
+        public static RatedBoolConverter Instance => _instance ??= new RatedBoolConverter();
     }
 }

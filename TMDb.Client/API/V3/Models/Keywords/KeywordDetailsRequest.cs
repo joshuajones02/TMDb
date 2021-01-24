@@ -8,7 +8,7 @@ namespace TMDb.Client.Api.V3.Models.Keywords
     {
         [ApiParameter(
             Name = "keyword_id",
-            ParameterType = ParameterType.Query)]
+            ParameterType = ParameterType.Path)]
         [Range(1, int.MaxValue)]
         [Required]
         public virtual int KeywordId { get; set; }

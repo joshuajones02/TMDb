@@ -12,8 +12,8 @@ namespace TMDb.Client.Api.V3.ClientProxies
         public virtual Task<ConfigurationResponse> GetConfigurationAsync() =>
             Client.SendAsync<ConfigurationResponse>(new ConfigurationRequest());
 
-        public virtual Task<ConfigurationResponse> GetCountriesConfigurationAsync() =>
-            Client.SendAsync<ConfigurationResponse>(new CountriesConfigurationRequest());
+        public virtual Task<CountriesConfigurationResponse> GetCountriesConfigurationAsync() =>
+            Client.SendAsync<CountriesConfigurationResponse>(new CountriesConfigurationRequest());
 
         public virtual Task<DepartmentJobsConfigurationResponse> GetDepartmentJobsAsync() =>
             Client.SendAsync<DepartmentJobsConfigurationResponse>(new DepartmentJobsConfigurationRequest());

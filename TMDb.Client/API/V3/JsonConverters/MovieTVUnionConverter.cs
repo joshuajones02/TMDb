@@ -14,7 +14,7 @@ namespace TMDb.Client.JsonConverters
         public override bool CanConvert(Type t) =>
             t == typeof(FindByIdMovieTVUnion) || t == typeof(FindByIdMovieTVUnion?);
 
-        [Obsolete("// TODO: Needs refactoring, Make better when time is available")]
+        // TODO: Needs refactoring, Make better when time is available
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
             if (reader.TryParseObject(serializer, out FindByIdMovieResult movieCrew))
@@ -46,7 +46,6 @@ namespace TMDb.Client.JsonConverters
         }
 
         private static MovieTVUnionConverter _instance;
-        public static MovieTVUnionConverter Instance =>
-            _instance = _instance ?? new MovieTVUnionConverter();
+        public static MovieTVUnionConverter Instance => _instance ??= new MovieTVUnionConverter();
     }
 }

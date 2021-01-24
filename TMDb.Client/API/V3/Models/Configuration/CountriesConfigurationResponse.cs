@@ -5,6 +5,7 @@ namespace TMDb.Client.Api.V3.Models.Configuration
 {
     public class CountriesConfigurationResponse : TMDbResponse
     {
+        [JsonProperty("results")]
         public virtual IEnumerable<CountryModel> Countries { get; set; }
     }
 

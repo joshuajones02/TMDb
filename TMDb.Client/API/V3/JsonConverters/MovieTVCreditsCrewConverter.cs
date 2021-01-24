@@ -45,7 +45,6 @@ namespace TMDb.Client.JsonConverters
         }
 
         private static MovieTVCreditsCrewConverter _instance;
-        public static MovieTVCreditsCrewConverter Instance =>
-            _instance = _instance ?? new MovieTVCreditsCrewConverter();
+        public static MovieTVCreditsCrewConverter Instance => _instance ??= new MovieTVCreditsCrewConverter();
     }
 }

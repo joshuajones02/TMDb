@@ -13,7 +13,7 @@ namespace TMDb.Client.Settings
             ApiKey = apiKey;
 
         internal static DefaultTMDbSettings CreateInstance(string apiKey) =>
-            _instance = _instance ?? new DefaultTMDbSettings(apiKey)
+            _instance ??= new DefaultTMDbSettings(apiKey)
             {
                 ApiKey  = apiKey,
                 Version = "3",

@@ -16,7 +16,7 @@ namespace TMDb.Client.Entities.Media
         public int Id { get; set; }
 
         [JsonProperty("vote_count")]
-        public int VoteCount { get; set; }
+        public int? VoteCount { get; set; }
 
         [JsonProperty("overview")]
         public string Overview { get; set; }

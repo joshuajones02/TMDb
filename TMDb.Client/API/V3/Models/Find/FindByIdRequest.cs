@@ -1,4 +1,5 @@
 ﻿using TMDb.Client.Attributes;
+using TMDb.Client.Enums;
 
 namespace TMDb.Client.Api.V3.Models.Find
 {
@@ -28,7 +29,8 @@ namespace TMDb.Client.Api.V3.Models.Find
 
         [ApiParameter(
             Name = "external_source",
-            ParameterType = ParameterType.Query)]
-        public virtual string ExternalSource { get; set; }
+            ParameterType = ParameterType.Query,
+            Option = SerializationOption.EnumDescription)]
+        public virtual ExternalSource ExternalSource { get; set; }
     }
 }

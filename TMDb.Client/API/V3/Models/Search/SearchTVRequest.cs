@@ -8,12 +8,12 @@ namespace TMDb.Client.Api.V3.Models.Search
         [ApiParameter(
             Name = "include_adult",
             ParameterType = ParameterType.Query)]
-        public virtual bool IncludeAdult { get; set; }
+        public virtual bool? IncludeAdult { get; set; }
 
         [ApiParameter(
             Name = "first_air_date_year",
             ParameterType = ParameterType.Query)]
-        public virtual int FirstAirDateYear { get; set; }
+        public virtual short? FirstAirDateYear { get; set; }
 
         /// <include file='tmdb-api-comments.xml' path='doc/members/member[@name="LanguageAbbreviation"]/*' />
         [ApiParameter(

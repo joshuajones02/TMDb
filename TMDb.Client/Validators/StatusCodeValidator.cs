@@ -20,7 +20,7 @@ namespace TMDb.Client.Validators
                         throw new HttpRequestException(message + $"Could not locate resource at {requestUri.Host}/{requestUri.AbsolutePath}");
 
                     default:
-                        message = message + $"Unexpected status code was returned. Expected: {string.Join(",", expectedStatusCodes)}";
+                        message += $"Unexpected status code was returned. Expected: {string.Join(",", expectedStatusCodes)}";
                         throw new HttpRequestException(message);
                 }
             }

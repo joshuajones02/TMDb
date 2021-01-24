@@ -13,8 +13,8 @@ namespace TMDb.Client.Builders
             _uriBuilder = new UriBuilder(baseUrl);
         }
 
-        public Dictionary<string, string> Query { get; set; }
-        public Dictionary<string, string> PathParameters { get; set; }
+        public IDictionary<string, string> Query { get; set; }
+        public IDictionary<string, string> PathParameters { get; set; }
         public string Version { get; set; }
         public string Path { get; set; }
 

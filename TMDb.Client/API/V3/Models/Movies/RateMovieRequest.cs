@@ -7,15 +7,13 @@ namespace TMDb.Client.Api.V3.Models.Movies
     [ApiPostEndpoint("/movie/{movie_id}/rating")]
     public class RateMovieRequest : MovieBaseRequest
     {
-        // TODO: Fix "Content-Type" header in request (or remove entirely since we will only be supporting json body)
         /// <summary>
         /// default: application/json;charset=utf-8
         /// </summary>
-        //[ApiParameter(
-        //    Name = "Content-Type",
-        //    ParameterType = ParameterType.Header)]
-        //[Required]
-        //public virtual string ContentType { get; set; }
+        [ApiParameter(
+            Name = "Content-Type",
+            ParameterType = ParameterType.Header)]
+        public virtual string ContentType => Constants.ContentType.Json;
 
         [ApiParameter(
             Name = "guest_session_id",

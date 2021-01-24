@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Threading.Tasks;
-using TMDb.Client.Api.V3.Models.Authentication;
 using TMDb.Client.Api.V3.Models.Find;
+using TMDb.Client.Enums;
 using Xunit;
 
-namespace TMDb.Client.Tests.ApiSmokeTests.V3
+namespace TMDb.Client.Tests.Api.V3
 {
     public class FindProxySmokeTests : TestsClient
     {
         [Theory]
-        [InlineData("", "", "")]
-        public async Task FindByIdSmokeTest(string externalId, string language, string externalSource)
+        [InlineData("", "", ExternalSource.IMDbId)]
+        public async Task FindByIdSmokeTest(string externalId, string language, ExternalSource externalSource)
         {
             throw new NotImplementedException("Insert inline data parameters");
 

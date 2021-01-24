@@ -2,7 +2,7 @@
 using TMDb.Client.Api.V3.Models.Configuration;
 using Xunit;
 
-namespace TMDb.Client.Tests.ApiSmokeTests.V3
+namespace TMDb.Client.Tests.Api.V3
 {
     public class ConfigurationProxySmokeTests : TestsClient
     {
@@ -19,7 +19,7 @@ namespace TMDb.Client.Tests.ApiSmokeTests.V3
         {
             var response = await Client.Configuration.GetCountriesConfigurationAsync();
 
-            Assert.Equal(typeof(ConfigurationResponse), response.GetType());
+            Assert.Equal(typeof(CountriesConfigurationResponse), response.GetType());
         }
 
         [Fact]

@@ -1,9 +1,10 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using TMDb.Client.Api.V3.Models;
 using TMDb.Client.Api.V3.Models.Search;
 using Xunit;
 
-namespace TMDb.Client.Tests.ApiSmokeTests.V3
+namespace TMDb.Client.Tests.Api.V3
 {
     public class SearchProxySmokeTest : TestsClient
     {
@@ -21,8 +22,8 @@ namespace TMDb.Client.Tests.ApiSmokeTests.V3
                 Region = region
             });
 
-            Assert.Equal(typeof(TMDbCollectionResponse), response.GetType());
             Assert.Equal(typeof(MultiSearchResponse), response.GetType());
+            Assert.True(response.Results.Any());
         }
 
         [Theory]
@@ -38,6 +39,7 @@ namespace TMDb.Client.Tests.ApiSmokeTests.V3
             });
 
             Assert.Equal(typeof(SearchCollectionsResponse), response.GetType());
+            Assert.True(response.Collections.Any());
         }
 
         [Theory]
@@ -52,6 +54,7 @@ namespace TMDb.Client.Tests.ApiSmokeTests.V3
             });
 
             Assert.Equal(typeof(SearchCompaniesResponse), response.GetType());
+            Assert.True(response.Companies.Any());
         }
 
         [Theory]
@@ -66,6 +69,7 @@ namespace TMDb.Client.Tests.ApiSmokeTests.V3
             });
 
             Assert.Equal(typeof(SearchKeywordsResponse), response.GetType());
+            Assert.True(response.Keywords.Any());
         }
 
         [Theory]
@@ -82,6 +86,7 @@ namespace TMDb.Client.Tests.ApiSmokeTests.V3
             });
 
             Assert.Equal(typeof(SearchMoviesResponse), response.GetType());
+            Assert.True(response.Results.Any());
         }
 
         [Theory]
@@ -99,19 +104,21 @@ namespace TMDb.Client.Tests.ApiSmokeTests.V3
             });
 
             Assert.Equal(typeof(SearchPeopleResponse), response.GetType());
+            Assert.True(response.Results.Any());
         }
 
         [Theory]
-        [InlineData("dateline",   1, Language.AmericanEnglish, CountryCode.UnitedStatesOfAmerica, false)]
-        [InlineData("true crime", 1, Language.AmericanEnglish, CountryCode.UnitedStatesOfAmerica, false)]
-        public async Task SearchTVSmokeTest(string query, int page, string language, string region, bool includeAdult)
+        [InlineData("dateline",   1, Language.AmericanEnglish, 2010, false)]
+        [InlineData("true crime", 1, Language.AmericanEnglish, 2010, false)]
+        public async Task SearchTVSmokeTest(string query, int page, string language, short? firstAirDateYear, bool? includeAdult)
         {
             var response = await Client.Search.GetAsync(new SearchTVRequest
             {
                 Page = page,
                 Query = query,
-                IncludeAdult = includeAdult,
-                LanguageAbbreviation = language
+                LanguageAbbreviation = language,
+                FirstAirDateYear = firstAirDateYear,
+                IncludeAdult = includeAdult, 
             });
 
             Assert.Equal(typeof(SearchTVResponse), response.GetType());

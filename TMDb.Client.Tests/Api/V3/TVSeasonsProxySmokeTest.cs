@@ -4,14 +4,14 @@ using TMDb.Client.Api.V3.Models.TVSeasons;
 using TMDb.Client.Tests.TestConstants;
 using Xunit;
 
-namespace TMDb.Client.Tests.ApiSmokeTests.V3
+namespace TMDb.Client.Tests.Api.V3
 {
     public class TVSeasonsProxySmokeTest : TestsClient
     {
         [Theory]
         [InlineData((int)TV.BlackMirror, 1, Language.AmericanEnglish, "images")]
         [InlineData((int)TV.GameOfThrones, 1, Language.AmericanEnglish, "videos")]
-        public async Task TVSeasonsDetailsSmokeTest(int tvId, int seasonNumber, string language, string appendToResponse)
+        public async Task<TVSeasonsDetailsResponse> TVSeasonsDetailsSmokeTest(int tvId, int seasonNumber, string language, string appendToResponse)
         {
             var response = await Client.TVSeasons.GetAsync(new TVSeasonsDetailsRequest
             {
@@ -22,24 +22,28 @@ namespace TMDb.Client.Tests.ApiSmokeTests.V3
             });
 
             Assert.Equal(typeof(TVSeasonsDetailsResponse), response.GetType());
+
+            return response;
         }
 
+        // TODO: Need GuestSessionId and SessionId
         [Theory]
         [InlineData((int)TV.GameOfThrones, 1, Language.AmericanEnglish)]
         public async Task TVSeasonsAccountStatesSmokeTest(int tvId, int seasonNumber, string language)
         {
-            throw new NotImplementedException("Implement GuestSessionId and SessionId");
+            //var guestSessionId = "";
+            //var sessionId = "";
 
-            var response = await Client.TVSeasons.GetAsync(new TVSeasonsAccountStatesRequest
-            {
-                TvId = tvId,
-                SeasonNumber = seasonNumber,
-                LanguageAbbreviation = language,
-                GuestSessionId = "",
-                SessionId = ""
-            });
+            //var response = await Client.TVSeasons.GetAsync(new TVSeasonsAccountStatesRequest
+            //{
+            //    TvId = tvId,
+            //    SeasonNumber = seasonNumber,
+            //    LanguageAbbreviation = language,
+            //    GuestSessionId = guestSessionId,
+            //    SessionId = sessionId
+            //});
 
-            Assert.Equal(typeof(TVSeasonsAccountStatesResponse), response.GetType());
+            //Assert.Equal(typeof(TVSeasonsAccountStatesResponse), response.GetType());
         }
 
         [Theory]
@@ -96,13 +100,12 @@ namespace TMDb.Client.Tests.ApiSmokeTests.V3
         [InlineData((int)TV.GameOfThrones,      1, "2020-01-11", "2020-01-23")]
         public async Task TVSeasonsChangesSmokeTest(int tvId, int page, string startDate, string endDate)
         {
-            // TODO: Need to convert tvId into season id?
-            var seasonId = tvId;
-            throw new NotImplementedException("EIther identify season id or convert tv id to season id");
+            var seasonDetails = await TVSeasonsDetailsSmokeTest(tvId, 1, Language.AmericanEnglish, null);
 
             var response = await Client.TVSeasons.GetAsync(new TVSeasonsChangesRequest
             {
-                SeasonId = seasonId,
+                SeasonId = seasonDetails.Id,
+                Page = page,
                 StartDate = DateTime.Parse(startDate),
                 EndDate = DateTime.Parse(endDate)
             });

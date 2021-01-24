@@ -9,6 +9,7 @@ namespace TMDb.Client.Extensions
 {
     public static class HttpRequestHeadersExtension
     {
+        // TODO: Refactor ApiParamter parameter to Dictionary<string, string>
         public static void SetRequestHeaders(this HttpRequestHeaders headers, ApiParameter parameters)
         {
             if (parameters.Headers.Any())

@@ -16,8 +16,8 @@ namespace TMDb.Client.JsonConverters
         public override bool CanConvert(Type t) =>
             t == typeof(TrendingMovieTVUnion) || t == typeof(TrendingMovieTVUnion?);
 
-        [Obsolete("// TODO: Needs refactoring, Make better when time is available")]
-        public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
+        // TODO: Needs refactoring, Make better when time is available
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
             if (reader.TryParseObject(serializer, out TrendingMovie movie))
             {
@@ -48,7 +48,6 @@ namespace TMDb.Client.JsonConverters
         }
 
         private static TrendingMovieTVConverter _instance;
-        public static TrendingMovieTVConverter Instance =>
-            _instance = _instance ?? new TrendingMovieTVConverter();
+        public static TrendingMovieTVConverter Instance => _instance ??= new TrendingMovieTVConverter();
     }
 }

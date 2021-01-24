@@ -8,7 +8,7 @@ namespace TMDb.Client.Entities.Media
         double? Popularity { get; set; }
         double? VoteAverage { get; set; }
         int Id { get; set; }
-        int VoteCount { get; set; }
+        int? VoteCount { get; set; }
 
         string BackdropPath { get; set; }
         string Name { get; set; }
