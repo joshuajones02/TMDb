@@ -3,7 +3,7 @@
 namespace TMDb.Client.Api.V3.Models.Networks
 {
     [ApiGetEndpoint("/network/{network_id}/alternative_names")]
-    public class NetworkImagesRequest : NetworksBaseRequest
+    public class AlternativeNetworkNamesRequest : NetworksBaseRequest
     {
     }
 }

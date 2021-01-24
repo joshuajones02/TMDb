@@ -4,12 +4,12 @@ using TMDb.Client.Attributes;
 namespace TMDb.Client.Api.V3.Models.People
 {
     [ApiGetEndpoint("/person/{person_id}/changes")]
-    public class PeopleChangesRequest : PeopleRequest
+    public class PeopleChangesRequest : PeopleBaseRequest
     {
         [ApiParameter(
             Name = "page",
             ParameterType = ParameterType.Query)]
-        public virtual string Page { get; set; }
+        public virtual int Page { get; set; }
 
         /// <summary>
         /// Filter the results with a start date.

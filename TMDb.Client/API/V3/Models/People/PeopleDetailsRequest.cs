@@ -3,7 +3,7 @@
 namespace TMDb.Client.Api.V3.Models.People
 {
     [ApiGetEndpoint("/person/{person_id}")]
-    public class PeopleDetailsRequest : PeopleRequest
+    public class PeopleDetailsRequest : PeopleBaseRequest
     {
         /// <include file='tmdb-api-comments.xml' path='doc/members/member[@name="LanguageAbbreviation"]/*' />
         [ApiParameter(

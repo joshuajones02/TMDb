@@ -3,7 +3,7 @@
 namespace TMDb.Client.Api.V3.Models.People
 {
     [ApiGetEndpoint("/person/{person_id}/tagged_images")]
-    public class PeopleTaggedImagesRequest : PeopleRequest
+    public class PeopleTaggedImagesRequest : PeopleBaseRequest
     {
         [ApiParameter(
             Name = "page",

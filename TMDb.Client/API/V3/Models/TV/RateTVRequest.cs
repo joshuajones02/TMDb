@@ -38,7 +38,8 @@ namespace TMDb.Client.Api.V3.Models.TV
         [ApiParameter(
             Name = "value",
             ParameterType = ParameterType.JsonBody)]
+        [Range(0.5, 10)]
         [Required]
-        public virtual string Rating { get; set; }
+        public virtual float Rating { get; set; }
     }
 }

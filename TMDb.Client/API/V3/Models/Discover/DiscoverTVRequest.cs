@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMDb.Client.Attributes;
 using TMDb.Client.Enums;
 
-namespace TMDb.Client.Api.V3.Models.TV
+namespace TMDb.Client.Api.V3.Models.Discover
 {
     /// <summary>
     /// Discover TV shows by different types of data like average rating,

@@ -3,12 +3,12 @@ using System.Collections.Generic;
 
 namespace TMDb.Client.Api.V3.Models.Networks
 {
-    public class NetworkAlternativeNameResponse : TMDbResponse
+    public class AlternativeNetworkNamesResponse : TMDbResponse
     {
         [JsonProperty("id")]
         public int Id { get; set; }
 
         [JsonProperty("results")]
-        public IEnumerable<NetworkAlternativeNameResult> Results { get; set; }
+        public IEnumerable<AlternativeNetworkNamesResult> Results { get; set; }
     }
 }

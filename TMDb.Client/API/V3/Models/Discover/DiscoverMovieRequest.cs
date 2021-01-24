@@ -115,7 +115,7 @@ namespace TMDb.Client.Api.V3.Models.Discover
         [ApiParameter(
             Name = "include_adult",
             ParameterType = ParameterType.Query)]
-        public virtual bool IncludeAdult { get; set; }
+        public virtual bool? IncludeAdult { get; set; }
 
         /// <summary>
         /// A filter to include or exclude videos.
@@ -123,7 +123,7 @@ namespace TMDb.Client.Api.V3.Models.Discover
         [ApiParameter(
             Name = "include_video",
             ParameterType = ParameterType.Query)]
-        public virtual bool IncludeVideo { get; set; }
+        public virtual bool? IncludeVideo { get; set; }
 
         /// <summary>
         /// Specify the page of results to query.

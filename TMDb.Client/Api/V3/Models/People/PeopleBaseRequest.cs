@@ -2,7 +2,7 @@
 
 namespace TMDb.Client.Api.V3.Models.People
 {
-    public abstract class PeopleRequest : TMDbRequest
+    public abstract class PeopleBaseRequest : TMDbRequest
     {
         [ApiParameter(
             Name = "person_id",

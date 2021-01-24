@@ -14,6 +14,6 @@ namespace TMDb.Client.Api.V3.Models.Reviews
         public virtual string AvatarPath { get; set; }
 
         [JsonProperty("rating")]
-        public virtual long Rating { get; set; }
+        public virtual float? Rating { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using TMDb.Client.Attributes;
+﻿using System.ComponentModel.DataAnnotations;
+using TMDb.Client.Attributes;
 
 namespace TMDb.Client.Api.V3.Models.Keywords
 {
@@ -8,6 +9,8 @@ namespace TMDb.Client.Api.V3.Models.Keywords
         [ApiParameter(
             Name = "keyword_id",
             ParameterType = ParameterType.Query)]
+        [Range(1, int.MaxValue)]
+        [Required]
         public virtual int KeywordId { get; set; }
     }
 }

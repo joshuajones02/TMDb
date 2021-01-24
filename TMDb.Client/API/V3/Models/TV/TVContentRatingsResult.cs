@@ -8,6 +8,6 @@ namespace TMDb.Client.Api.V3.Models.TV
         public virtual string CountryCode { get; set; }
 
         [JsonProperty("rating")]
-        public virtual string Rating { get; set; }
+        public virtual float? Rating { get; set; }
     }
 }

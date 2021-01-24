@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
 using TMDb.Client.Api.V3.Models.TV;
-using TMDb.Client.Constants;
 using TMDb.Client.Tests.TestConstants;
 using Xunit;
 
@@ -24,21 +23,22 @@ namespace TMDb.Client.Tests.ApiSmokeTests.V3
             Assert.Equal(typeof(AlternativeTVTitlesResponse), response.GetType());
         }
 
-        // TODO: Needs guest session id or session id
-        //[Theory]
-        //[InlineData((int)TV.GameOfThrones, Language.AmericanEnglish)]
-        //public async Task DeleteRatingSmokeTest(int tvId, string language)
-        //{
-        //    var response = await Client.TV.DeleteAsync(new DeleteTVRatingRequest
-        //    {
-        //        TVId = tvId,
-        //        ContentType = ContentType.JsonText,
-        //        GuestSessionId = "",
-        //        SessionId = ""
-        //    });
+        [Theory]
+        [InlineData((int)TV.GameOfThrones)]
+        public async Task DeleteRatingSmokeTest(int tvId)
+        {
+            throw new NotImplementedException("Implement GuestSessionId and SessionId, remove ContentType - always Json");
 
-        //    Assert.Equal(typeof(DeleteTVRatingResponse), response.GetType());
-        //}
+            var response = await Client.TV.DeleteAsync(new DeleteTVRatingRequest
+            {
+                TVId = tvId,
+                //ContentType = ContentType.JsonText,
+                GuestSessionId = "",
+                SessionId = ""
+            });
+
+            Assert.Equal(typeof(DeleteTVRatingResponse), response.GetType());
+        }
 
         [Theory]
         [InlineData(Language.AmericanEnglish)]
@@ -66,20 +66,25 @@ namespace TMDb.Client.Tests.ApiSmokeTests.V3
         }
 
         // TODO: Needs guest session id or session id
-        //[Theory]
-        //[InlineData((int)TV.GameOfThrones, Language.AmericanEnglish)]
-        //public async Task RateTVSmokeTest(int tvId, string language)
-        //{
-        //    var response = await Client.TV.PostAsync(new RateTVRequest
-        //    {
-        //        TVId = tvId,
-        //        ContentType = ContentType.JsonText,
-        //        GuestSessionId = "",
-        //        SessionId = ""
-        //    });
+        [Theory]
+        [InlineData((int)TV.GameOfThrones, 10)]
+        [InlineData((int)TV.LetterKenny, 9.5)]
+        [InlineData((int)TV.MindHunter, 8.5)]
+        public async Task RateTVSmokeTest(int tvId, float rating)
+        {
+            throw new NotImplementedException("Implement GuestSessionId and SessionId, remove ContentType - always Json");
 
-        //    Assert.Equal(typeof(RateTVResponse), response.GetType());
-        //}
+            var response = await Client.TV.PostAsync(new RateTVRequest
+            {
+                TVId = tvId,
+                //ContentType = ContentType.JsonText,
+                GuestSessionId = "",
+                SessionId = "",
+                Rating = rating
+            });
+
+            Assert.Equal(typeof(RateTVResponse), response.GetType());
+        }
 
         [Theory]
         [InlineData((int)TV.GameOfThrones, 1, Language.AmericanEnglish)]
@@ -115,21 +120,22 @@ namespace TMDb.Client.Tests.ApiSmokeTests.V3
             Assert.Equal(typeof(TopRatedTVResponse), response.GetType());
         }
 
-        // TODO: Need guest session or session id
-        //[Theory]
-        //[InlineData((int)TV.GameOfThrones, Language.AmericanEnglish)]
-        //public async Task TVAccountStatesSmokeTest(int tvId, string language)
-        //{
-        //    var response = await Client.TV.GetAsync(new TVAccountStatesRequest
-        //    {
-        //        TVId = tvId,
-        //        LanguageAbbreviation = language,
-        //        GuestSessionId = "",
-        //        SessionId = ""
-        //    });
+        [Theory]
+        [InlineData((int)TV.GameOfThrones, Language.AmericanEnglish)]
+        public async Task TVAccountStatesSmokeTest(int tvId, string language)
+        {
+            throw new NotImplementedException("Implement GuestSessionId and SessionId");
 
-        //    Assert.Equal(typeof(TVAccountStatesResponse), response.GetType());
-        //}
+            var response = await Client.TV.GetAsync(new TVAccountStatesRequest
+            {
+                TVId = tvId,
+                LanguageAbbreviation = language,
+                GuestSessionId = "",
+                SessionId = ""
+            });
+
+            Assert.Equal(typeof(TVAccountStatesResponse), response.GetType());
+        }
 
         [Theory]
         [InlineData((int)TV.GameOfThrones, Language.AmericanEnglish)]

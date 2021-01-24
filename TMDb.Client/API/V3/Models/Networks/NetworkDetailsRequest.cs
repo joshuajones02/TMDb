@@ -3,11 +3,7 @@
 namespace TMDb.Client.Api.V3.Models.Networks
 {
     [ApiGetEndpoint("/network/{network_id}")]
-    public class NetworkDetailsRequest : TMDbRequest
+    public class NetworkDetailsRequest : NetworksBaseRequest
     {
-        [ApiParameter(
-            Name = "network_id",
-            ParameterType = ParameterType.Path)]
-        public virtual int NetworkId { get; set; }
     }
 }

@@ -5,7 +5,7 @@ using TMDb.Client.Entities.Organizations;
 
 namespace TMDb.Client.Api.V3.Models.TVEpisodeGroups
 {
-    public class TVEpisodeGroupsResponse : TMDbCollectionResponse
+    public class TVEpisodeGroupsResponse : TMDbResponse
     {
         [JsonProperty("episode_count")]
         public virtual int EpisodeCount { get; set; }

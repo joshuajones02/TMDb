@@ -3,7 +3,7 @@
 namespace TMDb.Client.Api.V3.Models.People
 {
     [ApiGetEndpoint("/person/popular")]
-    public class PopularPeopleRequest : PeopleRequest
+    public class PopularPeopleRequest : TMDbRequest
     {
         [ApiParameter(
             Name = "page",

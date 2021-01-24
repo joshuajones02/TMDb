@@ -1,6 +1,5 @@
 ﻿using System.Threading.Tasks;
 using TMDb.Client.Api.V3.Models.Discover;
-using TMDb.Client.Api.V3.Models.TV;
 
 namespace TMDb.Client.Api.V3.ClientProxies
 {

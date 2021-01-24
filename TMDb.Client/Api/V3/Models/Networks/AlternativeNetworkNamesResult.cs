@@ -2,7 +2,7 @@
 
 namespace TMDb.Client.Api.V3.Models.Networks
 {
-    public class NetworkAlternativeNameResult
+    public class AlternativeNetworkNamesResult
     {
         [JsonProperty("name")]
         public string Name { get; set; }

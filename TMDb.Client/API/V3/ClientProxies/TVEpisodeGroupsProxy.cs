@@ -1,6 +1,5 @@
 ﻿using System.Threading.Tasks;
 using TMDb.Client.Api.V3.Models.TVEpisodeGroups;
-using TMDb.Client.Api.V3.Models.TVEpisodes;
 
 namespace TMDb.Client.Api.V3.ClientProxies
 {
@@ -10,7 +9,7 @@ namespace TMDb.Client.Api.V3.ClientProxies
         {
         }
 
-        public virtual Task<TVEpisodesDetailsResponse> GetAsync(TVEpisodeGroupsRequest request) =>
-            Client.SendAsync<TVEpisodesDetailsResponse>(request);
+        public virtual Task<TVEpisodeGroupsResponse> GetAsync(TVEpisodeGroupsRequest request) =>
+            Client.SendAsync<TVEpisodeGroupsResponse>(request);
     }
 }

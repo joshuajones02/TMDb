@@ -13,7 +13,7 @@ namespace TMDb.Client.Api.V3.Models.GuestSessionRated
     public class GuestSessionRatedTVEpisodesItem
     {
         [JsonProperty("rating")]
-        public virtual double? Rating { get; set; }
+        public virtual float? Rating { get; set; }
 
         [JsonProperty("vote_average")]
         public virtual double? VoteAverage { get; set; }

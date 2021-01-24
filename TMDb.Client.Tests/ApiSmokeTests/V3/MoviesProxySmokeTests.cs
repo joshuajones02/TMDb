@@ -12,33 +12,32 @@ namespace TMDb.Client.Tests
         [InlineData((int)Movies.Immortals, CountryCode.Japan)]
         public async Task AlternativeMovieTitlesSmokeTest(int movieId, string countryCode)
         {
-            var request = new AlternativeMovieTitlesRequest
+            var response = await Client.Movies.GetAsync(new AlternativeMovieTitlesRequest
             {
                 MovieId = movieId,
                 CountryCode = countryCode
-            };
-
-            var response = await Client.Movies.GetAsync(request);
+            });
 
             Assert.Equal(typeof(AlternativeMovieTitlesResponse), response.GetType());
         }
 
-        // TODO: Requires GuestSessionId or SessionId
-        //[Theory]
-        //[InlineData((int)Movies.Insidious, CountryCode.Italy)]
-        //[InlineData((int)Movies.Immortals, CountryCode.Japan)]
-        //public async Task DeleteMovieRatingSmokeTest(int movieId, string countryCode)
-        //{
-        //    var request = new DeleteMovieRatingRequest 
-        //    { 
-        //        MovieId = movieId,
-        //        CountryCode = countryCode
-        //    };
+        [Theory]
+        [InlineData((int)Movies.Insidious)]
+        [InlineData((int)Movies.Immortals)]
+        public async Task DeleteMovieRatingSmokeTest(int movieId)
+        {
+            throw new NotImplementedException("Implement GuestSessionId and SessionId, remove ContentType - always Json");
 
-        //    var response = await Client.Movies.GetAsync(request);
+            var response = await Client.Movies.DeleteAsync(new DeleteMovieRatingRequest
+            {
+                MovieId = movieId,
+                //ContentType = ContentType.JsonText,
+                GuestSessionId = "",
+                SessionId = ""
+            });
 
-        //    Assert.Equal(typeof(DeleteMovieRatingResponse), response.GetType());
-        //}
+            Assert.Equal(typeof(DeleteMovieRatingResponse), response.GetType());
+        }
 
 
         [Theory]
@@ -52,31 +51,30 @@ namespace TMDb.Client.Tests
         [InlineData(Language.MexicanSpanish)]
         public async Task LatestMovieSmokeTest(string language)
         {
-            var request = new LatestMoviesRequest
+            var response = await Client.Movies.GetAsync(new LatestMoviesRequest
             {
                 LanguageAbbreviation = language
-            };
-
-            var response = await Client.Movies.GetAsync(request);
+            });
 
             Assert.Equal(typeof(LatestMoviesResponse), response.GetType());
         }
 
         // TODO: Need "SessionId" in order to hit this endpoint.. setup later
-        //[Theory]
-        //public async Task MovieAccountStatesSmokeTest(string movieId)
-        //{
-        //    var request = new MovieAccountStatesRequest
-        //    {
-        //        MovieId = movieId,
-        //        SessionId = ,
-        //        GuestSessionId =
-        //    };
+        [Theory]
+        [InlineData((int)Movies.Insidious)]
+        public async Task MovieAccountStatesSmokeTest(int movieId)
+        {
+            throw new NotImplementedException("Implement GuestSessionId and SessionId, remove ContentType - always Json");
 
-        //    var response = await Client.Movies.GetAsync(request);
+            var response = await Client.Movies.GetAsync(new MovieAccountStatesRequest
+            {
+                MovieId = movieId,
+                SessionId = "",
+                GuestSessionId = ""
+            });
 
-        //    Assert.Equal(typeof(LatestMoviesResponse), response.GetType());
-        //}
+            Assert.Equal(typeof(MovieAccountStatesResponse), response.GetType());
+        }
 
         [Theory]
         [InlineData((int)Movies.BillyMadison,        1, "2020-12-12", "2020-12-24")]
@@ -102,23 +100,15 @@ namespace TMDb.Client.Tests
         [InlineData((int)Movies.Jumanji,             1, "2020-01-11", "2020-01-23")]
         public async Task MovieChangesSmokeTest(int movieId, int page, string startDate, string endDate)
         {
-            var request = new MovieChangesRequest
+            var response = await Client.Movies.GetAsync(new MovieChangesRequest
             {
                 MovieId = movieId,
                 Page = page,
                 StartDate = DateTime.Parse(startDate),
                 EndDate = DateTime.Parse(endDate)
-            };
-            try
-            {
-            var response = await Client.Movies.GetAsync(request);
+            });
 
             Assert.Equal(typeof(MovieChangesResponse), response.GetType());
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Trace.TraceInformation(ex.ToString());
-            }
         }
 
         [Theory]
@@ -126,13 +116,11 @@ namespace TMDb.Client.Tests
         [InlineData((int)Movies.Immortals, Language.Italian)]
         public async Task MovieCreditsSmokeTest(int movieId, string language)
         {
-            var request = new MovieCreditsRequest
+            var response = await Client.Movies.GetAsync(new MovieCreditsRequest
             {
                 MovieId = movieId,
                 LanguageAbbreviation = language
-            };
-
-            var response = await Client.Movies.GetAsync(request);
+            });
 
             Assert.Equal(typeof(MovieCreditsResponse), response.GetType());
         }
@@ -146,14 +134,12 @@ namespace TMDb.Client.Tests
         [InlineData((int)Movies.Nosferatu,    Language.CanadianFrench,  null                        )]
         public async Task MovieDetailsSmokeTest(int movieId, string language, string appendToResponse)
         {
-            var request = new MovieDetailsRequest
+            var response = await Client.Movies.GetAsync(new MovieDetailsRequest
             {
                 MovieId = movieId,
                 AppendToResponse = appendToResponse,
                 LanguageAbbreviation = language
-            };
-
-            var response = await Client.Movies.GetAsync(request);
+            });
 
             Assert.Equal(typeof(MovieDetailsResponse), response.GetType());
         }
@@ -163,12 +149,10 @@ namespace TMDb.Client.Tests
         [InlineData((int)Movies.Immortals)]
         public async Task MovieExternalIdsSmokeTest(int movieId)
         {
-            var request = new MovieExternalIdsRequest
+            var response = await Client.Movies.GetAsync(new MovieExternalIdsRequest
             {
                 MovieId = movieId
-            };
-
-            var response = await Client.Movies.GetAsync(request);
+            });
 
             Assert.Equal(typeof(MovieExternalIdsResponse), response.GetType());
         }
@@ -178,14 +162,12 @@ namespace TMDb.Client.Tests
         [InlineData((int)Movies.Immortals, Language.AmericanEnglish, "fr,sv,zh,es")]
         public async Task MovieImagesSmokeTest(int movieId, string language, string imageLanguage)
         {
-            var request = new MovieImagesRequest
+            var response = await Client.Movies.GetAsync(new MovieImagesRequest
             {
                 MovieId = movieId,
                 LanguageAbbreviation = language,
                 ImageLanguage = imageLanguage
-            };
-
-            var response = await Client.Movies.GetAsync(request);
+            });
 
             Assert.Equal(typeof(MovieImagesResponse), response.GetType());
         }
@@ -196,12 +178,10 @@ namespace TMDb.Client.Tests
         [InlineData((int)Movies.Insidious)]
         public async Task MovieKeywordsSmokeTest(int movieId)
         {
-            var request = new MovieKeywordsRequest
+            var response = await Client.Movies.GetAsync(new MovieKeywordsRequest
             {
                 MovieId = movieId
-            };
-
-            var response = await Client.Movies.GetAsync(request);
+            });
 
             Assert.Equal(typeof(MovieKeywordsResponse), response.GetType());
         }
@@ -211,14 +191,12 @@ namespace TMDb.Client.Tests
         [InlineData((int)Movies.LionKing, 2, Language.MexicanSpanish)]
         public async Task MoveListsSmokeTest(int movieId, int page, string language)
         {
-            var request = new MovieListsRequest
+            var response = await Client.Movies.GetAsync(new MovieListsRequest
             {
                 MovieId = movieId,
                 Page = page,
                 LanguageAbbreviation = language
-            };
-
-            var response = await Client.Movies.GetAsync(request);
+            });
 
             Assert.Equal(typeof(MovieListsResponse), response.GetType());
         }
@@ -228,14 +206,12 @@ namespace TMDb.Client.Tests
         [InlineData((int)Movies.BillyMadison, 3, Language.MexicanSpanish)]
         public async Task MovieRecommendationsSmokeTest(int movieId, int page, string language)
         {
-            var request = new MovieRecommendationsRequest
+            var response = await Client.Movies.GetAsync(new MovieRecommendationsRequest
             {
                 MovieId = movieId,
                 Page = page,
                 LanguageAbbreviation = language
-            };
-
-            var response = await Client.Movies.GetAsync(request);
+            });
 
             Assert.Equal(typeof(MovieRecommendationsResponse), response.GetType());
         }
@@ -244,12 +220,10 @@ namespace TMDb.Client.Tests
         [InlineData((int)Movies.Insidious)]
         public async Task MovieReleaseDatesSmokeTest(int movieId)
         {
-            var request = new MovieReleaseDatesRequest
+            var response = await Client.Movies.GetAsync(new MovieReleaseDatesRequest
             {
                 MovieId = movieId
-            };
-
-            var response = await Client.Movies.GetAsync(request);
+            });
 
             Assert.Equal(typeof(MovieReleaseDatesResponse), response.GetType());
         }
@@ -259,14 +233,12 @@ namespace TMDb.Client.Tests
         [InlineData((int)Movies.Nosferatu, 1, Language.CanadianFrench)]
         public async Task MovieReviewsSmokeTest(int movieId, int page, string language)
         {
-            var request = new MovieReviewsRequest
+            var response = await Client.Movies.GetAsync(new MovieReviewsRequest
             {
                 MovieId = movieId,
                 Page = page,
                 LanguageAbbreviation = language
-            };
-
-            var response = await Client.Movies.GetAsync(request);
+            });
 
             Assert.Equal(typeof(MovieReviewsResponse), response.GetType());
         }
@@ -275,12 +247,10 @@ namespace TMDb.Client.Tests
         [InlineData((int)Movies.Insidious, Language.AmericanEnglish)]
         public async Task MovieTranslationsSmokeTest(int movieId, string language)
         {
-            var request = new MovieTranslationsRequest
+            var response = await Client.Movies.GetAsync(new MovieTranslationsRequest
             {
                 MovieId = movieId
-            };
-
-            var response = await Client.Movies.GetAsync(request);
+            });
 
             Assert.Equal(typeof(MovieTranslationsResponse), response.GetType());
         }
@@ -289,13 +259,11 @@ namespace TMDb.Client.Tests
         [InlineData((int)Movies.Insidious, Language.AmericanEnglish)]
         public async Task MovieVideosSmokeTest(int movieId, string language)
         {
-            var request = new MovieVideosRequest
+            var response = await Client.Movies.GetAsync(new MovieVideosRequest
             {
                 MovieId = movieId,
                 LanguageAbbreviation = language
-            };
-
-            var response = await Client.Movies.GetAsync(request);
+            });
 
             Assert.Equal(typeof(MovieVideosResponse), response.GetType());
         }
@@ -305,12 +273,10 @@ namespace TMDb.Client.Tests
         [InlineData((int)Movies.Nosferatu)]
         public async Task MovieWatchProvidersSmokeTest(int movieId)
         {
-            var request = new MovieWatchProvidersRequest
+            var response = await Client.Movies.GetAsync(new MovieWatchProvidersRequest
             {
                 MovieId = movieId
-            };
-
-            var response = await Client.Movies.GetAsync(request);
+            });
 
             Assert.Equal(typeof(MovieWatchProvidersResponse), response.GetType());
         }
@@ -319,14 +285,12 @@ namespace TMDb.Client.Tests
         [InlineData(3, Language.AmericanEnglish, "us")]
         public async Task NowPlayingSmokeTest(int page, string language, string countryCode)
         {
-            var request = new NowPlayingMoviesRequest
+            var response = await Client.Movies.GetAsync(new NowPlayingMoviesRequest
             {
                 Page = page,
                 LanguageAbbreviation = language,
                 CountryCode = countryCode
-            };
-
-            var response = await Client.Movies.GetAsync(request);
+            });
 
             Assert.Equal(typeof(NowPlayingMoviesResponse), response.GetType());
         }
@@ -335,55 +299,51 @@ namespace TMDb.Client.Tests
         [InlineData(3, Language.AmericanEnglish, "us")]
         public async Task PopularMoviesSmokeTest(int page, string language, string countryCode)
         {
-            var request = new PopularMoviesRequest
+            var response = await Client.Movies.GetAsync(new PopularMoviesRequest
             {
                 Page = page,
                 LanguageAbbreviation = language,
                 CountryCode = countryCode
-            };
-
-            var response = await Client.Movies.GetAsync(request);
+            });
 
             Assert.Equal(typeof(PopularMoviesResponse), response.GetType());
         }
 
 
         // TODO: Session Id or Session Id is required
-        //[Theory]
-        //[InlineData((int)Movies.Insidious, 10)]
-        //[InlineData((int)Movies.Immortals, 10)]
-        //public async Task RateMoviesSmokeTest(int movieId, int rating)
-        //{
-        //    var guestSessionId = string.Empty;
-        //    var sessionId = string.Empty;
+        [Theory]
+        [InlineData((int)Movies.Insidious, 10)]
+        [InlineData((int)Movies.Immortals, 10)]
+        [InlineData((int)Movies.Jumanji, 7.9)]
+        public async Task RateMoviesSmokeTest(int movieId, float rating)
+        {
+            throw new NotImplementedException("Implement GuestSessionId and SessionId, remove ContentType - always Json");
 
-        //    var request = new RateMovieRequest
-        //    {
-        //        MovieId = movieId,
-        //        // TODO: Broken
-        //        // ** //ContentType = ContentType.Json, 
-        //        //GuestSessionId = guestSessionId,
-        //        //SessionId = sessionId,
-        //        Rating = rating
-        //    };
+            var guestSessionId = string.Empty;
+            var sessionId = string.Empty;
 
-        //    var response = await Client.Movies.PostAsync(request);
+            var response = await Client.Movies.PostAsync(new RateMovieRequest
+            {
+                MovieId = movieId,
+                // ContentType = ContentType.Json, 
+                GuestSessionId = guestSessionId,
+                SessionId = sessionId,
+                Rating = rating
+            });
 
-        //    Assert.Equal(typeof(RateMovieResponse), response.GetType());
-        //}
+            Assert.Equal(typeof(RateMovieResponse), response.GetType());
+        }
 
         [Theory]
         [InlineData((int)Movies.Insidious, 1, Language.AmericanEnglish)]
         public async Task SimilarMoviesSmokeTest(int movieId, int page, string language)
         {
-            var request = new SimilarMoviesRequest
+            var response = await Client.Movies.GetAsync(new SimilarMoviesRequest
             {
                 MovieId = movieId,
                 Page = page,
                 LanguageAbbreviation = language
-            };
-
-            var response = await Client.Movies.GetAsync(request);
+            });
 
             Assert.Equal(typeof(SimilarMoviesResponse), response.GetType());
         }
@@ -392,14 +352,12 @@ namespace TMDb.Client.Tests
         [InlineData(1, Language.AmericanEnglish, "us")]
         public async Task TopRatedMoviesSmokeTest(int page, string language, string countryCode)
         {
-            var request = new TopRatedMoviesRequest
+            var response = await Client.Movies.GetAsync(new TopRatedMoviesRequest
             {
                 Page = page,
                 LanguageAbbreviation = language,
                 CountryCode = countryCode
-            };
-
-            var response = await Client.Movies.GetAsync(request);
+            });
 
             Assert.Equal(typeof(TopRatedMoviesResponse), response.GetType());
         }
@@ -408,14 +366,12 @@ namespace TMDb.Client.Tests
         [InlineData(1, Language.AmericanEnglish, "us")]
         public async Task UpcomingMoviesSmokeTest(int page, string language, string countryCode)
         {
-            var request = new UpcomingMoviesRequest
+            var response = await Client.Movies.GetAsync(new UpcomingMoviesRequest
             {
                 Page = page,
                 LanguageAbbreviation = language,
                 CountryCode = countryCode
-            };
-
-            var response = await Client.Movies.GetAsync(request);
+            });
 
             Assert.Equal(typeof(UpcomingMoviesResponse), response.GetType());
         }
