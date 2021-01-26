@@ -4,7 +4,7 @@ using TMDb.Client.Entities.Things;
 
 namespace TMDb.Client.Api.V3.Models
 {
-    public class TranslationsResponse : TMDbCollectionResponse
+    public class TranslationsResponse : TMDbResponse
     {
         [JsonProperty("id")]
         public virtual int Id { get; set; }

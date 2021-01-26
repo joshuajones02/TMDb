@@ -17,7 +17,7 @@ namespace TMDb.Client.Tests
         {
             var response = await Client.Configuration.GetConfigurationAsync();
 
-            Assert.Same(typeof(ConfigurationResponse), response.GetType());
+            Assert.IsType<ConfigurationResponse>(response);
         }
 
         protected TMDbClient Client { get; private set; }

@@ -40,11 +40,14 @@ namespace TMDb.Client.Logging
         internal string LogInfo(object logData) => Log(logData, false);
         protected string Log(object data, bool isError)
         {
+            if (!Debugger.IsAttached)
+                return null;
+
             var logId = LogId;
             var wrapper = new { data, logId };
             var serialized = wrapper.ToJson(_serializerSettings);
 
-            var logEvent = _typeName.HasValue() ? 
+            var logEvent = _typeName.HasValue() ?
                 string.Format("{0} : {1}", _typeName, serialized) : serialized;
 
             if (isError)

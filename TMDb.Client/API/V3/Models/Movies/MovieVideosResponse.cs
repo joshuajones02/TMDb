@@ -10,6 +10,6 @@ namespace TMDb.Client.Api.V3.Models.Movies
         public virtual int Id { get; set; }
 
         [JsonProperty("results")]
-        public virtual List<Video> Results { get; set; }
+        public virtual IEnumerable<Video> Results { get; set; }
     }
 }

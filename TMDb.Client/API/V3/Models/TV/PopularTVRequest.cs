@@ -5,8 +5,13 @@ using TMDb.Client.Attributes;
 namespace TMDb.Client.Api.V3.Models.TV
 {
     [ApiGetEndpoint("/tv/popular")]
-    public class PopularTVRequest : TMDbRequest 
+    public class PopularTVRequest : TMDbRequest
     {
+        public PopularTVRequest()
+        {
+            Page = 1;
+        }
+
         /// <include file='tmdb-api-comments.xml' path='doc/members/member[@name="LanguageAbbreviation"]/*' />
         [ApiParameter(
             Name = "language",
@@ -22,8 +27,7 @@ namespace TMDb.Client.Api.V3.Models.TV
         [ApiParameter(
             Name = "page",
             ParameterType = ParameterType.Query)]
-        [Required]
-        [Obsolete("// TODO: Handle default value (1)")]
+        [Range(1, 1000)]
         public virtual int Page { get; set; }
     }
 }

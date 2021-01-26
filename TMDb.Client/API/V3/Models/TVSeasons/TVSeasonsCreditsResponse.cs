@@ -4,7 +4,7 @@ using TMDb.Client.Entities.People;
 
 namespace TMDb.Client.Api.V3.Models.TVSeasons
 {
-    public class TVSeasonsCreditsResponse : TMDbCollectionResponse
+    public class TVSeasonsCreditsResponse : TMDbResponse
     {
         [JsonProperty("id")]
         public virtual int Id { get; set; }

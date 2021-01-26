@@ -2,23 +2,23 @@
 
 namespace TMDb.Client.Api.V3.Models.TVEpisodes
 {
-    public class TVEpisodesExternalIdsResponse : TMDbCollectionResponse
+    public class TVEpisodesExternalIdsResponse : TMDbResponse
     {
         [JsonProperty("id")]
-        public virtual int TMDbId { get; set; }
+        public virtual int? TMDbId { get; set; }
 
         /// <summary>
         /// TVDB ID
         /// </summary>
         [JsonProperty("tvdb_id")]
-        public virtual int TvdbId { get; set; }
+        public virtual int? TVDbId { get; set; }
 
         /// <summary>
         /// TVRage ID
         ///     *Defunct or no longer available as a service.
         /// </summary>
         [JsonProperty("tvrage_id")]
-        public virtual int TVRageId { get; set; }
+        public virtual int? TVRageId { get; set; }
 
         /// <summary>
         /// Freebase MID

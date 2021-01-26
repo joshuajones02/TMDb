@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using TMDb.Client.Attributes;
 using TMDb.Client.Enums;
 
@@ -22,6 +23,11 @@ namespace TMDb.Client.Api.V3.Models.Discover
     [ApiGetEndpoint("/discover/tv")]
     public class DiscoverTVRequest : TMDbRequest
     {
+        public DiscoverTVRequest()
+        {
+            Page = 1;
+        }
+
         /// <include file='tmdb-api-comments.xml' path='doc/members/member[@name="LanguageAbbreviation"]/*' />
         [ApiParameter(
             Name = "language",
@@ -108,6 +114,7 @@ namespace TMDb.Client.Api.V3.Models.Discover
         [ApiParameter(
             Name = "page",
             ParameterType = ParameterType.Query)]
+        [Range(1, 1000)]
         public virtual int Page { get; set; }
 
         /// <summary>

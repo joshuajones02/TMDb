@@ -11,10 +11,21 @@ namespace TMDb.Client.Builders
 {
     public class RequestBuilder : IRequestBuilder
     {
+        private readonly IApiParameterSerializer _apiParameterSerializer;
+
+        public RequestBuilder() : this(ApiParameterSerializer.Instance)
+        {
+        }
+
+        public RequestBuilder(IApiParameterSerializer apiParameterSerializer)
+        {
+            _apiParameterSerializer = apiParameterSerializer;
+        }
+
         public HttpRequestMessage BuildRequest(Uri baseAddress, RequestBase requestBase, IRestClientConfiguration config)
         {
-            var endpoint = this.GetApiEndpoint(requestBase);
-            var parameters = this.SerializeRequestParameters(requestBase);
+            var endpoint = requestBase.GetApiEndpoint();
+            var parameters = _apiParameterSerializer.SerializeRequestParameters(requestBase);
 
             var request = new HttpRequestMessage
             {

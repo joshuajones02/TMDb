@@ -6,6 +6,11 @@ namespace TMDb.Client.Api.V3.Models.TV
     [ApiGetEndpoint("/tv/on_the_air")]
     public class TVOnTheAirRequest : TMDbRequest
     {
+        public TVOnTheAirRequest()
+        {
+            Page = 1;
+        }
+
         /// <include file='tmdb-api-comments.xml' path='doc/members/member[@name="LanguageAbbreviation"]/*' />
         [ApiParameter(
             Name = "language",
@@ -21,7 +26,7 @@ namespace TMDb.Client.Api.V3.Models.TV
         [ApiParameter(
             Name = "page",
             ParameterType = ParameterType.Query)]
-        [Required]
+        [Range(1, 1000)]
         public virtual int Page { get; set; }
     }
 }

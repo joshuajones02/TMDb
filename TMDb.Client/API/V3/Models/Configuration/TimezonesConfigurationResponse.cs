@@ -5,7 +5,8 @@ namespace TMDb.Client.Api.V3.Models.Configuration
 {
     public class TimezonesConfigurationResponse : TMDbResponse
     {
-        public virtual IEnumerable<Timezone> Timezones { get; set; }
+        [JsonProperty("results")]
+        public virtual IEnumerable<Timezone> Results { get; set; }
     }
 
     public class Timezone

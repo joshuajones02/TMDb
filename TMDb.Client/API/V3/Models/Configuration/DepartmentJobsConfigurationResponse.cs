@@ -5,6 +5,7 @@ namespace TMDb.Client.Api.V3.Models.Configuration
 {
     public class DepartmentJobsConfigurationResponse : TMDbResponse
     {
+        [JsonProperty("results")]
         public virtual IEnumerable<DepartmentModel> Departments { get; set; }
     }
 

@@ -8,7 +8,7 @@ namespace TMDb.Client.Api.V3.Models.Search
         [ApiParameter(
             Name = "include_adult",
             ParameterType = ParameterType.Query)]
-        public virtual bool IncludeAdult { get; set; }
+        public virtual bool? IncludeAdult { get; set; }
 
         /// <include file='tmdb-api-comments.xml' path='doc/members/member[@name="LanguageAbbreviation"]/*' />
         [ApiParameter(

@@ -6,6 +6,11 @@ namespace TMDb.Client.Api.V3.Models.TV
     [ApiGetEndpoint("/tv/{tv_id}/recommendations")]
     public class TVRecommendationsRequest : TVBaseRequest
     {
+        public TVRecommendationsRequest()
+        {
+            Page = 1;
+        }
+
         /// <include file='tmdb-api-comments.xml' path='doc/members/member[@name="LanguageAbbreviation"]/*' />
         [ApiParameter(
             Name = "language",
@@ -21,7 +26,7 @@ namespace TMDb.Client.Api.V3.Models.TV
         [ApiParameter(
             Name = "page",
             ParameterType = ParameterType.Query)]
-        [Required]
+        [Range(1, 1000)]
         public virtual int Page { get; set; }
     }
 }

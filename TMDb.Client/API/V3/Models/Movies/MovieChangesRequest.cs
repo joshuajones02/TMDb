@@ -7,10 +7,15 @@ namespace TMDb.Client.Api.V3.Models.Movies
     [ApiGetEndpoint("/movie/{movie_id}/changes")]
     public class MovieChangesRequest : MovieBaseRequest
     {
+        public MovieChangesRequest()
+        {
+            Page = 1;
+        }
+
         [ApiParameter(
             Name = "page",
             ParameterType = ParameterType.Query)]
-        [Required]
+        [Range(1, 1000)]
         public virtual int Page { get; set; }
 
         /// <summary>

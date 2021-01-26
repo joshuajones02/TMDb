@@ -18,8 +18,8 @@ namespace TMDb.Client.Api.V3.ClientProxies
         public virtual Task<CreateSessionResponse> PostAsync(CreateSessionRequest request) =>
             Client.SendAsync<CreateSessionResponse>(request);
 
-        public virtual Task<CreateGuestSessionResponse> PostAsync(CreateSessionWithLoginRequest request) =>
-            Client.SendAsync<CreateGuestSessionResponse>(request);
+        public virtual Task<CreateSessionWithLoginResponse> PostAsync(CreateSessionWithLoginRequest request) =>
+            Client.SendAsync<CreateSessionWithLoginResponse>(request);
 
         public virtual Task<DeleteSessionResponse> DeleteAsync(DeleteSessionRequest request) =>
             Client.SendAsync<DeleteSessionResponse>(request);

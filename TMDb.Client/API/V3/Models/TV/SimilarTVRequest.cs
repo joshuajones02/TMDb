@@ -6,6 +6,11 @@ namespace TMDb.Client.Api.V3.Models.TV
     [ApiGetEndpoint("/tv/{tv_id}/similar")]
     public class SimilarTVRequest : TVBaseRequest
     {
+        public SimilarTVRequest()
+        {
+            Page = 1;
+        }
+
         /// <include file='tmdb-api-comments.xml' path='doc/members/member[@name="LanguageAbbreviation"]/*' />
         [ApiParameter(
             Name = "language",
@@ -22,7 +27,6 @@ namespace TMDb.Client.Api.V3.Models.TV
             Name = "page",
             ParameterType = ParameterType.Query)]
         [Range(1, 1000)]
-        [Required]
         public virtual int Page { get; set; }
     }
 }

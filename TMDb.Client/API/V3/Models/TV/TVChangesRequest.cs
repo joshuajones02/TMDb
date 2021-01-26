@@ -7,6 +7,11 @@ namespace TMDb.Client.Api.V3.Models.TV
     [ApiGetEndpoint("/tv/{tv_id}/changes")]
     public class TVChangesRequest : TVBaseRequest
     {
+        public TVChangesRequest()
+        {
+            Page = 1;
+        }
+
         /// <summary>
         /// Specify which page to query.
         ///     minimum: 1
@@ -16,7 +21,7 @@ namespace TMDb.Client.Api.V3.Models.TV
         [ApiParameter(
             Name = "page",
             ParameterType = ParameterType.Query)]
-        [Required]
+        [Range(1, 1000)]
         public virtual int Page { get; set; }
 
         /// <summary>

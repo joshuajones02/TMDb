@@ -7,10 +7,15 @@ namespace TMDb.Client.Api.V3.Models.Changes
 {
     public abstract class ChangeListRequest : TMDbRequest
     {
+        public ChangeListRequest()
+        {
+            Page = 1;
+        }
+
         [ApiParameter(
             Name = "page",
             ParameterType = ParameterType.Query)]
-        [Obsolete("// TODO: Handle default of (1)")]
+        [Range(1, 1000)]
         public virtual int Page { get; set; }
 
         /// <summary>

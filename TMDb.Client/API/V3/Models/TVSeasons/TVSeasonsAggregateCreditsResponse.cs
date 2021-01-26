@@ -6,7 +6,7 @@ namespace TMDb.Client.Api.V3.Models.TVSeasons
 {
     public enum Department { Acting, Art, Camera, CostumeMakeUp, Creator, Directing, Editing, Production, Sound, Writing }
 
-    public class TVSeasonsAggregateCreditsResponse : TMDbCollectionResponse
+    public class TVSeasonsAggregateCreditsResponse : TMDbResponse
     {
         [JsonProperty("id")]
         public virtual int Id { get; set; }

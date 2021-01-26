@@ -11,7 +11,6 @@
         Dexter             =  1405,
         MindHunter         = 67744,
         Dateline           =    78,
-        FortyEightHours    =  3719,
         TwentyTwenty       =  2035,
         Shameless          = 34307,
         SouthPark          =  2190,

@@ -2,8 +2,7 @@
 {
     public enum MediaType
     {
-        All = -1,
-        Unknown = 0,
+        All = 0,
         Movie,
         TV,
         Person
