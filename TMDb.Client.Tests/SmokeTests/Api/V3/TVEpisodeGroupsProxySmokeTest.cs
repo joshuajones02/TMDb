@@ -4,7 +4,7 @@ using TMDb.Client.Api.V3.Models.TVEpisodeGroups;
 using TMDb.Client.Tests.TestConstants;
 using Xunit;
 
-namespace TMDb.Client.Tests.Api.V3
+namespace TMDb.Client.Tests.SmokeTests.Api.V3
 {
     public class TVEpisodeGroupsProxySmokeTest : TestsClient
     {

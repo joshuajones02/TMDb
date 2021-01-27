@@ -21,6 +21,7 @@ namespace TMDb.Client
                 throw new ArgumentNullException(nameof(settings.ApiKey));
 
             Settings        = settings;
+            Account         = new AccountProxy(this);
             Authentication  = new AuthenticationProxy(this);
             Certifications  = new CertificationsProxy(this);
             Changes         = new ChangesProxy(this);
@@ -52,6 +53,7 @@ namespace TMDb.Client
         //      new Lazy<AuthenticationProxy>(() =>
         //              new AuthenticationProxy(this));
 
+        public AccountProxy Account { get; protected set; }
         public AuthenticationProxy Authentication { get; protected set; }
         public CertificationsProxy Certifications { get; protected set; }
         public ChangesProxy Changes { get; protected set; }

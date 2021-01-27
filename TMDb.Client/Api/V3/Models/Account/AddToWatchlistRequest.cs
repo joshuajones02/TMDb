@@ -13,11 +13,11 @@ namespace TMDb.Client.Api.V3.Models.Account
         [Required]
         public virtual int? AccountId { get; set; }
 
-        [ApiParameter(
-            Name = "Content-Type",
-            ParameterType = ParameterType.Header)]
-        [Required]
-        public virtual string ContentType => Constants.ContentType.Json;
+        //[ApiParameter(
+        //    Name = "Content-Type",
+        //    ParameterType = ParameterType.Header)]
+        //[Required]
+        //public virtual string ContentType => Constants.ContentType.Json;
 
         [ApiParameter(
             Name = "session_id",
@@ -25,12 +25,14 @@ namespace TMDb.Client.Api.V3.Models.Account
         [Required]
         public virtual string SessionId { get; set; }
 
-        // TODO: Add validation - only acceptable values are Movie or TV
+        // TODO: Add validation - only acceptable values are Movie or TV AND lower cased
+        // TODO: Make nullable when "GetDescriptionAttribute" logic is fixed (currently blows up when enum value is nullable)
         [ApiParameter(
             Name = "media_type",
-            ParameterType = ParameterType.JsonBody)]
+            ParameterType = ParameterType.JsonBody,
+            Option = SerializationOption.EnumDescription)]
         [Required]
-        public virtual MediaType? MediaType { get; set; }
+        public virtual MediaType MediaType { get; set; }
 
         [ApiParameter(
             Name = "media_id",

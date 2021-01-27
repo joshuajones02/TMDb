@@ -5,7 +5,7 @@ using TMDb.Client.Api.V3.Models.Keywords;
 using TMDb.Client.Tests.TestConstants;
 using Xunit;
 
-namespace TMDb.Client.Tests.Api.V3
+namespace TMDb.Client.Tests.SmokeTests.Api.V3
 {
     public class KeywordsProxySmokeTest : TestsClient
     {

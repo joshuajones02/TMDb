@@ -13,10 +13,10 @@ namespace TMDb.Client.Api.V3.Models.Lists
         [Required]
         public virtual string SessionId { get; set; }
 
-        [ApiParameter(
-            Name = "Content-Type",
-            ParameterType = ParameterType.Header)]
-        public virtual string ContentType => Constants.ContentType.Json;
+        //[ApiParameter(
+        //    Name = "Content-Type",
+        //    ParameterType = ParameterType.Header)]
+        //public virtual string ContentType => Constants.ContentType.Json;
 
         [ApiParameter(
             Name = "media_id",

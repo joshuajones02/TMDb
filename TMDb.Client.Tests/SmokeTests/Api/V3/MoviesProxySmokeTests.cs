@@ -2,15 +2,16 @@
 using System.Linq;
 using System.Threading.Tasks;
 using TMDb.Client.Api.V3.Models.Movies;
+using TMDb.Client.Tests.TestConstants;
 using Xunit;
 
-namespace TMDb.Client.Tests.Api.V3
+namespace TMDb.Client.Tests.SmokeTests.Api.V3
 {
     public class MoviesProxySmokeTests : TestsClient
     {
         [Theory]
-        [InlineData((int)Movies.Insidious, CountryCode.Italy)]
-        [InlineData((int)Movies.Immortals, CountryCode.Japan)]
+        [InlineData((int)Movie.Insidious, CountryCode.Italy)]
+        [InlineData((int)Movie.Immortals, CountryCode.Japan)]
         public async Task AlternativeMovieTitlesSmokeTest(int movieId, string countryCode)
         {
             var response = await Client.Movies.GetAsync(new AlternativeMovieTitlesRequest
@@ -25,8 +26,8 @@ namespace TMDb.Client.Tests.Api.V3
 
         // TODO: Get Setup GuestSessionId & SessionId
         [Theory]
-        [InlineData((int)Movies.Insidious)]
-        [InlineData((int)Movies.Immortals)]
+        [InlineData((int)Movie.Insidious)]
+        [InlineData((int)Movie.Immortals)]
         public async Task DeleteMovieRatingSmokeTest(int movieId)
         {
             //var guestSessionId = "";
@@ -64,7 +65,7 @@ namespace TMDb.Client.Tests.Api.V3
 
         // TODO: Get Setup GuestSessionId & SessionId
         [Theory]
-        [InlineData((int)Movies.Insidious)]
+        [InlineData((int)Movie.Insidious)]
         public async Task MovieAccountStatesSmokeTest(int movieId)
         {
             //var guestSessionId = "";
@@ -81,27 +82,27 @@ namespace TMDb.Client.Tests.Api.V3
         }
 
         [Theory]
-        [InlineData((int)Movies.BillyMadison,        1, "2020-12-12", "2020-12-24")]
-        [InlineData((int)Movies.AvengersEndGame,     1, "2020-03-01", "2020-03-14")]
-        [InlineData((int)Movies.Immortals,           1, "2016-07-17", "2016-07-30")]
-        [InlineData((int)Movies.AvengersEndGame,     1, "2018-09-01", "2018-09-14")]
-        [InlineData((int)Movies.AvengersEndGame,     1, "2020-02-20", "2017-03-01")]
-        [InlineData((int)Movies.AvengersInfinityWar, 1, "2019-11-10", "2019-11-23")]
-        [InlineData((int)Movies.TheAvengers,         1, "2020-12-12", "2020-12-24")]
-        [InlineData((int)Movies.Immortals,           1, "2020-03-01", "2020-03-14")]
-        [InlineData((int)Movies.HarryPotter,         1, "2016-07-17", "2016-07-30")]
-        [InlineData((int)Movies.LionKing,            1, "2018-09-01", "2018-09-14")]
-        [InlineData((int)Movies.TheAvengers,         1, "2020-02-20", "2017-03-01")]
-        [InlineData((int)Movies.BillyMadison,        1, "2019-11-10", "2019-11-23")]
-        [InlineData((int)Movies.TheAvengers,         1, "2019-11-10", "2019-11-23")]
-        [InlineData((int)Movies.WonderWoman1984,     1, "2020-12-01", "2020-12-14")]
-        [InlineData((int)Movies.WonderWoman1984,     1, "2020-12-15", "2020-12-28")]
-        [InlineData((int)Movies.WonderWoman1984,     1, "2020-12-29", "2021-01-10")]
-        [InlineData((int)Movies.WonderWoman1984,     1, "2021-01-11", "2021-01-23")]
-        [InlineData((int)Movies.Jumanji,             1, "2019-12-01", "2019-12-14")]
-        [InlineData((int)Movies.Jumanji,             1, "2019-12-15", "2019-12-28")]
-        [InlineData((int)Movies.Jumanji,             1, "2019-12-29", "2019-01-10")]
-        [InlineData((int)Movies.Jumanji,             1, "2020-01-11", "2020-01-23")]
+        [InlineData((int)Movie.BillyMadison,        1, "2020-12-12", "2020-12-24")]
+        [InlineData((int)Movie.AvengersEndGame,     1, "2020-03-01", "2020-03-14")]
+        [InlineData((int)Movie.Immortals,           1, "2016-07-17", "2016-07-30")]
+        [InlineData((int)Movie.AvengersEndGame,     1, "2018-09-01", "2018-09-14")]
+        [InlineData((int)Movie.AvengersEndGame,     1, "2020-02-20", "2017-03-01")]
+        [InlineData((int)Movie.AvengersInfinityWar, 1, "2019-11-10", "2019-11-23")]
+        [InlineData((int)Movie.TheAvengers,         1, "2020-12-12", "2020-12-24")]
+        [InlineData((int)Movie.Immortals,           1, "2020-03-01", "2020-03-14")]
+        [InlineData((int)Movie.HarryPotter,         1, "2016-07-17", "2016-07-30")]
+        [InlineData((int)Movie.LionKing,            1, "2018-09-01", "2018-09-14")]
+        [InlineData((int)Movie.TheAvengers,         1, "2020-02-20", "2017-03-01")]
+        [InlineData((int)Movie.BillyMadison,        1, "2019-11-10", "2019-11-23")]
+        [InlineData((int)Movie.TheAvengers,         1, "2019-11-10", "2019-11-23")]
+        [InlineData((int)Movie.WonderWoman1984,     1, "2020-12-01", "2020-12-14")]
+        [InlineData((int)Movie.WonderWoman1984,     1, "2020-12-15", "2020-12-28")]
+        [InlineData((int)Movie.WonderWoman1984,     1, "2020-12-29", "2021-01-10")]
+        [InlineData((int)Movie.WonderWoman1984,     1, "2021-01-11", "2021-01-23")]
+        [InlineData((int)Movie.Jumanji,             1, "2019-12-01", "2019-12-14")]
+        [InlineData((int)Movie.Jumanji,             1, "2019-12-15", "2019-12-28")]
+        [InlineData((int)Movie.Jumanji,             1, "2019-12-29", "2019-01-10")]
+        [InlineData((int)Movie.Jumanji,             1, "2020-01-11", "2020-01-23")]
         public async Task MovieChangesSmokeTest(int movieId, int page, string startDate, string endDate)
         {
             var response = await Client.Movies.GetAsync(new MovieChangesRequest
@@ -117,8 +118,8 @@ namespace TMDb.Client.Tests.Api.V3
         }
 
         [Theory]
-        [InlineData((int)Movies.Insidious, Language.AmericanEnglish)]
-        [InlineData((int)Movies.Immortals, Language.Italian)]
+        [InlineData((int)Movie.Insidious, Language.AmericanEnglish)]
+        [InlineData((int)Movie.Immortals, Language.Italian)]
         public async Task MovieCreditsSmokeTest(int movieId, string language)
         {
             var response = await Client.Movies.GetAsync(new MovieCreditsRequest
@@ -133,12 +134,12 @@ namespace TMDb.Client.Tests.Api.V3
         }
 
         [Theory]
-        [InlineData((int)Movies.BillyMadison, Language.AmericanEnglish, null                        )]
-        [InlineData((int)Movies.DeathTo2020,  Language.Chinese,         "videos"                    )]
-        [InlineData((int)Movies.Insidious,    Language.German,          "videos"                    )]
-        [InlineData((int)Movies.Immortals,    Language.Italian,         "videos,images"             )]
-        [InlineData((int)Movies.LionKing,     Language.Chinese,         "videos,images,translations")]
-        [InlineData((int)Movies.Nosferatu,    Language.CanadianFrench,  null                        )]
+        [InlineData((int)Movie.BillyMadison, Language.AmericanEnglish, null                        )]
+        [InlineData((int)Movie.DeathTo2020,  Language.Chinese,         "videos"                    )]
+        [InlineData((int)Movie.Insidious,    Language.German,          "videos"                    )]
+        [InlineData((int)Movie.Immortals,    Language.Italian,         "videos,images"             )]
+        [InlineData((int)Movie.LionKing,     Language.Chinese,         "videos,images,translations")]
+        [InlineData((int)Movie.Nosferatu,    Language.CanadianFrench,  null                        )]
         public async Task MovieDetailsSmokeTest(int movieId, string language, string appendToResponse)
         {
             var response = await Client.Movies.GetAsync(new MovieDetailsRequest
@@ -152,8 +153,8 @@ namespace TMDb.Client.Tests.Api.V3
         }
 
         [Theory]
-        [InlineData((int)Movies.Insidious)]
-        [InlineData((int)Movies.Immortals)]
+        [InlineData((int)Movie.Insidious)]
+        [InlineData((int)Movie.Immortals)]
         public async Task MovieExternalIdsSmokeTest(int movieId)
         {
             var response = await Client.Movies.GetAsync(new MovieExternalIdsRequest
@@ -165,8 +166,8 @@ namespace TMDb.Client.Tests.Api.V3
         }
 
         [Theory]
-        [InlineData((int)Movies.Insidious, Language.Italian, "en")]
-        [InlineData((int)Movies.Immortals, Language.AmericanEnglish, "fr,sv,zh,es")]
+        [InlineData((int)Movie.Insidious, Language.Italian, "en")]
+        [InlineData((int)Movie.Immortals, Language.AmericanEnglish, "fr,sv,zh,es")]
         public async Task MovieImagesSmokeTest(int movieId, string language, string imageLanguage)
         {
             var response = await Client.Movies.GetAsync(new MovieImagesRequest
@@ -182,9 +183,9 @@ namespace TMDb.Client.Tests.Api.V3
         }
 
         [Theory]
-        [InlineData((int)Movies.BillyMadison)]
-        [InlineData((int)Movies.DeathTo2020)]
-        [InlineData((int)Movies.Insidious)]
+        [InlineData((int)Movie.BillyMadison)]
+        [InlineData((int)Movie.DeathTo2020)]
+        [InlineData((int)Movie.Insidious)]
         public async Task MovieKeywordsSmokeTest(int movieId)
         {
             var response = await Client.Movies.GetAsync(new MovieKeywordsRequest
@@ -197,8 +198,8 @@ namespace TMDb.Client.Tests.Api.V3
         }
 
         [Theory]
-        [InlineData((int)Movies.Insidious, 1, Language.AmericanEnglish)]
-        [InlineData((int)Movies.LionKing, 2, Language.MexicanSpanish)]
+        [InlineData((int)Movie.Insidious, 1, Language.AmericanEnglish)]
+        [InlineData((int)Movie.LionKing, 2, Language.MexicanSpanish)]
         public async Task MoveListsSmokeTest(int movieId, int page, string language)
         {
             var response = await Client.Movies.GetAsync(new MovieListsRequest
@@ -213,8 +214,8 @@ namespace TMDb.Client.Tests.Api.V3
         }
 
         [Theory]
-        [InlineData((int)Movies.Insidious, 2, Language.AmericanEnglish)]
-        [InlineData((int)Movies.BillyMadison, 3, Language.MexicanSpanish)]
+        [InlineData((int)Movie.Insidious, 2, Language.AmericanEnglish)]
+        [InlineData((int)Movie.BillyMadison, 3, Language.MexicanSpanish)]
         public async Task MovieRecommendationsSmokeTest(int movieId, int page, string language)
         {
             var response = await Client.Movies.GetAsync(new MovieRecommendationsRequest
@@ -229,7 +230,7 @@ namespace TMDb.Client.Tests.Api.V3
         }
 
         [Theory]
-        [InlineData((int)Movies.Insidious)]
+        [InlineData((int)Movie.Insidious)]
         public async Task MovieReleaseDatesSmokeTest(int movieId)
         {
             var response = await Client.Movies.GetAsync(new MovieReleaseDatesRequest
@@ -242,8 +243,8 @@ namespace TMDb.Client.Tests.Api.V3
         }
 
         [Theory]
-        [InlineData((int)Movies.Insidious, 2, Language.AmericanEnglish)]
-        [InlineData((int)Movies.Nosferatu, 1, Language.CanadianFrench)]
+        [InlineData((int)Movie.Insidious, 2, Language.AmericanEnglish)]
+        [InlineData((int)Movie.Nosferatu, 1, Language.CanadianFrench)]
         public async Task MovieReviewsSmokeTest(int movieId, int page, string language)
         {
             var response = await Client.Movies.GetAsync(new MovieReviewsRequest
@@ -258,7 +259,7 @@ namespace TMDb.Client.Tests.Api.V3
         }
 
         [Theory]
-        [InlineData((int)Movies.Insidious)]
+        [InlineData((int)Movie.Insidious)]
         public async Task MovieTranslationsSmokeTest(int movieId)
         {
             var response = await Client.Movies.GetAsync(new MovieTranslationsRequest
@@ -270,7 +271,7 @@ namespace TMDb.Client.Tests.Api.V3
         }
 
         [Theory]
-        [InlineData((int)Movies.Insidious, Language.AmericanEnglish)]
+        [InlineData((int)Movie.Insidious, Language.AmericanEnglish)]
         public async Task MovieVideosSmokeTest(int movieId, string language)
         {
             var response = await Client.Movies.GetAsync(new MovieVideosRequest
@@ -284,8 +285,8 @@ namespace TMDb.Client.Tests.Api.V3
         }
 
         [Theory]
-        [InlineData((int)Movies.Immortals)]
-        [InlineData((int)Movies.Nosferatu)]
+        [InlineData((int)Movie.Immortals)]
+        [InlineData((int)Movie.Nosferatu)]
         public async Task MovieWatchProvidersSmokeTest(int movieId)
         {
             var response = await Client.Movies.GetAsync(new MovieWatchProvidersRequest
@@ -331,9 +332,9 @@ namespace TMDb.Client.Tests.Api.V3
 
         // TODO: Get Setup GuestSessionId & SessionId
         [Theory]
-        [InlineData((int)Movies.Insidious, 10)]
-        [InlineData((int)Movies.Immortals, 10)]
-        [InlineData((int)Movies.Jumanji, 7.9)]
+        [InlineData((int)Movie.Insidious, 10)]
+        [InlineData((int)Movie.Immortals, 10)]
+        [InlineData((int)Movie.Jumanji, 7.9)]
         public async Task RateMoviesSmokeTest(int movieId, float rating)
         {
             //var guestSessionId = string.Empty;
@@ -351,7 +352,7 @@ namespace TMDb.Client.Tests.Api.V3
         }
 
         [Theory]
-        [InlineData((int)Movies.Insidious, 1, Language.AmericanEnglish)]
+        [InlineData((int)Movie.Insidious, 1, Language.AmericanEnglish)]
         public async Task SimilarMoviesSmokeTest(int movieId, int page, string language)
         {
             var response = await Client.Movies.GetAsync(new SimilarMoviesRequest

@@ -1,15 +1,14 @@
-﻿using Newtonsoft.Json;
-using TMDb.Client.Attributes;
+﻿using TMDb.Client.Attributes;
 
 namespace TMDb.Client.Api.V3.Models.TVEpisodes
 {
     [ApiDeleteEndpoint("/tv/{tv_id}/season/{season_number}/episode/{episode_number}/rating")]
     public class DeleteTVEpisodeRatingRequest : TVEpisodesRequest
     {
-        [ApiParameter(
-            Name = "Content-Type",
-            ParameterType = ParameterType.Header)]
-        public virtual string ContentType => Constants.ContentType.Json;
+        //[ApiParameter(
+        //    Name = "Content-Type",
+        //    ParameterType = ParameterType.Header)]
+        //public virtual string ContentType => Constants.ContentType.Json;
 
         [ApiParameter(
             Name = "guest_session_id",

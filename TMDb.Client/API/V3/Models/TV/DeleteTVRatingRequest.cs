@@ -14,10 +14,10 @@ namespace TMDb.Client.Api.V3.Models.TV
         /// <summary>
         /// default: application/json;charset=utf-8
         /// </summary>
-        [ApiParameter(
-            Name = "Content-Type",
-            ParameterType = ParameterType.Header)]
-        public virtual string ContentType => Constants.ContentType.Json;
+        //[ApiParameter(
+        //    Name = "Content-Type",
+        //    ParameterType = ParameterType.Header)]
+        //public virtual string ContentType => Constants.ContentType.Json;
 
         [ApiParameter(
             Name = "guest_session_id",

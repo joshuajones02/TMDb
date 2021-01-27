@@ -4,7 +4,7 @@ using TMDb.Client.Enums;
 
 namespace TMDb.Client.Api.V3.Models.Account
 {
-    public class AccountListBaseRequest : TMDbRequest
+    public abstract class AccountListBaseRequest : TMDbRequest
     {
         public AccountListBaseRequest()
         {

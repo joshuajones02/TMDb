@@ -5,7 +5,7 @@ using TMDb.Client.Constants;
 using TMDb.Client.Unions;
 using Xunit;
 
-namespace TMDb.Client.Tests.Api.V3
+namespace TMDb.Client.Tests.SmokeTests.Api.V3
 {
     public class ListsProxySmokeTest : TestsClient
     {

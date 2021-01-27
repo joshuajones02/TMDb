@@ -64,7 +64,7 @@ namespace TMDb.Client.Builders
 
                     if (param.Option == SerializationOption.NotSet)
                     {
-                        paramValue = value.ToString().ToLowerInvariant();
+                        paramValue = value.ToString();
                     }
                     else if (param.Option == SerializationOption.DateOnly)
                     {
@@ -85,16 +85,24 @@ namespace TMDb.Client.Builders
                     }
                     else if (param.Option == SerializationOption.EnumDescription)
                     {
-                        var enumDescription = prop.PropertyType
-                                                  .GetField(value.ToString())
-                                                  .GetCustomAttribute<DescriptionAttribute>();
-
-                        if (enumDescription == null)
+                        // TODO: This blows up when enum value is nullable
+                        try
                         {
-                            throw new NullReferenceException($"{prop.Name} {nameof(DescriptionAttribute)}");
-                        }
+                            var enumDescription = prop.PropertyType
+                                                      .GetField(value.ToString())
+                                                      .GetCustomAttribute<DescriptionAttribute>();
 
-                        paramValue = enumDescription.Description;
+                            if (enumDescription == null)
+                            {
+                                throw new NullReferenceException($"{prop.Name} {nameof(DescriptionAttribute)}");
+                            }
+
+                            paramValue = enumDescription.Description;
+                        }
+                        catch (Exception ex)
+                        {
+                            System.Diagnostics.Trace.TraceError(ex.Minify().ToJson());
+                        }
                     }
                     else
                     {
@@ -134,7 +142,7 @@ namespace TMDb.Client.Builders
         }
 
         private static IApiParameterSerializer _instance;
-        public static IApiParameterSerializer Instance = 
+        public static IApiParameterSerializer Instance =
             _instance ??= new ApiParameterSerializer();
     }
 }
