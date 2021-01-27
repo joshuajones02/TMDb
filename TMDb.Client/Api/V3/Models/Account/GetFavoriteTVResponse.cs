@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using TMDb.Client.Entities.Media;
 
 namespace TMDb.Client.Api.V3.Models.Account
 {
-    public class GetFavoriteTVResponse : TMDbResponse
+    public class GetFavoriteTVResponse : TMDbCollectionResponse<TVMinified>
     {
     }
 }

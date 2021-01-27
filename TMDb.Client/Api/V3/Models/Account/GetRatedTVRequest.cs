@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 using TMDb.Client.Attributes;
+using TMDb.Client.Enums;
 
 namespace TMDb.Client.Api.V3.Models.Account
 {
     [ApiGetEndpoint("/account/{account_id}/rated/tv")]
-    public class GetRatedTVRequest : TMDbRequest
+    public class GetRatedTVRequest : AccountListBaseRequest
     {
     }
 }

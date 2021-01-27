@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TMDb.Client.Attributes;
+﻿using TMDb.Client.Entities.Media;
 
 namespace TMDb.Client.Api.V3.Models.Account
 {
-    [ApiGetEndpoint("")]
-    public class GetMovieWatchlistResponse : TMDbRequest
+    public class GetMovieWatchlistResponse : TMDbCollectionResponse<MovieMinified>
     {
     }
 }

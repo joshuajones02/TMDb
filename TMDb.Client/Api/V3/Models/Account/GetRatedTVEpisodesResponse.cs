@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TMDb.Client.Api.V3.Models.Account
+﻿namespace TMDb.Client.Api.V3.Models.Account
 {
-    public class GetRatedTVEpisodesResponse : TMDbResponse
+    public class GetRatedTVEpisodesResponse : TMDbCollectionResponse<GetRatedTVEpisodesResultItem>
     {
     }
 }

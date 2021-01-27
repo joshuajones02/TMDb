@@ -1,12 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using TMDb.Client.Attributes;
+using TMDb.Client.Enums;
 
 namespace TMDb.Client.Api.V3.Models.Account
 {
-    [ApiGetEndpoint("/account/{account_id}/lists")]
-    public class GetCreatedListsRequest : TMDbRequest
+    public class AccountListBaseRequest : TMDbRequest
     {
-        public GetCreatedListsRequest()
+        public AccountListBaseRequest()
         {
             Page = 1;
         }
@@ -27,6 +27,11 @@ namespace TMDb.Client.Api.V3.Models.Account
             ParameterType = ParameterType.Query)]
         [Required]
         public virtual string SessionId { get; set; }
+
+        [ApiParameter(
+            Name = "sort_by",
+            ParameterType = ParameterType.Query)]
+        public virtual AccountListSortBy? SortBy { get; set; }
 
         [ApiParameter(
             Name = "page",

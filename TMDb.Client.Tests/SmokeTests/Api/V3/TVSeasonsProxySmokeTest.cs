@@ -200,7 +200,7 @@ namespace TMDb.Client.Tests.Api.V3
             });
 
             Assert.IsType<TVSeasonsImagesResponse>(response);
-            Assert.True(response.Images.Any());
+            Assert.True(response.Posters.Any());
         }
 
         [Theory]
