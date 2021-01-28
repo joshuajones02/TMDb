@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
-using TMDb.Client.Api.V3.Models;
 using TMDb.Client.Api.V3.Models.People;
 using TMDb.Client.Tests.TestConstants;
 using Xunit;

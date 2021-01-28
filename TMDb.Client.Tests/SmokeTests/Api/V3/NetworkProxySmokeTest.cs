@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using TMDb.Client.Api.V3.Models.Networks;
 using Xunit;
 
@@ -26,6 +25,7 @@ namespace TMDb.Client.Tests.SmokeTests.Api.V3
             });
 
             Assert.IsType<NetworkDetailsResponse>(response);
+            Assert.True(response.Id > 0);
         }
 
         [Theory]
@@ -47,7 +47,7 @@ namespace TMDb.Client.Tests.SmokeTests.Api.V3
             });
 
             Assert.IsType<AlternativeNetworkNamesResponse>(response);
-            Assert.True(response.Results.Any());
+            Assert.True(response.Id > 0);
         }
 
         [Theory]
@@ -69,7 +69,7 @@ namespace TMDb.Client.Tests.SmokeTests.Api.V3
             });
 
             Assert.IsType<NetworkImagesResponse>(response);
-            Assert.True(response.Logos.Any());
+            Assert.True(response.Id > 0);
         }
     }
 }
