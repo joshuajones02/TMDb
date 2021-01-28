@@ -9,7 +9,7 @@ namespace TMDb.Client.Api.V3.Models.Collections
     public class CollectionDetailsResponse : TMDbResponse
     {
         [JsonProperty("id")]
-        public virtual int Id { get; set; }
+        public virtual int? Id { get; set; }
 
         [JsonProperty("backdrop_path")]
         public virtual string BackdropPath { get; set; }

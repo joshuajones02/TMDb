@@ -4,10 +4,10 @@ using TMDb.Client.Entities.Media;
 
 namespace TMDb.Client.Api.V3.Models.Collections
 {
-    public class CollectionImagesResponse : TMDbCollectionResponse
+    public class CollectionImagesResponse : TMDbResponse
     {
         [JsonProperty("id")]
-        public virtual int Id { get; set; }
+        public virtual int? Id { get; set; }
 
         [JsonProperty("backdrops")]
         public virtual IEnumerable<Image> Backdrops { get; set; }

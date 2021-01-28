@@ -30,14 +30,7 @@ namespace TMDb.Client.Tests.SmokeTests.Api.V3
         }
 
         [Theory]
-        [InlineData((int)Collection.TheHungerGames, Language.AmericanEnglish)]
-        [InlineData((int)Collection.TheHungerGames, Language.BritishEnglish )]
-        [InlineData((int)Collection.TheHungerGames, Language.CanadianFrench )]
-        [InlineData((int)Collection.TheHungerGames, Language.Chinese        )]
-        [InlineData((int)Collection.TheHungerGames, Language.FinlandSwedish )]
-        [InlineData((int)Collection.TheHungerGames, Language.German         )]
-        [InlineData((int)Collection.TheHungerGames, Language.Italian        )]
-        [InlineData((int)Collection.TheHungerGames, Language.MexicanSpanish )]
+        [InlineData((int)Collection.StarWars, Language.AmericanEnglish)]
         public async Task CollectionImagesSmokeTest(int collectionId, string language)
         {
             var response = await Client.Collections.GetAsync(new CollectionImagesRequest
@@ -47,8 +40,7 @@ namespace TMDb.Client.Tests.SmokeTests.Api.V3
             });
 
             Assert.IsType<CollectionImagesResponse>(response);
-            Assert.True(response.Backdrops.Any());
-            Assert.True(response.Posters.Any());
+            Assert.True(response.Id > 0);
         }
 
         [Theory]
