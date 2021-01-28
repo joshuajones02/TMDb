@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
-using TMDb.Client.Api.V3.Models.Authentication;
 using TMDb.Client.Api.V3.Models.Changes;
 using Xunit;
 
@@ -15,7 +14,7 @@ namespace TMDb.Client.Tests.SmokeTests.Api.V3
             var response = await Client.Changes.GetAsync(new MovieChangeListRequest());
 
             Assert.IsType<ChangeListResponse>(response);
-            Assert.True(response.Changes.Any());
+            Assert.True(response.Results.Any());
         }
 
         [Fact]
@@ -24,7 +23,7 @@ namespace TMDb.Client.Tests.SmokeTests.Api.V3
             var response = await Client.Changes.GetAsync(new PersonChangeListRequest());
 
             Assert.IsType<ChangeListResponse>(response);
-            Assert.True(response.Changes.Any());
+            Assert.True(response.Results.Any());
         }
 
         [Fact]
@@ -33,7 +32,7 @@ namespace TMDb.Client.Tests.SmokeTests.Api.V3
             var response = await Client.Changes.GetAsync(new TVChangeListRequest());
 
             Assert.IsType<ChangeListResponse>(response);
-            Assert.True(response.Changes.Any());
+            Assert.True(response.Results.Any());
         }
     }
 }

@@ -4,7 +4,7 @@ namespace TMDb.Client.Api.V3.Models.Changes
 {
     public class ChangeItem
     {
-        [JsonProperty("id")]
+        [JsonProperty("adult")]
         public virtual bool Adult { get; set; }
 
         [JsonProperty("id")]
