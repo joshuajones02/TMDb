@@ -30,20 +30,7 @@ namespace TMDb.Client.Tests.SmokeTests.Api.V3
         }
 
         [Theory]
-        [InlineData((int)Person.AdamDevine,     1, "2020-12-29", "2021-01-10")]
-        [InlineData((int)Person.AdamSandler,    1, "2020-12-29", "2021-01-10")]
-        [InlineData((int)Person.AndersHolm,     1, "2020-12-29", "2021-01-10")]
-        [InlineData((int)Person.BlakeAnderson,  1, "2020-12-29", "2021-01-10")]
-        [InlineData((int)Person.JoeRogan,       1, "2020-12-29", "2021-01-10")]
-        [InlineData((int)Person.PeteDavidson,   1, "2020-12-29", "2021-01-10")]
-        [InlineData((int)Person.RobSchneider,   1, "2020-12-29", "2021-01-10")]
-        [InlineData((int)Person.AdamDevine,     1, "2021-01-11", "2021-01-23")]
-        [InlineData((int)Person.AdamSandler,    1, "2021-01-11", "2021-01-23")]
-        [InlineData((int)Person.AndersHolm,     1, "2021-01-11", "2021-01-23")]
-        [InlineData((int)Person.BlakeAnderson,  1, "2021-01-11", "2021-01-23")]
-        [InlineData((int)Person.JoeRogan,       1, "2021-01-11", "2021-01-23")]
         [InlineData((int)Person.PeteDavidson,   1, "2021-01-11", "2021-01-23")]
-        [InlineData((int)Person.RobSchneider,   1, "2021-01-11", "2021-01-23")]
         public async Task PeopleChangesSmokeTest(int personId, int page, string startDate, string endDate)
         {
             var response = await Client.People.GetAsync(new PeopleChangesRequest
@@ -96,8 +83,7 @@ namespace TMDb.Client.Tests.SmokeTests.Api.V3
             });
 
             Assert.IsType<PeopleTVCreditsResponse>(response);
-            Assert.True(response.Cast.Any());
-            Assert.True(response.Crew.Any());
+            Assert.True(response.Cast.Any() || response.Crew.Any());
         }
 
         [Theory]

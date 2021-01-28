@@ -2,16 +2,11 @@
 using System;
 using System.Collections.Generic;
 using TMDb.Client.Enums;
-using TMDb.Client.JsonConverters;
-using TMDb.Client.Unions;
 
 namespace TMDb.Client.Api.V3.Models.Trending
 {
-    public class TrendingResponse : TMDbCollectionResponse
+    public class TrendingResponse : TMDbCollectionResponse<TrendingResultItem>
     {
-        //[JsonConverter(typeof(TrendingMovieTVConverter))]
-        [JsonProperty("results")]
-        public virtual IEnumerable<TrendingResultItem> Results { get; set; }
     }
 
     [Obsolete("This object is a temporary replacement until Union JsonConverter logic has been completed correctly, needs a rewrite.")]

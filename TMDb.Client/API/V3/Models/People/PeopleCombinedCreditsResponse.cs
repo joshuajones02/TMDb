@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
+using TMDb.Client.Api.V3.Models.Trending;
 using TMDb.Client.JsonConverters;
 
 namespace TMDb.Client.Api.V3.Models.People
@@ -9,12 +10,12 @@ namespace TMDb.Client.Api.V3.Models.People
         [JsonProperty("id")]
         public virtual int Id { get; set; }
 
-        [JsonConverter(typeof(MovieTVCreditsCastConverter))]
+        // TODO: Replace with proper model
         [JsonProperty("cast")]
-        public virtual IEnumerable<MovieTVCreditsCastUnion> Cast { get; set; }
+        public virtual IEnumerable<TrendingResultItem> Cast { get; set; }
 
-        [JsonConverter(typeof(MovieTVCreditsCrewConverter))]
+        // TODO: Replace with proper model
         [JsonProperty("crew")]
-        public virtual IEnumerable<MovieTVCreditsCrewUnion> Crew { get; set; }
+        public virtual IEnumerable<TrendingResultItem> Crew { get; set; }
     }
 }
