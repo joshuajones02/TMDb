@@ -6,13 +6,6 @@ namespace TMDb.Client.Tests.SmokeTests.Api.V3
 {
     public class AuthenticationProxySmokeTests : TestsClient
     {
-        private readonly TestsSettings _settings;
-
-        public AuthenticationProxySmokeTests()
-        {
-            _settings = TestsSettings.Instance;
-        }
-
         [Fact]
         public async Task CreateGuestSessionSmokeTest()
         {
@@ -33,21 +26,22 @@ namespace TMDb.Client.Tests.SmokeTests.Api.V3
             Assert.True(response.RequestToken != null);
         }
 
-        // TODO: Need request token
-        [Fact]
-        public async Task CreateSessionSmokeTest()
-        {
-            var response = await Client.Authentication.PostAsync(new CreateSessionRequest
-            {
-                RequestToken = (await Client.Authentication.GetAsync(new CreateRequestTokenRequest())).RequestToken
-            });
+        // TODO: I don't believe this can be smoke tested...
+        // It requires interaction with UI on TMDb's side of
+        // a user's profile granting permission
+        //[Fact]
+        //public async Task CreateSessionSmokeTest()
+        //{
+        //    var response = await Client.Authentication.PostAsync(new CreateSessionRequest
+        //    {
+        //        RequestToken = (await Client.Authentication.GetAsync(new CreateRequestTokenRequest())).RequestToken
+        //    });
 
-            Assert.IsType<CreateSessionResponse>(response);
-            Assert.True(response.IsSuccess);
-            Assert.True(response.SessionId != null);
-        }
+        //    Assert.IsType<CreateSessionResponse>(response);
+        //    Assert.True(response.IsSuccess);
+        //    Assert.True(response.SessionId != null);
+        //}
 
-        // TODO: Need request token
         [Fact]
         public async Task CreateSessionWithLoginSmokeTest()
         {
@@ -63,20 +57,27 @@ namespace TMDb.Client.Tests.SmokeTests.Api.V3
             Assert.True(response.RequestToken != null);
         }
 
-        // TODO: Need session id
         [Fact]
         public async Task DeleteSessionSmokeTest()
         {
+            // Arrange
             var createSessionResponse = await Client.Authentication.PostAsync(new CreateSessionRequest
             {
-                RequestToken = (await Client.Authentication.GetAsync(new CreateRequestTokenRequest())).RequestToken
+                RequestToken = (await Client.Authentication.PostAsync(new CreateSessionWithLoginRequest
+                {
+                    Username = _settings.Username,
+                    Password = _settings.Password,
+                    RequestToken = (await Client.Authentication.GetAsync(new CreateRequestTokenRequest())).RequestToken
+                })).RequestToken
             });
 
+            // Act
             var response = await Client.Authentication.DeleteAsync(new DeleteSessionRequest 
             {
                 SessionId = createSessionResponse.SessionId
             });
 
+            // Assert
             Assert.IsType<DeleteSessionResponse>(response);
             Assert.True(response.IsSuccess);
         }
