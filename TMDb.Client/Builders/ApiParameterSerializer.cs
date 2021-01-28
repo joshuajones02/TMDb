@@ -12,6 +12,7 @@ namespace TMDb.Client.Builders
 {
     public class ApiParameterSerializer : IApiParameterSerializer
     {
+        // TODO: Split out each serializer option into their own methods to make it easier to read
         public ApiParameter SerializeRequestParameters(RequestBase request)
         {
             //var validation = new ValidationContext(request);
@@ -85,24 +86,22 @@ namespace TMDb.Client.Builders
                     }
                     else if (param.Option == SerializationOption.EnumDescription)
                     {
-                        // TODO: This blows up when enum value is nullable
-                        try
-                        {
-                            var enumDescription = prop.PropertyType
-                                                      .GetField(value.ToString())
-                                                      .GetCustomAttribute<DescriptionAttribute>();
+                        // TODO: This blows up when enum prop type is nullable 
+                        // but the instance reference does have a value
+                        var enumDescription = prop.PropertyType
+                                                  .GetField(value.ToString())
+                                                  .GetCustomAttribute<DescriptionAttribute>();
 
-                            if (enumDescription == null)
-                            {
-                                throw new NullReferenceException($"{prop.Name} {nameof(DescriptionAttribute)}");
-                            }
-
-                            paramValue = enumDescription.Description;
-                        }
-                        catch (Exception ex)
+                        if (enumDescription == null)
                         {
-                            System.Diagnostics.Trace.TraceError(ex.Minify().ToJson());
+                            throw new NullReferenceException($"{prop.Name} {nameof(DescriptionAttribute)}");
                         }
+
+                        paramValue = enumDescription.Description;
+                    }
+                    else if (param.Option == SerializationOption.ToLower)
+                    {
+                        paramValue = value.ToString().ToLowerInvariant();
                     }
                     else
                     {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 
 namespace TMDb.Client.Validators
@@ -21,7 +22,7 @@ namespace TMDb.Client.Validators
 
                     default:
                         message += $"Unexpected status code was returned. Expected: {string.Join(",", expectedStatusCodes)}";
-                        throw new HttpRequestException(message);
+                        throw new HttpRequestException(message, null, (HttpStatusCode)statusCode);
                 }
             }
         }

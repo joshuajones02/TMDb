@@ -22,6 +22,9 @@ namespace TMDb.Client.Api.V3.ClientProxies
         public virtual Task<ListAddMovieResponse> PostAsync(ListAddMovieRequest request) =>
             Client.SendAsync<ListAddMovieResponse>(request);
 
+        public virtual Task<ListRemoveMovieResponse> PostAsync(ListRemoveMovieRequest request) =>
+            Client.SendAsync<ListRemoveMovieResponse>(request);
+
         public virtual Task<ClearListResponse> PostAsync(ClearListRequest request) =>
             Client.SendAsync<ClearListResponse>(request);
 

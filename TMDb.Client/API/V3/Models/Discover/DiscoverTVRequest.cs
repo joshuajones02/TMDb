@@ -44,7 +44,8 @@ namespace TMDb.Client.Api.V3.Models.Discover
         /// </summary>
         [ApiParameter(
             Name = "sort_by",
-            ParameterType = ParameterType.Query)]
+            ParameterType = ParameterType.Query,
+            Option = SerializationOption.EnumDescription)]
         public virtual DiscoverTVSortBy SortBy { get; set; }
 
         /// <summary>

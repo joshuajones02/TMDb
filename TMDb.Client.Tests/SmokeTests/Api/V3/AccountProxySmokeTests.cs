@@ -11,25 +11,6 @@ namespace TMDb.Client.Tests.SmokeTests.Api.V3
 {
     public class AccountProxySmokeTests : TestsClient
     {
-        private readonly TestsSettings _settings;
-
-        public AccountProxySmokeTests()
-        {
-            _settings = TestsSettings.Instance;
-        }
-
-        private static AccountSmokeTestDeta _smokeTestAccountData { get; set; }
-
-        private async Task<AccountSmokeTestDeta> GetAccountDataAsync()
-        {
-            if (_smokeTestAccountData == null)
-            {
-                var accountDetails = await GetAccountDetailsAsync();
-            }
-
-            return _smokeTestAccountData ?? throw new NullReferenceException(nameof(_smokeTestAccountData));
-        }
-
         [Fact]
         public async Task GetAccountDetailsSmokeTest()
         {
@@ -276,45 +257,6 @@ namespace TMDb.Client.Tests.SmokeTests.Api.V3
             // Assert
             Assert.IsType<AddToWatchlistResponse>(response);
             Assert.True(response.Success);
-        }
-
-        private async Task<GetAccountDetailsResponse> GetAccountDetailsAsync()
-        {
-            var createRequestTokenResponse = await Client.Authentication.GetAsync(new CreateRequestTokenRequest());
-
-            var createSessionWithLoginResponse = await Client.Authentication.PostAsync(new CreateSessionWithLoginRequest
-            {
-                Username = _settings.Username,
-                Password = _settings.Password,
-                RequestToken = createRequestTokenResponse.RequestToken
-            });
-
-            var createSessionResponse = await Client.Authentication.PostAsync(new CreateSessionRequest
-            {
-                RequestToken = createSessionWithLoginResponse.RequestToken
-            });
-
-            var accountDetailsResponse = await Client.Account.GetAsync(new GetAccountDetailsRequest
-            {
-                SessionId = createSessionResponse.SessionId
-            });
-
-            if (_smokeTestAccountData == null)
-            {
-                _smokeTestAccountData = new AccountSmokeTestDeta
-                {
-                    AccountId = accountDetailsResponse.Id,
-                    SessionId = createSessionResponse.SessionId
-                };
-            }
-
-            return accountDetailsResponse;
-        }
-
-        private class AccountSmokeTestDeta
-        {
-            public int AccountId { get; set; }
-            public string SessionId { get; set; }
         }
     }
 }

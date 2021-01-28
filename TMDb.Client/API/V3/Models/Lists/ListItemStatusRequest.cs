@@ -1,10 +1,8 @@
-﻿using System;
-using TMDb.Client.Attributes;
+﻿using TMDb.Client.Attributes;
 
 namespace TMDb.Client.Api.V3.Models.Lists
 {
     [ApiGetEndpoint("/list/{list_id}/item_status")]
-    [Obsolete("// TODO: Move endpoints into configuration file")]
     public class ListItemStatusRequest : ListRequestBase
     {
         [ApiParameter(

@@ -22,7 +22,7 @@ namespace TMDb.Client.Tests
 
     public static class IConfigurationRootExtensions
     {
-        public static string GetRequired(this IConfiguration config, string key) =>
-            config.GetSection(key)?.Value ?? throw new ArgumentNullException(nameof(key), $"{key} not found.");
+        public static string Get(this IConfiguration config, string key) =>
+            config.GetSection(key)?.Value;
     }
 }

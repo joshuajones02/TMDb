@@ -9,7 +9,7 @@ namespace TMDb.Client.Api.V3.Models.TVEpisodes
     {
         [ApiParameter(
             Name = "episode_id",
-            ParameterType = ParameterType.Query)]
+            ParameterType = ParameterType.Path)]
         [JsonRequired]
         public virtual int EpisodeId { get; set; }
     }

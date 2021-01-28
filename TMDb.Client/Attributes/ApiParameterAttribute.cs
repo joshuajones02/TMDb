@@ -19,7 +19,8 @@ namespace TMDb.Client.Attributes
         NotSet = 0,
         DateOnly,
         DelimeterSeparatedValue,
-        EnumDescription
+        EnumDescription,
+        ToLower
     }
 
     [AttributeUsage(AttributeTargets.Property)]

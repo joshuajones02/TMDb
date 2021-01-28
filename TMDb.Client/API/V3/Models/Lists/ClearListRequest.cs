@@ -14,7 +14,8 @@ namespace TMDb.Client.Api.V3.Models.Lists
 
         [ApiParameter(
             Name = "confirm",
-            ParameterType = ParameterType.Query)]
+            ParameterType = ParameterType.Query,
+            Option = SerializationOption.ToLower)]
         public virtual bool Confirm { get; set; }
     }
 }

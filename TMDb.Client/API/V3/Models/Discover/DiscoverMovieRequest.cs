@@ -74,8 +74,10 @@ namespace TMDb.Client.Api.V3.Models.Discover
         /// </summary>
         [ApiParameter(
             Name = "sort_by",
-            ParameterType = ParameterType.Query)]
-        public virtual DiscoverMovieSortBy? SortBy { get; set; }
+            ParameterType = ParameterType.Query,
+            Option = SerializationOption.EnumDescription)]
+        // TODO: Not able to make enum nullable due to GetDescriptionAttribute logic blowing up.. fix this..
+        public virtual DiscoverMovieSortBy? SortBy { get; set; } 
 
         /// <summary>
         /// Used in conjunction with the certification filter, use this
@@ -92,7 +94,7 @@ namespace TMDb.Client.Api.V3.Models.Discover
         [ApiParameter(
             Name = "certification",
             ParameterType = ParameterType.Query)]
-        [Obsolete("// TODO: Can we convert this to an enum value? Do the certification values ever change?")]
+        // TODO: Can we convert this to an enum value? Do the certification values ever change?
         public virtual string Certification { get; set; }
 
         /// <summary>
@@ -102,7 +104,7 @@ namespace TMDb.Client.Api.V3.Models.Discover
         [ApiParameter(
             Name = "certification.lte",
             ParameterType = ParameterType.Query)]
-        [Obsolete("// TODO: Can we convert this to an enum value? Do the certification values ever change?")]
+        // TODO: Can we convert this to an enum value? Do the certification values ever change?
         public virtual string CertificationLessThanOrEqualTo { get; set; }
 
         /// <summary>
@@ -112,7 +114,7 @@ namespace TMDb.Client.Api.V3.Models.Discover
         [ApiParameter(
             Name = "certification.gte",
             ParameterType = ParameterType.Query)]
-        [Obsolete("// TODO: Can we convert this to an enum value? Do the certification values ever change?")]
+        // TODO: Can we convert this to an enum value? Do the certification values ever change?
         public virtual string CertificationGreaterThanOrEqualTo { get; set; }
 
         /// <summary>
