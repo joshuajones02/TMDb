@@ -11,9 +11,11 @@ namespace TMDb.Client.Tests.SmokeTests.Api.V3
     public class TVEpisodesProxySmokeTest : TestsClient
     {
         [Theory]
-        [InlineData((int)TV.BlackMirror, 1, 1, Language.AmericanEnglish, "")]
+        [InlineData((int)TV.BlackMirror, 1, 1, Language.AmericanEnglish, "images,videos,translations")]
         public async Task<TVEpisodesDetailsResponse> TVEpisodesDetailsSmokeTest(int tvId, int seasonNumber, int epsiodeNumber, string language, string appendToResponse)
         {
+            // Arrange
+            // Act
             var response = await Client.TVEpisodes.GetAsync(new TVEpisodesDetailsRequest
             {
                 TvId = tvId,
@@ -23,36 +25,39 @@ namespace TMDb.Client.Tests.SmokeTests.Api.V3
                 AppendToResponse = appendToResponse
             });
 
+            // Assert
             Assert.IsType<TVEpisodesDetailsResponse>(response);
 
             return response;
         }
 
-        // TODO: Get Setup GuestSessionId & SessionId
         [Theory]
         [InlineData((int)TV.BlackMirror, 1, 1, Language.AmericanEnglish)]
         public async Task TVEpisodesAccountStatesSmokeTest(int tvId, int seasonNumber, int epsiodeNumber, string language)
         {
-            //var guestSessionId = "";
-            //var sessionId = "";
+            // Arrange
+            var accountData = await GetAccountDataAsync();
+            var sessionId = accountData.SessionId;
 
-            //var response = await Client.TVEpisodes.GetAsync(new TVEpisodesAccountStatesRequest
-            //{
-            //    TvId = tvId,
-            //    SeasonNumber = seasonNumber,
-            //    EpisodeNumber = epsiodeNumber,
-            //    LanguageAbbreviation = language,
-            //    GuestSessionId = guestSessionId,
-            //    SessionId = sessionId
-            //});
+            // Act
+            var response = await Client.TVEpisodes.GetAsync(new TVEpisodesAccountStatesRequest
+            {
+                TvId = tvId,
+                SeasonNumber = seasonNumber,
+                EpisodeNumber = epsiodeNumber,
+                LanguageAbbreviation = language,
+                SessionId = sessionId
+            });
 
-            //Assert.IsType<TVEpisodesAccountStatesResponse>(response);
+            // Assert
+            Assert.IsType<TVEpisodesAccountStatesResponse>(response);
         }
 
         [Theory]
         [InlineData((int)TV.Ozark, 1, "2017-07-21", "2017-08-01")]
         public async Task TVEpisodesChangesSmokeTest(int tvId, int page, string startDate, string endDate)
         {
+            // Arrange
             var tv = await Client.TVEpisodes.GetAsync(new TVEpisodesDetailsRequest
             {
                 TvId = tvId,
@@ -60,6 +65,7 @@ namespace TMDb.Client.Tests.SmokeTests.Api.V3
                 EpisodeNumber = 1
             });
 
+            // Act
             var response = await Client.TVEpisodes.GetAsync(new TVEpisodesChangesRequest
             {
                 EpisodeId = tv.Id,
@@ -68,6 +74,7 @@ namespace TMDb.Client.Tests.SmokeTests.Api.V3
                 EndDate = DateTime.Parse(endDate)
             });
 
+            // Assert
             Assert.IsType<TVEpisodesChangesResponse>(response);
             Assert.True(response.Changes.Any());
         }
@@ -76,6 +83,8 @@ namespace TMDb.Client.Tests.SmokeTests.Api.V3
         [InlineData((int)TV.BlackMirror, 1, 1, Language.AmericanEnglish)]
         public async Task TVEpisodesCreditsSmokeTest(int tvId, int seasonNumber, int epsiodeNumber, string language)
         {
+            // Arrange
+            // Act
             var response = await Client.TVEpisodes.GetAsync(new TVEpisodesCreditsRequest
             {
                 TvId = tvId,
@@ -84,6 +93,7 @@ namespace TMDb.Client.Tests.SmokeTests.Api.V3
                 LanguageAbbreviation = language
             });
 
+            // Assert
             Assert.IsType<TVEpisodesCreditsResponse>(response);
             Assert.True(response.Cast.Any()
                      || response.Crew.Any()
@@ -94,6 +104,8 @@ namespace TMDb.Client.Tests.SmokeTests.Api.V3
         [InlineData((int)TV.BlackMirror, 1, 1, Language.AmericanEnglish)]
         public async Task TVEpisodesExternalIdsSmokeTest(int tvId, int seasonNumber, int epsiodeNumber, string language)
         {
+            // Arrange
+            // Act
             var response = await Client.TVEpisodes.GetAsync(new TVEpisodesExternalIdsRequest
             {
                 TvId = tvId,
@@ -102,6 +114,7 @@ namespace TMDb.Client.Tests.SmokeTests.Api.V3
                 LanguageAbbreviation = language
             });
 
+            // Assert
             Assert.IsType<TVEpisodesExternalIdsResponse>(response);
             Assert.True(response.TMDbId != null);
         }
@@ -110,6 +123,8 @@ namespace TMDb.Client.Tests.SmokeTests.Api.V3
         [InlineData((int)TV.BlackMirror, 1, 1, Language.AmericanEnglish)]
         public async Task TVEpisodesImagesSmokeTest(int tvId, int seasonNumber, int epsiodeNumber, string language)
         {
+            // Arrange
+            // Act
             var response = await Client.TVEpisodes.GetAsync(new TVEpisodesImagesRequest
             {
                 TvId = tvId,
@@ -118,6 +133,7 @@ namespace TMDb.Client.Tests.SmokeTests.Api.V3
                 LanguageAbbreviation = language
             });
 
+            // Assert
             Assert.IsType<TVEpisodesImagesResponse>(response);
             Assert.True(response.Stills.Any());
         }
@@ -126,6 +142,8 @@ namespace TMDb.Client.Tests.SmokeTests.Api.V3
         [InlineData((int)TV.BlackMirror, 1, 1, Language.AmericanEnglish)]
         public async Task TVEpisodesTranslationsSmokeTest(int tvId, int seasonNumber, int epsiodeNumber, string language)
         {
+            // Arrange
+            // Act
             var response = await Client.TVEpisodes.GetAsync(new TVEpisodesTranslationsRequest
             {
                 TvId = tvId,
@@ -134,6 +152,7 @@ namespace TMDb.Client.Tests.SmokeTests.Api.V3
                 LanguageAbbreviation = language
             });
 
+            // Assert
             Assert.IsType<TVEpisodesTranslationsResponse>(response);
             Assert.True(response.Translations.Any());
         }
@@ -142,6 +161,8 @@ namespace TMDb.Client.Tests.SmokeTests.Api.V3
         [InlineData((int)TV.GameOfThrones, 1, 1, Language.AmericanEnglish)]
         public async Task TVEpisodesVideosSmokeTest(int tvId, int seasonNumber, int epsiodeNumber, string language)
         {
+            // Arrange
+            // Act
             var response = await Client.TVEpisodes.GetAsync(new TVEpisodesVideosRequest
             {
                 TvId = tvId,
@@ -150,6 +171,7 @@ namespace TMDb.Client.Tests.SmokeTests.Api.V3
                 LanguageAbbreviation = language
             });
 
+            // Assert
             Assert.IsType<TVEpisodesVideosResponse>(response);
         }
 
