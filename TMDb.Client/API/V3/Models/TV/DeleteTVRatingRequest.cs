@@ -1,5 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
 using TMDb.Client.Attributes;
+using TMDb.Client.Contracts;
 
 namespace TMDb.Client.Api.V3.Models.TV
 {
@@ -9,7 +10,7 @@ namespace TMDb.Client.Api.V3.Models.TV
     /// https://developers.themoviedb.org/3/authentication/how-do-i-generate-a-session-id
     /// </summary>
     [ApiDeleteEndpoint("/tv/{tv_id}/rating")]
-    public class DeleteTVRatingRequest : TVBaseRequest
+    public class DeleteTVRatingRequest : TVBaseRequest, IGuestSession
     {
         /// <summary>
         /// default: application/json;charset=utf-8
@@ -21,8 +22,9 @@ namespace TMDb.Client.Api.V3.Models.TV
 
         [ApiParameter(
             Name = "guest_session_id",
-            ParameterType = ParameterType.Query)]
-        public virtual string GuestSessionId { get; set; }
+            ParameterType = ParameterType.Query,
+            Option = SerializationOption.NoHyphen)]
+        public virtual Guid? GuestSessionId { get; set; }
 
         [ApiParameter(
             Name = "session_id",

@@ -1,13 +1,16 @@
-﻿using TMDb.Client.Attributes;
+﻿using System;
+using TMDb.Client.Attributes;
+using TMDb.Client.Contracts;
 
 namespace TMDb.Client.Api.V3.Models.GuestSessionRated
 {
-    public abstract class GuestSessionRatedRequest : TMDbRequest
+    public abstract class GuestSessionRatedRequest : TMDbRequest, IGuestSession
     {
         [ApiParameter(
             Name = "guest_session_id",
-            ParameterType = ParameterType.Path)]
-        public virtual string GuestSessionId { get; set; }
+            ParameterType = ParameterType.Path,
+            Option = SerializationOption.NoHyphen)]
+        public virtual Guid? GuestSessionId { get; set; }
 
         /// <include file='tmdb-api-comments.xml' path='doc/members/member[@name="LanguageAbbreviation"]/*' />
         [ApiParameter(

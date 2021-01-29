@@ -20,6 +20,7 @@ namespace TMDb.Client.Attributes
         DateOnly,
         DelimeterSeparatedValue,
         EnumDescription,
+        NoHyphen,
         ToLower
     }
 

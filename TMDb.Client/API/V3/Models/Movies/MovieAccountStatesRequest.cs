@@ -1,10 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using TMDb.Client.Attributes;
+using TMDb.Client.Contracts;
 
 namespace TMDb.Client.Api.V3.Models.Movies
 {
     [ApiGetEndpoint("/movie/{movie_id}/account_states")]
-    public class MovieAccountStatesRequest : MovieBaseRequest
+    public class MovieAccountStatesRequest : MovieBaseRequest, IGuestSession
     {
         [ApiParameter(
             Name = "session_id",
@@ -14,7 +16,8 @@ namespace TMDb.Client.Api.V3.Models.Movies
 
         [ApiParameter(
             Name = "guest_session_id",
-            ParameterType = ParameterType.Query)]
-        public virtual string GuestSessionId { get; set; }
+            ParameterType = ParameterType.Query,
+            Option = SerializationOption.NoHyphen)]
+        public virtual Guid? GuestSessionId { get; set; }
     }
 }

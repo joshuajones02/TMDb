@@ -1,11 +1,12 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using TMDb.Client.Attributes;
+using TMDb.Client.Contracts;
 
 namespace TMDb.Client.Api.V3.Models.Movies
 {
     [ApiPostEndpoint("/movie/{movie_id}/rating")]
-    public class RateMovieRequest : MovieBaseRequest
+    public class RateMovieRequest : MovieBaseRequest, IGuestSession
     {
         /// <summary>
         /// default: application/json;charset=utf-8
@@ -17,8 +18,9 @@ namespace TMDb.Client.Api.V3.Models.Movies
 
         [ApiParameter(
             Name = "guest_session_id",
-            ParameterType = ParameterType.Query)]
-        public virtual string GuestSessionId { get; set; }
+            ParameterType = ParameterType.Query,
+            Option = SerializationOption.NoHyphen)]
+        public virtual Guid? GuestSessionId { get; set; }
 
         [ApiParameter(
             Name = "session_id",

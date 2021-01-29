@@ -69,18 +69,14 @@ namespace TMDb.Client.Builders
                     }
                     else if (param.Option == SerializationOption.DateOnly)
                     {
-                        if (prop.PropertyType == typeof(DateTime?))
-                        {
-                            var date = (DateTime?)value;
-                            paramValue = date.Value.ToString("yyyy-MM-dd");
-                        }
-                        else if (prop.PropertyType == typeof(DateTime))
+                        if (prop.PropertyType == typeof(DateTime?) || prop.PropertyType == typeof(DateTime))
                         {
                             var date = (DateTime)value;
                             paramValue = date.ToString("yyyy-MM-dd");
                         }
                         else
                         {
+                            // TODO: Create custom exception
                             throw new ArgumentException($"{request.GetType().Name} {prop.Name}");
                         }
                     }
@@ -98,6 +94,19 @@ namespace TMDb.Client.Builders
                         }
 
                         paramValue = enumDescription.Description;
+                    }
+                    else if (param.Option == SerializationOption.NoHyphen)
+                    {
+                        if (prop.PropertyType == typeof(Guid?) || prop.PropertyType == typeof(Guid))
+                        {
+                            var guid = (Guid)value;
+                            paramValue = guid.ToString("N");
+                        }
+                        else
+                        {
+                            // TODO: Create custom exception
+                            throw new ArgumentException($"{request.GetType().Name} {prop.Name} :: Error=Serialization Option {nameof(SerializationOption.NoHyphen)} not supported for type {prop.PropertyType.Name}");
+                        }
                     }
                     else if (param.Option == SerializationOption.ToLower)
                     {

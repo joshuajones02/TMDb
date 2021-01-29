@@ -9,19 +9,13 @@ namespace TMDb.Client.Entities.Things
         [JsonProperty("link")]
         public Uri Link { get; set; }
 
-        [JsonProperty(
-            propertyName: "flatrate",
-            NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("flatrate")]
         public IEnumerable<WatchProvider> FlatRate { get; set; }
 
-        [JsonProperty(
-            propertyName: "rent",
-            NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("rent")]
         public IEnumerable<WatchProvider> Rent { get; set; }
 
-        [JsonProperty(
-            propertyName: "buy",
-            NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("buy")]
         public IEnumerable<WatchProvider> Buy { get; set; }
     }
 }

@@ -1,10 +1,11 @@
 ﻿using System;
 using TMDb.Client.Attributes;
+using TMDb.Client.Contracts;
 
 namespace TMDb.Client.Api.V3.Models.TV
 {
     [ApiGetEndpoint("/tv/{tv_id}/account_states")]
-    public class TVAccountStatesRequest : TVBaseRequest
+    public class TVAccountStatesRequest : TVBaseRequest, IGuestSession
     {
         /// <include file='tmdb-api-comments.xml' path='doc/members/member[@name="LanguageAbbreviation"]/*' />
         [ApiParameter(
@@ -15,8 +16,9 @@ namespace TMDb.Client.Api.V3.Models.TV
 
         [ApiParameter(
             Name = "guest_session_id",
-            ParameterType = ParameterType.Query)]
-        public virtual string GuestSessionId { get; set; }
+            ParameterType = ParameterType.Query,
+            Option = SerializationOption.NoHyphen)]
+        public virtual Guid? GuestSessionId { get; set; }
 
         [ApiParameter(
             Name = "session_id",
