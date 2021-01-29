@@ -50,27 +50,7 @@ namespace TMDb.Client.Tests.SmokeTests.Api.V3
         }
 
         [Theory]
-        //[InlineData((int)TV.BlackMirror,        1, "2020-12-12", "2020-12-24")]
-        //[InlineData((int)TV.Dateline,           1, "2020-03-01", "2020-03-14")]
-        //[InlineData((int)TV.Dexter,             1, "2016-07-17", "2016-07-30")]
-        //[InlineData((int)TV.FortyEightHours,    1, "2018-09-01", "2018-09-14")]    
-        //[InlineData((int)TV.LetterKenny,        1, "2020-02-20", "2017-03-01")]
-        //[InlineData((int)TV.MindHunter,         1, "2019-11-10", "2019-11-23")]
-        //[InlineData((int)TV.ModernFamily,       1, "2020-12-12", "2020-12-24")]
-        //[InlineData((int)TV.Ozark,              1, "2020-03-01", "2020-03-14")]
-        //[InlineData((int)TV.ParksAndRecreation, 1, "2016-07-17", "2016-07-30")]
-        //[InlineData((int)TV.RickAndMorty,       1, "2018-09-01", "2018-09-14")]
-        //[InlineData((int)TV.Shameless,          1, "2020-02-20", "2017-03-01")]
-        //[InlineData((int)TV.SouthPark,          1, "2019-11-10", "2019-11-23")]
-        //[InlineData((int)TV.StrangerThings,     1, "2019-11-10", "2019-11-23")]
-        //[InlineData((int)TV.TheOffice,          1, "2020-12-01", "2020-12-14")]
-        //[InlineData((int)TV.TheTwilightZone,    1, "2020-12-15", "2020-12-28")]
-        //[InlineData((int)TV.TheTwilightZone2,   1, "2020-12-29", "2021-01-10")]
-        //[InlineData((int)TV.TwentyTwenty,       1, "2021-01-11", "2021-01-23")]
-        //[InlineData((int)TV.GameOfThrones,      1, "2019-12-01", "2019-12-14")]
-        //[InlineData((int)TV.GameOfThrones,      1, "2019-12-15", "2019-12-28")]
-        //[InlineData((int)TV.GameOfThrones,      1, "2019-12-29", "2019-01-10")]
-        [InlineData((int)TV.GameOfThrones, 1, "2020-01-11", "2020-01-23")]
+        [InlineData((int)TV.Ozark, 1, "2017-07-21", "2017-08-01")]
         public async Task TVEpisodesChangesSmokeTest(int tvId, int page, string startDate, string endDate)
         {
             var tv = await Client.TVEpisodes.GetAsync(new TVEpisodesDetailsRequest
@@ -105,9 +85,9 @@ namespace TMDb.Client.Tests.SmokeTests.Api.V3
             });
 
             Assert.IsType<TVEpisodesCreditsResponse>(response);
-            Assert.True(response.Cast.Any());
-            Assert.True(response.Crew.Any());
-            Assert.True(response.GuestStars.Any());
+            Assert.True(response.Cast.Any()
+                     || response.Crew.Any()
+                     || response.GuestStars.Any());
         }
 
         [Theory]
@@ -159,7 +139,7 @@ namespace TMDb.Client.Tests.SmokeTests.Api.V3
         }
 
         [Theory]
-        [InlineData((int)TV.BlackMirror, 1, 1, Language.AmericanEnglish)]
+        [InlineData((int)TV.GameOfThrones, 1, 1, Language.AmericanEnglish)]
         public async Task TVEpisodesVideosSmokeTest(int tvId, int seasonNumber, int epsiodeNumber, string language)
         {
             var response = await Client.TVEpisodes.GetAsync(new TVEpisodesVideosRequest
@@ -171,13 +151,12 @@ namespace TMDb.Client.Tests.SmokeTests.Api.V3
             });
 
             Assert.IsType<TVEpisodesVideosResponse>(response);
-            Assert.True(response.Videos.Any());
         }
 
         [Theory]
         [InlineData((int)TV.BlackMirror, 1, 1)]
         public async Task RateTVEpisodeSmokeTest(int tvId, int seasonNumber, int epsiodeNumber)
-        {            
+        {
             // Arrange
             var createGuestSessionResponse = await Client.Authentication.GetAsync(new CreateGuestSessionRequest());
             var guestSessionId = createGuestSessionResponse.GuestSessionId;

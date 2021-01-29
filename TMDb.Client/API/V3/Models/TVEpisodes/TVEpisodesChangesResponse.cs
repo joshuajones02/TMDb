@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 
 namespace TMDb.Client.Api.V3.Models.TVEpisodes
@@ -30,13 +31,13 @@ namespace TMDb.Client.Api.V3.Models.TVEpisodes
         public virtual string Time { get; set; }
 
         [JsonProperty("value")]
-        public virtual string Value { get; set; }
+        public virtual JToken Value { get; set; }
 
         /// <include file='tmdb-api-comments.xml' path='doc/members/member[@name="LanguageAbbreviation"]/*' />
         [JsonProperty("iso_639_1")]
         public virtual string LanguageAbbreviation { get; set; }
 
-        [JsonProperty("original_value")]
-        public virtual string OriginalValue { get; set; }
+        [JsonProperty("iso_3166_1")]
+        public virtual string CountryCode { get; set; }
     }
 }
