@@ -174,46 +174,64 @@ namespace TMDb.Client.Tests.SmokeTests.Api.V3
             Assert.True(response.Videos.Any());
         }
 
-        // TODO: Get Setup GuestSessionId & SessionId
         [Theory]
-        [InlineData((int)TV.BlackMirror, 1, 1, Language.AmericanEnglish)]
-        public async Task RateTVEpisodeSmokeTest(int tvId, int seasonNumber, int epsiodeNumber, string language)
-        {
-            //var guestSessionId = "";
-            //var sessionId = "";
+        [InlineData((int)TV.BlackMirror, 1, 1)]
+        public async Task RateTVEpisodeSmokeTest(int tvId, int seasonNumber, int epsiodeNumber)
+        {            
+            // Arrange
+            var createGuestSessionResponse = await Client.Authentication.GetAsync(new CreateGuestSessionRequest());
+            var guestSessionId = createGuestSessionResponse.GuestSessionId;
 
-            //var response = await Client.TVEpisodes.PostAsync(new RateTVEpisodeRequest
-            //{
-            //    TvId = tvId,
-            //    SeasonNumber = seasonNumber,
-            //    EpisodeNumber = epsiodeNumber,
-            //    LanguageAbbreviation = language,
-            //    GuestSessionId = guestSessionId,
-            //    SessionId = sessionId
-            //});
+            // Act
+            var response = await Client.TVEpisodes.PostAsync(new RateTVEpisodeRequest
+            {
+                TvId = tvId,
+                EpisodeNumber = epsiodeNumber,
+                SeasonNumber = seasonNumber,
+                GuestSessionId = guestSessionId,
+                Rating = 10
+            });
 
-            //Assert.IsType<RateTVEpisodeResponse>(response);
+            // Assert
+            Assert.IsType<RateTVEpisodeResponse>(response);
+
+            // Cleanup
+            await Client.TVEpisodes.DeleteAsync(new DeleteTVEpisodeRatingRequest
+            {
+                TvId = tvId,
+                EpisodeNumber = epsiodeNumber,
+                SeasonNumber = seasonNumber,
+                GuestSessionId = guestSessionId,
+            });
         }
 
-        // TODO: Get Setup GuestSessionId & SessionId
         [Theory]
-        [InlineData((int)TV.BlackMirror, 1, 1, Language.AmericanEnglish)]
-        public async Task DeleteTVEpisodeRatingSmokeTest(int tvId, int seasonNumber, int epsiodeNumber, string language)
+        [InlineData((int)TV.BlackMirror, 1, 1)]
+        public async Task DeleteTVEpisodeRatingSmokeTest(int tvId, int seasonNumber, int epsiodeNumber)
         {
-            //var guestSessionId = "";
-            //var sessionId = "";
+            // Arrange
+            var createGuestSessionResponse = await Client.Authentication.GetAsync(new CreateGuestSessionRequest());
+            var guestSessionId = createGuestSessionResponse.GuestSessionId;
+            await Client.TVEpisodes.PostAsync(new RateTVEpisodeRequest
+            {
+                TvId = tvId,
+                EpisodeNumber = epsiodeNumber,
+                SeasonNumber = seasonNumber,
+                GuestSessionId = guestSessionId,
+                Rating = 10
+            });
 
-            //var response = await Client.TVEpisodes.DeleteAsync(new DeleteTVEpisodeRatingRequest
-            //{
-            //    TvId = tvId,
-            //    SeasonNumber = seasonNumber,
-            //    EpisodeNumber = epsiodeNumber,
-            //    LanguageAbbreviation = language,
-            //    GuestSessionId = guestSessionId,
-            //    SessionId = sessionId
-            //});
+            // Act
+            var response = await Client.TVEpisodes.DeleteAsync(new DeleteTVEpisodeRatingRequest
+            {
+                TvId = tvId,
+                EpisodeNumber = epsiodeNumber,
+                SeasonNumber = seasonNumber,
+                GuestSessionId = guestSessionId,
+            });
 
-            //Assert.IsType<DeleteTVEpisodeRatingResponse>(response);
+            // Assert
+            Assert.IsType<DeleteTVEpisodeRatingResponse>(response);
         }
     }
 }

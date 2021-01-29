@@ -39,7 +39,7 @@ namespace TMDb.Client.Tests.SmokeTests.Api.V3
             await Client.Movies.PostAsync(new RateMovieRequest
             {
                 MovieId = movieId,
-                GuestSessionId = createGuestSessionResponse.GuestSessionId,
+                GuestSessionId = guestSessionId,
                 Rating = 10
             });
 
