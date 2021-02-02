@@ -6,16 +6,12 @@ namespace TMDb.Client
 {
     public class TMDbClient : HttpClientWrapper
     {
-        public TMDbClient(string apiKey) : this(apiKey, "3")
+        public TMDbClient(string apiKey) : this(DefaultTMDbSettings.CreateInstance(apiKey))
         {
         }
 
-        public TMDbClient(string apiKey, string version) : this(DefaultTMDbSettings.CreateInstance(apiKey), version)
-        {
-        }
-
-        [Obsolete("// TODO: Implement lazy load pattern so each instance creation doesn't create every object instance for no reason")]
-        public TMDbClient(ITMDbSettings settings, string version) : base(settings.BaseUrl)
+        // TODO: Implement lazy load pattern so each instance creation doesn't create every object instance for no reason")]
+        public TMDbClient(ITMDbSettings settings) : base(settings.BaseUrl)
         {
             if (settings.ApiKey.IsNullOrEmpty())
                 throw new ArgumentNullException(nameof(settings.ApiKey));

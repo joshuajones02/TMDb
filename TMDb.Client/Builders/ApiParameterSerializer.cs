@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -18,9 +19,8 @@ namespace TMDb.Client.Builders
             //var validation = new ValidationContext(request);
             //Validator.ValidateObject(request, validation);
 
-            var props = request.GetType()
-                               .GetProperties()
-                               .Where(x => x.HasAttribute<ApiParameterAttribute>());
+            var requestProperties = request.GetType().GetProperties();
+            var props = requestProperties.Where(x => x.HasAttribute<ApiParameterAttribute>());
 
             var parameters = new ApiParameter();
 
@@ -67,6 +67,39 @@ namespace TMDb.Client.Builders
                     {
                         paramValue = value.ToString();
                     }
+                    else if (param.Option == SerializationOption.Delimeter)
+                    {
+                        var delimeter = ",";
+
+                        if (param.DelimeterLocation.HasValue())
+                        {
+                            var delimeterAttr = requestProperties
+                                .Where(x => x.Name.Equals(param.DelimeterLocation))
+                                .Single()
+                                .PropertyType
+                                .GetField(value.ToString())
+                                .GetCustomAttribute<DescriptionAttribute>();
+
+                            if (delimeterAttr == null)
+                            {
+                                // TODO: Create custom exception
+                                throw new NullReferenceException($"{prop.Name} {nameof(DescriptionAttribute)}");
+                            }
+
+                            delimeter = delimeterAttr.Description;
+                        }
+
+                        if (prop.PropertyType == typeof(IEnumerable<int>))
+                        {
+                            var collection = (IEnumerable<int>)value;
+                            paramValue = string.Join(delimeter, collection.Select(x => x.ToString()));
+                        }
+                        else
+                        {
+                            // TODO: Create custom exception
+                            throw new NotImplementedException($"{request.GetType().Name} {prop.Name} :: SerializationOption.Delimeter is not implemented for type {prop.PropertyType.Name}");
+                        }
+                    }
                     else if (param.Option == SerializationOption.DateOnly)
                     {
                         if (prop.PropertyType == typeof(DateTime?) || prop.PropertyType == typeof(DateTime))
@@ -105,7 +138,7 @@ namespace TMDb.Client.Builders
                         else
                         {
                             // TODO: Create custom exception
-                            throw new ArgumentException($"{request.GetType().Name} {prop.Name} :: Error=Serialization Option {nameof(SerializationOption.NoHyphen)} not supported for type {prop.PropertyType.Name}");
+                            throw new NotImplementedException($"{request.GetType().Name} {prop.Name} :: SerializationOption.NoHyphen is not implemented for type {prop.PropertyType.Name}");
                         }
                     }
                     else if (param.Option == SerializationOption.ToLower)

@@ -31,7 +31,7 @@ namespace TMDb.Client.Api.V3.Models.Movies
         [ApiParameter(
             Name = "language",
             ParameterType = ParameterType.Query)]
-        [Obsolete("// TODO: Add null or 2 char count validation")]
+        // TODO: Add null or 2 char count validation")]
         public virtual string LanguageAbbreviation { get; set; }
     }
 }

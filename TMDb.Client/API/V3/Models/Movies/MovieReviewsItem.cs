@@ -3,7 +3,7 @@ using System;
 
 namespace TMDb.Client.Api.V3.Models.Movies
 {
-    [Obsolete("// TODO: Rename and move to entities (used for both Movies and TV)")]
+    // TODO: Rename and move to entities (used for both Movies and TV)")]
     public class MovieReviewsItem
     {
         [JsonProperty("author")]

@@ -86,7 +86,7 @@ namespace TMDb.Client.Api.V3.Models.Movies
         public virtual IEnumerable<ProductionCountry> ProductionCountries { get; set; }
 
         [JsonIgnore]
-        [Obsolete("// TODO: Refactor")]
+        // TODO: Refactor")]
         public IEnumerable<int> GenreIds 
         { 
             get => throw new NotImplementedException(); 

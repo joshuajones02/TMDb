@@ -9,7 +9,7 @@ namespace TMDb.Client.Api.V3.Models.Trending
     {
     }
 
-    [Obsolete("This object is a temporary replacement until Union JsonConverter logic has been completed correctly, needs a rewrite.")]
+    // TODO: This object is a temporary replacement until Union JsonConverter logic has been completed correctly, needs a rewrite.
     public class TrendingResultItem
     {
         [JsonProperty("adult", NullValueHandling = NullValueHandling.Ignore)]

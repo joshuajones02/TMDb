@@ -7,7 +7,7 @@ using TMDb.Client.Entities.Things;
 
 namespace TMDb.Client.Entities.Media
 {
-    [Obsolete("// TODO: Replace 'Title' with 'Name' and override JsonProperty to use Title parameter name")]
+    // TODO: Replace 'Title' with 'Name' and override JsonProperty to use Title parameter name")]
     public class Movie : MovieMinified, IMovie
     {
         [JsonProperty("budget")]
@@ -35,7 +35,7 @@ namespace TMDb.Client.Entities.Media
         public virtual Uri Homepage { get; set; }
 
         [JsonIgnore]
-        [Obsolete("// TODO: Create JSON Converter that will use Genres to fill data")]
+        // TODO: Create JSON Converter that will use Genres to fill data")]
         public override IEnumerable<int> GenreIds { get; set; }
 
         [JsonProperty("genres")]

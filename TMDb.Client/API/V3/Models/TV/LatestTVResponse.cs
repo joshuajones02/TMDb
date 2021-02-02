@@ -82,11 +82,11 @@ namespace TMDb.Client.Api.V3.Models.TV
         public virtual IEnumerable<string> OriginCountry { get; set; }
 
         [JsonProperty("created_by")]
-        [Obsolete("// TODO: Refactor this an entity?")]
+        // TODO: Refactor this an entity?")]
         public virtual IEnumerable<TVDetailsCreatedBy> CreatedBy { get; set; }
 
         [JsonIgnore]
-        [Obsolete("// TODO: Create JSON Converter that will use Genres to fill data")]
+        // TODO: Create JSON Converter that will use Genres to fill data")]
         public virtual IEnumerable<int> GenreIds { get; set; }
 
         [JsonProperty("genres")]

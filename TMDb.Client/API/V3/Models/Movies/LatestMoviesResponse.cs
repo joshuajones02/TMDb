@@ -74,7 +74,7 @@ namespace TMDb.Client.Api.V3.Models.Movies
         public virtual Uri Homepage { get; set; }
 
         [JsonIgnore]
-        [Obsolete("// TODO: Create JSON Converter that will use Genres to fill data")]
+        // TODO: Create JSON Converter that will use Genres to fill data")]
         public virtual IEnumerable<int> GenreIds { get; set; }
 
         [JsonProperty("genres")]

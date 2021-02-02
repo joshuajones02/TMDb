@@ -74,8 +74,8 @@ namespace TMDb.Client.Api.V3.Models.Discover
         /// </summary>
         [ApiParameter(
             Name = "sort_by",
-            ParameterType = ParameterType.Query,
-            Option = SerializationOption.EnumDescription)]
+            Option = SerializationOption.EnumDescription,
+            ParameterType = ParameterType.Query)]
         // TODO: Not able to make enum nullable due to GetDescriptionAttribute logic blowing up.. fix this..
         public virtual DiscoverMovieSortBy? SortBy { get; set; } 
 
@@ -171,8 +171,8 @@ namespace TMDb.Client.Api.V3.Models.Discover
         /// </summary>
         [ApiParameter(
             Name = "primary_release_date.lte",
-            ParameterType = ParameterType.Query,
-            Option = SerializationOption.DateOnly)]
+            Option = SerializationOption.DateOnly,
+            ParameterType = ParameterType.Query)]
         public virtual DateTime? PrimaryReleaseDateLessThanOrEqualTo { get; set; }
 
         /// <summary>
@@ -183,6 +183,7 @@ namespace TMDb.Client.Api.V3.Models.Discover
         /// </summary>
         [ApiParameter(
             Name = "release_date.gte",
+            Option = SerializationOption.DateOnly,
             ParameterType = ParameterType.Query)]
         public virtual DateTime? ReleaseDateGreaterThanOrEqualTo { get; set; }
 
@@ -194,34 +195,24 @@ namespace TMDb.Client.Api.V3.Models.Discover
         /// </summary>
         [ApiParameter(
             Name = "release_date.lte",
+            Option = SerializationOption.DateOnly,
             ParameterType = ParameterType.Query)]
         public virtual DateTime? ReleaseDateLessThanOrEqualTo { get; set; }
 
         /// <summary>
-        /// These release types map to the same values found on the movie release date method.
-        ///     search type: AND (,)
         ///     minimum: 1
         ///     maximum: 6
         /// </summary>
         [ApiParameter(
-            Delimeter = ',',
+            DelimeterLocation = nameof(WithReleaseTypesDelimeter),
             Name = "with_release_type",
-            Option = SerializationOption.DelimeterSeparatedValue,
+            Option = SerializationOption.Delimeter,
             ParameterType = ParameterType.Query)]
         public virtual IEnumerable<MovieReleaseType> WithReleaseTypes { get; set; }
 
         /// <summary>
-        /// These release types map to the same values found on the movie release date method.
-        ///     search type: OR (|)
-        ///     minimum: 1
-        ///     maximum: 6
         /// </summary>
-        [ApiParameter(
-            Delimeter = '|',
-            Name = "with_release_type",
-            Option = SerializationOption.DelimeterSeparatedValue,
-            ParameterType = ParameterType.Query)]
-        public virtual IEnumerable<MovieReleaseType> WithEitherReleaseTypes { get; set; }
+        public virtual Delimeter WithReleaseTypesDelimeter { get; set; }
 
         /// <summary>
         /// A filter to limit the results to a specific year (looking at all release dates).
@@ -276,9 +267,8 @@ namespace TMDb.Client.Api.V3.Models.Discover
         /// have one of the ID's added as an actor.
         /// </summary>
         [ApiParameter(
-            Delimeter = ',',
             Name = "with_cast",
-            Option = SerializationOption.DelimeterSeparatedValue,
+            Option = SerializationOption.Delimeter,
             ParameterType = ParameterType.Query)]
         public virtual IEnumerable<int> WithCastIds { get; set; }
 
@@ -287,9 +277,8 @@ namespace TMDb.Client.Api.V3.Models.Discover
         /// have one of the ID's added as a crew member.
         /// </summary>
         [ApiParameter(
-            Delimeter = ',',
             Name = "with_crew",
-            Option = SerializationOption.DelimeterSeparatedValue,
+            Option = SerializationOption.Delimeter,
             ParameterType = ParameterType.Query)]
         public virtual IEnumerable<int> WithCrewIds { get; set; }
 
@@ -298,9 +287,8 @@ namespace TMDb.Client.Api.V3.Models.Discover
         /// have one of the ID's added as a either a actor or a crew member.
         /// </summary>
         [ApiParameter(
-            Delimeter = ',',
             Name = "with_people",
-            Option = SerializationOption.DelimeterSeparatedValue,
+            Option = SerializationOption.Delimeter,
             ParameterType = ParameterType.Query)]
         public virtual IEnumerable<int> WithPeopleIds { get; set; }
 
@@ -311,99 +299,61 @@ namespace TMDb.Client.Api.V3.Models.Discover
         [ApiParameter(
             Delimeter = ',',
             Name = "with_companies",
-            Option = SerializationOption.DelimeterSeparatedValue,
+            Option = SerializationOption.Delimeter,
             ParameterType = ParameterType.Query)]
         public virtual IEnumerable<int> WithCompanyIds { get; set; }
 
         /// <summary>
-        /// Comma separated value of genre ids that you want to include in the results.
-        ///     search type: AND (,)
         /// </summary>
         [ApiParameter(
-            Delimeter = ',',
+            DelimeterLocation = nameof(WithGenreIdsDelimeter),
             Name = "with_genres",
-            Option = SerializationOption.DelimeterSeparatedValue,
+            Option = SerializationOption.Delimeter,
             ParameterType = ParameterType.Query)]
         public virtual IEnumerable<int> WithGenreIds { get; set; }
 
         /// <summary>
-        /// Pipe separated value of genre ids that you want to include in the results.
-        ///     search type: OR (|)
         /// </summary>
-        [ApiParameter(
-            Delimeter = '|',
-            Name = "with_genres",
-            Option = SerializationOption.DelimeterSeparatedValue,
-            ParameterType = ParameterType.Query)]
-        public virtual IEnumerable<int> WithEitherGenreIds { get; set; }
+        public virtual Delimeter WithGenreIdsDelimeter { get; set; }
 
         /// <summary>
-        /// Comma separated value of genre ids that you want to exclude from the results.
-        ///     search type: AND (,)
         /// </summary>
         [ApiParameter(
-            Delimeter = ',',
+            DelimeterLocation = nameof(WithoutGenreIdsDelimeter),
             Name = "without_genres",
-            Option = SerializationOption.DelimeterSeparatedValue,
+            Option = SerializationOption.Delimeter,
             ParameterType = ParameterType.Query)]
         public virtual IEnumerable<int> WithoutGenreIds { get; set; }
 
         /// <summary>
-        /// Pipe separated value of genre ids that you want to exclude from the results.
-        ///     search type: OR (|)
         /// </summary>
-        [ApiParameter(
-            Delimeter = '|',
-            Name = "without_genres",
-            Option = SerializationOption.DelimeterSeparatedValue,
-            ParameterType = ParameterType.Query)]
-        public virtual IEnumerable<int> WithoutEitherGenreIds { get; set; }
+        public virtual Delimeter WithoutGenreIdsDelimeter { get; set; }
 
         /// <summary>
-        /// A comma separated list of keyword ID's. Only includes movies that
-        /// have one of the ID's added as a keyword.
-        ///     search type: AND (,)
         /// </summary>
         [ApiParameter(
-            Delimeter = ',',
+            DelimeterLocation = nameof(WithKeywordIdsDelimeter),
             Name = "with_keywords",
-            Option = SerializationOption.DelimeterSeparatedValue,
+            Option = SerializationOption.Delimeter,
             ParameterType = ParameterType.Query)]
         public virtual IEnumerable<int> WithKeywordIds { get; set; }
 
         /// <summary>
-        /// A comma separated list of keyword ID's. Only includes movies that
-        /// have one of the ID's added as a keyword.
-        ///     search type: OR (|)
         /// </summary>
-        [ApiParameter(
-            Delimeter = '|',
-            Name = "with_keywords",
-            Option = SerializationOption.DelimeterSeparatedValue,
-            ParameterType = ParameterType.Query)]
-        public virtual IEnumerable<int> WithEitherKeywordIds { get; set; }
+        public virtual Delimeter WithKeywordIdsDelimeter { get; set; }
 
         /// <summary>
-        /// Exclude items with certain keywords.
-        ///     search type: AND (,)
         /// </summary>
         [ApiParameter(
-            Delimeter = ',',
+            DelimeterLocation = nameof(WithoutKeywordIdsDelimeter),
             Name = "without_keywords",
-            Option = SerializationOption.DelimeterSeparatedValue,
+            Option = SerializationOption.Delimeter,
             ParameterType = ParameterType.Query)]
         public virtual IEnumerable<int> WithoutKeywordIds { get; set; }
 
         /// <summary>
-        /// Exclude items with certain keywords.
-        ///     search type: OR (|)
         /// </summary>
-        [ApiParameter(
-            Delimeter = '|',
-            Name = "without_keywords",
-            Option = SerializationOption.DelimeterSeparatedValue,
-            ParameterType = ParameterType.Query)]
-        public virtual IEnumerable<int> WithoutEitherKeywordIds { get; set; }
+        public virtual Delimeter WithoutKeywordIdsDelimeter { get; set; }
 
         /// <summary>
         /// Filter and only include movies that have a runtime that is greater or equal to a value.
@@ -428,30 +378,17 @@ namespace TMDb.Client.Api.V3.Models.Discover
         public virtual string WithOriginalLanguageAbbreviation { get; set; }
 
         /// <summary>
-        /// A comma list of watch provider ID's. Combine this filter
-        /// with watch_region in order to filter your results by a specific
-        /// watch provider in a specific region.
-        ///     search type: AND (,)
         /// </summary>
         [ApiParameter(
-            Delimeter = ',',
+            DelimeterLocation = nameof(WithWatchProviderIdsDelimeter),
             Name = "with_watch_providers",
-            ParameterType = ParameterType.Query,
-            Option = SerializationOption.DelimeterSeparatedValue)]
+            Option = SerializationOption.Delimeter,
+            ParameterType = ParameterType.Query)]
         public virtual IEnumerable<int> WithWatchProviderIds { get; set; }
 
         /// <summary>
-        /// A pipe separated list of watch provider ID's. Combine this filter
-        /// with watch_region in order to filter your results by a specific
-        /// watch provider in a specific region.
-        ///     search type: OR (|)
         /// </summary>
-        [ApiParameter(
-            Delimeter = '|',
-            Name = "with_watch_providers",
-            ParameterType = ParameterType.Query,
-            Option = SerializationOption.DelimeterSeparatedValue)]
-        public virtual IEnumerable<int> WithEitherWatchProviderIds { get; set; }
+        public virtual Delimeter WithWatchProviderIdsDelimeter { get; set; }
 
         /// <summary>
         /// An ISO 3166-1 code. Combine this filter with with_watch_providers

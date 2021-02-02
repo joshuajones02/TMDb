@@ -5,7 +5,7 @@ using TMDb.Client.Contracts;
 
 namespace TMDb.Client.Entities.Media
 {
-    [Obsolete("// TODO: Replace 'Title' with 'Name' and override JsonProperty to use Title parameter name")]
+    // TODO: Replace 'Title' with 'Name' and override JsonProperty to use Title parameter name")]
     public class MovieMinified : IMovieMinified
     {
         [JsonProperty("adult")]
@@ -31,7 +31,7 @@ namespace TMDb.Client.Entities.Media
 
         /// <include file='tmdb-api-comments.xml' path='doc/members/member[@name="LanguageAbbreviation"]/*' />
         [JsonProperty("original_language")]
-        [Obsolete("// TODO: Rename property to OriginalLanguage")]
+        // TODO: Rename property to OriginalLanguage")]
         public virtual string LanguageAbbreviation { get; set; }
 
         [JsonProperty("original_title")]
@@ -50,7 +50,7 @@ namespace TMDb.Client.Entities.Media
         public virtual DateTime? ReleaseDate { get; set; }
 
         [JsonProperty("genre_ids")]
-        [Obsolete("// TODO: Create JSON Converter that will use Genres to fill data")]
+        // TODO: Create JSON Converter that will use Genres to fill data")]
         public virtual IEnumerable<int> GenreIds { get; set; }
     }
 }

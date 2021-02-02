@@ -11,7 +11,7 @@ namespace TMDb.Client.Api.V3.Models.TV
         [ApiParameter(
             Name = "language",
             ParameterType = ParameterType.Query)]
-        [Obsolete("// TODO: Refactor all LanguageAbbreviations in requests to support 5 character code")]
+        // TODO: Refactor all LanguageAbbreviations in requests to support 5 character code")]
         public virtual string LanguageAbbreviation { get; set; }
 
         [ApiParameter(

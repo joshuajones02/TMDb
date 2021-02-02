@@ -12,7 +12,7 @@ namespace TMDb.Client.Tests
         public TestsClient()
         {
             _settings = TestsSettings.Instance;
-            Client = new TMDbClient(_settings.ApiKey, _settings.Version);
+            Client = new TMDbClient(_settings.ApiKey);
         }
 
         protected static AccountSmokeTestDeta SmokeTestAccountData { get; private set; }

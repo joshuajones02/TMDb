@@ -18,7 +18,7 @@ namespace TMDb.Client.Attributes
     {
         NotSet = 0,
         DateOnly,
-        DelimeterSeparatedValue,
+        Delimeter, 
         EnumDescription,
         NoHyphen,
         ToLower
@@ -27,7 +27,8 @@ namespace TMDb.Client.Attributes
     [AttributeUsage(AttributeTargets.Property)]
     public sealed class ApiParameterAttribute : Attribute
     {
-        public char Delimeter { get; set; }
+        public char Delimeter { get; set; } // TODO: remove ... we should default to and or else use delimeter location 
+        public string DelimeterLocation { get; set; } // TODO: rename to delimeter once its removed
         public string Name { get; set; }
         public ParameterType ParameterType { get; set; }
         public SerializationOption Option { get; set; }

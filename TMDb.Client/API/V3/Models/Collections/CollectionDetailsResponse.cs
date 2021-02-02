@@ -5,7 +5,7 @@ using TMDb.Client.Entities.Media;
 
 namespace TMDb.Client.Api.V3.Models.Collections
 {
-    [Obsolete("// TODO: Review endpoint properties")]
+    // TODO: Review endpoint properties")]
     public class CollectionDetailsResponse : TMDbResponse
     {
         [JsonProperty("id")]

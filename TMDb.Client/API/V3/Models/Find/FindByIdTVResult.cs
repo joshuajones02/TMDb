@@ -6,15 +6,15 @@ namespace TMDb.Client.Api.V3.Models.Find
 {
     public class FindByIdTVResult : FindByIdMediaItem
     {
+        // TDO:Do the same as released date or follow composition over inheritance??
         [JsonProperty("original_title")]
-        [Obsolete("Do the same as released date or follow composition over inheritance??")]
         public virtual string OriginalTitle { get; set; }
 
+        // TDO:Do the same as released date or follow composition over inheritance??
         [JsonProperty("title")]
-        [Obsolete("Do the same as released date or follow composition over inheritance??")]
         public virtual string Title { get; set; }
 
-        // TODO: Apply this over project or follow composition over inheritance??")]
+        // TODO: Apply this over project or follow composition over inheritance??
         [JsonProperty("first_air_date")]
         public override DateTime? ReleaseDate { get; set; }
 

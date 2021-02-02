@@ -4,7 +4,7 @@
 
 //namespace TMDb.Client.Api.V4.Models.Lists
 //{
-//    [Obsolete("// TODO: Implement V4")]
+//    // TODO: Implement V4")]
 //    [ApiGetEndpoint("/list/{list_id}")]
 //    public class ListRequest : TMDbRequest
 //    {

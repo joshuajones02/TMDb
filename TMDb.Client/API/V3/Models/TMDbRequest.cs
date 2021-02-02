@@ -6,7 +6,6 @@ using TMDb.Client.Settings;
 
 namespace TMDb.Client.Api.V3.Models
 {
-    [Obsolete("on startup write check to make sure all members/propertyinfo have ApiParameter attribute")]
     public abstract class TMDbRequest : RequestBase
     {
         // TODO: *** Refactor out this reference directly to settings, apply it in another layer.

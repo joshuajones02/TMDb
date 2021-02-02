@@ -17,7 +17,7 @@ namespace TMDb.Client.Api.V3.Models.TV
         public virtual int Id { get; set; }
     }
 
-    [Obsolete("// TODO: Refactor cast/crew TVCreditsResponse")]
+    // TODO: Refactor cast/crew TVCreditsResponse")]
     public class TVCreditsResponseCast
     {
         [JsonProperty("adult")]

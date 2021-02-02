@@ -17,7 +17,7 @@ namespace TMDb.Client.Contracts
         string BackdropPath { get; set; }
 
         /// <include file='tmdb-api-comments.xml' path='doc/members/member[@name="LanguageAbbreviation"]/*' />
-        [Obsolete("// TODO: Rename property to OriginalLanguage")]
+        // TODO: Rename property to OriginalLanguage")]
         string LanguageAbbreviation { get; set; }
 
         string OriginalTitle { get; set; }
@@ -27,7 +27,7 @@ namespace TMDb.Client.Contracts
 
         DateTime? ReleaseDate { get; set; }
 
-        [Obsolete("// TODO: Create JSON Converter that will use Genres to fill data")]
+        // TODO: Create JSON Converter that will use Genres to fill data")]
         IEnumerable<int> GenreIds { get; set; }
     }
 }

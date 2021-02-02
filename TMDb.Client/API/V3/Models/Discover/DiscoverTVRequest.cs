@@ -155,7 +155,7 @@ namespace TMDb.Client.Api.V3.Models.Discover
         [ApiParameter(
             Delimeter = ',',
             Name = "with_genres",
-            Option = SerializationOption.DelimeterSeparatedValue,
+            Option = SerializationOption.Delimeter,
             ParameterType = ParameterType.Query)]
         public virtual IEnumerable<int> WithGenreIds { get; set; }
 
@@ -166,7 +166,7 @@ namespace TMDb.Client.Api.V3.Models.Discover
         [ApiParameter(
             Delimeter = '|',
             Name = "with_genres",
-            Option = SerializationOption.DelimeterSeparatedValue,
+            Option = SerializationOption.Delimeter,
             ParameterType = ParameterType.Query)]
         public virtual IEnumerable<int> WithEitherGenreIds { get; set; }
 
@@ -177,7 +177,7 @@ namespace TMDb.Client.Api.V3.Models.Discover
         [ApiParameter(
             Delimeter = ',',
             Name = "without_genres",
-            Option = SerializationOption.DelimeterSeparatedValue,
+            Option = SerializationOption.Delimeter,
             ParameterType = ParameterType.Query)]
         public virtual IEnumerable<int> WithoutAllGenreIds { get; set; }
 
@@ -188,7 +188,7 @@ namespace TMDb.Client.Api.V3.Models.Discover
         [ApiParameter(
             Delimeter = '|',
             Name = "without_genres",
-            Option = SerializationOption.DelimeterSeparatedValue,
+            Option = SerializationOption.Delimeter,
             ParameterType = ParameterType.Query)]
         public virtual IEnumerable<int> WithoutEitherGenreIds { get; set; }
 
@@ -198,7 +198,7 @@ namespace TMDb.Client.Api.V3.Models.Discover
         [ApiParameter(
             Delimeter = ',',
             Name = "with_networks",
-            Option = SerializationOption.DelimeterSeparatedValue,
+            Option = SerializationOption.Delimeter,
             ParameterType = ParameterType.Query)]
         public virtual IEnumerable<int> WithNetworkIds { get; set; }
 
@@ -241,7 +241,7 @@ namespace TMDb.Client.Api.V3.Models.Discover
         [ApiParameter(
             Delimeter = ',',
             Name = "with_keywords",
-            Option = SerializationOption.DelimeterSeparatedValue,
+            Option = SerializationOption.Delimeter,
             ParameterType = ParameterType.Query)]
         public virtual IEnumerable<int> WithKeywordIds { get; set; }
 
@@ -253,7 +253,7 @@ namespace TMDb.Client.Api.V3.Models.Discover
         [ApiParameter(
             Delimeter = '|',
             Name = "with_keywords",
-            Option = SerializationOption.DelimeterSeparatedValue,
+            Option = SerializationOption.Delimeter,
             ParameterType = ParameterType.Query)]
         public virtual IEnumerable<int> WithEitherKeywordIds { get; set; }
 
@@ -264,7 +264,7 @@ namespace TMDb.Client.Api.V3.Models.Discover
         [ApiParameter(
             Delimeter = ',',
             Name = "without_keywords",
-            Option = SerializationOption.DelimeterSeparatedValue,
+            Option = SerializationOption.Delimeter,
             ParameterType = ParameterType.Query)]
         public virtual IEnumerable<int> WithoutKeywordIds { get; set; }
 
@@ -275,7 +275,7 @@ namespace TMDb.Client.Api.V3.Models.Discover
         [ApiParameter(
             Delimeter = '|',
             Name = "without_keywords",
-            Option = SerializationOption.DelimeterSeparatedValue,
+            Option = SerializationOption.Delimeter,
             ParameterType = ParameterType.Query)]
         public virtual IEnumerable<int> WithoutEitherKeywordIds { get; set; }
 
@@ -295,7 +295,7 @@ namespace TMDb.Client.Api.V3.Models.Discover
             Delimeter = ',',
             Name = "with_companies",
             ParameterType = ParameterType.Query,
-            Option = SerializationOption.DelimeterSeparatedValue)]
+            Option = SerializationOption.Delimeter)]
         public virtual IEnumerable<int> WithCompanyIds { get; set; }
 
         /// <summary>
@@ -308,7 +308,7 @@ namespace TMDb.Client.Api.V3.Models.Discover
             Delimeter = ',',
             Name = "with_watch_providers",
             ParameterType = ParameterType.Query,
-            Option = SerializationOption.DelimeterSeparatedValue)]
+            Option = SerializationOption.Delimeter)]
         public virtual IEnumerable<int> WithWatchProviderIds { get; set; }
 
         /// <summary>
@@ -321,7 +321,7 @@ namespace TMDb.Client.Api.V3.Models.Discover
             Delimeter = '|',
             Name = "with_watch_providers",
             ParameterType = ParameterType.Query,
-            Option = SerializationOption.DelimeterSeparatedValue)]
+            Option = SerializationOption.Delimeter)]
         public virtual IEnumerable<int> WithEitherWatchProviderIds { get; set; }
 
         /// <summary>
