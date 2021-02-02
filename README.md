@@ -4,7 +4,7 @@
 Development currently in progress...
 
 ## Releases
-*TMDb.Client.1.0.1-alpha nupkg package available
+*[TMDb.Client.1.0.1-alpha nupkg package available](https://github.com/joshuajones02/TMDb.Client/releases)
 
 ## Getting started
 Coming soon...
