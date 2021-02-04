@@ -42,6 +42,7 @@ namespace TMDb.Client.Api.V3.Models.Discover
         public DiscoverMovieRequest()
         {
             Page = 1;
+            SortBy = DiscoverMovieSortBy.PopularityDescending;
         }
 
         /// <include file='tmdb-api-comments.xml' path='doc/members/member[@name="LanguageAbbreviation"]/*' />
@@ -76,8 +77,7 @@ namespace TMDb.Client.Api.V3.Models.Discover
             Name = "sort_by",
             Option = SerializationOption.EnumDescription,
             ParameterType = ParameterType.Query)]
-        // TODO: Not able to make enum nullable due to GetDescriptionAttribute logic blowing up.. fix this..
-        public virtual DiscoverMovieSortBy? SortBy { get; set; } 
+        public virtual DiscoverMovieSortBy SortBy { get; set; } 
 
         /// <summary>
         /// Used in conjunction with the certification filter, use this
@@ -122,6 +122,7 @@ namespace TMDb.Client.Api.V3.Models.Discover
         /// </summary>
         [ApiParameter(
             Name = "include_adult",
+            Option = SerializationOption.ToLower,
             ParameterType = ParameterType.Query)]
         public virtual bool? IncludeAdult { get; set; }
 
@@ -204,7 +205,7 @@ namespace TMDb.Client.Api.V3.Models.Discover
         ///     maximum: 6
         /// </summary>
         [ApiParameter(
-            DelimeterLocation = nameof(WithReleaseTypesDelimeter),
+            Delimeter = nameof(WithReleaseTypesDelimeter),
             Name = "with_release_type",
             Option = SerializationOption.Delimeter,
             ParameterType = ParameterType.Query)]
@@ -212,6 +213,7 @@ namespace TMDb.Client.Api.V3.Models.Discover
 
         /// <summary>
         /// </summary>
+        [ApiParameterIgnore]
         public virtual Delimeter WithReleaseTypesDelimeter { get; set; }
 
         /// <summary>
@@ -297,7 +299,6 @@ namespace TMDb.Client.Api.V3.Models.Discover
         /// movies that have one of the ID's added as a production company.
         /// </summary>
         [ApiParameter(
-            Delimeter = ',',
             Name = "with_companies",
             Option = SerializationOption.Delimeter,
             ParameterType = ParameterType.Query)]
@@ -306,7 +307,7 @@ namespace TMDb.Client.Api.V3.Models.Discover
         /// <summary>
         /// </summary>
         [ApiParameter(
-            DelimeterLocation = nameof(WithGenreIdsDelimeter),
+            Delimeter = nameof(WithGenreIdsDelimeter),
             Name = "with_genres",
             Option = SerializationOption.Delimeter,
             ParameterType = ParameterType.Query)]
@@ -314,12 +315,13 @@ namespace TMDb.Client.Api.V3.Models.Discover
 
         /// <summary>
         /// </summary>
+        [ApiParameterIgnore]
         public virtual Delimeter WithGenreIdsDelimeter { get; set; }
 
         /// <summary>
         /// </summary>
         [ApiParameter(
-            DelimeterLocation = nameof(WithoutGenreIdsDelimeter),
+            Delimeter = nameof(WithoutGenreIdsDelimeter),
             Name = "without_genres",
             Option = SerializationOption.Delimeter,
             ParameterType = ParameterType.Query)]
@@ -327,12 +329,13 @@ namespace TMDb.Client.Api.V3.Models.Discover
 
         /// <summary>
         /// </summary>
+        [ApiParameterIgnore]
         public virtual Delimeter WithoutGenreIdsDelimeter { get; set; }
 
         /// <summary>
         /// </summary>
         [ApiParameter(
-            DelimeterLocation = nameof(WithKeywordIdsDelimeter),
+            Delimeter = nameof(WithKeywordIdsDelimeter),
             Name = "with_keywords",
             Option = SerializationOption.Delimeter,
             ParameterType = ParameterType.Query)]
@@ -340,12 +343,13 @@ namespace TMDb.Client.Api.V3.Models.Discover
 
         /// <summary>
         /// </summary>
+        [ApiParameterIgnore]
         public virtual Delimeter WithKeywordIdsDelimeter { get; set; }
 
         /// <summary>
         /// </summary>
         [ApiParameter(
-            DelimeterLocation = nameof(WithoutKeywordIdsDelimeter),
+            Delimeter = nameof(WithoutKeywordIdsDelimeter),
             Name = "without_keywords",
             Option = SerializationOption.Delimeter,
             ParameterType = ParameterType.Query)]
@@ -353,6 +357,7 @@ namespace TMDb.Client.Api.V3.Models.Discover
 
         /// <summary>
         /// </summary>
+        [ApiParameterIgnore]
         public virtual Delimeter WithoutKeywordIdsDelimeter { get; set; }
 
         /// <summary>
@@ -367,7 +372,7 @@ namespace TMDb.Client.Api.V3.Models.Discover
         /// Filter and only include movies that have a runtime that is less than or equal to a value.
         /// </summary>
         [ApiParameter(
-            Name = "with_runtime.gte",
+            Name = "with_runtime.lte",
             ParameterType = ParameterType.Query)]
         public virtual int? WithRuntimeLessThanOrEqualTo { get; set; }
 
@@ -380,7 +385,7 @@ namespace TMDb.Client.Api.V3.Models.Discover
         /// <summary>
         /// </summary>
         [ApiParameter(
-            DelimeterLocation = nameof(WithWatchProviderIdsDelimeter),
+            Delimeter = nameof(WithWatchProviderIdsDelimeter),
             Name = "with_watch_providers",
             Option = SerializationOption.Delimeter,
             ParameterType = ParameterType.Query)]
@@ -388,6 +393,7 @@ namespace TMDb.Client.Api.V3.Models.Discover
 
         /// <summary>
         /// </summary>
+        [ApiParameterIgnore]
         public virtual Delimeter WithWatchProviderIdsDelimeter { get; set; }
 
         /// <summary>

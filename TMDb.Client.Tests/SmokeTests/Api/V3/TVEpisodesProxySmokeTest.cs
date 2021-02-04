@@ -32,7 +32,7 @@ namespace TMDb.Client.Tests.SmokeTests.Api.V3
         }
 
         [Theory]
-        [InlineData((int)TV.BlackMirror, 1, 1, Language.AmericanEnglish)]
+        [InlineData((int)TV.TheTwilightZone2, 1, 1, Language.AmericanEnglish)]
         public async Task TVEpisodesAccountStatesSmokeTest(int tvId, int seasonNumber, int epsiodeNumber, string language)
         {
             // Arrange

@@ -26,7 +26,11 @@ namespace TMDb.Client.Tests.ValidationTests.AttributeTests
             var props = _requestTypes
                 .Select(type => type.GetProperties())
                 .SelectMany(propInfo => propInfo)
-                .Where(propInfo => string.IsNullOrEmpty(propInfo.GetCustomAttribute<ApiParameterAttribute>().Name))
+                .Where(propInfo => 
+                {
+                    var attr = propInfo.GetCustomAttribute<ApiParameterAttribute>();
+                    return attr != null ? string.IsNullOrEmpty(attr.Name) : false;
+                })
                 .Select(propInfo => propInfo.Name);
 
             Assert.True(props.Count() == 0, "Bad properties: " + string.Join(", ", props));
@@ -41,7 +45,7 @@ namespace TMDb.Client.Tests.ValidationTests.AttributeTests
             {
                 foreach (var propInfo in type.GetProperties())
                 {
-                    if (propInfo.GetCustomAttribute<ApiParameterAttribute>().ParameterType == ParameterType.NotSet)
+                    if (propInfo.GetCustomAttribute<ApiParameterAttribute>()?.ParameterType == ParameterType.NotSet)
                     {
                         message += $"{type.Name}.{propInfo.Name}, ";
                         badPropertyCount++;

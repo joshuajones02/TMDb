@@ -26,8 +26,7 @@ namespace TMDb.Client.Logging
                 Converters = new List<JsonConverter>
                 {
                     new EnumDescriptionConverter(),
-                    new StringEnumConverter { AllowIntegerValues = false },
-                    new RatedBoolConverter()
+                    new StringEnumConverter { AllowIntegerValues = false }
                 }
             };
 

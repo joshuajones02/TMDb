@@ -93,9 +93,6 @@ namespace TMDb.Client.Tests.SmokeTests.Api.V3
 
             // Assert
             Assert.IsType<MovieAccountStatesResponse>(response);
-            Assert.True(response.Favorite != null);
-            Assert.True(response.Watchlist != null);
-            Assert.True(response.Rated != null);
         }
 
         [Theory]
@@ -335,7 +332,6 @@ namespace TMDb.Client.Tests.SmokeTests.Api.V3
         [Theory]
         [InlineData((int)Movie.Deadpool)]
         [InlineData((int)Movie.Immortals)]
-        [InlineData((int)Movie.Insidious)]
         [InlineData((int)Movie.Mulan)]
         public async Task MovieWatchProvidersSmokeTest(int movieId)
         {
@@ -349,9 +345,6 @@ namespace TMDb.Client.Tests.SmokeTests.Api.V3
             // Assert
             Assert.IsType<MovieWatchProvidersResponse>(response);
             Assert.True(response?.Results?.US != null);
-            Assert.True(response?.Results?.US?.FlatRate.Any() == true
-                     || response?.Results?.US?.Rent.Any() == true
-                     || response?.Results?.US?.Buy.Any() == true);
         }
 
         [Theory]

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Reflection;
 using TMDb.Client.Api;
 using TMDb.Client.Attributes;
+using TMDb.Client.Enums;
 using TMDb.Client.Extensions;
 using TMDb.Client.Models;
 
@@ -37,7 +38,7 @@ namespace TMDb.Client.Builders
                     // TODO: Move required validation to custom model validator
                     if (prop.HasAttribute<RequiredAttribute>())
                     {
-                        // TOD-O: Create custom exception
+                        // TODO: Create custom exception
                         throw new ArgumentNullException(prop.Name);
                     }
                 }
@@ -58,7 +59,6 @@ namespace TMDb.Client.Builders
                     //    {
                     //        throw new ArgumentOutOfRangeException(prop.Name);
                     //    }
-
                     //}
 
                     var paramValue = default(string);
@@ -71,25 +71,29 @@ namespace TMDb.Client.Builders
                     {
                         var delimeter = ",";
 
-                        if (param.DelimeterLocation.HasValue())
+                        var delimeterEnum = requestProperties.Where(x => x.Name.Equals(param.Delimeter))
+                                                                 .SingleOrDefault()
+                                                                 .GetValue(request);
+
+                        if (delimeterEnum is Delimeter delimeterValue)
                         {
-                            var delimeterAttr = requestProperties
-                                .Where(x => x.Name.Equals(param.DelimeterLocation))
-                                .Single()
-                                .PropertyType
-                                .GetField(value.ToString())
-                                .GetCustomAttribute<DescriptionAttribute>();
-
-                            if (delimeterAttr == null)
+                            if (delimeterValue == Delimeter.Or)
                             {
-                                // TODO: Create custom exception
-                                throw new NullReferenceException($"{prop.Name} {nameof(DescriptionAttribute)}");
+                                delimeter = "|";
                             }
-
-                            delimeter = delimeterAttr.Description;
+                        }
+                        else
+                        {
+                            // TODO: Create custom exception
+                            throw new NullReferenceException($"{prop.Name} {nameof(DescriptionAttribute)}");
                         }
 
-                        if (prop.PropertyType == typeof(IEnumerable<int>))
+                        if (prop.PropertyType == typeof(IEnumerable<MovieReleaseType>))
+                        {
+                            var collection = (IEnumerable<MovieReleaseType>)value;
+                            paramValue = string.Join(delimeter, collection.Select(x => (int)x));
+                        }
+                        else if (prop.PropertyType == typeof(IEnumerable<int>))
                         {
                             var collection = (IEnumerable<int>)value;
                             paramValue = string.Join(delimeter, collection.Select(x => x.ToString()));

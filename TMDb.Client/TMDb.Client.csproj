@@ -1,41 +1,40 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-	  <TargetFramework>net5.0</TargetFramework>
-    <Version>1.0.2</Version>
-    <Authors>Joshua Michael Jones</Authors>
-    <Description>A .NET 5 library to consume The Movie Database (TMDb) API.</Description>
-    <Copyright>2020</Copyright>
-    <PackageIcon>icon.png</PackageIcon>
-    <RepositoryUrl>https://github.com/joshuajones02/TMDb</RepositoryUrl>
-    <PackageTags>tmdb themoviedb moviedb movie webapi api</PackageTags>
-    <PackageLicenseExpression></PackageLicenseExpression>
-    <PackageLicenseFile>license.md</PackageLicenseFile>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile></DocumentationFile>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <None Remove="favicon.ico" />
-    <None Remove="favicon.png" />
-    <None Include="..\icon.png">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
-    <None Include="..\license.md">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="FluentValidation" Version="9.4.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.1" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.1" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
-  </ItemGroup>
-
+	<PropertyGroup>
+		<TargetFramework>net5.0</TargetFramework>
+		<Version>1.0.1</Version>
+		<Authors>Joshua Michael Jones</Authors>
+		<Description>A .NET 5 library to consume The Movie Database (TMDb) API.</Description>
+		<Copyright>2020</Copyright>
+		<PackageIcon>icon.png</PackageIcon>
+		<RepositoryUrl>https://github.com/joshuajones02/TMDb</RepositoryUrl>
+		<PackageTags>.net5 .netcore asp.net asp.netcore tmdb themoviedb moviedb movie webapi api</PackageTags>
+		<PackageLicenseExpression></PackageLicenseExpression>
+		<PackageLicenseFile>license.md</PackageLicenseFile>
+	</PropertyGroup>
+	<PropertyGroup>
+		<PackageVersion>1.0.2-alpha</PackageVersion>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<DocumentationFile></DocumentationFile>
+	</PropertyGroup>
+	<ItemGroup>
+		<None Remove="favicon.ico" />
+		<None Remove="favicon.png" />
+		<None Include="..\icon.png">
+			<Pack>True</Pack>
+			<PackagePath></PackagePath>
+		</None>
+		<None Include="..\license.md">
+			<Pack>True</Pack>
+			<PackagePath></PackagePath>
+		</None>
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="FluentValidation" Version="9.4.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.1" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.1" />
+		<PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+		<PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+	</ItemGroup>
 </Project>

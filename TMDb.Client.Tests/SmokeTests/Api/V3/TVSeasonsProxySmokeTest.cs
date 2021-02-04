@@ -30,7 +30,7 @@ namespace TMDb.Client.Tests.SmokeTests.Api.V3
 
         // TODO: Review response object is being serialized correctly 
         [Theory]
-        [InlineData((int)TV.GameOfThrones, 1, Language.AmericanEnglish)]
+        [InlineData((int)TV.TheTwilightZone2, 1, Language.AmericanEnglish)]
         public async Task TVSeasonsAccountStatesSmokeTest(int tvId, int seasonNumber, string language)
         {
             // Arrange

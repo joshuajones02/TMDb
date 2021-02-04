@@ -26,6 +26,7 @@ namespace TMDb.Client.Api.V3.Models.Discover
         public DiscoverTVRequest()
         {
             Page = 1;
+            SortBy = DiscoverTVSortBy.PopularityDescending;
         }
 
         /// <include file='tmdb-api-comments.xml' path='doc/members/member[@name="LanguageAbbreviation"]/*' />
@@ -149,54 +150,37 @@ namespace TMDb.Client.Api.V3.Models.Discover
         public virtual int? VoteAverageGreaterThanOrEqualTo { get; set; }
 
         /// <summary>
-        /// Comma separated value of genre ids that you want to include in the results.
-        ///     search type: AND (,)
         /// </summary>
         [ApiParameter(
-            Delimeter = ',',
+            Delimeter = nameof(WithGenreIdsDelimeter),
             Name = "with_genres",
             Option = SerializationOption.Delimeter,
             ParameterType = ParameterType.Query)]
         public virtual IEnumerable<int> WithGenreIds { get; set; }
 
         /// <summary>
-        /// Pipe separated value of genre ids that you want to include in the results.
-        ///     search type: OR (|)
         /// </summary>
-        [ApiParameter(
-            Delimeter = '|',
-            Name = "with_genres",
-            Option = SerializationOption.Delimeter,
-            ParameterType = ParameterType.Query)]
-        public virtual IEnumerable<int> WithEitherGenreIds { get; set; }
+        [ApiParameterIgnore]
+        public virtual Delimeter WithGenreIdsDelimeter { get; set; }
 
         /// <summary>
-        /// Comma separated value of genre ids that you want to exclude from the results.
-        ///     search type: AND (,)
         /// </summary>
         [ApiParameter(
-            Delimeter = ',',
+            Delimeter = nameof(WithoutGenreIdsDelimeter),
             Name = "without_genres",
             Option = SerializationOption.Delimeter,
             ParameterType = ParameterType.Query)]
-        public virtual IEnumerable<int> WithoutAllGenreIds { get; set; }
+        public virtual IEnumerable<int> WithoutGenreIds { get; set; }
 
         /// <summary>
-        /// Pipe separated value of genre ids that you want to exclude from the results.
-        ///     search type: OR (|)
         /// </summary>
-        [ApiParameter(
-            Delimeter = '|',
-            Name = "without_genres",
-            Option = SerializationOption.Delimeter,
-            ParameterType = ParameterType.Query)]
-        public virtual IEnumerable<int> WithoutEitherGenreIds { get; set; }
+        [ApiParameterIgnore]
+        public virtual Delimeter WithoutGenreIdsDelimeter { get; set; }
 
         /// <summary>
         /// Comma separated value of network ids that you want to include in the results.
         /// </summary>
         [ApiParameter(
-            Delimeter = ',',
             Name = "with_networks",
             Option = SerializationOption.Delimeter,
             ParameterType = ParameterType.Query)]
@@ -214,7 +198,7 @@ namespace TMDb.Client.Api.V3.Models.Discover
         /// Filter and only include TV that have a runtime that is less than or equal to a value.
         /// </summary>
         [ApiParameter(
-            Name = "with_runtime.gte",
+            Name = "with_runtime.lte",
             ParameterType = ParameterType.Query)]
         public virtual int? WithRuntimeLessThanOrEqualTo { get; set; }
 
@@ -224,6 +208,7 @@ namespace TMDb.Client.Api.V3.Models.Discover
         /// </summary>
         [ApiParameter(
             Name = "include_null_first_air_dates",
+            Option = SerializationOption.ToLower,
             ParameterType = ParameterType.Query)]
         public virtual bool? IncludeNullFirstAirDates { get; set; }
 
@@ -234,56 +219,39 @@ namespace TMDb.Client.Api.V3.Models.Discover
         public virtual string WithOriginalLanguageAbbreviation { get; set; }
 
         /// <summary>
-        /// A comma separated list of keyword ID's. Only includes movies that
-        /// have one of the ID's added as a keyword.
-        ///     search type: AND (,)
         /// </summary>
         [ApiParameter(
-            Delimeter = ',',
+            Delimeter = nameof(WithKeywordIdsDelimeter),
             Name = "with_keywords",
             Option = SerializationOption.Delimeter,
             ParameterType = ParameterType.Query)]
         public virtual IEnumerable<int> WithKeywordIds { get; set; }
 
         /// <summary>
-        /// A comma separated list of keyword ID's. Only includes movies that
-        /// have one of the ID's added as a keyword.
-        ///     search type: OR (|)
         /// </summary>
-        [ApiParameter(
-            Delimeter = '|',
-            Name = "with_keywords",
-            Option = SerializationOption.Delimeter,
-            ParameterType = ParameterType.Query)]
-        public virtual IEnumerable<int> WithEitherKeywordIds { get; set; }
-
+        [ApiParameterIgnore]
+        public virtual Delimeter WithKeywordIdsDelimeter { get; set; }
+        
         /// <summary>
-        /// Exclude items with certain keywords.
-        ///     search type: AND (,)
         /// </summary>
         [ApiParameter(
-            Delimeter = ',',
+            Delimeter = nameof(WithoutKeywordIdsDelimeter),
             Name = "without_keywords",
             Option = SerializationOption.Delimeter,
             ParameterType = ParameterType.Query)]
         public virtual IEnumerable<int> WithoutKeywordIds { get; set; }
 
         /// <summary>
-        /// Exclude items with certain keywords.
-        ///     search type: OR (|)
         /// </summary>
-        [ApiParameter(
-            Delimeter = '|',
-            Name = "without_keywords",
-            Option = SerializationOption.Delimeter,
-            ParameterType = ParameterType.Query)]
-        public virtual IEnumerable<int> WithoutEitherKeywordIds { get; set; }
+        [ApiParameterIgnore]
+        public virtual Delimeter WithoutKeywordIdsDelimeter { get; set; }
 
         /// <summary>
         /// Filter results to include items that have been screened theatrically.
         /// </summary>
         [ApiParameter(
             Name = "screened_theatrically",
+            Option = SerializationOption.ToLower,
             ParameterType = ParameterType.Query)]
         public virtual bool? IsScreenedTheatrically { get; set; }
 
@@ -292,37 +260,24 @@ namespace TMDb.Client.Api.V3.Models.Discover
         /// that have one of the ID's added as a production company.
         /// </summary>
         [ApiParameter(
-            Delimeter = ',',
             Name = "with_companies",
             ParameterType = ParameterType.Query,
             Option = SerializationOption.Delimeter)]
         public virtual IEnumerable<int> WithCompanyIds { get; set; }
 
         /// <summary>
-        /// A comma list of watch provider ID's. Combine this filter
-        /// with watch_region in order to filter your results by a specific
-        /// watch provider in a specific region.
-        ///     search type: AND (,)
         /// </summary>
         [ApiParameter(
-            Delimeter = ',',
+            Delimeter = nameof(WithWatchProviderIdsDelimeter),
             Name = "with_watch_providers",
             ParameterType = ParameterType.Query,
             Option = SerializationOption.Delimeter)]
         public virtual IEnumerable<int> WithWatchProviderIds { get; set; }
 
         /// <summary>
-        /// A pipe separated list of watch provider ID's. Combine this filter
-        /// with watch_region in order to filter your results by a specific
-        /// watch provider in a specific region.
-        ///     search type: OR (|)
         /// </summary>
-        [ApiParameter(
-            Delimeter = '|',
-            Name = "with_watch_providers",
-            ParameterType = ParameterType.Query,
-            Option = SerializationOption.Delimeter)]
-        public virtual IEnumerable<int> WithEitherWatchProviderIds { get; set; }
+        [ApiParameterIgnore]
+        public virtual IEnumerable<int> WithWatchProviderIdsDelimeter { get; set; }
 
         /// <summary>
         /// An ISO 3166-1 code. Combine this filter with with_watch_providers

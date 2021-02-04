@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using TMDb.Client.Entities.Things;
 
 namespace TMDb.Client.Api.V3.Models.Movies
 {
@@ -14,6 +15,6 @@ namespace TMDb.Client.Api.V3.Models.Movies
         public virtual int Id { get; set; }
 
         [JsonProperty("rated")]
-        public virtual Entities.Things.TVRating Rated { get; set; }
+        public virtual Rating Rated { get; set; }
     }
 }

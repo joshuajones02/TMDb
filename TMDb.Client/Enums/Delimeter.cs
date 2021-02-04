@@ -2,6 +2,7 @@
 
 namespace TMDb.Client.Enums
 {
+    // TODO: Store enum/descrtion kvp in cached dictionary
     public enum Delimeter
     {
         [Description(",")]

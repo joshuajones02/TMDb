@@ -12,87 +12,71 @@ namespace TMDb.Client.Tests.SmokeTests.Api.V3
     {
         [Theory]
         [InlineData(
+//#########################################################################################################################
+//#########################################################################################################################
+//######### ██████╗░██╗░██████╗░█████╗░░█████╗░██╗░░░██╗███████╗██████╗░  ███╗░░░███╗░█████╗░██╗░░░██╗██╗███████╗ #########
+//######### ██╔══██╗██║██╔════╝██╔══██╗██╔══██╗██║░░░██║██╔════╝██╔══██╗  ████╗░████║██╔══██╗██║░░░██║██║██╔════╝ #########
+//######### ██║░░██║██║╚█████╗░██║░░╚═╝██║░░██║╚██╗░██╔╝█████╗░░██████╔╝  ██╔████╔██║██║░░██║╚██╗░██╔╝██║█████╗░░ #########
+//######### ██║░░██║██║░╚═══██╗██║░░██╗██║░░██║░╚████╔╝░██╔══╝░░██╔══██╗  ██║╚██╔╝██║██║░░██║░╚████╔╝░██║██╔══╝░░ #########
+//######### ██████╔╝██║██████╔╝╚█████╔╝╚█████╔╝░░╚██╔╝░░███████╗██║░░██║  ██║░╚═╝░██║╚█████╔╝░░╚██╔╝░░██║███████╗ #########
+//######### ╚═════╝░╚═╝╚═════╝░░╚════╝░░╚════╝░░░░╚═╝░░░╚══════╝╚═╝░░╚═╝  ╚═╝░░░░░╚═╝░╚════╝░░░░╚═╝░░░╚═╝╚══════╝ #########
+//#########################################################################################################################
+//#########################################################################################################################
 /*                        string LanguageAbbreviation                   */ Language.AmericanEnglish,
-/*                        string RegionCountryCode                      */ null, // CountryCode.UnitedStatesOfAmerica,
-/*           DiscoverMovieSortBy SortBy                                 */ null, // DiscoverMovieSortBy.PopularityAscending,
-/*                        string CertificationCountry                   */ null, // sCountryCode.UnitedStatesOfAmerica,
+/*                        string RegionCountryCode                      */ CountryCode.UnitedStatesOfAmerica,
+/*           DiscoverMovieSortBy SortBy                                 */ DiscoverMovieSortBy.PopularityAscending,
+/*                        string CertificationCountry                   */ CountryCode.UnitedStatesOfAmerica,
 /*                        string Certification                          */ null, // TODO: get certification,
 /*                        string CertificationLessThanOrEqualTo         */ null, // TODO: get certificationLessThanOrEqualTo,
 /*                        string CertificationGreaterThanOrEqualTo      */ null, // TODO: get certificationGreaterThanOrEqualTo,
-/*                         bool? IncludeAdult                           */ null,
+/*                         bool? IncludeAdult                           */ false,
 /*                         bool? IncludeVideo                           */ true,
 /*                           int Page                                   */ 1,
-/*                        short? PrimaryReleaseYear                     */ null,
+/*                        short? PrimaryReleaseYear                     */ 2020,
 /*                     DateTime? PrimaryReleaseDateGreaterThanOrEqualTo */ "01/01/2020",
-/*                     DateTime? PrimaryReleaseDateLessThanOrEqualTo    */ null,
-/*                     DateTime? ReleaseDateGreaterThanOrEqualTo        */ null,
-/*                     DateTime? ReleaseDateLessThanOrEqualTo           */ null,
-/* IEnumerable<MovieReleaseType> WithReleaseTypes                       */ null, // TODO: ReleaseTypeEnums
-/* IEnumerable<MovieReleaseType> WithEitherReleaseTypes                 */ null, // TODO: ReleaseTypeEnums
-/*                        short? Year                                   */ null,
-/*                          int? VoteCountGreaterThanOrEqualTo          */ null,
-/*                          int? VoteCountLessThanOrEqualTo             */ null,
-/*                          int? VoteAverageGreaterThanOrEqualTo        */ null,
-/*                          int? VoteAverageLessThanOrEqualTo           */ null,
+/*                     DateTime? PrimaryReleaseDateLessThanOrEqualTo    */ "01/01/2021",
+/*                     DateTime? ReleaseDateGreaterThanOrEqualTo        */ "01/01/2020",
+/*                     DateTime? ReleaseDateLessThanOrEqualTo           */ "01/01/2021",
+/* IEnumerable<MovieReleaseType> WithReleaseTypes                       */ new MovieReleaseType[] { MovieReleaseType.Digital, MovieReleaseType.Physical, MovieReleaseType.Premiere }, // TODO: ReleaseTypeEnums
+/*                     Delimeter WithReleaseTypesDelimeter              */ Delimeter.Or, 
+/*                        short? Year                                   */ 2020,
+/*                          int? VoteCountGreaterThanOrEqualTo          */ 0,
+/*                          int? VoteCountLessThanOrEqualTo             */ 9999,
+/*                          int? VoteAverageGreaterThanOrEqualTo        */ 1,
+/*                          int? VoteAverageLessThanOrEqualTo           */ 10,
 /*              IEnumerable<int> WithCastIds                            */ null, // new int[] { 10, 20, 30 } // TODO: Get withCastIds,
 /*              IEnumerable<int> WithCrewIds                            */ null, // new int[] { 10, 20, 30 } // TODO: Get withCrewIds,
 /*              IEnumerable<int> WithPeopleIds                          */ null, // new int[] { 10, 20, 30 } // TODO: Get withPeopleIds,
 /*              IEnumerable<int> WithCompanyIds                         */ null, // new int[] { 10, 20, 30 } // TODO: Get withCompanyIds,
-/*              IEnumerable<int> WithGenreIds                           */ null, // new int[] { 10, 20, 30 } // TODO: Get withGenreIds,
-/*              IEnumerable<int> WithEitherGenreIds                     */ null, // new int[] { 10, 20, 30 } // TODO: Get withEitherGenreIds,
+/*              IEnumerable<int> WithGenreIds                           */ new int[] { 12, 14, 16, 28, 53, 878 }, // new int[] { 10, 20, 30 } // TODO: Get withGenreIds,
+/*                     Delimeter WithGenreIdsDelimeter                  */ Delimeter.Or,
 /*              IEnumerable<int> WithoutGenreIds                        */ null, // new int[] { 10, 20, 30 } // TODO: Get withoutGenreIds,
-/*              IEnumerable<int> WithoutEitherGenreIds                  */ null, // new int[] { 10, 20, 30 } // TODO: Get withoutEitherGenreIds,
+/*                     Delimeter WithoutGenreIdsDelimeter               */ Delimeter.Or, 
 /*              IEnumerable<int> WithKeywordIds                         */ null, // new int[] { 10, 20, 30 } // TODO: Get withKeywordIds,
-/*              IEnumerable<int> WithEitherKeywordIds                   */ null, // new int[] { 10, 20, 30 } // TODO: Get withEitherKeywordIds,
+/*                     Delimeter WithKeywordIdsDelimeter                */ Delimeter.Or, 
 /*              IEnumerable<int> WithoutKeywordIds                      */ null, // new int[] { 10, 20, 30 } // TODO: Get withoutKeywordIds,
-/*              IEnumerable<int> WithoutEitherKeywordIds                */ null, // new int[] { 10, 20, 30 } // TODO: Get WithoutEitherKeywordIds,
+/*                     Delimeter WithoutKeywordIdsDelimeter             */ Delimeter.Or, 
 /*                          int? WithRuntimeGreaterThanOrEqualTo        */ 60,
-/*                          int? WithRuntimeLessThanOrEqualTo           */ null,
+/*                          int? WithRuntimeLessThanOrEqualTo           */ 999,
 /*                        string WithOriginalLanguageAbbreviation       */ null,
 /*              IEnumerable<int> WithWatchProviderIds                   */ null, // new int[] { 10, 20, 30 } // TODO: Get withWatchProviderIds,
-/*              IEnumerable<int> WithEitherWatchProviderIds             */ null, // new int[] { 10, 20, 30 } // TODO: Get withEitherWatchProviderIds,
+/*                     Delimeter WithWatchProviderIdsDelimeter          */ Delimeter.Or,
 /*                        string WithWatchProviderRegionCountryCode     */ null)]
-        public async Task DiscoverMovieSmokeTest(
-            string language,
-            string region,
-            DiscoverMovieSortBy sortBy,
-            string certificationCountry,
-            string certification,
-            string certificationLessThanOrEqualTo,
-            string certificationGreaterThanOrEqualTo,
-            bool? includeAdult,
-            bool? includeVideo,
-            int page,
-            int? primaryReleaseYear,
-            string primaryReleaseDateGreaterThanOrEqualTo,
-            string primaryReleaseDateLessThanOrEqualTo,
-            string releaseDateGreaterThanOrEqualTo,
-            string releaseDateLessThanOrEqualTo,
-            IEnumerable<MovieReleaseType> withReleaseTypes,
-            Delimeter withReleaseTypesDelimeter,
-            int? year,
-            int? voteCountGreaterThanOrEqualTo,
-            int? voteCountLessThanOrEqualTo,
-            int? voteAverageGreaterThanOrEqualTo,
-            int? voteAverageLessThanOrEqualTo,
-            IEnumerable<int> withCastIds,
-            IEnumerable<int> withCrewIds,
-            IEnumerable<int> withPeopleIds,
-            IEnumerable<int> withCompanyIds,
-            IEnumerable<int> withGenreIds,
-            Delimeter withGenreIdsDelimeter,
-            IEnumerable<int> withoutGenreIds,
-            Delimeter withoutGenreIdsDelimeter,
-            IEnumerable<int> withKeywordIds,
-            Delimeter withKeywordIdsDelimeter,
-            IEnumerable<int> withoutKeywordIds,
-            Delimeter withoutKeywordIdsDelimeter,
-            int? withRuntimeGreaterThanOrEqualTo,
-            int? withRuntimeLessThanOrEqualTo,
-            string withOriginalLanguageAbbreviation,
-            IEnumerable<int> withWatchProviderIds,
-            Delimeter withWatchProviderIdsDelimeter,
-            string withWatchProviderRegionCountryCode)
+        public async Task DiscoverMovieSmokeTest(string language, string region, 
+        DiscoverMovieSortBy sortBy, string certificationCountry, string certification, 
+        string certificationLessThanOrEqualTo, string certificationGreaterThanOrEqualTo, 
+        bool? includeAdult, bool? includeVideo, int page, int? primaryReleaseYear, 
+        string primaryReleaseDateGreaterThanOrEqualTo, string primaryReleaseDateLessThanOrEqualTo, 
+        string releaseDateGreaterThanOrEqualTo, string releaseDateLessThanOrEqualTo, 
+        IEnumerable<MovieReleaseType> withReleaseTypes, Delimeter withReleaseTypesDelimeter, 
+        int? year, int? voteCountGreaterThanOrEqualTo, int? voteCountLessThanOrEqualTo, 
+        int? voteAverageGreaterThanOrEqualTo, int? voteAverageLessThanOrEqualTo, 
+        IEnumerable<int> withCastIds, IEnumerable<int> withCrewIds, IEnumerable<int> withPeopleIds, 
+        IEnumerable<int> withCompanyIds, IEnumerable<int> withGenreIds, Delimeter withGenreIdsDelimeter, 
+        IEnumerable<int> withoutGenreIds, Delimeter withoutGenreIdsDelimeter, IEnumerable<int> withKeywordIds,
+        Delimeter withKeywordIdsDelimeter, IEnumerable<int> withoutKeywordIds, Delimeter withoutKeywordIdsDelimeter, 
+        int? withRuntimeGreaterThanOrEqualTo, int? withRuntimeLessThanOrEqualTo, string withOriginalLanguageAbbreviation, 
+        IEnumerable<int> withWatchProviderIds, Delimeter withWatchProviderIdsDelimeter, string withWatchProviderRegionCountryCode)
         {
             var response = await Client.Discover.GetAsync(new DiscoverMovieRequest
             {
@@ -142,6 +126,16 @@ namespace TMDb.Client.Tests.SmokeTests.Api.V3
             Assert.True(response.Results.Any());
         }
 
+//####################################################################################################
+//####################################################################################################
+//######### ██████╗░██╗░██████╗░█████╗░░█████╗░██╗░░░██╗███████╗██████╗░  ████████╗██╗░░░██╗ #########
+//######### ██╔══██╗██║██╔════╝██╔══██╗██╔══██╗██║░░░██║██╔════╝██╔══██╗  ╚══██╔══╝██║░░░██║ #########
+//######### ██║░░██║██║╚█████╗░██║░░╚═╝██║░░██║╚██╗░██╔╝█████╗░░██████╔╝  ░░░██║░░░╚██╗░██╔╝ #########
+//######### ██║░░██║██║░╚═══██╗██║░░██╗██║░░██║░╚████╔╝░██╔══╝░░██╔══██╗  ░░░██║░░░░╚████╔╝░ #########
+//######### ██████╔╝██║██████╔╝╚█████╔╝╚█████╔╝░░╚██╔╝░░███████╗██║░░██║  ░░░██║░░░░░╚██╔╝░░ #########
+//######### ╚═════╝░╚═╝╚═════╝░░╚════╝░░╚════╝░░░░╚═╝░░░╚══════╝╚═╝░░╚═╝  ░░░╚═╝░░░░░░╚═╝░░░ #########
+//####################################################################################################
+//####################################################################################################
         [Theory]
         [InlineData(2020)]
         public async Task DiscoverTVSmokeTest(int? firstAirDateYear)

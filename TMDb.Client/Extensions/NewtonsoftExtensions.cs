@@ -18,8 +18,7 @@ namespace TMDb.Client
                 Converters = new List<JsonConverter>
                 {
                     new EnumDescriptionConverter(),
-                    new StringEnumConverter(),
-                    new RatedBoolConverter()
+                    new StringEnumConverter()
                 }
             };
 

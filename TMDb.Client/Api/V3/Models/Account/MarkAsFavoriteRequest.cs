@@ -41,6 +41,7 @@ namespace TMDb.Client.Api.V3.Models.Account
 
         [ApiParameter(
             Name = "favorite",
+            Option = SerializationOption.ToLower,
             ParameterType = ParameterType.JsonBody)]
         [Required]
         public virtual bool? Favorite { get; set; }

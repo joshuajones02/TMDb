@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json;
-using TMDb.Client.Api.V3.Models.TVEpisodes;
-using TMDb.Client.JsonConverters;
+using TMDb.Client.Entities.Things;
 
 namespace TMDb.Client.Api.V3.Models.TV
 {
@@ -15,8 +14,7 @@ namespace TMDb.Client.Api.V3.Models.TV
         [JsonProperty("watchlist")]
         public bool Watchlist { get; set; }
 
-        [JsonConverter(typeof(RatedBoolConverter))]
         [JsonProperty("rated")]
-        public TVRatingBoolUnion Rated { get; set; }
+        public Rating Rated { get; set; }
     }
 }

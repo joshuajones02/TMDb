@@ -1,32 +1,26 @@
 ﻿using System.ComponentModel;
-using System.Runtime.Serialization;
 
 namespace TMDb.Client.Enums
 {
+    // TODO: Store enum/descrtion kvp in cached dictionary
     public enum DiscoverTVSortBy
     {
+        [Description("popularity.desc")]
+        PopularityDescending = 0,
+
         [Description("popularity.asc")]
-        [EnumMember(Value = "popularity.asc")]
         PopularityAscending,
 
-        [Description("popularity.desc")]
-        [EnumMember(Value = "popularity.desc")]
-        PopularityDescending,
-
-        [Description("first_air_date.asc")]
-        [EnumMember(Value = "first_air_date.asc")]
-        FirstAirDateAscending,
-
         [Description("first_air_date.desc")]
-        [EnumMember(Value = "first_air_date.desc")]
         FirstAirDateDescending,
 
-        [Description("vote_average.asc")]
-        [EnumMember(Value = "vote_average.asc")]
-        VoteAverageAscending,
+        [Description("first_air_date.asc")]
+        FirstAirDateAscending,
 
         [Description("vote_average.desc")]
-        [EnumMember(Value = "vote_average.desc")]
         VoteAverageDescending,
+
+        [Description("vote_average.asc")]
+        VoteAverageAscending
     }
 }

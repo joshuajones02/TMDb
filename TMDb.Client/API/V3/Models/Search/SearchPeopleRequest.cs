@@ -7,6 +7,7 @@ namespace TMDb.Client.Api.V3.Models.Search
     {
         [ApiParameter(
             Name = "include_adult",
+            Option = SerializationOption.ToLower,
             ParameterType = ParameterType.Query)]
         public virtual bool? IncludeAdult { get; set; }
 
