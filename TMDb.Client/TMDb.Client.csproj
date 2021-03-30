@@ -12,11 +12,8 @@
 		<PackageLicenseFile>license.md</PackageLicenseFile>
 	</PropertyGroup>
 	<PropertyGroup>
-		<PackageVersion>1.0.2-alpha</PackageVersion>
+		<PackageVersion>1.1.0-alpha</PackageVersion>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-	</PropertyGroup>
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-		<DocumentationFile></DocumentationFile>
 	</PropertyGroup>
 	<ItemGroup>
 		<None Remove="favicon.ico" />
