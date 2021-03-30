@@ -387,7 +387,7 @@ namespace TMDb.Client.Tests.SmokeTests.Api.V3
         [InlineData((int)Movie.Insidious, 10)]
         [InlineData((int)Movie.Immortals, 10)]
         [InlineData((int)Movie.Jumanji, 7.5)]
-        public async Task RateMoviesSmokeTest(int movieId, float rating)
+        public async Task RateMoviesSmokeTest(int movieId, double rating)
         {
             // Arrange
             var createGuestSessionResponse = await Client.Authentication.GetAsync(new CreateGuestSessionRequest());

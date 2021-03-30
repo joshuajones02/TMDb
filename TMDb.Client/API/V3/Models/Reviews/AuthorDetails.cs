@@ -1,8 +1,9 @@
 ﻿using Newtonsoft.Json;
+using TMDb.Client.Contracts;
 
 namespace TMDb.Client.Api.V3.Models.Reviews
 {
-    public class AuthorDetails
+    public class AuthorDetails : IRatingResponse
     {
         [JsonProperty("name")]
         public virtual string Name { get; set; }
@@ -14,6 +15,6 @@ namespace TMDb.Client.Api.V3.Models.Reviews
         public virtual string AvatarPath { get; set; }
 
         [JsonProperty("rating")]
-        public virtual float? Rating { get; set; }
+        public virtual double? Rating { get; set; }
     }
 }

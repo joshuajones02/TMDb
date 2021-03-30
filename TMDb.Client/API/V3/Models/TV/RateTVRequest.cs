@@ -11,7 +11,7 @@ namespace TMDb.Client.Api.V3.Models.TV
     /// https://developers.themoviedb.org/3/authentication/how-do-i-generate-a-session-id
     /// </summary>
     [ApiPostEndpoint("/tv/{tv_id}/rating")]
-    public class RateTVRequest : TVBaseRequest, IGuestSession
+    public class RateTVRequest : TVBaseRequest, IGuestSession, IRating
     {
         /// <summary>
         /// default: application/json;charset=utf-8
@@ -42,6 +42,6 @@ namespace TMDb.Client.Api.V3.Models.TV
             ParameterType = ParameterType.JsonBody)]
         [Range(0.5, 10)]
         [Required]
-        public virtual float Rating { get; set; }
+        public virtual double Rating { get; set; }
     }
 }

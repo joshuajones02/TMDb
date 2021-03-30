@@ -15,6 +15,6 @@ namespace TMDb.Client.Api.V3.Models.Movies
         public virtual int Id { get; set; }
 
         [JsonProperty("rated")]
-        public virtual Rating Rated { get; set; }
+        public virtual MediaRating Rated { get; set; }
     }
 }

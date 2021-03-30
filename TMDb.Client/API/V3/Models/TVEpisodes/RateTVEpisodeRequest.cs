@@ -6,7 +6,7 @@ using TMDb.Client.Contracts;
 namespace TMDb.Client.Api.V3.Models.TVEpisodes
 {
     [ApiPostEndpoint("/tv/{tv_id}/season/{season_number}/episode/{episode_number}/rating")]
-    public class RateTVEpisodeRequest : TVEpisodesRequest, IGuestSession
+    public class RateTVEpisodeRequest : TVEpisodesRequest, IGuestSession, IRating
     {
         [ApiParameter(
             Name = "guest_session_id",
@@ -30,6 +30,6 @@ namespace TMDb.Client.Api.V3.Models.TVEpisodes
         // TODO: Set min (0.5) max (10) validation AND update all Rating properties to double
         [Range(0.5, 10)]
         [Required]
-        public virtual float Rating { get; set; }
+        public virtual double Rating { get; set; }
     }
 }

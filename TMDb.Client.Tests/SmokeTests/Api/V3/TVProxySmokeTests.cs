@@ -74,7 +74,7 @@ namespace TMDb.Client.Tests.SmokeTests.Api.V3
         [InlineData((int)TV.GameOfThrones, 10)]
         [InlineData((int)TV.LetterKenny, 9.5)]
         [InlineData((int)TV.MindHunter, 8.5)]
-        public async Task RateTVSmokeTest(int tvId, float rating)
+        public async Task RateTVSmokeTest(int tvId, double rating)
         {
             //var guestSessionId = "";
             //var sessionId = "";

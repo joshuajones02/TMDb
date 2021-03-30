@@ -15,6 +15,6 @@ namespace TMDb.Client.Api.V3.Models.TV
         public bool Watchlist { get; set; }
 
         [JsonProperty("rated")]
-        public Rating Rated { get; set; }
+        public MediaRating Rated { get; set; }
     }
 }

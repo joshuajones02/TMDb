@@ -7,7 +7,7 @@ namespace TMDb.Client.Api.V3.Models.Movies
     public class MovieReviewsAuthorDetails
     {
         [JsonProperty("rating")]
-        public virtual float? Rating { get; set; }
+        public virtual double? Rating { get; set; }
 
         [JsonProperty("name")]
         public virtual string Name { get; set; }

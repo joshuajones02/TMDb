@@ -6,7 +6,7 @@ using TMDb.Client.Contracts;
 namespace TMDb.Client.Api.V3.Models.Movies
 {
     [ApiPostEndpoint("/movie/{movie_id}/rating")]
-    public class RateMovieRequest : MovieBaseRequest, IGuestSession
+    public class RateMovieRequest : MovieBaseRequest, IGuestSession, IRating
     {
         /// <summary>
         /// default: application/json;charset=utf-8
@@ -38,6 +38,6 @@ namespace TMDb.Client.Api.V3.Models.Movies
         // TODO: Set min (0.5) max (10) validation AND update all Rating properties to double
         [Range(0.5, 10)]
         [Required]
-        public virtual float Rating { get; set; }
+        public virtual double Rating { get; set; }
     }
 }

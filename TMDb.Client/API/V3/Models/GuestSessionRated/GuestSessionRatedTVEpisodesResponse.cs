@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using TMDb.Client.Contracts;
 
 namespace TMDb.Client.Api.V3.Models.GuestSessionRated
 {
@@ -10,10 +11,10 @@ namespace TMDb.Client.Api.V3.Models.GuestSessionRated
         public virtual IEnumerable<GuestSessionRatedTVEpisodesItem> Results { get; set; }
     }
 
-    public class GuestSessionRatedTVEpisodesItem
+    public class GuestSessionRatedTVEpisodesItem : IRatingResponse
     {
         [JsonProperty("rating")]
-        public virtual float? Rating { get; set; }
+        public virtual double? Rating { get; set; }
 
         [JsonProperty("vote_average")]
         public virtual double? VoteAverage { get; set; }

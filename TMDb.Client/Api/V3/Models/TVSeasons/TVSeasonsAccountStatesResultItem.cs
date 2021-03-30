@@ -13,6 +13,6 @@ namespace TMDb.Client.Api.V3.Models.TVSeasons
         public virtual int? EpisodeNumber { get; set; }
 
         [JsonProperty("rated")]
-        public virtual Rating Rated { get; set; }
+        public virtual MediaRating Rated { get; set; }
     }
 }
