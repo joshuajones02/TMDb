@@ -188,6 +188,6 @@ namespace TMDb.Client.Builders
 
         private static IApiParameterSerializer _instance;
         public static IApiParameterSerializer Instance =
-            _instance ??= new ApiParameterSerializer();
+            _instance = _instance ?? new ApiParameterSerializer();
     }
 }

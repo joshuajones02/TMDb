@@ -46,7 +46,7 @@ namespace TMDb.Client.JsonConverters
         }
 
         private static PopularPeopleKnownForMovieTVConverter _instance;
-
-        public static PopularPeopleKnownForMovieTVConverter Instance => _instance ??= new PopularPeopleKnownForMovieTVConverter();
+        public static PopularPeopleKnownForMovieTVConverter Instance =>
+            _instance = _instance ?? new PopularPeopleKnownForMovieTVConverter();
     }
 }

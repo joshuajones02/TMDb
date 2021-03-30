@@ -45,7 +45,7 @@ namespace TMDb.Client.Configurations
         }
 
         private static RestClientConfiguration _instance;
-
-        public static RestClientConfiguration Instance => _instance ??= new RestClientConfiguration();
+        public static RestClientConfiguration Instance =>
+            _instance = _instance ?? new RestClientConfiguration();
     }
 }

@@ -37,9 +37,9 @@ namespace TMDb.Client.Api.V3.ClientProxies
             if (File.Exists(fileName))
                 throw new Exception($"{fileName} has already been downloaded");
 
-            using var stream = await Client.Client.GetStreamAsync(exportUri);
-            using var file = File.Create(fileName);
-            await file.CopyToAsync(stream);
+            using (var stream = await Client.Client.GetStreamAsync(exportUri))
+            using (var file = File.Create(fileName))
+                await file.CopyToAsync(stream);
         }
     }
 }

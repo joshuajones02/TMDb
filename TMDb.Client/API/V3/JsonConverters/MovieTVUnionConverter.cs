@@ -46,6 +46,7 @@ namespace TMDb.Client.JsonConverters
         }
 
         private static MovieTVUnionConverter _instance;
-        public static MovieTVUnionConverter Instance => _instance ??= new MovieTVUnionConverter();
+        public static MovieTVUnionConverter Instance => 
+            _instance = _instance ?? new MovieTVUnionConverter();
     }
 }

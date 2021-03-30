@@ -83,6 +83,7 @@ namespace TMDb.Client.JsonConverters
         //}
 
         private static TrendingMovieTVConverter _instance;
-        public static TrendingMovieTVConverter Instance => _instance ??= new TrendingMovieTVConverter();
+        public static TrendingMovieTVConverter Instance => 
+            _instance = _instance ?? new TrendingMovieTVConverter();
     }
 }
