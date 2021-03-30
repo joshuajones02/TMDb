@@ -30,7 +30,7 @@ namespace TMDb.Client
 
         internal static T ToObject<T>(this string json, JsonSerializerSettings settings = null, bool wrapCollectionInResultObject = false)
         {
-            if (wrapCollectionInResultObject && json.StartsWith('['))
+            if (wrapCollectionInResultObject && json.StartsWith("["))
             {
                 json = json.JsonObjectWrapper();
             }

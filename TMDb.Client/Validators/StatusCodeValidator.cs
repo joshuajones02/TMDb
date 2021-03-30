@@ -22,7 +22,7 @@ namespace TMDb.Client.Validators
 
                     default:
                         message += $"Unexpected status code was returned. Expected: {string.Join(",", expectedStatusCodes)}";
-                        throw new HttpRequestException(message, null, (HttpStatusCode)statusCode);
+                        throw new HttpRequestException(message/*, null, (HttpStatusCode)statusCode*/);
                 }
             }
         }

@@ -25,7 +25,7 @@ namespace TMDb.Client.Builders
                 if (Query != null)
                 {
                     var serialized = Query.Select(x => string.Format("{0}={1}", x.Key, x.Value));
-                    _uriBuilder.Query = string.Join('&', serialized);
+                    _uriBuilder.Query = string.Join("&", serialized);
                 }
                 if (Version.HasValue())
                 {
